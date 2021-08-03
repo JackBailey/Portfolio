@@ -12,25 +12,13 @@
     <script src = "/assets/alertify/alertify.min.js"></script>
     <link rel = "stylesheet" href = "/assets/alertify/css/alertify.min.css"></style>
     <link rel = "stylesheet" href = "/assets/alertify/css/themes/custom.css"></style>
-    <!-- <script
-        src="https://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous">
-    </script>
-    <script> 
-        $(function(){
-        $("#header").load("header.html"); 
-        $("#footer").load("footer.html"); 
-        });
-    </script>    -->
 </head>
 <body class = "themed">
-    <!-- <div id="header"></div> -->
     <div class = "header themed">
         <div class = "nav">
-            <a class = "navitem themed" href = "index.html">Home</a>
-            <a class = "navitem themed" href = "about.html">About</a>
-            <a class = "navitem themed" href = "contact.html">Contact</a>
+            <a class = "navitem themed" href = "/">Home</a>
+            <a class = "navitem themed" href = "#skills">Skills</a>
+            <a class = "navitem themed" href = "#projects">Contact</a>
             <a class = toggleDark id = "darktoggle">
                 <i class="gg-moon toggleDarkIcon themed"></i>
             </a>
@@ -42,7 +30,7 @@
         <h3>I'm a Developer</h3>
     </div>
     <h2 class = "title">Skills</h2>
-    <div class = "skills">   
+    <div class = "skills" id = "skills">   
         <br>
         <div class = "skill">
             <svg viewBox="0 0 128 128">
@@ -97,7 +85,7 @@
         </div>
     </div>
     <h2 class = "title">Projects</h2>
-    <div class = "projects">
+    <div class = "projects" id = "projects">
         <div class = "projectRow">
             <a href = "https://github.com/Jack-Bailey/Portfolio-Website" class = "projectLink" >
                 <div class = "project themed" data-tilt data-tilt-scale="1.05">
