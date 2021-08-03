@@ -5,13 +5,21 @@
     --bgcolor: rgb(255, 255, 255);
     --foregroundcolor: rgb(200,200,200);
     --bodywidth: 80%;
+    --buttoncolor: rgb(175, 175, 175);
+    --shadowcolor: rgb(150,150,150);
     
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 .dark{
     --fontcolor: rgb(255,255,255);
     --bgcolor: rgb(20,20,20);
     --foregroundcolor: rgb(60,60,60);
+    --buttoncolor: rgb(49, 49, 49);
+    --shadowcolor: rgb(15,15,15);
 }
 
 body{
@@ -23,7 +31,7 @@ body{
 
 .header{
     background: var(--foregroundcolor);
-    box-shadow: 2px 2px 6px rgb(150,150,150);
+    box-shadow: 2px 2px 6px var(--shadowcolor);
     height: 50px;
     border-radius: 9px;
     width: var(--bodywidth);
@@ -32,12 +40,11 @@ body{
 }
 
 .header.dark{
-    box-shadow: 2px 2px 6px rgb(15,15,15);
+    box-shadow: 2px 2px 6px var(--shadowcolor);
 }
 
 
 .nav{
-    position: relative;
     text-align: center;
     line-height: 40px;
     padding: 5px;
@@ -55,21 +62,37 @@ body{
     /* transition: all 500ms ease-in-out; */
 }
 
+.navitem:hover{
+    transform: scale(1.1);
+
+}
+
 
 .toggleDarkIcon{
     color: var(--fontcolor);
     --ggs: 1.4;
 
+
 }
 
 .toggleDark{
-    height: 40px;
+    background: var(--foregroundcolor);
     width: 40px;
-    position: absolute;
-    right: 20px;
+    height: 40px;
+    border-radius: 50%;
+    position: sticky;
+    bottom: 30px;
+    margin-right: 20px;
+    float: right;
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    bottom: 30px;
+    right: 30px;
+    background: var(--foregroundcolor);
+    border-radius: 50%;
+    box-shadow: 3px 3px 3px var(--shadowcolor);
+    cursor: pointer;
 }
 
 
@@ -201,6 +224,12 @@ body{
     vertical-align: middle;
 }
 
+.skill img{
+    width: 30px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .skill p {
     margin-left: 10px;
     font-weight: 300;
@@ -208,6 +237,112 @@ body{
     display: inline-block;
     vertical-align: middle;
 }
+
+.projects{
+    width: calc(var(--bodywidth)*.8);
+    margin: 0 auto;
+}
+
+.projectLangs svg{
+    width: 25px;
+    margin: 0 2px;
+}
+
+.projectLangs img{
+    width: 25px;
+    margin: 0 2px;
+}
+
+.project{
+    background: var(--foregroundcolor);
+    border-radius: 9px;
+    padding: 5px;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: var(--fontcolor);
+    display: table-cell;
+    box-shadow: 3px 3px 3px var(--shadowcolor);
+}
+
+.project.dark{
+    box-shadow: 3px 3px 3px var(--shadowcolor);
+}
+
+.projectLink:hover{
+    z-index:5;
+}
+
+.projectRow{
+    display: flex;
+    justify-content: space-between;
+}
+
+.projectLink{
+    text-decoration: none;
+    display: table;
+    width: 49%;
+    margin: 5px;
+}
+
+.project h1{
+    padding: 5px 10px;
+    margin: 0;
+    background: var(--buttoncolor);
+    border-radius: 9px;    
+    width: max-content;
+}
+
+.projectLangs{
+    padding: 5px;
+    background: var(--buttoncolor);
+    width: max-content;
+    border-radius: 9px;
+    margin-left: 5px;
+    display: flex;
+}
+
+
+.project p{
+    padding: 20px 5px;
+    margin: 0;
+}
+
+.projectHeader{
+    display: flex;
+}
+
+.buttonOuter{
+    margin: 0;
+    margin: 0;
+
+    text-align: center;
+}
+
+.buttonOuter div{
+    background: var(--buttoncolor);
+    color: var(--fontcolor);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 9px;
+    transition: 500ms all ease-in-out;
+}
+
+.buttonOuter div p{
+    margin: 0;
+    padding: 0;
+}
+
+.buttonOuter div:hover{
+    background: darkblue;
+}
+
+.aboutDesc{
+    width: calc(var(--bodywidth)*.5);
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+}
+
 
 
 @media screen and (min-width: 1000px){
@@ -221,6 +356,21 @@ body{
 }
 
 @media screen and (max-width: 1000px){
+    .aboutDesc{
+        width: 95%;
+    }
+    .projectLink{
+        margin: 5px;
+        width: 100%;
+    }
+
+    .projectRow{
+        display: block;
+    }
+    .projects{
+        width: 95%;
+    }
+
     :root{
         --bodywidth: 95%;
     }
@@ -236,7 +386,11 @@ body{
 
     .skill svg{
         margin: 0 auto;
-;
+
+    }
+
+    .skill img{
+        margin: 0 auto;
     }
 
     .skill p{
@@ -269,25 +423,120 @@ body{
     }
 }
 
-.projects{
-    width: calc(var(--bodywidth)*.8);
+.footer{
+    height: 100px;
+}
+
+
+
+/* Blobs */
+
+.blob {
+    --pulsecolor: #000;
+	background: rgb(var(--pulsecolor));
+	border-radius: 50%;
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+	margin: 10px;
+	height: 20px;
+	width: 20px;
+	transform: scale(1);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(var(--pulsecolor), 0.7);
+	}
+	
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(var(--pulsecolor), 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(var(--pulsecolor), 0);
+	}
+}
+
+.blob.green{
+    --pulsecolor: 0,255,0;
+}
+
+.blob.red{
+    --pulsecolor: 255,0,0;
+}
+.blob.orange{
+    --pulsecolor: 255,165,0;
+}
+
+.blob.gray{
+    --pulsecolor: 128,128,128;
+}
+
+.onlineBox{
+    width: max-content;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    align-items: center;
+    
+}
+
+.onlineBox p{
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.activityBox{
+    opacity: 0;
+    background: var(--buttoncolor);
+    padding: 5px;
+    position: absolute;
+    width: 20rem;
+    border-radius: 9px;
+    top: 50px;
+    transition: 300ms ease-in-out;
+    line-height: 25px;
+}
+
+.onlineBox:hover .activityBox{
+    display: block;
+    opacity: 1;
+}
+
+.logoOuter{
+    width: max-content;
     margin: 0 auto;
 }
 
-.project{
-    background: var(--foregroundcolor);
-    border-radius: 9px;
+.gg-moon,
+.gg-moon::after {
+    display: block;
+    box-sizing: border-box;
+    border-radius: 50%
 }
 
-.project.narrow{
-    display: inline-block;
-    width: 50%;
+.gg-moon {
+    overflow: hidden;
+    position: relative;
+    transform: rotate(-135deg) scale(var(--ggs,1));
+    width: 20px;
+    height: 20px;
+    border: 2px solid;
+    border-bottom-color: transparent
 }
 
-.project.wide{
-    width: 100%;
-}
-
-.project h1{
-    padding: 5px;
+.gg-moon::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 18px;
+    border: 2px solid transparent;
+    box-shadow: 0 0 0 2px;
+    top: 8px;
+    left: 2px
 }
