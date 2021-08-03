@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400&display=swap');
+
+:root{
+    --fontcolor: rgb(40,40,40);
+    --bgcolor: rgb(255, 255, 255);
+    --foregroundcolor: rgb(200,200,200);
+    --bodywidth: 80%;
+    
+}
+
+.dark{
+    --fontcolor: rgb(255,255,255);
+    --bgcolor: rgb(20,20,20);
+    --foregroundcolor: rgb(60,60,60);
+}
+
+body{
+    margin: 5;
+    font-family: 'Roboto', sans-serif;
+    background: var(--bgcolor);
+    color: var(--fontcolor);
+}
+
+.header{
+    background: var(--foregroundcolor);
+    box-shadow: 2px 2px 6px rgb(150,150,150);
+    height: 50px;
+    border-radius: 9px;
+    width: var(--bodywidth);
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.header.dark{
+    box-shadow: 2px 2px 6px rgb(15,15,15);
+}
+
+
+.nav{
+    position: relative;
+    text-align: center;
+    line-height: 40px;
+    padding: 5px;
+
+}
+
+.navitem{
+    color: var(--fontcolor);
+    
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 18px;
+    padding: 5px;
+    align-items: center;
+    /* transition: all 500ms ease-in-out; */
+}
+
+
+.toggleDarkIcon{
+    color: var(--fontcolor);
+    --ggs: 1.4;
+
+}
+
+.toggleDark{
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    right: 20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+/* Status Colours */
+/* .blob{
+    height: 60%;
+    width: 60%;
+    border-radius: 50%;
+    background: limegreen;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.onlinestatus{
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    left: 10px;
+    display: table;
+    
+
+}
+
+.onlineText{
+    position: inherit;
+    color: var(--fontcolor);
+    display: inline-block;
+    vertical-align: middle;
+
+} */
+
+
+.content{
+    width: var(--bodywidth);
+    margin: 0 auto;
+    height: 400px;
+    margin-top: 30px;
+    display: flex;
+    
+}
+
+.content div{
+    border-radius: 9px;
+    height: 100%;
+    width: 50%;
+    margin: 0;
+}
+
+
+
+
+/* .about{
+    margin: 0 auto;
+    height: 400px;
+    margin-top: 30px;
+    display: flex;
+}
+
+.about div{
+    border-radius: 9px;
+    height: 100%;
+    width: 50%;
+    margin: 0;
+}
+
+
+.about img{
+    width: 200px;
+    display: block;
+    height: 200px;
+    position: absolute;
+    transform: translate(0, -50%);
+    top: 50%;
+}
+
+.about h1{
+    text-align: center;
+} */
+
+
+.about{
+    width: var(--bodywidth);
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
+.about img{
+    width: 200px;
+    display: block;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.about h1{
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.about h3{
+    text-align: center;
+    margin: 5px;
+}
+
+.skills{
+    width: calc(var(--bodywidth)*.8);
+    margin: 0 auto;
+    display: table;    
+}
+
+.title{
+    
+    width: calc(var(--bodywidth)*.8);
+    margin: 0 auto;
+    margin-bottom: 15px;
+    margin-top: 60px;
+}
+
+.skill{
+    padding: 5px;
+    display: table-cell;
+    width: 25%;
+}
+
+.skill svg{
+    width: 30px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.skill p {
+    margin-left: 10px;
+    font-weight: 300;
+    font-size: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+@media screen and (min-width: 1000px){
+    .content div:first-child{
+        margin-right: 8px;
+    }
+    
+    .content div:last-child{
+        margin-left: 8px;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    :root{
+        --bodywidth: 95%;
+    }
+
+    .content{
+        display: block;
+    }
+
+    .content div{
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .skill svg{
+        margin: 0 auto;
+;
+    }
+
+    .skill p{
+        margin: 0 auto;
+        font-size: 15px
+    }
+
+    .title{
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .skills{
+        width: var(--bodywidth);
+    }
+}
+
+@media screen and (max-width: 600px){
+    .skill p{
+        display: none;
+    }
+
+    .skill svg{
+        margin: auto;
+        display: block;
+    }
+
+    .skill{
+        align-items: center;
+    }
+}
+
+.projects{
+    width: calc(var(--bodywidth)*.8);
+    margin: 0 auto;
+}
+
+.project{
+    background: var(--foregroundcolor);
+    border-radius: 9px;
+}
+
+.project.narrow{
+    display: inline-block;
+    width: 50%;
+}
+
+.project.wide{
+    width: 100%;
+}
+
+.project h1{
+    padding: 5px;
+}
