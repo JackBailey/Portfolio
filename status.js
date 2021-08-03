@@ -1,10 +1,32 @@
 lastResult = null
+
+// Credit to https://stackoverflow.com/a/18278346/16367360
+
+function loadJSON(path, success, error)
+{
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function()
+    {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                if (success)
+                    success(JSON.parse(xhr.responseText));
+            } else {
+                if (error)
+                    error(xhr);
+            }
+        }
+    };
+    xhr.open("GET", path, true);
+    xhr.send();
+}
+
 function statusUpdater(){
-    $.getJSON('https://api.lanyard.rest/v1/users/386175804742303754', function(data) {
+    loadJSON('https://api.lanyard.rest/v1/users/386175804742303754', function(data) {
         if (data != lastResult) {
             statusText = document.getElementById('status');
             statusIcon = document.getElementById('status-icon');
-            tooltiptext = document.getElementById('activities');
+            activitiesBox = document.getElementById('activityBox');
     
             activitiesList = [];
             if (data.data.discord_status == "online")
@@ -14,21 +36,23 @@ function statusUpdater(){
                     activitiesList.push("Listening to Spotify");
                 }
                 statusIcon.className = "blob green";
+                activitiesBox.style.display = "block";
     
             }
             else if (data.data.discord_status == "idle"){
-                statusText.innerHTML = "Idle";
+                statusType = "Idle";
                 statusIcon.className = "blob orange";
-                tooltiptext.innerHTML = ""
+                activitiesBox.style.display = "none";
             }
             else if (data.data.discord_status == "dnd"){
-                statusType = "Online - Do Not Disturb";
+                statusType = "Online";
                 statusIcon.className = "blob red";
+                activitiesBox.style.display = "block";
             }
             else if (data.data.discord_status == "offline"){
-                statusText.innerHTML = "Offline";
+                statusType = "Offline";
                 statusIcon.className = "blob gray";
-                tooltiptext.innerHTML = ""
+                activitiesBox.style.display = "none";
             }
     
             // Check for activities
@@ -60,23 +84,17 @@ function statusUpdater(){
                     }
                 }
                 
-                activitiesList = ' - ' + activitiesList.join('<br> - ')
-                newTooltiptext = "<p>"+activitiesList+"</p>"
-                newStatus = statusType
-                if (tooltiptext.innerHTML != newTooltiptext){
-                    tooltiptext.innerHTML = newTooltiptext;
-                }
-                if (statusText.innerHTML != newStatus){
-                    statusText.innerHTML = newStatus;
-                }
-                onlinebox = document.getElementById('nav-status')
-                onlinebox.style.display= "block";
-
+                activitiesList = activitiesList.join('<br><hr>')
             }
-    
-            // get discord status
         }
         lastResult = data;
+        statusText.innerHTML = statusType;
+		if (activitiesList.length > 0){
+			activitiesBox.style.display = "block";
+        	activitiesBox.innerHTML = activitiesList;
+		}else{
+			activitiesBox.style.display = "none";
+		}
         
     }
         
@@ -85,4 +103,5 @@ function statusUpdater(){
 
 statusUpdater()
 // Fetch discord
-setInterval(statusUpdater, 2000);
+setInterval(statusUpdater, 5000);
+
