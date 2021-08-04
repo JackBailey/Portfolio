@@ -384,8 +384,9 @@ body{
         margin-bottom: 8px;
     }
 
-    .skill{
-        text-align: center;
+    .skill svg{
+        margin: 0 auto;
+
     }
 
     .skill img{
