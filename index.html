@@ -4,135 +4,156 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jack Bailey</title>
-    <link rel="shortcut icon" type="image/jpg" href="/img/jb.svg"/>
-    <link rel="stylesheet" href = "/style.css">
-    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>  -->
+    <title>Document</title>
+    <link rel = "stylesheet" href = "/style.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src = "/projects.js"></script>
     <script defer src = "/dark.js"></script>
-    <script defer src = "/status.js"></script>
 </head>
 <body class = "themed">
-    <div class = "header themed">
-        <div class = "nav">
-            <a class = "navitem themed" href = "/">Home</a>
-            <a class = "navitem themed" href = "#skills">Skills</a>
-            <a class = "navitem themed" href = "#projects">Projects</a>
-            <a class = "navitem themed" href = "https://jackb.link">Contact</a>
+    <div class = "header">
+        <div class = "headerInner">
+            <h1>
+                Jack Bailey
+            </h1>
+    
+            <nav id = "nav">
+                <a href = "/" class ="current">Home<hr/></a>
+                <a href = "#projects" class ="">Projects<hr/></a>
+                <a href = "/contact" class ="">Contact<hr/></a>
+                <a href = "https://jackb.link/fiverr" class ="">Hire<hr/></a>
+                <a class = "toggle" href = "javascript:toggleDark()"><i class="themed fas fa-adjust"></i></a>
+            </nav>
+            <a id = "hamburger" class = "hamburger" href = "javascript:toggleNav()">
+                <hr>
+                <hr>
+                <hr>
+            </a>
         </div>
     </div>
-    <div class = "about">
-        <div class = "logoOuter" data-tilt>
-            <img src = "/img/jb.svg">
+    
+    <div class = "intro">
+        <div class = "main">
+            <img src = "/images/white-outline.png"/>
+            <div class = "mainHeader">
+                <h1>Hi! I'm Jack Bailey</h1>
+                <h3>I'm a Developer</h3>
+                <p class = "desc">I'm a Student Developer from the UK and this is my website. Here you can get in contact with me, read about my projects and get a general feel of who I am.</p>
+                <div class = "socials">
+                    <a href = "#"><i class="fab fa-github"></i></a>
+                    <a href = "#"><i class="fab fa-twitter"></i></a>
+                    <a href = "#"><i class="fab fa-instagram"></i></a>
+                    <a href = "#"><i class="fas fa-mug-hot"></i></a>
+                    <a href = "#"><i class="fab fa-discord"></i></a>
+                    <a href = "#"><i class="far fa-envelope"></i></a>
+                </div>
+                <sub>(Hover/Tap on me)</sub>
+            </div> 
+        </div>
+    </div>
+    <div class = "skills">
+        <h1>Skills</h1>
+        <div class = "langs">
+            <div class = "lang">
+                <div class = "langInner">
+                    <img src = "/icons/langs/windows.svg"/>
+                    <h1>Windows</h1>
+                    <div class = "skillLevel">
+                        <hr width="100%"/>
+                    </div>
+                </div>        
+            </div>
+            <div class = "lang">
+                <div class = "langInner">
+                    <img src = "/icons/langs/python.svg"/>
+                    <h1>Python</h1>
+                    <div class = "skillLevel">
+                        <hr width="90%"/>
+                    </div>
+                </div>        
+            </div>
+            
+            <div class = "lang">
+                <div class = "langInner">
+                    <img src = "/icons/langs/linux.svg"/>
+                    <h1>Linux</h1>
+                    <div class = "skillLevel">
+                        <hr width="80%"/>
+                    </div>
+                </div>        
+            </div>
+            <div class = "lang">
+                <div class = "langInner">
+                    <img src = "/icons/langs/html.svg"/>
+                    <h1>HTML</h1>
+                    <div class = "skillLevel">
+                        <hr width="75%"/>
+                    </div>
+                </div>        
+            </div>
+            <div class = "lang">
+                <div class = "langInner">
+                    <img src = "/icons/langs/css3.svg"/>
+                    <h1>CSS</h1>
+                    <div class = "skillLevel">
+                        <hr width="70%"/>
+                    </div>
+                </div>        
+            </div>
+            <div class = "lang">
+                <div class = "langInner">
+                    <img src = "/icons/langs/javascript.svg"/>
+                    <h1>JavaScript</h1>
+                    <div class = "skillLevel">
+                        <hr width="60%"/>
+                    </div>
+                </div>        
+            </div>
+            <div class = "lang">
+                <div class = "langInner">
+                    <img src = "/icons/langs/csharp.svg"/>
+                    <h1>C#</h1>
+                    <div class = "skillLevel">
+                        <hr width="40%"/>
+                    </div>
+                </div>        
+            </div>
+            
+            
+            
+            <div class = "lang">
+                <div class = "langInner">
+                    <img src = "/icons/langs/php.svg"/>
+                    <h1>PHP</h1>
+                    <div class = "skillLevel">
+                        <hr width="10%"/>
+                    </div>
+                </div>        
+            </div>
+            
         </div>
         
-        <h1>Hi, I'm Jack Bailey</h1>
-        <h3>I'm a Developer</h3>
-        <div class = "onlineBox">
-            <div id = "status-icon"></div>
-            <p id = "status"></p>
-            <div class = "activityBox" id = "activityBox"></div>
-        </div>
-        <p class = "aboutDesc">I'm a Student Developer from the UK and this is my website. Here you can get in contact with me, read about my projects and get a general feel of who I am.</p>
     </div>
-    <h2 class = "title">Skills</h2>
-    <div class = "skills" id = "skills">   
-        <br>
-        <div class = "skill">
-            <img src="/img/icons/python.svg"></svg>
-            <p>Python</p>
-        </div>
-        <div class = "skill">
-            <img src="/img/icons/csharp.svg"></svg> 
-            <p>C#</p>
-        </div>
-        <div class = "skill">
-            <img src="/img/icons/html.svg"></svg>
-            <p>HTML</p>
-        </div>
-        <div class = "skill">
-            <img src="/img/icons/javascript.svg"></svg>
-            <p>JavaScript</p>
-        </div>
-    </div>
-    <div class = "skills">   
-        <br>
-        <div class = "skill">
-            <img src="/img/icons/css3.svg"></svg> 
-            <p>CSS</p>
-        </div>
-        <div class = "skill">
-            <img src="/img/icons/php.svg"></svg> 
-            <p>PHP</p>
-        </div>
-        <div class = "skill">
-            <img src="/img/icons/linux.svg"></svg> 
-            <p>Linux</p>
-        </div>
-        <div class = "skill">
-            <img src="/img/icons/windows.svg"></svg> 
-            <p>Windows</p>
-        </div>
-    </div>
-    <h2 class = "title">Projects</h2>
     <div class = "projects" id = "projects">
-        <div class = "projectRow">
-            <a href = "https://github.com/Jack-Bailey/Website" class = "projectLink" >
-                <div class = "project themed" data-tilt data-tilt-scale="1.05" data-tilt-gyroscope =false>
-                    <div class = "projectHeader">
-                        <h1>This Website</h1>
-                        <div class = "projectLangs">
-                            <img src="/img/icons/html.svg"></svg>
-                            <img src="/img/icons/css3.svg"></svg>
-                            <img src="/img/icons/javascript.svg"></svg> 
-                        </div> 
-                    </div>
-                    <p>A website I created to demonstrate my talents, list my recent projects and provide an easy way to get in touch with me.</p>
-                </div>
-            </a>
-            <a href = "https://github.com/jack-bailey/simple-links" class = "projectLink" >
-                <div class = "project themed" data-tilt data-tilt-scale="1.05" data-tilt-gyroscope = false>
-                    <div class = "projectHeader">
-                        <h1>Simple Links</h1>
-                        <div class = "projectLangs">
-                            <img src="/img/icons/html.svg"></svg>
-                            <img src="/img/icons/css3.svg"></svg>
-                        </div> 
-                    </div>
-                    <p>A website similar to LinkTree but with much more customisability, no inaccurate "unsafe site" warnings and no charges.</p>
-                </div>
-            </a>
-        </div>
-        <div class = "projectRow">
-            <a href = "https://github.com/Jack-Bailey/GTA-Suspend" class = "projectLink" >
-                <div class = "project themed" data-tilt data-tilt-scale="1.05" data-tilt-gyroscope = false>
-                    <div class = "projectHeader">
-                        <h1>GTA Suspend</h1>
-                        <div class = "projectLangs">
-                            <img src="/img/icons/csharp.svg"></svg> 
-                        </div> 
-                    </div>
-                    <p>A simple winform app to suspend GTA5 for n seconds which will create a "solo public lobby" - Useful for selling your product without getting griefed</p>
-                </div>
-            </a>
-            <a href = "https://github.com/Jack-Bailey/CS-Stretch" class = "projectLink" >
-                <div class = "project themed" data-tilt data-tilt-scale="1.05" data-tilt-gyroscope = false>
-                    <div class = "projectHeader">
-                        <h1>CS Stretch</h1>
-                        <div class = "projectLangs">
-                            <img src="/img/icons/windows.svg"></svg> 
-                        </div> 
-                    </div>
-                    <p>A simple batch script using CursorLock + Qres to change your aspect ratio to 4:3, launch CS:GO, lock your cursor to the game and put your aspect ratio back after closing the game - This allows you to play borderless as if it was fullscreen</p>
-                </div>
-            </a>
+        <h1>Projects</h1>
+        <form id = "sortButtons" class = "sort" action="#">
+
+            <select name = "sort" id = "sort" onchange="sortValues()">
+                <option value = "updated">Date Updated</option>
+                <option value = "created">Date Created</option>
+                <option value = "alphabetical">Alphabetical</option>
+                <option value = "id">ID</option>
+            </select>
+
+            <select name = "type" id = "type" onchange="sortValues()">
+                <option value = "ascending">Ascending</option>
+                <option value = "descending">Descending</option>
+            </select>
+        </form>
+        <div id = "projectsDiv" class = "projectsInner">
+
         </div>
         
     </div>
-    <!-- <iframe src = "https://ghbtns.com/github-btn.html?user=Jack-Bailey&repo=GTA-Suspend&type=star&count=true&size=large" frameborder = "0" scrolling = "0" width = "160px" height = "30px"></iframe> -->
-
-    <a class = toggleDark id = "darktoggle">
-        <i class="gg-moon toggleDarkIcon themed"></i>
-    </a>
-    <script type = "text/javascript" src = "/assets/vanilla-tilt/dist/vanilla-tilt.js"></script>
 </body>
 </html>
