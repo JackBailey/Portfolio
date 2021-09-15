@@ -197,7 +197,6 @@ def updater():
 			gameList = sort[:gamesToList*-1:-1]
 
 			for item in range(len(gameList)):
-				print(" -- ")
 				currentGame = gameList[item]
 				try:
 					platform = currentGame["platform"]
@@ -250,7 +249,6 @@ def updater():
 					}
 				if not error:
 					gameData.append(newGame)
-				print(" ")
 
 			json.dump(gameData,open(cacheFile,"w"))
 
@@ -258,7 +256,7 @@ def updater():
 	while True:
 		updateSteam([76561198363384787,76561198450981972])
 		updateRepos()
-
+		print("Updated")
 		time.sleep(600)
 
 f = threading.Thread(name='flaskBG', target=flaskApp)
