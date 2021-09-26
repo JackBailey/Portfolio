@@ -133,7 +133,7 @@ nav #hamburger{display:none}
     }
 
     nav #hamburger.active hr:nth-child(2){
-        transform: translateX(-100px)
+        transform: translateX(-40px)
     }
 
     nav #hamburger.active hr:last-child{
