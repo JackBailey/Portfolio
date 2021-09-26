@@ -30,7 +30,7 @@ export default {
             nav: document.getElementById("nav"),
             hamburger: document.getElementById("hamburger"),
         }
-  },
+    },
 }
 </script>
 

@@ -24,15 +24,15 @@ main > form{
 main > form > .names{
     display: flex;
     flex-wrap: nowrap;
-    justify-content: left;
+    justify-content: space-between;
 }
 
 main > form > .names > .nameOuter{
-    width: 50%;
+    flex-basis: 50%;
 }
 
-main > form > .names > .nameOuter input{
-    width: 90%;
+main > form > .names > .nameOuter:last-of-type input{
+    margin-left: 5px;
 }
 
 main input, main textarea, main button{
@@ -47,4 +47,5 @@ main input, main textarea, main button{
 
 main button:hover{
     background:skyblue;
+    cursor: pointer;
 }

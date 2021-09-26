@@ -5,6 +5,38 @@
 
 }
 
+.projectsContainer > .filters{
+    margin-bottom: 10px;
+    display: flex;
+    margin-left: 5px;
+}
+
+.projectsContainer > .filters > select{
+    -moz-appearance: none;
+    /* for Chrome */
+    -webkit-appearance: none;
+    background: rgb(24, 24, 58);
+    color: #eee;
+    border: none;
+    margin-right: 2px;
+    padding: 2px 3px;
+}
+
+.projectsContainer > .filters > #type{
+    display: inline-block;
+    background: rgb(24, 24, 58);
+    padding: 2px 6px;
+    height: 20px;
+    line-height: 100%;
+    cursor: pointer;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently */
+}
+
 .projectsContainer > h1{
     margin-bottom: 20px;
 }
@@ -19,8 +51,6 @@
     flex-basis: 50%;
     flex-grow: 1;
     display: flex;
-    
-
 }
 
 .projectInner{
@@ -59,10 +89,31 @@
     margin-left: 5px;
 }
 
+.projectInner > .projectHeader > h1 > a > i{
+    color: deepskyblue;
+    margin-left: 5px;
+}
+
 .projectInner > .projectHeader > h1 > a{
     text-decoration: none;
     color: white;
     transition: 300ms;
+    position: relative;
+}
+
+.projectInner > .projectHeader > h1 > #projectLink:before{
+    content: "";
+    width: 0%;
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: white;
+    transition: 300ms;
+}
+
+.projectInner > .projectHeader > h1 > #projectLink:hover:before{
+    width: 100%;
 }
 
 
@@ -85,20 +136,37 @@
     margin-left: 3px;
 }
 
-.projectInner > .projectHeader > h1:hover a{
-    transform: scale(1.1);
-}
 
 @media screen and (max-width: 800px){
     .projectsContainer{
         width: 90%;
     }
 
+    .projects{
+        margin: 0 auto;
+    }
+
     .project{
         flex-basis: 100%;
+        margin: 0 auto;
     }
 
     .projectsContainer > h1{
         text-align: center;
+    }
+
+    .projectsContainer > .filters{
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .projectsContainer > .filters > select{
+        padding: 4px 12px;
+    }
+    
+    .projectsContainer > .filters > #type{
+        padding: 4px 12px;
+        line-height: 100%;
     }
 }
