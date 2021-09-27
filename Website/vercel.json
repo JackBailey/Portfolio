@@ -5,7 +5,6 @@
         {"source":"/github/:path*", "destination":"https://github.com/Jack-Bailey/:path*"}
     ],
     "rewrites":[
-        {"source":"/contact",       "destination":"/"},
         {"source":"/api",       "destination":"https://api.jackbailey.uk"},
         {"source":"/api/:path*","destination":"https://api.jackbailey.uk/:path*"}
     ]

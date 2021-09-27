@@ -1,5 +1,4 @@
 main{
-    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,45 +6,86 @@ main{
     height: 100vh;
     flex-direction: column;
     text-align: center;
-    width: 90%;
-    margin: 0 auto;
 }
 
-main > p{
-    margin: 5px 0;
-}
-
-main > form{
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
-
-main > form > .names{
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-}
-
-main > form > .names > .nameOuter{
-    flex-basis: 50%;
-}
-
-main > form > .names > .nameOuter:last-of-type input{
-    margin-left: 5px;
-}
-
-main input, main textarea, main button{
-    background: #fff;
-    color: gray;
-    border: none;
+main > .contact{
+    background: linear-gradient(0deg, #6841d7 0%, #125dad 100%);
+    padding: 8px 16px;
     border-radius: 8px;
-    padding: 3px;
-    margin-bottom: 8px;
     
 }
 
-main button:hover{
-    background:skyblue;
+@media screen and (max-width: 800px){
+    main > .contact{
+        width: 80%;
+        margin: 0 auto;
+    }
+
+}
+
+main > .contact > h1{
+    margin-top: 10px
+}
+
+main > .contact > p:first-of-type{
+    margin-top: 5px;
+}
+
+main > .contact > form{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+main > .contact > form label{
+    text-align: left;
+    margin-top: 15px;
+}
+
+main > .contact > form input, main > .contact > form textarea{
+    border: none;
+    background: none;
+    padding: 5px 0px;
+    margin-top: 3px;
+    border-bottom: 1px white solid;
+}
+
+main > .contact > form textarea{
+    margin-bottom: 10px;
+    resize: none;
+}
+main > .contact > form button{
     cursor: pointer;
+    border-radius: 8px;
+    padding: 5px 15px;
+    margin-top: 5px;
+    border: none;
+    color: black;
+    transition: 300ms;
+}
+
+main > .contact > form button:hover{
+    background: none;
+    color: white;
+    outline: 1px solid white;
+}
+
+main > .contact > form *:focus{
+    outline: none;
+}
+
+
+main > .confirmation p{
+    margin: 5px 0;
+}
+
+main > .confirmation a{
+    text-decoration: none;
+    background: linear-gradient(0deg, #6841d7 0%, #125dad 100%);
+    padding: 5px 10px;
+    border-radius: 8px;
+    display: block;
+    width: max-content;
+    margin: 10px auto 0 auto;
 }

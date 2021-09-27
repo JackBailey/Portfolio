@@ -5,31 +5,18 @@ nav {
     width: 100%;
     justify-content: space-between;
     position: fixed;
-    z-index: 100;
 }
 
-nav > h1{
+nav h1{
     padding-left: 20%;
     line-height: 60px;
     color: var(--accentColor);
     font-size: 30px;
 }
 
-nav > h1 > a{
+nav h1 a{
     text-decoration: none;
-    display: block;
-    height: 100%;
-}
-nav > h1 > a > p{
     color: var(--accentColor);
-}
-
-nav > h1 > a > img{
-    width: auto;
-    height: 48px;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 nav div{
