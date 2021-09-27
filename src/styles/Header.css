@@ -22,14 +22,11 @@ nav > h1 > a{
 }
 nav > h1 > a > p{
     color: var(--accentColor);
+    display: block;
 }
 
 nav > h1 > a > img{
-    width: 48px;
-    height: 48px;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    display: none;
 }
 
 nav div{
@@ -46,7 +43,11 @@ nav div a{
     text-decoration: none;
     color: white;
 }
+
+nav #hamburger{display:none}
+
 @media screen and (min-width: 800px){
+    
     nav div a hr{
         position: absolute;
         bottom: 15px;
@@ -69,10 +70,21 @@ nav div a{
 }
 
 
-nav #hamburger{display:none}
-
 @media screen and (max-width: 800px){
 
+
+    nav > h1 > a > p{
+        display: none;
+    }
+    nav > h1 > a > img{
+        display: block;
+        width: 48px;
+        height: 48px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 auto;
+    }
     nav{
         justify-content: center;
         position: fixed;

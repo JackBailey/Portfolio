@@ -2,8 +2,8 @@
     <nav>
         <h1>
             <router-link id = "headerTitle" to ="/">
-                <p v-if = "!isMobile">Jack Bailey</p>
-                <img src = "../assets/blue-jb.svg" v-else/>
+                <p>Jack Bailey</p>
+                <img src = "../assets/blue-jb.svg"/>
             </router-link>
         </h1>
         <div id = "nav">
@@ -28,9 +28,6 @@ export default {
           nav.classList.toggle("active");
           hamburger.classList.toggle("active");
         },
-        onResize() {
-            this.windowHeight = screen.width
-        },
         getImgUrl(pic) {
             return require('../assets/'+pic)
         },
@@ -38,20 +35,10 @@ export default {
     data () {
         return{
             nav: document.getElementById("nav"),
-            hamburger: document.getElementById("hamburger"),
-            mobileWidth: window.innerWidth < 800
+            hamburger: document.getElementById("hamburger")
         }      
     },
-    mounted() {
-        window.addEventListener('resize', () => {
-            this.mobileWidth = window.innerWidth < 800
-        })
-    },
-    computed: {
-        isMobile() {
-            return this.mobileWidth
-        }
-    }
+    
 }
 </script>
 
