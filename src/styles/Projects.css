@@ -49,8 +49,10 @@
 
 .project{
     flex-basis: 50%;
+    max-width: 100%;
     flex-grow: 1;
     display: flex;
+
 }
 
 .projectInner{
@@ -149,6 +151,7 @@
     .project{
         flex-basis: 100%;
         margin: 0 auto;
+        max-width: 100%;
     }
 
     .projectsContainer > h1{

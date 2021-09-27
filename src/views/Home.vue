@@ -20,8 +20,7 @@
     </div>
   </div>
   <Skills :langs = "langs"/>
-
-  <Projects :projects = "projects"/>
+  <Projects :projects = "projects" :langs = "langs"/>
 </template>
 
 <script>
@@ -57,60 +56,91 @@ export default {
         return projects
       },
       getLangs(){
-        var langs = [
+          var langs = [
             {
                 "name":"Windows",
                 "logo":"windows.svg",
                 "skill":100,
                 "id":0,
+                "url":"https://windows.com"
             },
             {
                 "name":"Python",
                 "logo":"python.svg",
                 "skill":90,
                 "id":1,
+                "url":"https://www.python.org/"
             },
             {
                 "name":"Linux",
                 "logo":"linux.svg",
                 "skill":80,
                 "id":2,
+                "url":"https://www.linux.org/"
             },
             {
                 "name":"HTML",
                 "logo":"html.svg",
                 "skill":75,
                 "id":3,
+                "url":"https://html.com/"
             },
             {
                 "name":"CSS",
                 "logo":"css3.svg",
                 "skill":70,
                 "id":4,
+                "url":"http://css3.com"
             },
             {
                 "name":"JavaScript",
                 "logo":"javascript.svg",
                 "skill":60,
                 "id":5,
+                "url":"https://www.javascript.com/"
             },
             {
                 "name":"C#",
                 "logo":"csharp.svg",
                 "skill":20,
                 "id":6,
+                "url":"https://docs.microsoft.com/en-us/dotnet/csharp/"
             },
             {
-                "name":"VueJS",
+                "name":"Vue",
+                "displayname":"VueJS",
                 "logo":"vue.svg",
                 "skill":30,
                 "id":7,
+                "url":"https://v3.vuejs.org/"
+            },
+            {
+                "name":"Batchfile",
+                "logo":"windows.svg",
+                "skill":35,
+                "id":8,
+                "url":"https://wikipedia.org/wiki/Batch_file"
+            },
+            {
+                "name":"PHP",
+                "logo":"php.svg",
+                "skill":15,
+                "id":9,
+                "url":"https://www.php.net/"
+            },
+            {
+                "name":"VBScript",
+                "logo":"vba.svg",
+                "skill":10,
+                "id":10,
+                "url":"https://docs.microsoft.com/en-us/office/vba/library-reference/concepts/getting-started-with-vba-in-office"
             }
         ]
-    
+
         langs.sort(function(a,b) {
             return a.skill < b.skill;
         })
+
         return langs
     }
   },

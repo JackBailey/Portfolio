@@ -16,7 +16,6 @@
             <hr>
         </a>
     </nav>
-    
 </template>
 <script>
 export default {

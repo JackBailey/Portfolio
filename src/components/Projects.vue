@@ -23,9 +23,9 @@
                             
                             </h1>
                         <div class = "languages">
-                            <span :title = "language.name" v-for="language in project.languages">
-                                <a :href = "languageInfo[language]['url']">
-                                    <img :src = "getImgUrl(languageInfo[language]['logo'])"/>
+                            <span :title = "getLangs(language)['name']" v-for="language in project.languages" >
+                                <a v-if = "getLangs(language)" :href = "getLangs(language)['url']">
+                                    <img :src = "getLangs(language)['logo']"/>
                                 </a>
                             </span>
                         </div>
@@ -38,10 +38,12 @@
 </template>
 
 <script>
+import { markRaw } from '@vue/reactivity';
 export default {
     name: "Projects",
     props: {
-        projects: Array
+        projects: Array,
+        langs: Array
     },
     methods: {
         getImgUrl(pic) {
@@ -84,50 +86,26 @@ export default {
                 this.projects.reverse()
             }
             
-        }
-    },
-    data () {
-        return{
-            languageInfo: {
-                "JavaScript":{
-                    "logo":"languages/javascript.svg",
-                    "url":"https://www.javascript.com/"
-                },
-                "CSS":{
-                    "logo":"languages/css3.svg",
-                    "url":"http://css3.com"
-                },
-                "Batchfile":{
-                    "logo":"languages/windows.svg",
-                    "url":"https://wikipedia.org/wiki/Batch_file"
-                },
-                "PHP":{
-                    "logo":"languages/php.svg",
-                    "url":"https://www.php.net/"
-                },
-                "C#":{
-                    "logo":"languages/csharp.svg",
-                    "url":"https://docs.microsoft.com/en-us/dotnet/csharp/"
-                },
-                "Python":{
-                    "logo":"languages/python.svg",
-                    "url":"https://www.python.org/"
-                },
-                "HTML":{
-                    "logo":"languages/html.svg",
-                    "url":"https://html.com/"
-                },
-                "VBScript":{
-                    "logo":"languages/vba.svg",
-                    "url":"https://docs.microsoft.com/en-us/office/vba/library-reference/concepts/getting-started-with-vba-in-office"
-                },
-                "Vue":{
-                    "logo":"languages/vue.svg",
-                    "url":"https://v3.vuejs.org/"
+        },
+        getLangs(specifiedLang) {
+            var result = false
+            this.$props.langs.forEach(function(lang){
+                if (lang.name === specifiedLang){
+
+
+                    result = {
+                        "name": lang.displayname != null ? lang.displayname : lang.name,
+                        "url": lang.url,
+                        "logo": require("../assets/languages/"+lang.logo)
+                    }
                 }
+            })
+            if (!result){
+                console.log(specifiedLang + " does not have an image or url - omitting")
             }
+            return result
         }
-    },
+    }
 }
 </script>
 
