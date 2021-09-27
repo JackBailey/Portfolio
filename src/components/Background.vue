@@ -1,7 +1,7 @@
 <template>
     <div>
-        <img class = "bottomLeft" src="../assets/bottomLeft.png"/>
-        <img class = "topRight" src="../assets/topRight.png"/>
+        <img class = "bottomLeft" src="../assets/bottomLeft.webp"/>
+        <img class = "topRight" src="../assets/topRight.webp"/>
     </div>
 </template>
 

@@ -2,7 +2,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
   <div class = "intro">
   <div class = "main">
-    <img src = "../assets/white-outline.png"/>
+    <img src = "../assets/white-outline.webp"/>
     <div class = "mainHeader">
         <h1>Hi! I'm Jack Bailey<span id = "statusText"><div id = "status" class = "status"></div></span></h1>
         <h3>I'm a Developer</h3>

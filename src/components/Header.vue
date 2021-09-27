@@ -3,7 +3,7 @@
         <h1>
             <router-link id = "headerTitle" to ="/">
                 <p v-if = "!isMobile">Jack Bailey</p>
-                <img :src = "getImgUrl('JB1.svg')" v-else/>
+                <img src = "../assets/blue-jb.svg" v-else/>
             </router-link>
         </h1>
         <div id = "nav">
