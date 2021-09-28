@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class = "projects">
-            <div class = "project" v-for="project in projects" :key = "project.id">
+            <div class = "project" v-for="project in projects" :key = "project.id" v-show="!project.fork && !excluded.includes(project.name)">
                 <div class = "projectInner">
                     <div class = "projectHeader">
                         <h1>
@@ -38,7 +38,6 @@
 </template>
 
 <script>
-import { markRaw } from '@vue/reactivity';
 export default {
     name: "Projects",
     props: {
@@ -104,6 +103,11 @@ export default {
                 console.log(specifiedLang + " does not have an image or url - omitting")
             }
             return result
+        }
+    },
+    data () {
+        return {
+            excluded: ["jack-bailey"]
         }
     }
 }

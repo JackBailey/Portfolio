@@ -1,7 +1,7 @@
 <template>
     <nav>
         <h1>
-            <router-link id = "headerTitle" to ="/">
+            <router-link id = "headerTitle" to ="/#main">
                 <p>Jack Bailey</p>
                 <img src = "../assets/blue-jb.svg"/>
             </router-link>
