@@ -1,7 +1,7 @@
 <template>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
-  <div class = "intro">
-  <div class = "main">
+  <div class = "intro" id = "main">
+  <div class = "main" >
     <img src = "../assets/white-outline.webp"/>
     <div class = "mainHeader">
         <h1>Hi! I'm Jack Bailey<span id = "statusText"><div id = "status" class = "status"></div></span></h1>
@@ -24,8 +24,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
-
 import Projects from '../components/Projects'
 import Skills from '../components/Skills'
 
@@ -37,23 +35,12 @@ export default {
   },
   methods: {
       async fetchProjects(){
-        const res = await fetch("https://api.jackbailey.uk/github/lite-repos")
-        const response = await res.json()
+        const res = await (await fetch("https://api.jackbailey.uk/github/lite-repos")).json()
 
-        var projects = []
-        
-        response.forEach(function(project,index){
-            if(!project.fork && !["jack-bailey"].includes(project.name)){
-                projects = [...projects,project] 
-            }
-        })
-
-        projects.sort(function(a,b) {
+        return res.sort(function(a,b) {
             return a.updated_at < b.updated_at;
         })
 
-
-        return projects
       },
       getLangs(){
           var langs = [
