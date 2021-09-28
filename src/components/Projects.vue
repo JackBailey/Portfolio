@@ -45,9 +45,6 @@ export default {
         langs: Array
     },
     methods: {
-        getImgUrl(pic) {
-            return require('../assets/'+pic)
-        },
         toggleSort(){
             var type = document.getElementById("type");
             if (type.dataset.value == "ascending"){
@@ -57,7 +54,6 @@ export default {
                 type.dataset.value = "ascending";
                 type.innerHTML = "&uarr;";
             }
-
             this.sortValues()
         },
         sortValues(){
@@ -90,8 +86,6 @@ export default {
             var result = false
             this.$props.langs.forEach(function(lang){
                 if (lang.name === specifiedLang){
-
-
                     result = {
                         "name": lang.displayname != null ? lang.displayname : lang.name,
                         "url": lang.url,
