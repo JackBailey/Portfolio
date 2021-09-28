@@ -37,7 +37,7 @@ export default {
   },
   methods: {
       async fetchProjects(){
-        const res = await fetch("https://api.jackbailey.uk/github/repos")
+        const res = await fetch("https://api.jackbailey.uk/github/lite-repos")
         const response = await res.json()
 
         var projects = []
