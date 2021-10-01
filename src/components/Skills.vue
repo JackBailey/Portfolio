@@ -20,7 +20,6 @@ export default {
     name: "Skills",
     props: {
         langs: Array
-        
     },
     data() {
         return {
