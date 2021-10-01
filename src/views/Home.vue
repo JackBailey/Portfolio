@@ -6,7 +6,7 @@
     <div class = "mainHeader">
         <h1>Hi! I'm Jack Bailey<span id = "statusText"><div id = "status" class = "status"></div></span></h1>
         <h3>I'm a Developer</h3>
-        <p id = "desc" class = "desc">I'm a Student Developer from the UK and this is my website. Here you can get in contact with me, read about my projects and get a general feel of who I am.</p>
+        <p id = "desc" class = "desc">I'm a Student Full Stack Developer from the UK and this is my website. Here you can get in contact with me, read about my projects and get a general feel of who I am.</p>
         <div class = "socials">
             <a href = "https://jackb.link/github"><i class="fab fa-github"></i></a>
             <a href = "https://jackb.link/twitter"><i class="fab fa-twitter"></i></a>

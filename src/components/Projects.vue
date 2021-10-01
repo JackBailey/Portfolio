@@ -1,3 +1,4 @@
+
 <template>
     <div class="projectsContainer">
         <h1>Projects</h1>
@@ -108,5 +109,6 @@ export default {
 </script>
 
 <style>
+
 @import "../styles/Projects.css"
 </style>
