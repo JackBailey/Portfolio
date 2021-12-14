@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import Contact from '../views/Contact.vue'
+
 const routes = [
   {
     path: '/',
@@ -8,17 +8,16 @@ const routes = [
     component: Home,
     meta: {
       title: "Home"
-    },
+    }
   },
+  // redirect contact to home
   {
-    path: '/contact',
-    name: 'Contact',
     meta: {
       title: "Contact"
     },
-
-    component: Contact
-  }
+    path: '/contact',
+    component: () => import(/* webpackChunkName: "about" */ '../components/index/contact.vue')
+  },
 ]
 
 const router = createRouter({

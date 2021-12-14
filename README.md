@@ -1,12 +1,19 @@
-# Jack Bailey's Portfolio
-
-A VueJS portfolio I made to demonstrate my skills and provide an easy way to contact me & see my projects.
-
-Makes use of [Jack Bailey API](https://api.jackbailey.uk)
+# purpleportfolio
 
 ## Project setup
 ```
-npm install
+yarn install
 ```
 
-Please contact me if you plan to reuse this Website somewhere. I'll be fine with you doing it just let me know beforehand please :)
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
