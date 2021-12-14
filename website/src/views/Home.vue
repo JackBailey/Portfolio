@@ -1,13 +1,10 @@
 <template>
   <div class="mainPage">
     <Intro class="item"/>
-    <img v-show="dark" class="wavyDivider" :src="getImg('waves-dark.svg')">
-    <img v-show="!dark" class="wavyDivider" :src="getImg('waves-white.svg')">
-
+    <img class="wavyDivider" :src="dark ? getImg('waves-dark.svg') : getImg('waves-white.svg')">
     <About class="item"/>
     <Projects class="item"/>
-    <img v-show="dark" class="straightDivider" :src="getImg('tilt-dark.svg')">
-    <img v-show="!dark" class="straightDivider" :src="getImg('tilt-white.svg')">
+    <img class="straightDivider" :src="dark ? getImg('tilt-dark.svg') : getImg('tilt-white.svg')">
     <Contact :page="'home'" class="item"/>
   </div>
 </template>
