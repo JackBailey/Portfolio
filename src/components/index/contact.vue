@@ -10,7 +10,7 @@
             
         </form>
         <div class="response" v-if="sent">
-            <p>{{success ? 'Thank you for getting in touch' : 'Error - your message was not sent'}}</p>
+            <p>{{success ? 'Thank you for getting in touch' : 'Error - your message was not sent - DM me on twitter if this issue persists'}}</p>
             <button @click="sent=false">{{success ? 'Send Another' : 'Try again'}}</button>
         </div>
         <div class="socials">
@@ -123,13 +123,17 @@ export default{
             }
         }
         .response{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             color: white;
             
             button{
+                width: 300px;
+                margin: 0 auto;
                 background: var(--background);
                 padding: 10px 15px;
                 box-sizing: border-box;
-                border: 1px solid white;
                 color: white;
                 margin: 3px auto;
                 border-radius: 10px;

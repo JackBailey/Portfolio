@@ -6,7 +6,7 @@
                 <div class="projectTitle">
                     <h1>{{project.name}}</h1>
                     <span v-if="['contracted','commisioned'].includes(project.type)" :title="'This project is ' + project.type">
-                        <i class="type fas fa-money-bill"></i>
+                        <i class="fas fa-hand-holding-usd"></i>
                     </span>
                 </div>
                 <p class="role">{{project.role}}</p>

@@ -25,11 +25,9 @@ export default {
 
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       this.dark = true
-      console.log("preference")
     }
     if (localStorage.getItem("dark") != null){
       this.dark = localStorage.getItem("dark") == "true"
-      console.log("storage")
     }
   },
   watch:{
@@ -74,6 +72,10 @@ html, body{
   --foreground-light: #444;
   --background: white;
   --accent: #591296;
+  ::selection{
+    background: var(--accent);
+    color: white;
+  }
   &.dark{
     --foreground-light: #ccc;
     --foreground: white;

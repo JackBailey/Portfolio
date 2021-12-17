@@ -18,6 +18,21 @@ const routes = [
     path: '/contact',
     component: () => import(/* webpackChunkName: "about" */ '../components/index/contact.vue')
   },
+  {
+    meta: {
+      title: "Credits"
+    },
+    path: '/credits',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Credits.vue')
+  },
+  // 404
+  {
+    meta: {
+      title: "404"
+    },
+    path: '/:catchAll(.*)',
+    component: () => import(/* webpackChunkName: "about" */ '../views/NotFound.vue')
+  }
 ]
 
 const router = createRouter({
