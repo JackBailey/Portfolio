@@ -8,6 +8,8 @@
             <a href="#projects">Projects</a>
             <span>&#8226;</span>
             <a href="#contact">Contact</a>
+            <span>&#8226;</span>
+            <router-link to="/credits">Credits</router-link>
         </nav>
         <a href="#about" class="downArrow">
             <p>Explore More</p>

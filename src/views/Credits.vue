@@ -79,7 +79,7 @@
     .credits{
         .creditsInner{
             width: 80%;
-            max-height: 100vh;
+            max-height: 90vh;
             overflow-y: scroll;
             h1{
                 font-size: 30px;

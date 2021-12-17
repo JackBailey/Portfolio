@@ -32,7 +32,15 @@ const routes = [
     },
     path: '/:catchAll(.*)',
     component: () => import(/* webpackChunkName: "about" */ '../views/NotFound.vue')
-  }
+  },
+  // discord
+  {
+    meta: {
+      title: "Discord"
+    },
+    path: '/discord',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Discord.vue')
+  },
 ]
 
 const router = createRouter({

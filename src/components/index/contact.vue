@@ -23,9 +23,9 @@
             <a href="https://instagram.com/JackBailey.1/" target="_blank">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://ko-fi.com/jackb" target="_blank">
-                <i class="fas fa-coffee"></i>
-            </a>
+            <router-link to="/discord">
+                <i class="fab fa-discord"></i>
+            </router-link>
         </div>
 
     </div>
