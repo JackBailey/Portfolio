@@ -2,12 +2,12 @@
 	<div class="about" id="about">
 		<div class="left">
 			<h1>Hi! I’m Jack Bailey - Welcome to my portfolio</h1>
-			<p>I’m a frontend website developer from the UK.</p>
+			<p>I’m a fullstack website developer from the UK.</p>
 			<p>
 				I’ve been developing various projects in a variety of languages such as Python, JavaScript and C# for many years but over the past year I’ve discovered my passion for website
 				development and have quickly built up my skillset and developed websites for a variety of individual people and businesses.
 			</p>
-			<p>Currently I’m mostly doing frontend website development and design but I also develop APIs in Flask.</p>
+			<p>Currently I’m mostly doing fullstack website development and design but I also develop APIs in Flask.</p>
 			<div class="status" v-if="status != ''">
 				<p>
 					I'm currently
