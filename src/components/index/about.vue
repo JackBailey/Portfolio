@@ -7,7 +7,6 @@
 				I’ve been developing various projects in a variety of languages such as Python, JavaScript and C# for many years but over the past year I’ve discovered my passion for website
 				development and have quickly built up my skillset and developed websites for a variety of individual people and businesses.
 			</p>
-			<p>Currently I’m mostly doing fullstack website development and design but I also develop APIs in Flask.</p>
 			<div class="status" v-if="status != ''">
 				<p>
 					I'm currently
