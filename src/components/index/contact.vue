@@ -42,7 +42,7 @@ export default{
     },
     mounted(){
         this.sent = this.$route.query.sent != null;
-        this.success = this.$route.query.sent == 'true';
+        this.success = this.$route.query.success == 'true';
     }
 }
 </script>
