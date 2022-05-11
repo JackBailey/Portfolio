@@ -33,7 +33,7 @@ export default{
     },
     methods: {
         async getProjects(){
-            var response =  await fetch("https://api.jackbailey.uk/projects")
+            var response =  await fetch("https://api.jackbailey.dev/projects")
             var data = await response.json()
 
             var projects = []
