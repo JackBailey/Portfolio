@@ -17,7 +17,7 @@
 					variety of individual people and businesses.
 				</p>
 				<p class="status" v-if="status"
-					>I'm currently <span :status="status">{{ status }}</span> - <a>send me a message</a></p
+					>I'm currently <span :status="status">{{ status }}</span> - <a href="#contact">send me a message</a></p
 				>
 			</div>
 			<img src="https://cdn.jackbailey.dev/logos/jb/blue.svg" alt="" />
@@ -397,6 +397,7 @@ export default {
 						cursor: pointer;
 						color: $color-accent;
 						position: relative;
+						text-decoration: none;
 						&::after {
 							bottom: 0;
 							height: 1px;
