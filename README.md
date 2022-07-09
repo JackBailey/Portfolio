@@ -1,7 +1,15 @@
-# Vue 3 + Vite
+# Jack Bailey's Portfolio
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A VueJS portfolio I made to demonstrate my skills and provide an easy way to contact me & see my projects.
 
-## Recommended IDE Setup
+Makes use of [Jack Bailey API](https://api.jackbailey.uk) and [LanyardAPI](https://github.com/Phineas/lanyard/)
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+## Project setup
+
+```
+yarn
+```
+
+```
+yarn dev
+```
