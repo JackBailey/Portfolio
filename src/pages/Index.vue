@@ -106,7 +106,6 @@
 </template>
 
 <script>
-import Projects from "../assets/projects.json";
 import Contact from "../components/Contact.vue";
 export default {
 	components: {
@@ -178,7 +177,7 @@ export default {
 				this.projects.filter((project) => project.data.featured)[el.attributes.projectID.value].height = percentage < 0 ? 0 : percentage;
 			});
 		},
-		getProjects() {
+		async getProjects() {
 			function convertDate(date) {
 				if (!date) {
 					return date;
@@ -190,34 +189,45 @@ export default {
 				}
 			}
 
-			this.projects = Projects.sort((a, b) => {
-				if (!a.ended) {
-					return false;
-				} else if (a.ended > b.ended) {
-					return false;
-				} else {
-					return true;
-				}
-			}).map((project, index) => {
-				if (project.details) {
-					var links = project.details.match(/\[.*?\)/g);
-					if (links != null && links.length > 0) {
-						for (let link of links) {
-							let txt = link.match(/\[(.*?)\]/)[1];
-							let url = link.match(/\((.*?)\)/)[1];
-							project.details = project.details.replace(link, '<a href="' + url + '" target="_blank">' + txt + "</a>");
-						}
-					}
-				}
-				project.started = convertDate(project.started);
-				project.ended = convertDate(project.ended);
+			try {
+				const response = await fetch("https://api.jackbailey.dev/projects");
 
-				return {
-					data: project,
-					height: 0,
-					position: Projects.filter((project) => project.featured)[0].name == project.name ? "absolute" : "fixed",
-				};
-			});
+				const data = await response.json();
+
+				this.projects = data
+					.sort((a, b) => {
+						if (!a.ended) {
+							return false;
+						} else if (a.ended > b.ended) {
+							return false;
+						} else {
+							return true;
+						}
+					})
+					.map((project, index) => {
+						if (project.details) {
+							var links = project.details.match(/\[.*?\)/g);
+							if (links != null && links.length > 0) {
+								for (let link of links) {
+									let txt = link.match(/\[(.*?)\]/)[1];
+									let url = link.match(/\((.*?)\)/)[1];
+									project.details = project.details.replace(link, '<a href="' + url + '" target="_blank">' + txt + "</a>");
+								}
+							}
+						}
+						project.started = convertDate(project.started);
+						project.ended = convertDate(project.ended);
+
+						return {
+							data: project,
+							height: 0,
+							position: data.filter((project) => project.featured)[0].name == project.name ? "absolute" : "fixed",
+						};
+					});
+			} catch (err) {
+				console.log("Error loading projects");
+				console.log(err);
+			}
 		},
 	},
 	data() {
