@@ -9,6 +9,10 @@ const routes = [
 		path: "/contact",
 		component: () => import("../components/Contact.vue"),
 	},
+	{
+		path: "/:pathMatch(.*)*",
+		component: () => import("../pages/NotFound.vue"),
+	},
 ];
 
 const router = createRouter({
