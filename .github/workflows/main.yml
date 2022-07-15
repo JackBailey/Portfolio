@@ -22,4 +22,12 @@ jobs:
         uses: wei/curl@master
         with:
           args: -X POST --url "https://api.bunny.net/purge?url=https%3A%2F%2Fjackbailey.dev%2F%2A" --header "AccessKey:${{ secrets.BUNNY_API_KEY }}"
+      - name: Create commit comment
+        uses: peter-evans/commit-comment@v2
+        with:
+          body: |
+            Project built and deployed to BunnyCDN
+            - Production Domain: [jackbailey.dev][1]
+
+            [1]: https://jackbailey.dev
         
