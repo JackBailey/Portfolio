@@ -1,10 +1,7 @@
+
+
+on: push
 name: DEPLOY TO STAGING
-
-on:
-  push:
-    branches:
-      - develop
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
