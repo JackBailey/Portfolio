@@ -1,4 +1,4 @@
-name: DEPLOY TO STAGING
+name: Build and Deploy
 on:
   push:
     branches:
