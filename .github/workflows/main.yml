@@ -6,7 +6,7 @@ on:
       - develop
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -15,16 +15,10 @@ jobs:
       - run: yarn
       - name: Building the project
       - run: yarn build
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    steps:
-    - name: Get latest code
-      uses: actions/checkout@v2
-    
-    - name: Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.0
-      with:
-        server: storage.bunnycdn.com
-        username: jackbailey-portfolio
-        password: ${{ secrets.ftp_password }}
+      - name: Get latest code
+      - name: Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: storage.bunnycdn.com
+          username: jackbailey-portfolio
+          password: ${{ secrets.ftp_password }}
