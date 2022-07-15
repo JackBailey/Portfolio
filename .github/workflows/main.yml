@@ -1,17 +1,17 @@
-
-
-on: push
 name: DEPLOY TO STAGING
+on: push
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@master
+      - name: Get project files
+        uses: actions/checkout@master
+      - name: Install node
+        uses: actions/setup-node@master
       - name: Installing project dependencies
-      - run: yarn
+        run: yarn
       - name: Building the project
-      - run: yarn build
+        run: yarn build
       - name: Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
