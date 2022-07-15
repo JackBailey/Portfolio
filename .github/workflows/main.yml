@@ -15,7 +15,6 @@ jobs:
       - run: yarn
       - name: Building the project
       - run: yarn build
-      - name: Get latest code
       - name: Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
