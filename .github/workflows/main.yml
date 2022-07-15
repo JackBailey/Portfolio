@@ -12,13 +12,9 @@ jobs:
         run: yarn
       - name: Building the project
         run: yarn build
-      - name: Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      - name: Deploy to BunnyCDN
+        uses: ayeressian/bunnycdn-storage-deploy@master
         with:
-          local-dir: dist/
-          server-dir: jackbailey-portfolio/
-          protocol: ftp
-          dangerous-clean-slate: true
-          server: storage.bunnycdn.com
-          username: jackbailey-portfolio
-          password: ${{ secrets.ftp_password }}
+          source: "dist"
+          storageZoneName: "jackbailey-portfolio"
+          accessKey: "${{ secrets.BUNNY_CDN_STORAGE_KEY }}"
