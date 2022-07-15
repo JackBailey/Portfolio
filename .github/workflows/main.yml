@@ -1,0 +1,30 @@
+name: DEPLOY TO STAGING
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+      - name: Installing project dependencies
+      - run: yarn
+      - name: Building the project
+      - run: yarn build
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get latest code
+      uses: actions/checkout@v2
+    
+    - name: Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: storage.bunnycdn.com
+        username: jackbailey-portfolio
+        password: ${{ secrets.ftp_password }}
