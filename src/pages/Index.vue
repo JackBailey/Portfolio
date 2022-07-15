@@ -102,6 +102,9 @@
 			</div>
 		</div>
 		<Contact />
+		<div class="createdBy">
+			<a href="https://github.com/Jack-Bailey/Portfolio" target="_blank">Designed & Developed by Jack Bailey</a>
+		</div>
 	</div>
 </template>
 
@@ -149,9 +152,6 @@ export default {
 					}
 				}
 			};
-		},
-		getImage(img) {
-			return new URL(`../assets/sites/${img}`, import.meta.url).href;
 		},
 		handleScroll() {
 			var scrollSections = document.querySelectorAll(".scrollSections > .section");
@@ -390,7 +390,7 @@ export default {
 							color: #38c768;
 						}
 						&[status="offline"] {
-							color: $color-foreground-3;
+							color: grey;
 						}
 					}
 					a {
@@ -537,6 +537,7 @@ export default {
 		.projectsInner {
 			display: grid;
 			grid-template-columns: repeat(auto-fill, 30rem);
+			grid-auto-rows: 1fr;
 			gap: 3rem;
 			place-content: center;
 		}
@@ -546,9 +547,9 @@ export default {
 			margin-bottom: 2rem;
 		}
 		.project {
+			background: $color-background-2;
 			padding: 1rem 1rem;
 			border-radius: 10px;
-			border: 1px solid #b0afae;
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
@@ -565,8 +566,8 @@ export default {
 					display: block;
 
 					a {
-						color: white;
-						text-decoration: none;
+						color: $color-foreground-1;
+
 						font-size: 1.5rem;
 						display: inline-grid;
 						place-content: center;
@@ -586,13 +587,27 @@ export default {
 			> :deep(p) {
 				font-weight: 500;
 				a {
-					text-decoration: none;
+					text-decoration: underline;
 					color: $color-accent;
 					font-weight: 600;
 				}
 			}
 			.technologies {
 				margin-top: 0;
+			}
+		}
+	}
+
+	.createdBy {
+		padding: 2rem 5rem;
+		text-align: center;
+		a {
+			color: white;
+			text-decoration: none;
+			font-weight: 500;
+			transition: 150ms ease-in-out;
+			&:hover {
+				color: $color-accent;
 			}
 		}
 	}

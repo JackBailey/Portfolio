@@ -4,12 +4,12 @@
 		<h3>Lets get in touch!</h3>
 		<div :class="['input', email.error.name ? 'error' : '']">
 			<input v-model="email.data.name" name="name" @input="email.error.name = null" type="text" ref="usernameInput" />
-			<p :class="[email.data.name == '' ? 'empty' : '']" @click="$refs.usernameInput.focus()">Name</p>
+			<p @click="$refs.usernameInput.focus()">Name</p>
 		</div>
 		<p>{{ email.error.name }}</p>
 		<div :class="['input', email.error.email ? 'error' : '']">
 			<input v-model="email.data.email" name="email" @input="email.error.email = null" type="email" ref="emailInput" />
-			<p :class="[email.data.email == '' ? 'empty' : '']" @click="$refs.emailInput.focus()">Email</p>
+			<p @click="$refs.emailInput.focus()">Email</p>
 		</div>
 		<p>{{ email.error.email }}</p>
 		<div :class="['input textarea', email.error.message ? 'error' : '']">
@@ -22,7 +22,7 @@
 				cols="30"
 				rows="10"
 			></textarea>
-			<p :class="[email.data.message == '' ? 'empty' : '']" @click="$refs.messageInput.focus()">Message</p>
+			<p @click="$refs.messageInput.focus()">Message</p>
 		</div>
 		<p>{{ email.error.message }}</p>
 		<button @click="sendEmail" :class="[email.sending ? 'sending' : '']"><span>Send</span><img src="@/assets/bars.svg" alt="" /></button>
@@ -115,7 +115,7 @@ export default {
 .contact {
 	padding: 5% 10%;
 	box-sizing: border-box;
-	min-height: 100%;
+	min-height: 100vh;
 	h2 {
 		font-size: 3rem;
 		font-weight: 500;
@@ -133,19 +133,26 @@ export default {
 	}
 
 	.input {
-		z-index: 1;
 		&:not(.textarea) {
 			width: 30rem;
 			max-width: 100%;
 		}
 		position: relative;
+		p {
+			position: absolute;
+			top: -1rem;
+			left: 0.5rem;
+			transition: 150ms ease-in-out;
+			padding: 0 5px;
+			background: $color-background-1;
+		}
 
 		input {
 			width: 100%;
 
 			border: 1px solid #b0afae;
 			background: none;
-			color: white;
+			color: $color-foreground-1;
 			padding: 2px 1rem;
 			position: relative;
 			transition: 150ms ease-in-out;
@@ -169,34 +176,12 @@ export default {
 			}
 		}
 
-		p {
-			z-index: -1;
-			position: absolute;
-			top: 0.2rem;
-			left: 0.5rem;
-			transition: 150ms ease-in-out;
-			padding: 0 5px;
-			background: $color-background-1;
-			font-size: 1.1rem;
-
-			&:not(.empty) {
-				top: -0.5rem;
-				font-size: 0.8rem;
-				z-index: 2;
-			}
-		}
-
 		textarea,
 		input {
 			border-radius: 5px;
 			&:focus {
 				outline: none;
 				border-color: $color-accent;
-				~ p {
-					top: -0.5rem;
-					font-size: 0.8rem;
-					z-index: 2;
-				}
 			}
 		}
 	}
