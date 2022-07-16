@@ -497,7 +497,7 @@ export default {
 					font-size: 1.5rem;
 					:deep(a) {
 						color: $color-accent;
-						text-decoration: none;
+						font-weight: bold;
 					}
 				}
 				.moreDetails {
