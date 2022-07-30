@@ -12,7 +12,7 @@
                 <p class="role">{{project.role}}</p>
                 <p class="date">{{project.started}}{{!project.ended ? ' - Present' : project.ended != project.started ? ' - ' + project.ended : ''}}</p>
                 <a :href="link.url" v-for="link in project.links" :key="link.name">{{link.name}}</a>
-                <span :title="language.name" class="language" v-for="language in project.languages" :key="language.name">
+                <span :title="language.name" class="language" v-for="language in project.technologies" :key="language.name">
                     <img :src="language.logo"/>                        
                 </span>
             </div>
