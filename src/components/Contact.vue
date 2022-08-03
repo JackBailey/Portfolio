@@ -303,9 +303,12 @@ export default {
 	transform: translateY(-50%);
 	bottom: -60%;
 
+	display: none;
+
 	&.active {
 		bottom: 0;
 		transform: none;
+		display: block;
 	}
 
 	@media screen and (max-width: 800px) {
