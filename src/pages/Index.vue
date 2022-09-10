@@ -110,7 +110,7 @@
 
 <script>
 import Contact from "../components/Contact.vue";
-import Projects from "../assets/Projects.json";
+import Projects from "@/assets/projects.json";
 export default {
 	components: {
 		Contact,
@@ -365,6 +365,7 @@ export default {
 		}
 
 		&.about {
+			padding: 20rem 10rem;
 			h2 {
 				font-size: 2rem;
 			}
