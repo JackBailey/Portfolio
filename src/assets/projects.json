@@ -4,20 +4,11 @@
 		"role": "Frontend Website Design and Development",
 		"description": "multi-purpose scripting IDE used to debug lua scripts. ",
 		"featured": true,
-		"screenshot": {
-			"image": "https://cdn.jackbailey.dev/screenshots/script-ware.png",
-			"link": "https://script-ware.com/w"
-		},
+		"screenshot": { "image": "https://cdn.jackbailey.dev/screenshots/script-ware.png", "link": "https://script-ware.com/w" },
 		"started": "2021-10-02",
 		"ended": false,
 		"details": "A [landing page](https://script-ware.com) and [dashboard](https://dashboard.script-ware.com) complete with a script catalogue, purchase integration, account management and profiles for the multi-purpose scripting IDE.",
-		"technologies": [
-			{
-				"name": "VueJS",
-				"logo": "https://cdn.jackbailey.dev/technologies/vue.svg",
-				"link": "https://vuejs.org/"
-			}
-		]
+		"technologies": [{ "name": "VueJS", "logo": "https://cdn.jackbailey.dev/technologies/vue.svg", "link": "https://vuejs.org/" }]
 	},
 	{
 		"name": "UNC",
@@ -25,67 +16,32 @@
 		"started": "2022-04-24",
 		"ended": "2022-04-24",
 		"featured": true,
-		"screenshot": {
-			"image": "https://cdn.jackbailey.dev/screenshots/scriptunc.png",
-			"link": "https://scriptunc.org",
-			"position": "left"
-		},
+		"screenshot": { "image": "https://cdn.jackbailey.dev/screenshots/scriptunc.png", "link": "https://scriptunc.org", "position": "left" },
 		"details": "A [website](https://scriptunc.org) for the new, progressive and purposefully vanilla unified scripting API.",
 		"source": "https://github.com/unified-naming-convention/website",
-		"technologies": [
-			{
-				"name": "VueJS",
-				"logo": "https://cdn.jackbailey.dev/technologies/vue.svg",
-				"link": "https://vuejs.org/"
-			}
-		]
+		"technologies": [{ "name": "VueJS", "logo": "https://cdn.jackbailey.dev/technologies/vue.svg", "link": "https://vuejs.org/" }]
 	},
 	{
 		"name": "NexusPIPE",
 		"role": "Frontend Website Design and Development",
 		"started": "2022-03-19",
 		"ended": false,
+		"featured": true,
+		"screenshot": { "image": "https://cdn.jackbailey.dev/screenshots/nexuspipe.png", "link": "https://nexuspipe.com" },
 		"details": "A [landing page](https://nexuspipe.com) and [dashboard](https://dash.nexuspipe.com) for the ADC & DDoS mitigation Company NexusPIPE",
-		"technologies": [
-			{
-				"name": "VueJS",
-				"logo": "https://cdn.jackbailey.dev/technologies/vue.svg",
-				"link": "https://vuejs.org/"
-			}
-		]
+		"technologies": [{ "name": "VueJS", "logo": "https://cdn.jackbailey.dev/technologies/vue.svg", "link": "https://vuejs.org/" }]
 	},
 	{
 		"name": "Cryptic",
 		"role": "Fullstack Development",
 		"started": "2022-01-19",
 		"ended": false,
-		"featured": true,
-		"screenshot": {
-			"image": "https://cdn.jackbailey.dev/screenshots/cryptic.png",
-			"link": "https://cryptic.rip"
-		},
 		"details": "Fully automated [website](https://cryptic.rip) to resell and distribute license keys for various products complete with an admin panel for statistics and payouts.",
 		"technologies": [
-			{
-				"name": "MongoDB",
-				"logo": "https://cdn.jackbailey.dev/technologies/mongodb.svg",
-				"link": "https://www.mongodb.com/"
-			},
-			{
-				"name": "ExpressJS",
-				"logo": "https://cdn.jackbailey.dev/technologies/express.svg",
-				"link": "https://expressjs.com/"
-			},
-			{
-				"name": "VueJS",
-				"logo": "https://cdn.jackbailey.dev/technologies/vue.svg",
-				"link": "https://vuejs.org/"
-			},
-			{
-				"name": "NodeJS",
-				"logo": "https://cdn.jackbailey.dev/technologies/node.svg",
-				"link": "https://nodejs.org/"
-			}
+			{ "name": "MongoDB", "logo": "https://cdn.jackbailey.dev/technologies/mongodb.svg", "link": "https://www.mongodb.com/" },
+			{ "name": "ExpressJS", "logo": "https://cdn.jackbailey.dev/technologies/express.svg", "link": "https://expressjs.com/" },
+			{ "name": "VueJS", "logo": "https://cdn.jackbailey.dev/technologies/vue.svg", "link": "https://vuejs.org/" },
+			{ "name": "NodeJS", "logo": "https://cdn.jackbailey.dev/technologies/node.svg", "link": "https://nodejs.org/" }
 		]
 	},
 	{
@@ -94,13 +50,7 @@
 		"started": "2022-01-21",
 		"ended": false,
 		"details": "A simple [landing page](https://fluxteam.net) and [marketplace](https://fluxteam.net/marketplace/) for the scripting IDE.",
-		"technologies": [
-			{
-				"name": "VueJS",
-				"logo": "https://cdn.jackbailey.dev/technologies/vue.svg",
-				"link": "https://vuejs.org/"
-			}
-		]
+		"technologies": [{ "name": "VueJS", "logo": "https://cdn.jackbailey.dev/technologies/vue.svg", "link": "https://vuejs.org/" }]
 	},
 	{
 		"name": "JackBailey API",
@@ -109,13 +59,7 @@
 		"ended": "2021-10-02",
 		"source": "https://github.com/Jack-Bailey/api",
 		"details": "An [API](https://api.jackbailey.uk) to return projects, provide functionality to the contact form and return steam games for my [gaming website](https://glymps.xyz).",
-		"technologies": [
-			{
-				"name": "Python",
-				"logo": "https://cdn.jackbailey.dev/technologies/python.svg",
-				"link": "https://www.python.org/"
-			}
-		]
+		"technologies": [{ "name": "Python", "logo": "https://cdn.jackbailey.dev/technologies/python.svg", "link": "https://www.python.org/" }]
 	},
 	{
 		"name": "CS Stretch",
@@ -133,22 +77,6 @@
 		]
 	},
 	{
-		"name": "My Portfolio",
-		"role": "Frontend Website Design and Development",
-		"source": "https://github.com/Jack-Bailey/Website",
-		"started": "2021-04-01",
-		"details": "Created to demonstrate and display my skillset in Website Design and Development.",
-		"ended": false,
-		"technologies": [
-			{
-				"name": "VueJS",
-				"logo": "https://cdn.jackbailey.dev/technologies/vue.svg",
-				"link": "https://vuejs.org/"
-			}
-		],
-		"type": "personal"
-	},
-	{
 		"name": "GTA Suspend",
 		"role": "Program Development",
 		"started": "2021-07-23",
@@ -156,11 +84,7 @@
 		"source": "https://github.com/Jack-Bailey/GTA-Suspend",
 		"details": "A simple winform app to suspend + resume an app - Used for GTA \"Solo Public\" Lobbies",
 		"technologies": [
-			{
-				"name": "C#",
-				"logo": "https://cdn.jackbailey.dev/technologies/csharp.svg",
-				"link": "https://docs.microsoft.com/en-us/dotnet/csharp/"
-			}
+			{ "name": "C#", "logo": "https://cdn.jackbailey.dev/technologies/csharp.svg", "link": "https://docs.microsoft.com/en-us/dotnet/csharp/" }
 		]
 	}
 ]
