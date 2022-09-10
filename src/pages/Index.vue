@@ -10,7 +10,7 @@
 		</div>
 		<div class="section about">
 			<div class="content">
-				<h2>I’m a fullstack website developer from the UK.</h2>
+				<h2>I’m a frontend website developer from the UK.</h2>
 				<p
 					>I’ve been developing various projects in a variety of languages such as Python, JavaScript and C# for many years but over the
 					past year I’ve discovered my passion for website development and have quickly built up my skillset and developed websites for a
