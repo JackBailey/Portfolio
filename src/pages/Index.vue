@@ -635,6 +635,7 @@ export default {
 			}
 			&.about {
 				grid-template-columns: 1fr;
+				padding: 4rem 2rem;
 				.content {
 					h2 {
 						font-size: 1.8rem;
