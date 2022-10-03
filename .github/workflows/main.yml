@@ -20,6 +20,7 @@ jobs:
             - name: Deploy to BunnyCDN
               uses: ayeressian/bunnycdn-storage-deploy@master
               with:
+                  remove: true
                   source: "dist"
                   storageZoneName: "jackbailey-portfolio"
                   accessKey: "${{ secrets.BUNNY_CDN_STORAGE_KEY }}"
