@@ -24,9 +24,10 @@ jobs:
                   source: "dist"
                   storageZoneName: "jackbailey-portfolio"
                   accessKey: "${{ secrets.BUNNY_CDN_STORAGE_KEY }}"
-                  purge: true
-                  pullZoneId: 839637
-                  pullZoneAccessKey: "${{ secrets.BUNNY_PULL_ZONE_KEY }}"
+            - name: Purge BunnyCDN Cache
+              uses: wei/curl@master
+              with:
+                args: -X POST --url "https://api.bunny.net/purge?url=https%3A%2F%2Fjackbailey.dev%2F%2A" --header "AccessKey:${{ secrets.BUNNY_API_KEY }}"
             - name: Create commit comment
               uses: peter-evans/commit-comment@v2
               with:
