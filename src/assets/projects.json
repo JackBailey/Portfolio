@@ -1,5 +1,15 @@
 [
 	{
+		"name": "WhatExploitsAreOnline",
+		"role": "Frontend Website Design and Development",
+		"description": "multi-purpose scripting IDE used to debug lua scripts. ",
+		"featured": false,
+		"started": "2022-05-02",
+		"ended": "2022-05-02",
+		"details": "A [landing page](https://whatexploitsare.online/) that integrates the [WEAO API](https://api.whatexploitsare.online/status) and displays the programs on an attractive yet simplistic page.",
+		"technologies": [{ "name": "VueJS", "logo": "https://cdn.jackbailey.dev/technologies/vue.svg", "link": "https://vuejs.org/" }]
+	},
+	{
 		"name": "Script-Ware Software",
 		"role": "Frontend Website Design and Development",
 		"description": "multi-purpose scripting IDE used to debug lua scripts. ",
