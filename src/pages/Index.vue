@@ -103,7 +103,7 @@
 		</div>
 		<Contact />
 		<div class="createdBy">
-			<a href="https://github.com/Jack-Bailey/Portfolio" target="_blank">Designed & Developed by Jack Bailey</a>
+			<a href="https://github.com/JackBailey/Portfolio" target="_blank">Designed & Developed by Jack Bailey</a>
 		</div>
 	</div>
 </template>

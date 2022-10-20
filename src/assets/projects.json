@@ -67,7 +67,7 @@
 		"role": "Fullstack Development",
 		"started": "2021-09-19",
 		"ended": "2021-10-02",
-		"source": "https://github.com/Jack-Bailey/api",
+		"source": "https://github.com/JackBailey/api",
 		"details": "An [API](https://api.jackbailey.uk) to return projects, provide functionality to the contact form and return steam games for my [gaming website](https://glymps.xyz).",
 		"technologies": [{ "name": "Python", "logo": "https://cdn.jackbailey.dev/technologies/python.svg", "link": "https://www.python.org/" }]
 	},
@@ -76,7 +76,7 @@
 		"role": "Script Development",
 		"started": "2021-09-12",
 		"ended": "2021-09-19",
-		"source": "https://github.com/Jack-Bailey/CS-Res",
+		"source": "https://github.com/JackBailey/CS-Res",
 		"details": "A script to adjust your desktop's resolution while running CSGO - allowing for windowed fullscreen in non-native resolutions.",
 		"technologies": [
 			{
@@ -91,7 +91,7 @@
 		"role": "Program Development",
 		"started": "2021-07-23",
 		"ended": "2021-07-23",
-		"source": "https://github.com/Jack-Bailey/GTA-Suspend",
+		"source": "https://github.com/JackBailey/GTA-Suspend",
 		"details": "A simple winform app to suspend + resume an app - Used for GTA \"Solo Public\" Lobbies",
 		"technologies": [
 			{ "name": "C#", "logo": "https://cdn.jackbailey.dev/technologies/csharp.svg", "link": "https://docs.microsoft.com/en-us/dotnet/csharp/" }
