@@ -45,7 +45,7 @@
 		"name": "Cryptic",
 		"role": "Fullstack Development",
 		"started": "2022-01-19",
-		"ended": false,
+		"ended": "2022-06-13",
 		"details": "Fully automated [website](https://cdn.jackbailey.dev/screenshots/cryptic.png) to resell and distribute license keys for various products complete with an admin panel for statistics and payouts.",
 		"technologies": [
 			{ "name": "MongoDB", "logo": "https://cdn.jackbailey.dev/technologies/mongodb.svg", "link": "https://www.mongodb.com/" },
