@@ -1,5 +1,21 @@
 [
 	{
+		"name": "StatusPage",
+		"role": "Fullstack development",
+		"featured": false,
+		"started": "2022-11-11",
+		"ended": false,
+		"details": "StatusPage is a simple node application which uses Express.JS for its homepage and API, and Discord.JS for its discord integration. [Preview](https://script-ware.statuspage.jackbailey.dev)",
+		"source":"https://github.com/jackbailey/statuspage",
+		"technologies": [
+			{
+				"name": "JS",
+				"logo": "https://cdn.jackbailey.dev/technologies/javascript.svg",
+				"link": "https://www.javascript.com/"
+			}
+		]
+    	},
+	{
 		"name": "WhatExploitsAreOnline",
 		"role": "Frontend Website Design and Development",
 		"description": "multi-purpose scripting IDE used to debug lua scripts. ",
