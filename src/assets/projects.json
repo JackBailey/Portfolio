@@ -75,7 +75,7 @@
 		"role": "Frontend Website Design and Development",
 		"started": "2022-01-21",
 		"ended": "2022-06-25",
-		"details": "A simple [landing page](https://fluxteam.net) and [marketplace](https://fluxteam.net/marketplace/) for the scripting IDE.",
+		"details": "A simple [landing page](https://landing.fluxus.projects.jackbailey.dev) and [marketplace](https://marketplace.fluxus.projects.jackbailey.dev) for the scripting IDE.",
 		"technologies": [{ "name": "VueJS", "logo": "https://cdn.jackbailey.dev/technologies/vue.svg", "link": "https://vuejs.org/" }]
 	},
 	{
