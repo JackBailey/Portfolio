@@ -1,12 +1,32 @@
 [
 	{
+		"name": "Lynx",
+		"role": "Fullstack Development",
+		"featured": true,
+		"screenshot": {
+			"image": "https://cdn.jackbailey.dev/screenshots/lynx.png",
+			"link": "https://github.com/JackBailey/Lynx",
+			"position": "left"
+		},
+		"started": "2022-12-09",
+		"ended": false,
+		"details": "A URL shortener complete with bulk url management, accounts and a simple but effective design.",
+		"technologies": [
+			{ "name": "MongoDB", "logo": "https://cdn.jackbailey.dev/technologies/mongodb.svg", "link": "https://www.mongodb.com/" },
+			{ "name": "ExpressJS", "logo": "https://cdn.jackbailey.dev/technologies/express.svg", "link": "https://expressjs.com/" },
+			{ "name": "VueJS", "logo": "https://cdn.jackbailey.dev/technologies/vue.svg", "link": "https://vuejs.org/" },
+			{ "name": "NodeJS", "logo": "https://cdn.jackbailey.dev/technologies/node.svg", "link": "https://nodejs.org/" }
+		],
+		"source": "https://github.com/JackBailey/Lynx"
+	},
+	{
 		"name": "StatusPage",
-		"role": "Fullstack development",
+		"role": "Fullstack Development",
 		"featured": false,
 		"started": "2022-11-11",
-		"ended": false,
+		"ended": "2022-11-24",
 		"details": "StatusPage is a simple node application which uses Express.JS for its homepage and API, and Discord.JS for its discord integration. [Preview](https://script-ware.statuspage.jackbailey.dev)",
-		"source":"https://github.com/jackbailey/statuspage",
+		"source": "https://github.com/jackbailey/statuspage",
 		"technologies": [
 			{
 				"name": "JS",
@@ -14,7 +34,7 @@
 				"link": "https://www.javascript.com/"
 			}
 		]
-    	},
+	},
 	{
 		"name": "WhatExploitsAreOnline",
 		"role": "Frontend Website Design and Development",

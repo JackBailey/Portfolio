@@ -21,9 +21,4 @@ export default defineConfig({
 			"@": resolve(__dirname, "./src"),
 		},
 	},
-	server: {
-		hmr: {
-			clientPort: 443,
-		},
-	},
 });
