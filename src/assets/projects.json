@@ -52,7 +52,7 @@
 		"featured": true,
 		"screenshot": { "image": "https://cdn.jackbailey.dev/screenshots/script-ware.png", "link": "https://script-ware.com/w" },
 		"started": "2021-10-02",
-		"ended": false,
+		"ended": "2022-12-23",
 		"details": "A [landing page](https://script-ware.com) and [dashboard](https://dashboard.script-ware.com) complete with a script catalogue, purchase integration, account management and profiles for the multi-purpose scripting IDE.",
 		"technologies": [{ "name": "VueJS", "logo": "https://cdn.jackbailey.dev/technologies/vue.svg", "link": "https://vuejs.org/" }]
 	},
@@ -71,7 +71,7 @@
 		"name": "NexusPIPE",
 		"role": "Frontend Website Design and Development",
 		"started": "2022-03-19",
-		"ended": false,
+		"ended": "2022-12-23",
 		"featured": true,
 		"screenshot": { "image": "https://cdn.jackbailey.dev/screenshots/nexuspipe.png", "link": "https://nexuspipe.com" },
 		"details": "A [landing page](https://nexuspipe.com) and [dashboard](https://dash.nexuspipe.com) for the ADC & DDoS mitigation Company NexusPIPE",
