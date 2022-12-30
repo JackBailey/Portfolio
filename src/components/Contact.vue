@@ -52,7 +52,7 @@ export default {
 			this.email.sending = true;
 			this.email.sent = false;
 
-			var response = await fetch("https://api.jackbailey.dev/contact", {
+			var response = await fetch("https://contact.jackbailey.dev", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -60,7 +60,7 @@ export default {
 				body: JSON.stringify({
 					name: this.email.data.name,
 					email: this.email.data.email,
-					emailBody: this.email.data.message,
+					message: this.email.data.message,
 				}),
 			});
 
@@ -75,7 +75,7 @@ export default {
 					this.email.data = {
 						name: "",
 						email: "",
-						emailBody: "",
+						message: "",
 					};
 				} else {
 					this.email.success = false;
