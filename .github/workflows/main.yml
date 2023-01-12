@@ -27,7 +27,7 @@ jobs:
             - name: Purge BunnyCDN Cache
               uses: wei/curl@master
               with:
-                args: -X POST --url "https://api.bunny.net/purge?url=https%3A%2F%2Fjackbailey.dev%2F%2A" --header "AccessKey:${{ secrets.BUNNY_API_KEY }}"
+                args: --request POST --url 'https://api.bunny.net/purge?url=https%3A%2F%2Fjackbailey.dev%2F%2A&async=false' --header 'AccessKey:${{ secrets.BUNNY_API_KEY }}'
             - name: Create commit comment
               uses: peter-evans/commit-comment@v2
               with:
