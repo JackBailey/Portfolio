@@ -5,7 +5,7 @@
 				<sub>Hi there!</sub>
 				<h1>I'm <span>Jack Bailey</span></h1>
 				<h2>I design & develop attractive, functional websites.</h2>
-				<a button href="#contact"><button>Hire Me</button></a>
+				<a button href="#contact"><button>Contact Me</button></a>
 			</div>
 		</div>
 		<div class="section about">
@@ -349,7 +349,7 @@ export default {
 						content: "";
 						transition: 250ms ease-in-out;
 						overflow: hidden;
-						content: "Hire Me";
+						content: "Contact Me";
 						color: black;
 						clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
 					}
