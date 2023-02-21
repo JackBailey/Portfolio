@@ -1,0 +1,6 @@
+version: '3'
+services:
+  portfolio:
+    image: jackbailey/portfolio
+    ports:
+      - 3000:3000
