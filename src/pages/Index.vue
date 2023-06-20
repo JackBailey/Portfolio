@@ -1,5 +1,12 @@
 <template>
 	<div class="home">
+		<div class="modal" @click.self="modal.visible = false;" v-show="modal.visible">
+			<div class="modal-content">
+				<h3>{{ modal.title }}</h3>
+				<p>{{ modal.body}}</p>
+				<img :src="modal.img.src" :alt="modal.img.alt">
+			</div>
+		</div>
 		<div class="section hero">
 			<div class="content">
 				<sub>Hi there!</sub>
@@ -102,9 +109,13 @@
 			</div>
 		</div>
 		<Contact />
-		<div class="createdBy">
-			<a href="https://github.com/JackBailey/Portfolio" target="_blank">Designed & Developed by Jack Bailey</a>
-		</div>
+		<footer>
+			<p>Source code available on <a href="https://github.com/JackBailey/Portfolio" target="_blank">GitHub</a></p>
+			<div class="socials">
+				<a href="https://github.com/JackBailey" target="_blank" rel="noopener noreferrer"><font-awesome-icon icon="fab fa-github"/></a>
+				<a @click="modal.visible = true"><font-awesome-icon icon="fab fa-discord"/></a>
+			</div>
+		</footer>
 	</div>
 </template>
 
@@ -150,6 +161,12 @@ export default {
 					}
 					if (user) {
 						this.status = user.discord_status == "offline" ? "offline" : "online";
+
+						let discriminator = user.discord_user.discriminator !== "0" && user.discord_user.discriminator;
+						this.modal.title = "Add me on Discord:";
+						this.modal.body = (!discriminator ? "@" : "") + user.discord_user.username + (discriminator ? `#${discriminator}` : "")
+						this.modal.img.src = `https://cdn.discordapp.com/avatars/${user.discord_user.id}/${user.discord_user.avatar}?size=256`;
+						this.modal.img.alt = `${user.discord_user.username}'s Logo`;						
 					}
 				}
 			};
@@ -229,6 +246,16 @@ export default {
 		return {
 			status: null,
 			projects: [],
+			discordUsername: "",
+			modal: {
+				visible: false,
+				title: "",
+				body: "",
+				img: {
+					src: "",
+					alt: ""
+				}
+			},
 		};
 	},
 	mounted() {
@@ -246,6 +273,34 @@ export default {
 <style lang="scss" scoped>
 .home {
 	overflow-y: auto;
+
+	.modal {
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+		background: rgba(black, 0.6);
+		z-index: 5;
+		display: grid;
+		place-content: center;
+		.modal-content {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			background-color: $color-background-2;
+			padding: 1rem;
+			border-radius: 10px;
+			min-width: 30rem;
+			max-width: 80%;
+			img {
+				margin: 1rem 0;
+				border-radius: 50%;
+				width: 10rem;
+				border: 2px solid $color-accent;
+			}
+		}
+	}
 
 	.section {
 		padding: 8rem 10rem;
@@ -594,7 +649,7 @@ export default {
 		}
 	}
 
-	.createdBy {
+	footer {
 		padding: 2rem 5rem;
 		text-align: center;
 		a {
@@ -604,6 +659,19 @@ export default {
 			transition: 150ms ease-in-out;
 			&:hover {
 				color: $color-accent;
+			}
+		}
+		.socials {
+			display: flex;
+			justify-content: center;
+			gap: 0.5rem;
+			margin-top: 1rem;
+			a {
+				cursor: pointer;
+				text-decoration: none;
+				svg {
+					font-size: 1.5rem;
+				}
 			}
 		}
 	}
