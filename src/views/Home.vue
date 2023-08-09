@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import Intro from "@/components/index/intro.vue"
-import About from "@/components/index/about.vue"
-import Projects from "@/components/index/projects.vue"
-import Contact from "@/components/index/contact.vue"
+import Intro from "../components/index/intro.vue";
+import About from "../components/index/about.vue";
+import Projects from "../components/index/projects.vue";
+import Contact from "../components/index/contact.vue";
 export default{
   props: ["dark"],
   components: {
@@ -27,7 +27,7 @@ export default{
   },
   methods: {
     getImg(image){
-      return require(`@/assets/${image}`)
+      return new URL(`../assets/${image}`, import.meta.url).href;
     }
   },
   mounted(){
