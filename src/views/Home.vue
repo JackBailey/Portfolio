@@ -65,7 +65,8 @@ export default{
   overflow-x: hidden;
 }
 .straightDivider {
-  vertical-align: bottom
+  vertical-align: bottom;
+  width: 100%;
 }
 .wavyDivider{
   vertical-align: bottom;
