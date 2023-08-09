@@ -2,7 +2,7 @@
     <div class="discord">
         <h3 v-if="error == ''">Add me on discord</h3>
         <img v-if="error == ''" :src="avatar">
-        <p v-if="error == ''">{{user.username}}<span>#{{user.discriminator}}</span></p>
+        <p v-if="error == ''"><span v-if="user.discriminator === '0'">@</span>{{ user.username }}<span class="discord-discriminator" v-if="user.discriminator !== '0'">#{{ user.discriminator }}</span></p>
         <p>{{error}}</p>
         <a href="https://discord.gg/lanyard" v-if="code == 'user_not_monitored'">Join the server to fix this</a>
         <router-link to="/">Go Home</router-link>
@@ -72,7 +72,7 @@ export default{
         color: white;
         font-size: 60px;
         font-weight: bold;
-        span{
+        span.discord-discriminator{
             color: #591296;
             font-size: 40px;
         }
