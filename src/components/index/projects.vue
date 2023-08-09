@@ -33,7 +33,7 @@ export default{
     },
     methods: {
         async getProjects(){
-            var response =  await fetch("https://api.jackbailey.dev/projects")
+            var response = await fetch("https://raw.githubusercontent.com/JackBailey/Portfolio/main/src/assets/projects.json");
             var data = await response.json()
 
             var projects = []
@@ -85,6 +85,7 @@ export default{
     .projectsInner{
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 15px;
         .project{
             .projectTitle{
                 display: flex;
