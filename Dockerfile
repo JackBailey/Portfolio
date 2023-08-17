@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:lts-alpine AS BUILD_IMAGE
 
 RUN npm install -g serve
 
@@ -12,6 +12,12 @@ COPY . .
 
 RUN yarn build
 
+FROM pierrezemb/gostatic
+
+WORKDIR /app
+
+COPY --from=BUILD_IMAGE /app/dist /srv/http
+
 EXPOSE 3000
 
-CMD [ "serve", "dist", "-p", "3000", "-s", "-n"]
+CMD ["--port", "3000", "--fallback", "index.html"]
