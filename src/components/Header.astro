@@ -1,0 +1,79 @@
+---
+import "../styles/global.scss";
+---
+
+<nav>
+    <ul>
+        <li>
+            <a href="/">
+                Home
+            </a>
+        </li>
+        <li>
+            <a href="">
+                About
+            </a>
+        </li>
+        <li>
+            <a href="/blog">
+                Blog
+            </a>
+        </li>
+        <li>
+            <a href="">
+                Projects
+            </a>
+        </li>
+        <li>
+            <a href="">Contact me</a>
+        </li>
+    </ul>
+</nav>
+
+<style lang="scss">
+nav {
+    background-color: var(--background-1);
+    ul {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        list-style-type: none;
+        color: red;
+        gap: 0.5rem;
+        margin: 0;
+        padding: 0.5rem 2rem;
+        // box-sizing: border-box;
+        li {
+            // box-sizing: border-box;
+            a {
+                display: block;
+                text-decoration: none;
+                color: white;
+                margin: 0;
+                box-sizing: border-box;
+                padding: 0.5rem 1rem;
+                font-size: 1.2rem;
+                transition: 250ms ease-in-out;
+            }
+
+            &:not(:last-of-type) a {
+                &:hover {
+                    color: var(--accent);
+                }
+
+            }
+
+            &:last-of-type a {
+                background-color: var(--accent);
+                border-radius: 100rem;
+                &:hover {
+                    color: var(--accent);
+                    background-color: var(--foreground-1);
+                }
+                // box-sizing: border-box;
+                
+            }
+        }
+    }
+}
+</style>
