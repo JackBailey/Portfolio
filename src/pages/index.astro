@@ -1,7 +1,170 @@
 ---
 import MainLayout from "../layouts/Main.astro";
+import WavyDivider from "../components/WavyDivider.astro";
+
+import developerActivity from "../assets/illustrations/undraw-developer-activity.svg?raw";
 ---
 
 <MainLayout>
-	main page!
+	<main>
+		<div class="section" id="hero">
+			<div class="section-content">
+				<div class="title">
+					<h1>Hi there!</h1>
+					<h1>I'm <span>Jack Bailey</span></h1>	
+				</div>
+				<div class="cta">
+					<p>I handle the development, deployment and maintenance of your website, start to finish.</p>
+					<div class="buttons">
+						<button>
+							Contact me
+						</button>
+						<button>
+							My work
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<WavyDivider/>
+		<div class="section" id="about">
+			<div class="section-content">
+				<div class="content">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro sit explicabo dicta? Commodi delectus, reiciendis ea amet labore dolorum, provident repudiandae dicta incidunt maiores dolorem architecto iste eius quae sit!
+				</div>
+				<div class="illustration">
+					<Fragment set:html={developerActivity} alt="A developer behind a monitor, with a GitHub-style commit history behind him" style="background: blue;">
+				</div>
+			</div>
+		</div>
+	</main>
 </MainLayout>
+
+
+
+<style lang="scss">
+	main {
+		.section {
+			.section-content {
+				width: clamp(16rem, 90vw, 70rem);
+				margin: 0 auto;
+			}
+			&#hero {
+				.section-content {
+					height: 70vh;
+					padding: 4rem 4rem 0;
+					box-sizing: border-box;
+	
+					display: flex;
+					gap: 5rem;
+					align-items: center;
+					justify-content: space-between;
+					text-align: left;
+					.title {
+						h1 {
+							white-space: nowrap;
+							margin: 0;
+							font-size: 3rem;
+							&:first-of-type {
+								font-size: 1.5rem;
+								font-weight: 300;
+							}
+	
+							> span {
+								color: var(--accent);
+							}
+						}
+	
+						h2 {
+							font-size: 1.3rem;
+						}
+					}
+	
+					.cta {
+						max-width: 42ch;
+						font-weight: 300;
+	
+						p {
+							font-size: 1.1rem;
+						}
+	
+						.buttons {
+							display: flex;
+							flex-direction: row;
+							gap: 1rem;
+							button {
+								padding: 0.5em 1em;
+								border: none;
+								border-radius: 0.5rem;
+								font-size: 1rem;
+								color: var(--foreground-1);
+								font-family: inherit;
+								cursor: pointer;
+								&:first-child {
+									background-color: var(--accent);
+									border: 1px solid var(--accent);
+								}
+								&:nth-child(2) {
+									background: none;
+									border: 1px solid var(--foreground-1);
+								}
+							}
+						}
+					}
+				}
+
+			}
+			&#about {
+				background-color: #1f195a;
+
+				.section-content {
+					padding: 4rem;
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					align-items: center;
+	
+					.illustration {
+						display: grid;
+						place-content: center;
+						
+					}
+	
+					.illustration :global(svg) {
+						width: 18rem;
+						height: 18rem;
+						margin-left: auto;
+					}
+				}
+			}
+
+			@media screen and (max-width: 1000px){
+				&#hero {
+					flex-direction: column;
+					justify-content: center;
+					align-items: flex-start;
+					gap: 0;
+					width: max-content;
+					max-width: 100%;
+				}
+			}
+
+			@media screen and (max-width: 768px) {
+				&#hero {
+					padding: 2rem 2rem 0;
+					gap: 0;
+
+					.title {
+						h1 {
+							white-space: normal;
+							font-size: 2.5rem;
+						}
+					}
+
+					.cta {
+						max-width: unset;
+					}
+				}
+			}
+		}
+	}
+</style>

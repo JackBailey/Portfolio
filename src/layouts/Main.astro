@@ -12,9 +12,7 @@ import Header from "../components/Header.astro";
 </head>
 <body>
     <Header/>
-    <main>
-        <slot />
-    </main>
+    <slot />
 </body>
 </html>
 
@@ -28,6 +26,10 @@ import Header from "../components/Header.astro";
 	}
 
     :root, html, body {
-        color: white;
+        color: var(--foreground-1);
+    }
+
+    body {
+        background-color: var(--background-1);
     }
 </style>
