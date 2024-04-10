@@ -3,6 +3,7 @@ title: "Expose Plex Without Port Forwarding"
 created: 2022-10-02T19:24:32Z
 draft: false
 slug: expose-plex-without-port-forwarding
+tags: Media,Selfhosting,Networking
 ---
 
 I love selfhosting my own services, especially services like Plex and the *arr stack that can often be resource intensive resulting in expensive bills when using Cloud Providers.

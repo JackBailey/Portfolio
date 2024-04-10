@@ -24,16 +24,37 @@ export async function getStaticPaths() {
 const blogPost = await getEntry('blog', Astro.params.slug);
 const { Content, headings } = await blogPost.render();
 
+const tags = [];
+
+if (blogPost.data.tags) {
+    blogPost.data.tags.split(",").map((tag) => {
+        tags.push({
+            id: tag.toLowerCase(),
+            name: tag
+        });
+    });
+}
+
 ---
 
 <Main>
     <div class="blog-post">
         <div class="blog-content">
-            <h1 class=""> { blogPost.data.title } </h1>
-            <div class="timestamps">
-                { blogPost.data.created && <p><b>Posted:</b> { dayjs(blogPost.data.created).utc().format("Do MMMM YYYY") }</p> }
-                { blogPost.data.modified && <p><b>Updated:</b> { dayjs(blogPost.data.modified).utc().format("Do MMMM YYYY") }</p> }
+            <div class="metadata">
+                <div class="tags">
+                    {
+                        tags.map((tag) => 
+                            <a class="tag" href={ `/blog/tag/${ tag.id }` }>
+                                { tag.name }
+                            </a>
+                        )
+                    }
+                </div>
+                <p class="date" title={blogPost.data.modified && "Modified: " + dayjs(blogPost.data.modified).utc().format("Do MMMM YYYY") }>
+                    { dayjs(blogPost.data.created).utc().format("Do MMM YYYY") }
+                </p>
             </div>
+            <h1 class=""> { blogPost.data.title } </h1>
             <div class="markdown-body">
                 <Content />
             </div>
@@ -55,14 +76,37 @@ const { Content, headings } = await blogPost.render();
         margin: 0 auto;
         width: 1000px;
         max-width: 90%;
+        .metadata {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            .tags {
+                .tag {
+                    background-color: var(--accent-pale);
+                    color: var(--accent-foreground);
+                    font-weight: 600;
+                    width: max-content;
+                    padding: 0.2em 0.5em;
+                    border-radius: 10rem;
+                    margin: 0;
+                    text-decoration: none;
+                }
+            }
+            .date {
+                font-weight: 600;
+            }
+        }
         > h1 {
+            margin-top: 1rem;
             margin-bottom: 0;
+            font-size: 3rem;
+            line-height: 1.2;
         }
         p {
             font-size: 0.8rem;
         }
         .markdown-body {
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
     }
 }

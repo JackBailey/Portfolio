@@ -1,6 +1,16 @@
 :root {
     --accent: #5b42f5;
-    --background-1: #0d0a20;
+    --accent-pale: #aea5e5;
+    --accent-foreground: white;
+    --background-1: white;
+    --foreground-1: #0d0a20;
+    --foreground-2: #aeb2ba;
+}
+
+:root.dark {
+    --accent: #5b42f5;
+    --accent-foreground: white;
+    --background-1: #030712;
     --foreground-1: #e6edf3;
     --foreground-2: #cfd6dd;
 }

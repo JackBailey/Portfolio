@@ -4,6 +4,7 @@ created: 2022-09-24T11:29:53Z
 modified: 2023-04-17T16:04:00Z
 draft: false
 slug: free-backup-using-duplicati-and-scaleway
+tags: Selfhosting
 ---
 
 ## Update: 2023-04-17
