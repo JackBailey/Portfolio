@@ -1,10 +1,13 @@
 import { defineConfig } from 'astro/config';
 
+import markdoc from "@astrojs/markdoc";
+
 // https://astro.build/config
 export default defineConfig({
-    markdown: {
-        shikiConfig: {
-            theme: "andromeeda"
-        }
+  markdown: {
+    shikiConfig: {
+      theme: "andromeeda"
     }
+  },
+  integrations: [markdoc()]
 });

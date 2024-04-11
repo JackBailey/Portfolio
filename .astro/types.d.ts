@@ -1,5 +1,14 @@
 declare module 'astro:content' {
 	interface Render {
+		'.mdoc': Promise<{
+			Content(props: Record<string, any>): import('astro').MarkdownInstance<{}>['Content'];
+			headings: import('astro').MarkdownHeading[];
+		}>;
+	}
+}
+
+declare module 'astro:content' {
+	interface Render {
 		'.md': Promise<{
 			Content: import('astro').MarkdownInstance<{}>['Content'];
 			headings: import('astro').MarkdownHeading[];
@@ -126,20 +135,20 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
-"expose-plex-without-port-forwarding.md": {
-	id: "expose-plex-without-port-forwarding.md";
+"expose-plex-without-port-forwarding.mdoc": {
+	id: "expose-plex-without-port-forwarding.mdoc";
   slug: "expose-plex-without-port-forwarding";
   body: string;
   collection: "blog";
   data: any
-} & { render(): Render[".md"] };
-"free-backup-using-duplicati-and-scaleway.md": {
-	id: "free-backup-using-duplicati-and-scaleway.md";
+} & { render(): Render[".mdoc"] };
+"free-backup-using-duplicati-and-scaleway.mdoc": {
+	id: "free-backup-using-duplicati-and-scaleway.mdoc";
   slug: "free-backup-using-duplicati-and-scaleway";
   body: string;
   collection: "blog";
   data: any
-} & { render(): Render[".md"] };
+} & { render(): Render[".mdoc"] };
 };
 
 	};

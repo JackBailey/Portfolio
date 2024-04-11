@@ -1,9 +1,10 @@
 ---
 title: "Expose Plex Without Port Forwarding"
 created: 2022-10-02T19:24:32Z
+modified: 2023-04-17T16:04:00Z
 draft: false
 slug: expose-plex-without-port-forwarding
-tags: Media,Selfhosting,Networking
+tags: Selfhosting,Media
 ---
 
 I love selfhosting my own services, especially services like Plex and the *arr stack that can often be resource intensive resulting in expensive bills when using Cloud Providers.
@@ -36,7 +37,7 @@ adn Log in with Google, Microsoft or Github.
 
 You'll then be shown this screen:
 
-![Welcome](/blog/images/tailscale/welcome.png)
+![Welcome](../../assets/blog//tailscale/welcome.png)
 
 Your account is now set up and we can get started.
 
@@ -72,7 +73,7 @@ To authenticate, visit:
 
 Go to this link on a local browser and log in with your account.
 
-![Success](/blog/images/tailscale/successful.png)
+![Success](../../assets/blog//tailscale/successful.png)
 
 Then repeat the above steps on your homeserver
 
@@ -136,7 +137,7 @@ and make sure to instantly change them to keep other people out of your admin in
 
 Go to `Hosts > Proxy Hosts` on Nginx Proxy Manager
 
-![Hosts](/blog/images/nginx-proxy-manager/proxy-hosts.png)
+![Hosts](../../assets/blog//nginx-proxy-manager/proxy-hosts.png)
 
 Then click `Add Proxy Host` and add in the following:
 
@@ -146,7 +147,7 @@ Then click `Add Proxy Host` and add in the following:
    - Your homeserver's Tailscale IP you got in [step 3](#3-get-the-tailscale-ip-of-your-homeserver)
  - Turn on `Block Common Exploits` and `Websockets Support`
 
-![Plex Details](/blog/images/nginx-proxy-manager/plex-details.png)
+![Plex Details](../../assets/blog//nginx-proxy-manager/plex-details.png)
 
 Then go to the `SSL` tab and select:
  - SSL Certificate
@@ -273,7 +274,7 @@ However - We might not know the IP the gluetun is connecting to
 Run the following command
 
 ```console
-$ docker exec -it plex-gluetun-1 wget -qO- ip.jck.cx
+$ docker exec -it plex-gluetun-1 wget -qO- icanhazip.com
 ```
 
 It should then return the IP of your VPN server.
