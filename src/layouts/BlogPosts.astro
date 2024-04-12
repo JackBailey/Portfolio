@@ -1,0 +1,33 @@
+---
+import { getEntry, getEntries, getCollection } from 'astro:content';
+import MainLayout from "../../layouts/Main.astro";
+
+let blogEntries = await getCollection('blog');
+
+blogEntries = blogEntries.sort((a, b) => new Date(b.data.created) - new Date(a.data.created));
+
+// const { tag } = Astro.props;
+
+// if (tag) {
+// 	blogEntries = blogEntries.filter((entry) => entry.data.tags.includes(tag));
+// }
+
+---
+
+<MainLayout>
+	<h1>Recent Posts</h1>
+	<div class="posts">
+		{
+			blogEntries.map((entry) => (
+				<a href={`/blog/posts/${entry.slug}`}>
+					<article>
+						<h2>{entry.data.title}</h2>
+						<p>{entry.data.description}</p>
+						<div class="tags">
+							</div>
+					</article>
+				</a>
+			))
+		}
+	</div>
+</MainLayout>

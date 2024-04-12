@@ -6,6 +6,7 @@ import utc from "dayjs/plugin/utc";
 
 import Main from "../../../layouts/Main.astro";
 import Giscus from "../../../components/blog/Giscus.astro";
+import TagChips from '../../../components/blog/TagChips.astro';
 
 import "../../../styles/markdown.scss";
 import "../../../styles/global.scss";
@@ -24,32 +25,13 @@ export async function getStaticPaths() {
 const blogPost = await getEntry('blog', Astro.params.slug);
 const { Content, headings } = await blogPost.render();
 
-const tags = [];
-
-if (blogPost.data.tags) {
-    blogPost.data.tags.split(",").map((tag) => {
-        tags.push({
-            id: tag.toLowerCase(),
-            name: tag
-        });
-    });
-}
-
 ---
 
 <Main>
     <div class="blog-post">
         <div class="blog-content">
             <div class="metadata">
-                <div class="tags">
-                    {
-                        tags.map((tag) => 
-                            <a class="tag" href={ `/blog/tag/${ tag.id }` }>
-                                { tag.name }
-                            </a>
-                        )
-                    }
-                </div>
+                <TagChips tags={ blogPost.data.tags } />
                 <p class="date" title={blogPost.data.modified && "Modified: " + dayjs(blogPost.data.modified).utc().format("Do MMMM YYYY") }>
                     { dayjs(blogPost.data.created).utc().format("Do MMM YYYY") }
                 </p>

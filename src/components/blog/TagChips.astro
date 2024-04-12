@@ -1,0 +1,44 @@
+---
+const { tags: tagsString } = Astro.props;
+
+const tags = [];
+
+if (tagsString) {
+    tagsString.split(",").map((tag) => {
+        tag = tag.trim();
+        tags.push({
+            id: tag.toLowerCase(),
+            name: tag
+        });
+    });
+}
+
+---
+
+<div class="tags">
+    {
+        tags.map((tag) => 
+            <a class="tag" href={ `/blog/tag/${ tag.id }` }>
+                { tag.name }
+            </a>
+        )
+    }
+</div>
+
+<style lang="scss">
+    .tags {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        .tag {
+            background-color: var(--accent-pale);
+            color: var(--accent-foreground);
+            font-weight: 600;
+            width: max-content;
+            padding: 0.2em 0.5em;
+            border-radius: 10rem;
+            margin: 0;
+            text-decoration: none;
+        }
+    }
+</style>

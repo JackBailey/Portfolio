@@ -1,7 +1,52 @@
 ---
+import { getEntry, getEntries, getCollection } from 'astro:content';
 import MainLayout from "../../layouts/Main.astro";
+import TagChips from '../../components/blog/TagChips.astro';
+
+let blogEntries = await getCollection('blog');
+
+blogEntries = blogEntries.sort((a, b) => new Date(b.data.created) - new Date(a.data.created));
+
+
+console.log(blogEntries.map((entry) => entry.data.title));
+
 ---
 
 <MainLayout>
-	tis blog
+	<main>
+		<h1>Recent Posts</h1>
+		<div class="posts">
+			{
+				blogEntries.map((entry) => (
+					<a href={`/blog/posts/${entry.slug}`}>
+						<article>
+							<h2>{entry.data.title}</h2>
+							<p>{entry.data.description}</p>
+							<TagChips tags={entry.data.tags} />
+						</article>
+					</a>
+				))
+			}
+		</div>
+	</main>
 </MainLayout>
+
+<style lang="scss">
+	main {
+		padding: 1rem;
+		margin: 0 auto;
+		width: 1000px;
+		max-width: 90%;
+		.posts {
+			a {
+				text-decoration: none;
+				color: inherit;
+				article {
+					display: block;
+					background-color: red;
+					border: 1px solid red;
+				}
+			}
+		}
+	}
+</style>

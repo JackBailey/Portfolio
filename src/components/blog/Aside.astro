@@ -28,9 +28,9 @@ let type = asideTypes.find((type) => type.type === Astro.props.type);
 
 <style lang="scss">
     .aside {
-        background-color: rgba(var(--aside-color), 0.8);
+        background-color: rgba(var(--aside-color), 0.5);
         border-left: 0.5rem solid rgba(var(--aside-color), 1);
-        color: white;
+        // color: white;
         margin-bottom: 1rem;
         .aside-header {
             display: flex;
@@ -40,7 +40,7 @@ let type = asideTypes.find((type) => type.type === Astro.props.type);
                 height: 2rem;
                 padding-right: 1rem;
                 :global(svg) {
-                    fill: white;
+                    fill: currentColor;
                     width: 2rem;
                 }
             }
