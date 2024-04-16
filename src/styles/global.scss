@@ -7,7 +7,18 @@
     --foreground-2: #aeb2ba;
 }
 
-:root.dark {
+:root:not([dark-mode]) {
+    // When JS not enabled, for noscript JS and mitigating "flashbangs"
+    @media (prefers-color-scheme: dark) {
+        --accent: #5b42f5;
+        --accent-foreground: white;
+        --background-1: #030712;
+        --foreground-1: #e6edf3;
+        --foreground-2: #cfd6dd;
+    }
+}
+
+:root[dark-mode="true"] {
     --accent: #5b42f5;
     --accent-foreground: white;
     --background-1: #030712;

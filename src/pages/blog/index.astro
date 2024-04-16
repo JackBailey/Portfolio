@@ -18,13 +18,13 @@ console.log(blogEntries.map((entry) => entry.data.title));
 		<div class="posts">
 			{
 				blogEntries.map((entry) => (
-					<a href={`/blog/posts/${entry.slug}`}>
-						<article>
+					<article>
+						<a href={`/blog/posts/${entry.slug}`}>
 							<h2>{entry.data.title}</h2>
 							<p>{entry.data.description}</p>
-							<TagChips tags={entry.data.tags} />
-						</article>
-					</a>
+						</a>
+						<TagChips tags={entry.data.tags} />
+					</article>
 				))
 			}
 		</div>
@@ -38,13 +38,26 @@ console.log(blogEntries.map((entry) => entry.data.title));
 		width: 1000px;
 		max-width: 90%;
 		.posts {
-			a {
-				text-decoration: none;
-				color: inherit;
-				article {
-					display: block;
-					background-color: red;
-					border: 1px solid red;
+			article + article {
+				margin-top: 2rem;
+			}
+			article {
+				display: block;
+				border: 1px solid var(--foreground-2);
+				border-radius: 1rem;
+				padding: 1rem;
+				a {
+					text-decoration: none;
+					color: inherit;
+					h2 {
+						margin: 0;
+					}
+					p {
+						margin: 1rem 0 0 0;
+					}
+				}
+				:global(.tags) {
+					margin-top: 1rem;
 				}
 			}
 		}
