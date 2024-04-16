@@ -1,0 +1,72 @@
+---
+import SunIcon from "../assets/icons/sun.svg?raw";
+import MoonIcon from "../assets/icons/moon.svg?raw";
+---
+
+<div id="theme-selector">
+    <div class="light-mode-icon">
+        <Fragment set:html={SunIcon} />
+    </div>
+    <div class="dark-mode-icon">
+        <Fragment set:html={MoonIcon} />
+    </div>
+</div>
+
+<style lang="scss">
+    #theme-selector {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-left: 1rem;
+        
+        &:not([dark-mode]) {
+            display: none;
+        }
+
+        .light-mode-icon,
+        .dark-mode-icon {
+            display: none;
+            cursor: pointer;
+
+            :global(svg) {
+                fill: var(--foreground-1);
+                height: 1.5rem;
+                width: 1.5rem;
+            }
+        }
+        &[dark-mode="true"] {
+            .dark-mode-icon {
+                display: block;
+            }
+        }
+        &[dark-mode="false"] {
+            .light-mode-icon {
+                display: block;
+            }
+        }
+    }
+</style>
+
+<script>
+    const setTheme = () => {
+        themeSelector.setAttribute("dark-mode", dark.toString());
+    
+        document.documentElement.setAttribute("dark-mode", dark);
+    };
+
+    const themeSelector = document.getElementById("theme-selector");
+    let dark;
+
+    if (localStorage.getItem("dark") !== null) {
+        dark = localStorage.getItem("dark") === "true";
+    } else {
+        dark = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) || false;
+    }
+
+    setTheme();
+
+    themeSelector.addEventListener("click", () => {
+        dark = !dark;
+        localStorage.setItem("dark", dark);
+        setTheme();
+    });
+</script>
