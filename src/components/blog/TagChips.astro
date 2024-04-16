@@ -1,5 +1,12 @@
 ---
-const { tags: tagsString } = Astro.props;
+import dayjs from "dayjs";
+import advancedFormat from "dayjs/plugin/advancedFormat";
+import utc from "dayjs/plugin/utc";
+
+dayjs.extend(advancedFormat);
+dayjs.extend(utc);
+
+const { tags: tagsString, date: creationDate } = Astro.props;
 
 const tags = [];
 
@@ -17,8 +24,14 @@ if (tagsString) {
 
 <div class="tags">
     {
+        creationDate && 
+            <div class="tag date">
+                { dayjs(creationDate).utc().format("Do MMM YYYY") }
+            </div>
+    }
+    {
         tags.map((tag) => 
-            <a class="tag" href={ `/blog/tag/${ tag.id }` }>
+            <a class="tag" href={ `/blog/tags/${ tag.id }` }>
                 { tag.name }
             </a>
         )
@@ -31,14 +44,18 @@ if (tagsString) {
         flex-direction: row;
         gap: 0.5rem;
         .tag {
-            background-color: var(--accent-pale);
             color: var(--accent-foreground);
-            font-weight: 600;
             width: max-content;
             padding: 0.2em 0.5em;
             border-radius: 10rem;
             margin: 0;
             text-decoration: none;
+            color: var(--foreground-1);
+            &:not(.date) {
+                background-color: var(--accent);
+                font-weight: 600;
+                color: var(--accent-foreground);
+            }
         }
     }
 </style>

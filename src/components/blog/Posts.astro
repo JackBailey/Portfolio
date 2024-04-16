@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from "../../layouts/Main.astro";
+import TagChips from '../../components/blog/TagChips.astro';
+
+const { title, tag } = Astro.props;
+
+let blogEntries = await getCollection('blog');
+
+blogEntries = blogEntries.sort((a, b) => new Date(b.data.created) - new Date(a.data.created));
+
+if (tag) {
+	blogEntries = blogEntries.filter((entry) => {
+		if (entry.data.tags) {
+			let tags = entry.data.tags.split(",");
+			return tags.includes(tag);
+		}
+		return false;
+	});
+}
+---
+
+<MainLayout>
+	<main>
+		<h1>{title}</h1>
+		<div class="posts">
+			{
+				blogEntries.map((entry) => (
+					<article>
+						<a href={`/blog/posts/${entry.slug}`}>
+							<h2>{entry.data.title}</h2>
+							<p>{entry.data.description}</p>
+						</a>
+						<TagChips tags={entry.data.tags} date={entry.data.created} />
+					</article>
+				))
+			}
+		</div>
+	</main>
+</MainLayout>
+
+<style lang="scss">
+	main {
+		padding: 1rem;
+		margin: 0 auto;
+		width: 1000px;
+		max-width: 90%;
+		h1 {
+			border-bottom: 1px solid var(--foreground-2);
+			padding-bottom: 0.5rem;
+		}
+		.posts {
+			article + article {
+				margin-top: 2rem;
+			}
+			article {
+				display: block;
+				border-radius: 1rem;
+				padding: 0rem 0;
+				a {
+					text-decoration: none;
+					color: inherit;
+					h2 {
+						margin: 0;
+					}
+					p {
+						margin: 1rem 0 0 0;
+					}
+				}
+				:global(.tags) {
+					margin-top: 1rem;
+				}
+			}
+		}
+	}
+</style>

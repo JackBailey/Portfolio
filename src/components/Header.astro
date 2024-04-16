@@ -25,7 +25,7 @@ import ThemeSelector from "./ThemeSelector.astro";
                 Projects
             </a>
         </li>
-        <li>
+        <li class="contact-me">
             <a href="">Contact me</a>
         </li>
         <ThemeSelector />
@@ -65,8 +65,9 @@ nav {
 
             }
 
-            &:last-of-type a {
+            &.contact-me a {
                 background-color: var(--accent);
+                color: var(--accent-foreground);
                 border-radius: 100rem;
                 &:hover {
                     color: var(--accent);
