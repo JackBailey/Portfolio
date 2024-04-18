@@ -10,10 +10,13 @@ dependencies:
     version: 0.9.5(astro@4.5.9)
   astro:
     specifier: ^4.5.9
-    version: 4.5.9
+    version: 4.5.9(sass@1.75.0)
   dayjs:
     specifier: ^1.11.10
     version: 1.11.10
+  sass:
+    specifier: ^1.75.0
+    version: 1.75.0
   sharp:
     specifier: ^0.33.3
     version: 0.33.3
@@ -50,7 +53,7 @@ packages:
       '@astrojs/markdown-remark': 5.0.0
       '@astrojs/prism': 3.0.0
       '@markdoc/markdoc': 0.3.5
-      astro: 4.5.9
+      astro: 4.5.9(sass@1.75.0)
       esbuild: 0.19.12
       github-slugger: 2.0.0
       gray-matter: 4.0.3
@@ -1303,7 +1306,7 @@ packages:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
     dev: false
 
-  /astro@4.5.9:
+  /astro@4.5.9(sass@1.75.0):
     resolution: {integrity: sha512-GheU72Goz7dYQNKaqTxB2H49cNvHfahGSbNkTvMXk+gyHf/g633qadqlO2ZQbTUacoUWmDzvS5fhMZt2/w4naQ==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
@@ -1364,7 +1367,7 @@ packages:
       tsconfck: 3.0.3
       unist-util-visit: 5.0.0
       vfile: 6.0.1
-      vite: 5.2.3
+      vite: 5.2.3(sass@1.75.0)
       vitefu: 0.2.5(vite@5.2.3)
       which-pm: 2.1.1
       yargs-parser: 21.1.1
@@ -2219,6 +2222,10 @@ packages:
 
   /ieee754@1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
+    dev: false
+
+  /immutable@4.3.5:
+    resolution: {integrity: sha512-8eabxkth9gZatlwl5TBuJnCsoTADlL6ftEr7A4qgdaTsPyreilDSnUk57SO+jfKcNtxPa22U5KK6DSeAYhpBJw==}
     dev: false
 
   /import-meta-resolve@4.0.0:
@@ -3359,6 +3366,16 @@ packages:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
     dev: false
 
+  /sass@1.75.0:
+    resolution: {integrity: sha512-ShMYi3WkrDWxExyxSZPst4/okE9ts46xZmJDSawJQrnte7M1V9fScVB+uNXOVKRBt0PggHOwoZcn8mYX4trnBw==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      chokidar: 3.6.0
+      immutable: 4.3.5
+      source-map-js: 1.2.0
+    dev: false
+
   /section-matter@1.0.0:
     resolution: {integrity: sha512-vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA==}
     engines: {node: '>=4'}
@@ -3872,7 +3889,7 @@ packages:
       vfile-message: 4.0.2
     dev: false
 
-  /vite@5.2.3:
+  /vite@5.2.3(sass@1.75.0):
     resolution: {integrity: sha512-+i1oagbvkVIhEy9TnEV+fgXsng13nZM90JQbrcPrf6DvW2mXARlz+DK7DLiDP+qeKoD1FCVx/1SpFL1CLq9Mhw==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -3903,6 +3920,7 @@ packages:
       esbuild: 0.20.2
       postcss: 8.4.38
       rollup: 4.13.0
+      sass: 1.75.0
     optionalDependencies:
       fsevents: 2.3.3
     dev: false
@@ -3915,7 +3933,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 5.2.3
+      vite: 5.2.3(sass@1.75.0)
     dev: false
 
   /web-namespaces@2.0.1:
