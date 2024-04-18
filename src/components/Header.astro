@@ -2,6 +2,7 @@
 import "../styles/global.scss";
 import ThemeSelector from "./ThemeSelector.astro";
 import Logo from "../assets/logo.svg?raw";
+import Envelope from "../assets/icons/envelope.svg?raw";
 ---
 
 <nav>
@@ -28,7 +29,12 @@ import Logo from "../assets/logo.svg?raw";
             </a>
         </li>
         <li class="contact-me">
-            <a href="">Contact me</a>
+            <a href="">
+                <span>Contact me</span>
+                <div class="icon">
+                    <Fragment set:html={Envelope} />
+                </div>
+            </a>
         </li>
         <ThemeSelector />
     </ul>
@@ -107,14 +113,19 @@ nav {
 
             &.contact-me a {
                 background-color: var(--accent-muted);
-                color: var(--accent-foreground);
                 border-radius: 100rem;
                 &:hover {
                     color: var(--accent-muted);
                     background-color: var(--accent-foreground);
                 }
-                // box-sizing: border-box;
-                
+
+                span {
+                    color: var(--accent-foreground);
+                }
+
+                .icon {
+                    display: none;
+                }
             }
         }
     }
@@ -140,6 +151,30 @@ nav {
                 &.about,
                 &.projects {
                     display: none;
+                }
+
+                &.contact-me a {
+                    padding: 0.5rem;
+                    span {
+                        display: none;
+                    }
+                    .icon {
+                        display: block;
+                        height: 1.5rem;
+                        :global(svg) {
+                            height: 1.5rem;
+                            width: 1.5rem;
+                            fill: var(--accent-foreground);
+                        }
+                    }
+
+                    &:hover {
+                        .icon {
+                            :global(svg) {
+                                fill: var(--accent-muted);
+                            }
+                        }
+                    }
                 }
             }
         }
