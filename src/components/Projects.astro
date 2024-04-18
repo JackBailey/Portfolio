@@ -1,0 +1,92 @@
+---
+import { Image } from "astro:assets";
+
+const convertDate = (dateString) => {
+	if (!dateString) {
+		return dateString;
+	} else {
+		let date = new Date(dateString);
+		return date.toLocaleString("default", {
+			month: "long",
+			year: "numeric"
+		});
+	}
+};
+
+const projects = [
+    {
+        name: "Samuel Boik",
+        started: "2024-01",
+        image: await import("../assets/projects/screenshots/samuelboik.png"),
+        link: "https://samuelboik.com",
+    },
+    {
+        name: "ScriptUNC",
+        started: "2022-04",
+        image: await import("../assets/projects/screenshots/scriptunc.png"),
+    },
+    {
+        name: "NexusPIPE",
+        started: "2022-03",
+        image: await import("../assets/projects/screenshots/nexuspipe-landing.png"),
+    },
+    {
+        name: "Cryptic",
+        started: "2022-01",
+        image: await import("../assets/projects/screenshots/cryptic.png"),
+    },
+    {
+        name: "Script-Ware Software",
+        started: "2021-10",
+        image: await import("../assets/projects/screenshots/script-ware.png"),
+    },
+].map((project) => {
+	return {
+		...project,
+		startedString: convertDate(project.started)
+	}
+});
+---
+
+<div class="projects">
+    {
+        projects.map((project, index) => (
+            <div class="project">
+                <Image src={project.image.default} alt={project.name} width="500" />
+                <p>{project.startedString}</p>
+            </div>
+        ))
+    }
+</div>
+
+
+<style lang="scss">
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    .project {
+        position: relative;
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            aspect-ratio: 16 / 9;
+            border: 0.25rem solid var(--accent);
+            box-sizing: border-box
+        }
+        p {
+            position: absolute;
+            bottom: 0.5em;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            margin: 0;
+            border-radius: 100vh;
+            background-color: var(--accent);
+            color: var(--accent-foreground);
+            padding: 0.5em 1em;
+            font-weight: 500;
+        }
+    }
+}
+</style>

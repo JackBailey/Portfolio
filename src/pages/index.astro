@@ -4,6 +4,8 @@ import TiltDivider from "../assets/hero-tilt-divider.svg?raw";
 
 import feelingProudIllustration from "../assets/illustrations/undraw-feeling-proud.svg?raw";
 import Blob from "../assets/illustrations/blob.svg?raw";
+
+import Projects from "../components/Projects.astro";
 ---
 
 <MainLayout>
@@ -27,7 +29,6 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 				<Fragment set:html={TiltDivider} />
 			</div>
 		</div>
-		<!-- <WavyDivider/> -->
 		<div class="section" id="about">
 			<div class="section-content">
 				<div class="content">
@@ -41,6 +42,14 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 					<div class="blob">
 						<Fragment set:html={Blob} />
 					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section" id="projects">
+			<div class="section-content">
+				<h2>Past Projects</h2>
+				<div class="projects">
+					<Projects />
 				</div>
 			</div>
 		</div>
@@ -139,7 +148,6 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 						height: 100%;
 						display: block;
 						margin: -1px 0;
-						// fill: red;
 					}
 				}
 
@@ -151,9 +159,6 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 					align-items: center;
 
 					.content {
-						h2 {
-							font-size: 2rem;
-						}
 						p {
 							font-size: 1.25rem;
 						}
@@ -185,6 +190,12 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 							margin-left: auto;
 						}
 					}
+				}
+			}
+
+			&#projects {
+				.section-content {
+					margin: 4rem auto 4rem;
 				}
 			}
 

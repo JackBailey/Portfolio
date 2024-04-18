@@ -1,5 +1,5 @@
 :root {
-    --accent: #aea5e5;
+    --accent: #5b42f5;
     --accent-muted: #5347CC;
     --accent-foreground: white;
     --background-1: #fdfdfd;
@@ -46,6 +46,10 @@ html, body {
 
 body {
     background-color: var(--background-1);
+}
+
+h2 {
+    font-size: 2rem;
 }
 
 p {
