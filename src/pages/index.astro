@@ -1,7 +1,6 @@
 ---
 import MainLayout from "../layouts/Main.astro";
-import WavyDivider from "../components/WavyDivider.astro";
-import TiltDivider from "../assets/tilt-divider.svg?raw";
+import TiltDivider from "../assets/hero-tilt-divider.svg?raw";
 
 import developerActivity from "../assets/illustrations/undraw-developer-activity.svg?raw";
 ---
@@ -51,7 +50,7 @@ import developerActivity from "../assets/illustrations/undraw-developer-activity
 				margin: 0 auto;
 			}
 			&#hero {
-				background-image: linear-gradient(to bottom, #160F5A,#2D21A7);
+				background-image: linear-gradient(to bottom, #160F5A,#251b8b calc(90vh - 20rem), transparent calc(90vh - 20rem));
 				position: relative;
 				z-index: 0;
 				.section-content {
@@ -120,12 +119,12 @@ import developerActivity from "../assets/illustrations/undraw-developer-activity
 					left: 0;
 					width: 100%;
 					height: 20rem;
-					transform: rotate(180deg) scaleX(-1);
+					transform: rotate(0deg) scaleX(-1);
 					z-index: -1;
 					:global(svg) {
 						width: 100%;
 						height: 100%;
-						fill: var(--background-1);;
+						// fill: red;
 					}
 				}
 
