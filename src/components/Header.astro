@@ -4,6 +4,7 @@ import ThemeSelector from "./ThemeSelector.astro";
 ---
 
 <nav>
+    <h2>Jack <span>Bailey</span></h2>
     <ul>
         <li>
             <a href="/">
@@ -32,46 +33,74 @@ import ThemeSelector from "./ThemeSelector.astro";
     </ul>
 </nav>
 
+<div class="nav-background"></div>
+
 <style lang="scss">
+.nav-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4rem;
+    // background-color: red;
+}
 nav {
-    background-color: var(--background-1);
+    // background-color: var(--background-1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    padding: 0 2rem;
+    box-sizing: border-box;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2 {
+        font-size: 2rem;
+        margin: 0;
+        span {
+            color: var(--accent-muted);
+        }
+    }
     ul {
         display: flex;
         justify-content: flex-end;
         align-items: center;
         list-style-type: none;
-        color: red;
         gap: 0.5rem;
         margin: 0;
-        padding: 0.5rem 2rem;
+        padding: 0;
         // box-sizing: border-box;
         li {
             // box-sizing: border-box;
             a {
                 display: block;
                 text-decoration: none;
-                color: var(--foreground-1);
+                color: var(--accent-foreground);
                 margin: 0;
                 box-sizing: border-box;
                 padding: 0.5rem 1rem;
                 font-size: 1.2rem;
                 transition: 250ms ease-in-out;
+                font-family: "Quicksand", Arial, Helvetica, sans-serif;
             }
 
             &:not(:last-of-type) a {
                 &:hover {
-                    color: var(--accent);
+                    color: var(--accent-muted);
                 }
 
             }
 
             &.contact-me a {
-                background-color: var(--accent);
+                background-color: var(--accent-muted);
                 color: var(--accent-foreground);
                 border-radius: 100rem;
                 &:hover {
-                    color: var(--accent);
-                    background-color: var(--foreground-1);
+                    color: var(--accent-muted);
+                    background-color: var(--accent-foreground);
                 }
                 // box-sizing: border-box;
                 

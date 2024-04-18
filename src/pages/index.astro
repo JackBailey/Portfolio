@@ -1,6 +1,7 @@
 ---
 import MainLayout from "../layouts/Main.astro";
 import WavyDivider from "../components/WavyDivider.astro";
+import TiltDivider from "../assets/tilt-divider.svg?raw";
 
 import developerActivity from "../assets/illustrations/undraw-developer-activity.svg?raw";
 ---
@@ -10,23 +11,23 @@ import developerActivity from "../assets/illustrations/undraw-developer-activity
 		<div class="section" id="hero">
 			<div class="section-content">
 				<div class="title">
-					<h1>Hi there!</h1>
-					<h1>I'm <span>Jack Bailey</span></h1>	
+					<h1>
+						Jack<br>
+						<span>Bailey</span>
+					</h1>
 				</div>
-				<div class="cta">
-					<p>I handle the development, deployment and maintenance of your website, start to finish.</p>
-					<div class="buttons">
-						<button>
-							Contact me
-						</button>
-						<button>
-							My work
-						</button>
-					</div>
+				<p>I handle the development, deployment and maintenance of your website, start to finish.</p>
+				<div class="buttons">
+					<button>
+						My work
+					</button>
 				</div>
 			</div>
+			<div class="background-split">
+				<Fragment set:html={TiltDivider} />
+			</div>
 		</div>
-		<WavyDivider/>
+		<!-- <WavyDivider/> -->
 		<div class="section" id="about">
 			<div class="section-content">
 				<div class="content">
@@ -50,13 +51,21 @@ import developerActivity from "../assets/illustrations/undraw-developer-activity
 				margin: 0 auto;
 			}
 			&#hero {
+				background-image: linear-gradient(to bottom, #160F5A,#2D21A7);
+				position: relative;
+				z-index: 0;
 				.section-content {
-					height: 70vh;
-					padding: 4rem 4rem 0;
+					width: 100%;
+					height: 90vh;
+					padding: 4rem 4rem 10rem;
+					// padding: 0;
 					box-sizing: border-box;
 	
-					display: flex;
-					gap: 5rem;
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					grid-template-rows: max-content max-content;
+					align-content: center;
+					gap: 2rem 5rem;
 					align-items: center;
 					justify-content: space-between;
 					text-align: left;
@@ -64,60 +73,66 @@ import developerActivity from "../assets/illustrations/undraw-developer-activity
 						h1 {
 							white-space: nowrap;
 							margin: 0;
-							font-size: 4rem;
-							&:first-of-type {
-								font-size: 1.5rem;
-								font-weight: 300;
-							}
+							font-size: 12rem;
+							line-height: 0.9em;
+							color: var(--accent-foreground);
 	
 							> span {
-								color: var(--accent);
+								color: var(--accent-muted);
 							}
-						}
-	
-						h2 {
-							font-size: 1.5rem;
 						}
 					}
-	
-					.cta {
-						max-width: 42ch;
-						font-weight: 300;
-	
-						p {
-							font-size: 1.2rem;
+
+					> p {
+						font-size: 1.8rem;
+						font-weight: 600;
+						font-family: "Quicksand", Arial, Helvetica, sans-serif;
+						text-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+						text-align: right;
+						align-self: self-end;
+						margin: 0 0 0.7rem;
+						color: var(--accent-foreground);
+					}
+					.buttons {
+						display: flex;
+						flex-direction: row;
+						align-self: self-start;
+						gap: 1rem;
+						button {
+							padding: 0.5em 1em;
+							border: none;
+							border-radius: 0.5rem;
+							font-size: 1.7rem;
+							font-family: inherit;
+							cursor: pointer;
 							font-weight: 600;
+							border: 1px solid var(--accent-foreground);
+							background: none;
+							color: var(--accent-foreground);
+							border-radius: 100vh;
 						}
-	
-						.buttons {
-							display: flex;
-							flex-direction: row;
-							gap: 1rem;
-							button {
-								padding: 0.5em 1em;
-								border: none;
-								border-radius: 0.5rem;
-								font-size: 1rem;
-								font-family: inherit;
-								cursor: pointer;
-								font-weight: 600;
-								&:first-child {
-									color: var(--accent-foreground);
-									background-color: var(--accent);
-									border: 1px solid var(--accent);
-								}
-								&:nth-child(2) {
-									background: none;
-									border: 1px solid var(--foreground-1);
-								}
-							}
-						}
+					}
+				}
+				.background-split {
+					z-index: 1;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					height: 20rem;
+					transform: rotate(180deg) scaleX(-1);
+					z-index: -1;
+					:global(svg) {
+						width: 100%;
+						height: 100%;
+						fill: var(--background-1);;
 					}
 				}
 
 			}
 			&#about {
-				background-color: #1f195a;
+				background-color: var(--background-1);
+				height: 200vh;
 
 				.section-content {
 					padding: 4rem;
@@ -141,12 +156,19 @@ import developerActivity from "../assets/illustrations/undraw-developer-activity
 
 			@media screen and (max-width: 1000px){
 				&#hero {
-					flex-direction: column;
-					justify-content: center;
-					align-items: flex-start;
-					gap: 0;
-					width: max-content;
-					max-width: 100%;
+					.section-content {
+						flex-direction: column;
+						justify-content: center;
+						align-items: flex-start;
+						gap: 0;
+						width: max-content;
+						max-width: 100%;
+						width: 100%;
+
+						.cta {
+							max-width: 80%;
+						}
+					}
 				}
 			}
 

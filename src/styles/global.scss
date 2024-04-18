@@ -1,5 +1,6 @@
 :root {
     --accent: #aea5e5;
+    --accent-muted: #5347CC;
     --accent-foreground: white;
     --background-1: white;
     --foreground-1: #0d0a20;
@@ -10,8 +11,9 @@
     // When JS not enabled, for noscript JS and mitigating "flashbangs"
     @media (prefers-color-scheme: dark) {
         --accent: #5b42f5;
+        --accent-muted: #5347CC;
         --accent-foreground: white;
-        --background-1: #030712;
+        --background-1: #0D0A20;
         --foreground-1: #e6edf3;
         --foreground-2: #cfd6dd;
     }
@@ -19,8 +21,9 @@
 
 :root[dark-mode="true"] {
     --accent: #5b42f5;
+    --accent-muted: #5347CC;
     --accent-foreground: white;
-    --background-1: #030712;
+    --background-1: #0D0A20;
     --foreground-1: #e6edf3;
     --foreground-2: #cfd6dd;
 }
