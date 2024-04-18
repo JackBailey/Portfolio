@@ -53,17 +53,24 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 	main {
 		.section {
 			.section-content {
-				width: clamp(16rem, 90vw, 80rem);
+				width: clamp(16rem, 95vw, 1440px);
 				margin: 0 auto;
 			}
 			&#hero {
-				background-image: linear-gradient(to bottom, #160F5A,#251b8b calc(90vh - 20rem), transparent calc(90vh - 20rem));
 				position: relative;
-				z-index: 0;
+				z-index: 2;
+				--hero-height: 80vh;
+				--hero-split-height: 20rem;
+				background-image: linear-gradient(
+					to bottom,
+					#160F5A,
+					#251b8b calc(var(--hero-height) - var(--hero-split-height)),
+					transparent calc(var(--hero-height) - var(--hero-split-height))
+				);
 				.section-content {
-					width: 100%;
-					height: 90vh;
-					padding: 4rem 4rem 10rem;
+					// width: 100%;
+					height: var(--hero-height);
+					// padding: 4rem 4rem 10rem;
 					// padding: 0;
 					box-sizing: border-box;
 	
@@ -79,7 +86,7 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 						h1 {
 							white-space: nowrap;
 							margin: 0;
-							font-size: 12rem;
+							font-size: 10rem;
 							line-height: 0.9em;
 							color: var(--accent-foreground);
 	
@@ -90,7 +97,7 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 					}
 
 					> p {
-						font-size: 1.8rem;
+						font-size: 1.5rem;
 						font-weight: 600;
 						text-shadow: 5px 5px 0px rgba(0,0,0,0.1);
 						text-align: right;
@@ -124,12 +131,14 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 					bottom: 0;
 					left: 0;
 					width: 100%;
-					height: 20rem;
+					height: var(--hero-split-height);
 					transform: rotate(0deg) scaleX(-1);
 					z-index: -1;
 					:global(svg) {
 						width: 100%;
 						height: 100%;
+						display: block;
+						margin: -1px 0;
 						// fill: red;
 					}
 				}
@@ -137,7 +146,6 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 			}
 			&#about {
 				.section-content {
-					padding: 4rem;
 					display: grid;
 					grid-template-columns: 1fr 1fr;
 					align-items: center;
@@ -180,19 +188,23 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 				}
 			}
 
-			@media screen and (max-width: 1000px){
+			@media screen and (max-width: 1200px){
 				&#hero {
+					--hero-height: 70vh;
+					--hero-split-height: 10rem;
 					.section-content {
-						flex-direction: column;
-						justify-content: center;
+						grid-template-columns: 1fr;
 						align-items: flex-start;
-						gap: 0;
-						width: max-content;
-						max-width: 100%;
-						width: 100%;
+						gap: 2rem;
 
-						.cta {
-							max-width: 80%;
+						.title {
+							h1 {
+								font-size: 8rem;
+							}
+						}
+
+						> p {
+							text-align: left;
 						}
 					}
 				}
@@ -200,18 +212,48 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 
 			@media screen and (max-width: 768px) {
 				&#hero {
-					padding: 2rem 2rem 0;
-					gap: 0;
+					--hero-height: 70vh;
+					--hero-split-height: 5rem;
+					.section-content {
+						gap: 1.5rem;
+						.title {
+							h1 {
+								line-height: 1em;
+								font-size: 5rem;
+							}
+						}
 
-					.title {
-						h1 {
-							white-space: normal;
-							font-size: 2.5rem;
+						> p {
+							font-size: 2rem;
+						}
+
+						.buttons {
+							button {
+								font-size: 1.5rem;
+							}
 						}
 					}
+				}
 
-					.cta {
-						max-width: unset;
+				&#about {
+					.section-content {
+						grid-template-columns: 1fr;
+						gap: 3rem;
+						padding-top: 2rem;
+
+						.illustration {
+							grid-row: 1;
+							:global(.feeling-proud-illustration) {
+								width: 60%;
+								height: auto;
+								margin: 0 auto;
+							}
+
+							.blob {
+								width: 20rem;
+								height: 20rem;
+							}
+						}
 					}
 				}
 			}

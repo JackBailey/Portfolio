@@ -51,3 +51,21 @@ body {
 p {
     font-family: "Quicksand", Arial, Helvetica, sans-serif;
 }
+
+@media screen and (max-width: 768px) {
+    :root {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    :root {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    :root {
+        font-size: 18px;
+    }
+}
