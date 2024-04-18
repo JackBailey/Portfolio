@@ -2,7 +2,8 @@
     --accent: #aea5e5;
     --accent-muted: #5347CC;
     --accent-foreground: white;
-    --background-1: white;
+    --background-1: #fdfdfd;
+    --background-2: #f2f2f2;
     --foreground-1: #0d0a20;
     --foreground-2: #aeb2ba;
 }
@@ -14,6 +15,7 @@
         --accent-muted: #5347CC;
         --accent-foreground: white;
         --background-1: #0D0A20;
+        --background-2: #262534;
         --foreground-1: #e6edf3;
         --foreground-2: #cfd6dd;
     }
@@ -24,6 +26,28 @@
     --accent-muted: #5347CC;
     --accent-foreground: white;
     --background-1: #0D0A20;
+    --background-2: #262534;
     --foreground-1: #e6edf3;
     --foreground-2: #cfd6dd;
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+:root, html, body {
+    color: var(--foreground-1);
+}
+
+body {
+    background-color: var(--background-1);
+}
+
+p {
+    font-family: "Quicksand", Arial, Helvetica, sans-serif;
 }

@@ -2,7 +2,8 @@
 import MainLayout from "../layouts/Main.astro";
 import TiltDivider from "../assets/hero-tilt-divider.svg?raw";
 
-import developerActivity from "../assets/illustrations/undraw-developer-activity.svg?raw";
+import feelingProudIllustration from "../assets/illustrations/undraw-feeling-proud.svg?raw";
+import Blob from "../assets/illustrations/blob.svg?raw";
 ---
 
 <MainLayout>
@@ -30,10 +31,16 @@ import developerActivity from "../assets/illustrations/undraw-developer-activity
 		<div class="section" id="about">
 			<div class="section-content">
 				<div class="content">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro sit explicabo dicta? Commodi delectus, reiciendis ea amet labore dolorum, provident repudiandae dicta incidunt maiores dolorem architecto iste eius quae sit!
+					<h2>Lorem ipsum dolor sit amet</h2>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro sit explicabo dicta? Commodi delectus, reiciendis ea amet labore dolorum, provident repudiandae dicta incidunt maiores dolorem architecto iste eius quae sit!
+					</p>
 				</div>
 				<div class="illustration">
-					<Fragment set:html={developerActivity} alt="A developer behind a monitor, with a GitHub-style commit history behind him" style="background: blue;">
+					<Fragment set:html={feelingProudIllustration} alt="A developer behind a monitor, with a GitHub-style commit history behind him" style="background: blue;">
+					<div class="blob">
+						<Fragment set:html={Blob} />
+					</div>
 				</div>
 			</div>
 		</div>
@@ -85,7 +92,6 @@ import developerActivity from "../assets/illustrations/undraw-developer-activity
 					> p {
 						font-size: 1.8rem;
 						font-weight: 600;
-						font-family: "Quicksand", Arial, Helvetica, sans-serif;
 						text-shadow: 5px 5px 0px rgba(0,0,0,0.1);
 						text-align: right;
 						align-self: self-end;
@@ -130,25 +136,46 @@ import developerActivity from "../assets/illustrations/undraw-developer-activity
 
 			}
 			&#about {
-				background-color: var(--background-1);
-				height: 200vh;
-
 				.section-content {
 					padding: 4rem;
 					display: grid;
 					grid-template-columns: 1fr 1fr;
 					align-items: center;
-	
-					.illustration {
-						display: grid;
-						place-content: center;
-						
+
+					.content {
+						h2 {
+							font-size: 2rem;
+						}
+						p {
+							font-size: 1.25rem;
+						}
 					}
 	
-					.illustration :global(svg) {
-						width: 18rem;
-						height: 18rem;
-						margin-left: auto;
+					.illustration {
+						position: relative;
+						display: grid;
+						place-content: center;
+						z-index: 0;
+
+						.blob {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							width: 25rem;
+							height: 25rem;
+							transform: translate(-50%, -50%);
+							z-index: -1;
+							:global(svg) {
+								width: 100%;
+								height: 100%;
+							}
+						}
+						
+						:global(.feeling-proud-illustration) {
+							width: 18rem;
+							height: auto;
+							margin-left: auto;
+						}
 					}
 				}
 			}
