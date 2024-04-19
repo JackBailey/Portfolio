@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
-
 import markdoc from "@astrojs/markdoc";
+
+import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,5 +10,9 @@ export default defineConfig({
       theme: "andromeeda"
     }
   },
-  integrations: [markdoc()]
+  integrations: [markdoc()],
+  output: "server",
+  adapter: cloudflare({
+    imageService: "passthrough",
+  })
 });

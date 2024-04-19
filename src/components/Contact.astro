@@ -6,7 +6,7 @@ import WavyDivider from "./WavyDivider.astro"
     <div class="contact-inner">
         <div class="contact-form">
             <h2>Get in touch</h2>
-            <form>
+            <form action="/api/contact" method="POST">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Email</label>
@@ -77,10 +77,12 @@ import WavyDivider from "./WavyDivider.astro"
                         color: var(--accent-foreground);
                         border: 0;
                         border-radius: 0.5rem;
-                        padding: 1.5em;
+                        padding:  1em 1.5em;
                         font-family: "Quicksand", Arial, Helvetica, sans-serif;
                         font-weight: bold;
                         margin-top: 1rem;
+                        font-size: 1.25rem;
+                        cursor: pointer;
                     }
                 }
             }
