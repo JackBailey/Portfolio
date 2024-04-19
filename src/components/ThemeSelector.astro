@@ -3,20 +3,21 @@ import SunIcon from "../assets/icons/sun.svg?raw";
 import MoonIcon from "../assets/icons/moon.svg?raw";
 ---
 
-<div id="theme-selector">
+<a id="theme-selector" href="javascript:">
     <div class="light-mode-icon">
         <Fragment set:html={SunIcon} />
     </div>
     <div class="dark-mode-icon">
         <Fragment set:html={MoonIcon} />
     </div>
-</div>
+</a>
 
 <style lang="scss">
     #theme-selector {
         width: 1.5rem;
         height: 1.5rem;
         margin-left: 1rem;
+        display: block;
         
         &:not([dark-mode]) {
             display: none;
