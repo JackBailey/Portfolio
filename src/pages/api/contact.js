@@ -5,6 +5,8 @@ dotenv.config();
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+export const prerender = false;
+
 const checkSpamRating = async (email) => {
     let params = new URLSearchParams();
 	params.append("email", email);
