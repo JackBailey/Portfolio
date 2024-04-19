@@ -1,11 +1,12 @@
 ---
 import MainLayout from "../layouts/Main.astro";
-import TiltDivider from "../assets/hero-tilt-divider.svg?raw";
-
-import feelingProudIllustration from "../assets/illustrations/undraw-feeling-proud.svg?raw";
-import Blob from "../assets/illustrations/blob.svg?raw";
 
 import Projects from "../components/Projects.astro";
+import Contact from "../components/Contact.astro";
+
+import TiltDivider from "../assets/hero-tilt-divider.svg?raw";
+import feelingProudIllustration from "../assets/illustrations/undraw-feeling-proud.svg?raw";
+import Blob from "../assets/illustrations/blob.svg?raw";
 ---
 
 <MainLayout>
@@ -53,6 +54,9 @@ import Projects from "../components/Projects.astro";
 				</div>
 			</div>
 		</div>
+		<div class="section" id="contact">
+			<Contact />
+		</div>
 	</main>
 </MainLayout>
 
@@ -77,10 +81,7 @@ import Projects from "../components/Projects.astro";
 					transparent calc(var(--hero-height) - var(--hero-split-height))
 				);
 				.section-content {
-					// width: 100%;
 					height: var(--hero-height);
-					// padding: 4rem 4rem 10rem;
-					// padding: 0;
 					box-sizing: border-box;
 	
 					display: grid;
@@ -127,10 +128,14 @@ import Projects from "../components/Projects.astro";
 							font-family: inherit;
 							cursor: pointer;
 							font-weight: 600;
-							border: 1px solid var(--accent-foreground);
+							border: 0.1rem solid var(--accent-foreground);
 							background: none;
 							color: var(--accent-foreground);
 							border-radius: 100vh;
+							&:focus {
+								outline: 0.1rem solid var(--accent);
+								border-color: var(--accent);
+							}
 						}
 					}
 				}
