@@ -26,7 +26,7 @@ const checkSpamRating = async (email) => {
 	}
 };
 
-export const POST = async ({ request, redirect }) => {
+export const POST = async ({ clientAddress, request, redirect }) => {
     const data = await request.formData();
     const name = data.get('name');
     const userEmail = data.get('email');
@@ -61,6 +61,8 @@ export const POST = async ({ request, redirect }) => {
         subject: `Contact form submission from ${name} <${userEmail}>`,
         html: message
     });
+    
+    console.log(`${clientAddress} | has sent an email from ${userEmail} to ${process.env.RESEND_RECIPIENT}`);
 
     if (emailResponse.error) {
         console.log(emailResponse.error);
@@ -69,6 +71,7 @@ export const POST = async ({ request, redirect }) => {
             statusText: "Internal Server Error"
         });
     };
+
 
     return redirect("/contact/success");
 };
