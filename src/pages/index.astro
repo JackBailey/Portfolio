@@ -2,7 +2,7 @@
 import MainLayout from "../layouts/Main.astro";
 
 import Projects from "../components/Projects.astro";
-import Contact from "../components/Contact.astro";
+import Contact from "../components/ContactForm.astro";
 
 import TiltDivider from "../assets/hero-tilt-divider.svg?raw";
 import feelingProudIllustration from "../assets/illustrations/undraw-feeling-proud.svg?raw";
@@ -65,6 +65,7 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 <style lang="scss">
 	main {
 		.section {
+			scroll-margin-top: 5rem;
 			.section-content {
 				width: clamp(16rem, 95vw, 1440px);
 				margin: 0 auto;
