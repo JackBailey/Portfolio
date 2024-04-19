@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import markdoc from "@astrojs/markdoc";
 
-import cloudflare from "@astrojs/cloudflare";
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,8 +11,8 @@ export default defineConfig({
     }
   },
   integrations: [markdoc()],
-  output: "server",
-  adapter: cloudflare({
-    imageService: "passthrough",
+  output: "hybrid",
+  adapter: vercel({
+    edgeMiddleware: true,
   })
 });
