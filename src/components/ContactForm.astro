@@ -31,12 +31,12 @@ import WavyDivider from "./WavyDivider.astro"
             z-index: 1;
             display: flex;
             justify-content: flex-end;
-            width: clamp(16rem, 90vw, 1440px);
+            width: var(--section-width);
             padding: 0 0 5rem;
             margin: 0 auto;
             .contact-form {
                 text-align: center;
-                width: 30rem;
+                width: 25rem;
                 max-width: 100%;
                 padding: 1.5rem 2.5rem;
                 box-sizing: border-box;
@@ -77,12 +77,16 @@ import WavyDivider from "./WavyDivider.astro"
                         color: var(--accent-foreground);
                         border: 0;
                         border-radius: 0.5rem;
-                        padding:  1em 1.5em;
+                        padding: 0.5em 1.5em;
                         font-family: "Quicksand", Arial, Helvetica, sans-serif;
                         font-weight: 600;
                         margin-top: 1rem;
                         font-size: 1.25rem;
                         cursor: pointer;
+                        transition: background-color 0.2s;
+                        &:hover {
+                            background-color: var(--accent);
+                        }
                     }
                 }
             }

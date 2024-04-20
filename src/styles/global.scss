@@ -6,6 +6,8 @@
     --background-2: #f2f2f2;
     --foreground-1: #0d0a20;
     --foreground-2: #aeb2ba;
+
+    --section-width: clamp(16rem, 90vw, 1600px);
 }
 
 :root:not([dark-mode]) {
@@ -62,20 +64,14 @@ p {
     }
 }
 
-@media screen and (min-width: 1024px) {
-    :root {
-        font-size: 16px;
-    }
-}
-
 @media screen and (min-width: 1920px) {
     :root {
         font-size: 14px;
     }
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1921px) {
     :root {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
