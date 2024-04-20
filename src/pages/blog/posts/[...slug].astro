@@ -23,11 +23,11 @@ export async function getStaticPaths() {
 }
 
 const blogPost = await getEntry('blog', Astro.params.slug);
-const { Content, headings } = await blogPost.render();
+const { Content } = await blogPost.render();
 
 ---
 
-<Main>
+<Main title={blogPost.data.title}>
     <div class="blog-post">
         <div class="blog-content">
             <div class="metadata">

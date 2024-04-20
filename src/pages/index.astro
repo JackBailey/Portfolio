@@ -11,7 +11,7 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 const yearsAsDev = new Date().getFullYear() - 2021;
 ---
 
-<MainLayout>
+<MainLayout title="Home" description="I'm a full-stack developer from the UK - I handle the development, deployment and maintenance of your website, start to finish." metaImage="meta-preview.png">
 	<main>
 		<div class="section" id="hero">
 			<div class="section-content">
@@ -71,13 +71,13 @@ const yearsAsDev = new Date().getFullYear() - 2021;
 		.section {
 			scroll-margin-top: 5rem;
 			.section-content {
-				width: clamp(16rem, 90vw, 1440px);
+				width: var(--section-width);
 				margin: 0 auto;
 			}
 			&#hero {
 				position: relative;
 				z-index: 2;
-				--hero-height: 80vh;
+				--hero-height: max-content;
 				--hero-split-height: 20rem;
 				background-image: linear-gradient(
 					to top,
@@ -86,19 +86,18 @@ const yearsAsDev = new Date().getFullYear() - 2021;
 					#160F5A
 				);
 				.section-content {
-					min-height: max-content;
 					height: var(--hero-height);
 					box-sizing: border-box;
-	
 					display: grid;
 					grid-template-columns: 1fr 1fr;
 					grid-template-rows: max-content max-content;
 					align-content: center;
-					gap: 2rem 5rem;
 					align-items: center;
 					justify-content: space-between;
 					text-align: left;
+					gap: 2rem 5rem;
 					.title {
+						padding-top: 5rem;
 						h1 {
 							white-space: nowrap;
 							margin: 0;
@@ -120,8 +119,15 @@ const yearsAsDev = new Date().getFullYear() - 2021;
 						align-self: self-end;
 						margin: 0 0 0.7rem;
 						color: var(--accent-foreground);
+						@media screen and (min-width: 1201px){
+							grid-row: 1/3;
+							grid-column: 2;
+							padding: 5rem 0 calc(var(--hero-split-height) * 0.8) 0;
+						}
 					}
+
 					.buttons {
+						padding-bottom: 4rem;
 						display: flex;
 						flex-direction: row;
 						align-self: self-start;
@@ -220,14 +226,9 @@ const yearsAsDev = new Date().getFullYear() - 2021;
 
 			@media screen and (max-width: 1200px){
 				&#hero {
-					--hero-height: max-content;
 					--hero-split-height: 10rem;
 					.section-content {
 						grid-template-columns: 1fr;
-						align-items: flex-start;
-						justify-content: flex-start;
-						padding-top: 5rem;
-						padding-bottom: 4rem;
 						gap: 2rem;
 
 						.title {
@@ -238,6 +239,7 @@ const yearsAsDev = new Date().getFullYear() - 2021;
 
 						> p {
 							text-align: left;
+							max-width: 45ch;
 						}
 					}
 				}

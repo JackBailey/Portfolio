@@ -1,10 +1,10 @@
 ---
 import MainLayout from "../layouts/Main.astro";
 
-const { icon, title, message, showBackground } = Astro.props;
+const { icon, title, pageTitle, message, showBackground } = Astro.props;
 ---
 
-<MainLayout>
+<MainLayout title={pageTitle || "Error"}>
     <main>
         <div class="error-content">
             <div class="icon" data-background={showBackground || "true"}>
@@ -25,7 +25,7 @@ const { icon, title, message, showBackground } = Astro.props;
         box-sizing: border-box;
         height: 100%;
         .error-content {
-            width: clamp(16rem, 90vw, 1440px);
+            width: var(--section-width);
             margin: 0 auto;
             display: flex;
             flex-direction: column;
