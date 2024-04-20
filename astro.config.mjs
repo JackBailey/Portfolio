@@ -12,7 +12,16 @@ export default defineConfig({
       theme: "andromeeda"
     }
   },
-  integrations: [markdoc(), sitemap()],
+  integrations: [
+    markdoc(),
+    sitemap({
+      filter: (page) => 
+        ![
+          "https://jackbailey.dev/contact/error/",
+          "https://jackbailey.dev/contact/success/",
+        ].includes(page)
+    })
+  ],
   output: "hybrid",
   adapter: vercel({
     edgeMiddleware: true
