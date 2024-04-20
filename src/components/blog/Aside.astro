@@ -9,7 +9,7 @@ const asideTypes = [
     }
 ];
 
-let type = asideTypes.find((type) => type.type === Astro.props.type);
+let type = asideTypes.find((type) => Astro.props.type ? type.type === Astro.props.type : type.default);
 ---
 
 <div class="aside" data-aside-type={ Astro.props.type } style={ `--aside-color: ${type.color};` } >

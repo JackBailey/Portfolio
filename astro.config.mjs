@@ -1,27 +1,17 @@
 import { defineConfig } from 'astro/config';
-import markdoc from "@astrojs/markdoc";
 import vercel from "@astrojs/vercel/serverless";
-
 import sitemap from "@astrojs/sitemap";
+import expressiveCode from "astro-expressive-code";
+import mdx from "@astrojs/mdx";
+const site = "https://v9.jackbailey.dev";
+
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://jackbailey.dev",
-  markdown: {
-    shikiConfig: {
-      theme: "andromeeda"
-    }
-  },
-  integrations: [
-    markdoc(),
-    sitemap({
-      filter: (page) => 
-        ![
-          "https://jackbailey.dev/contact/error/",
-          "https://jackbailey.dev/contact/success/",
-        ].includes(page)
-    })
-  ],
+  site,
+  integrations: [sitemap({
+    filter: page => ![site + "/contact/error/", site + "/contact/success/"].includes(page)
+  }), expressiveCode(), mdx()],
   output: "hybrid",
   adapter: vercel({
     edgeMiddleware: true

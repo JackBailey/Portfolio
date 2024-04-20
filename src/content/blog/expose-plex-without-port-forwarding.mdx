@@ -99,7 +99,7 @@ Make note of this first IP (100.67.71.58) - you'll need it for later
 
 Paste the following content into a file called `docker-compose.yml` in a new, blank directory
 
-```yaml
+```yaml title="docker-compose.yml"
 version: '3'
 services:
   app:
@@ -207,9 +207,10 @@ Mine looks like this:
 
 #### 4. Add gluetun to your docker compose file
 
-Add the following lines to your `docker-compose.yml` file
+Add the following service to your `docker-compose.yml` file
 
-```yaml
+```yaml title="docker-compose.yml"
+services:
     gluetun:
         image: qmcgaw/gluetun
         cap_add:

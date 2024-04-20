@@ -7,10 +7,11 @@ slug: free-backup-using-duplicati-and-scaleway
 tags: selfhosting
 ---
 
-{% aside title="Caution - Updated 2023-04-17" %}
-Use Duplicati at your own risk, some users (myself included) have issues restoring from Duplicati. Always test your backups beforehand.
-{% /aside %}
+import Aside from "../../components/blog/Aside.astro";
 
+<Aside title="Caution - Updated 2023-04-17">
+Use Duplicati at your own risk, some users (myself included) have issues restoring from Duplicati. Always test your backups beforehand.
+</Aside>
 
 What's the point in carefully crafting a beautiful homeserver if one mistype or downloading a dodgy program can ruin it all? A backup solution is vital to protect your important data.
 
@@ -48,11 +49,7 @@ I like to use Scaleway as **one of** my backup locations (along with Google Driv
 
 Follow [this guide](https://duplicati.readthedocs.io/en/latest/02-installation/) to install Duplicati - I personally use Docker Compose.
 
-
-#### My docker compose config file
-
-
-```yml
+```yml title="docker-compose.yml"
 version: "2.1"
 services:
   duplicati:
