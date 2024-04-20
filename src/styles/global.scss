@@ -62,13 +62,19 @@ p {
     }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 1024px) {
     :root {
         font-size: 16px;
     }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1920px) {
+    :root {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 1920px) {
     :root {
         font-size: 18px;
     }

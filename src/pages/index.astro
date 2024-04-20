@@ -7,6 +7,8 @@ import Contact from "../components/ContactForm.astro";
 import TiltDivider from "../assets/hero-tilt-divider.svg?raw";
 import feelingProudIllustration from "../assets/illustrations/undraw-feeling-proud.svg?raw";
 import Blob from "../assets/illustrations/blob.svg?raw";
+
+const yearsAsDev = new Date().getFullYear() - 2021;
 ---
 
 <MainLayout>
@@ -21,9 +23,11 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 				</div>
 				<p>I handle the development, deployment and maintenance of your website, start to finish.</p>
 				<div class="buttons">
-					<button>
-						My work
-					</button>
+					<a href="/#projects">
+						<button>
+							My work
+						</button>
+					</a>
 				</div>
 			</div>
 			<div class="background-split">
@@ -33,9 +37,9 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 		<div class="section" id="about">
 			<div class="section-content">
 				<div class="content">
-					<h2>Lorem ipsum dolor sit amet</h2>
+					<h2>I’m a full-stack developer from the UK.</h2>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro sit explicabo dicta? Commodi delectus, reiciendis ea amet labore dolorum, provident repudiandae dicta incidunt maiores dolorem architecto iste eius quae sit!
+						I’ve been developing various projects in a variety of languages such as Python, JavaScript and C# for many years but over the past {yearsAsDev} years I’ve discovered my passion for website development and have quickly built up my skillset and developed websites for a variety of individual people and businesses. 
 					</p>
 				</div>
 				<div class="illustration">
