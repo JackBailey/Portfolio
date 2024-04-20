@@ -67,7 +67,7 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 		.section {
 			scroll-margin-top: 5rem;
 			.section-content {
-				width: clamp(16rem, 95vw, 1440px);
+				width: clamp(16rem, 90vw, 1440px);
 				margin: 0 auto;
 			}
 			&#hero {
@@ -76,12 +76,13 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 				--hero-height: 80vh;
 				--hero-split-height: 20rem;
 				background-image: linear-gradient(
-					to bottom,
-					#160F5A,
-					#251b8b calc(var(--hero-height) - var(--hero-split-height)),
-					transparent calc(var(--hero-height) - var(--hero-split-height))
+					to top,
+					transparent var(--hero-split-height),
+					#251b8b var(--hero-split-height),
+					#160F5A
 				);
 				.section-content {
+					min-height: max-content;
 					height: var(--hero-height);
 					box-sizing: border-box;
 	
@@ -125,7 +126,7 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 							padding: 0.5em 1em;
 							border: none;
 							border-radius: 0.5rem;
-							font-size: 1.7rem;
+							font-size: 1.25rem;
 							font-family: inherit;
 							cursor: pointer;
 							font-weight: 600;
@@ -133,9 +134,17 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 							background: none;
 							color: var(--accent-foreground);
 							border-radius: 100vh;
+							transition: border 0.5s;
+							transition: color 0.5s;
+							transition: background 0.5s;
 							&:focus {
 								outline: 0.1rem solid var(--accent);
+							}
+							
+							&:hover {
 								border-color: var(--accent);
+								background-color: var(--accent);
+								color: var(--accent-foreground);
 							}
 						}
 					}
@@ -207,11 +216,14 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 
 			@media screen and (max-width: 1200px){
 				&#hero {
-					--hero-height: 70vh;
+					--hero-height: max-content;
 					--hero-split-height: 10rem;
 					.section-content {
 						grid-template-columns: 1fr;
 						align-items: flex-start;
+						justify-content: flex-start;
+						padding-top: 5rem;
+						padding-bottom: 4rem;
 						gap: 2rem;
 
 						.title {
@@ -229,7 +241,6 @@ import Blob from "../assets/illustrations/blob.svg?raw";
 
 			@media screen and (max-width: 768px) {
 				&#hero {
-					--hero-height: 70vh;
 					--hero-split-height: 5rem;
 					.section-content {
 						gap: 1.5rem;
