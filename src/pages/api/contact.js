@@ -33,14 +33,12 @@ export const POST = async ({ clientAddress, request, redirect }) => {
     const name = data.get('name');
     const userEmail = data.get('email');
     const userMessage = data.get('message');
+    const searchParams = new URLSearchParams();
 
     if (!name || !userEmail || !userMessage) {
-        return new Response(
-          JSON.stringify({
-            message: "Missing required fields",
-          }),
-          { status: 400 }
-        );
+        searchParams.set("title", 400);
+        searchParams.set("message", "Missing required fields");
+        return redirect("/contact/error?" + searchParams.toString());
     };
 
     let message = "<p>" + sanitizeHtml(userMessage) + "</p>";
@@ -49,10 +47,9 @@ export const POST = async ({ clientAddress, request, redirect }) => {
 
     if (checkEmailResponse[1]) {
         console.log(checkEmailResponse[1]);
-        return new Response("Internal Server Error, try again later", {
-            status: 500,
-            statusText: "Internal Server Error"
-        });
+        searchParams.set("title", 500);
+        searchParams.set("message", "Error checking email, try again later");
+        return redirect("/contact/error?" + searchParams.toString());
     }
 
     message += `\n<hr>\n<a href="https://www.stopforumspam.com/search?q=${encodeURI(userEmail)}">Spam results</a>: ${checkEmailResponse[0].frequency}${checkEmailResponse[0].confidence ? "<br>Confidence: " + checkEmailResponse[0].confidence + "%" : ""}`;
@@ -68,10 +65,9 @@ export const POST = async ({ clientAddress, request, redirect }) => {
 
     if (emailResponse.error) {
         console.log(emailResponse.error);
-        return new Response("Internal Server Error, try again later", {
-            status: 500,
-            statusText: "Internal Server Error"
-        });
+        searchParams.set("title", 500);
+        searchParams.set("message", "Internal Server Error, try again later");
+        return redirect("/contact/error?" + searchParams.toString());
     };
 
 
