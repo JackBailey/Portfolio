@@ -58,7 +58,13 @@ const projects = [
     {
         projects.map((project, index) => (
             <div class="project">
-                <Image src={project.image.default} alt={project.name} width="640" height="360" loading="lazy" />
+                <Image
+                  src={project.image.default}
+                  alt={project.name}
+                  loading="lazy"
+                  widths={[640, 350]}
+                  sizes={`(max-width: 768px) 640px, 350px`}
+                />
                 <p>{project.startedString}</p>
             </div>
         ))

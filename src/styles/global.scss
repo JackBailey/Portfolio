@@ -1,6 +1,26 @@
+@font-face {
+    font-family: "Quicksand";
+    src: url("/fonts/Quicksand/Quicksand-VariableFont_wght.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Poppins";
+    font-weight: 600;
+    src: url("/fonts/Poppins/Poppins-SemiBold.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Poppins";
+    font-weight: 800;
+    src: url("/fonts/Poppins/Poppins-ExtraBold.ttf");
+    font-display: swap;
+}
+
 :root {
     --accent: #5b42f5;
-    --accent-muted: #5347CC;
+    --accent-muted: #5c51d6;
     --accent-foreground: white;
     --background-1: #fdfdfd;
     --background-2: #f2f2f2;
@@ -15,7 +35,7 @@
     // When JS not enabled, for noscript JS and mitigating "flashbangs"
     @media (prefers-color-scheme: dark) {
         --accent: #5b42f5;
-        --accent-muted: #5347CC;
+        --accent-muted: #5c51d6;
         --accent-foreground: white;
         --background-1: #0D0A20;
         --background-2: #262534;
@@ -26,7 +46,7 @@
 
 :root[dark-mode="true"] {
     --accent: #5b42f5;
-    --accent-muted: #5347CC;
+    --accent-muted: #5c51d6;
     --accent-foreground: white;
     --background-1: #0D0A20;
     --background-2: #262534;
