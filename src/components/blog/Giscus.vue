@@ -11,7 +11,6 @@
             input-position="top"
             :theme="dark ? 'dark_dimmed' : 'light'"
             lang="en"
-            loading="lazy"
         />
     </div>
 </template>
