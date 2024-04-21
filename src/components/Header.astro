@@ -1,7 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import "../styles/global.scss";
 import ThemeSelector from "./ThemeSelector.astro";
-import Logo from "../assets/logo.svg?raw";
+import Logo from "../assets/logo.png";
 import Envelope from "../assets/icons/envelope.svg?raw";
 
 const pathname = new URL(Astro.request.url).pathname;
@@ -11,7 +12,7 @@ const currentPath = pathname.slice(1);
 <nav>
     <a href="/">
         <div class="logo">
-            <Fragment set:html={Logo} />
+            <Image src={Logo} alt="Jack Bailey logo" width="48" height="48" />
         </div>
         <h2>Jack <span>Bailey</span></h2>
     </a>
@@ -151,6 +152,10 @@ nav {
                 height: 3rem;
                 width: 3rem;
                 display: block;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
             }
             h2 {
                 display: none;
