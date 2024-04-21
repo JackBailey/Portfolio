@@ -1,8 +1,7 @@
 ---
 import Header from "../components/Header.astro";
-import "@fontsource/poppins";
-import "@fontsource/quicksand";
-const { title, description, metaImage } = Astro.props;
+import Footer from "../components/Footer.astro";
+const { title, description, metaImage, footerBackground } = Astro.props;
 let pathname = new URL(Astro.request.url).pathname;
 if (pathname.startsWith("/")) {
     pathname = pathname.slice(1);
@@ -16,6 +15,9 @@ if (pathname.startsWith("/")) {
     <title>{title ? `${title} | Jack Bailey` : "Jack Bailey"}</title>
     <meta content={title ? `${title} | Jack Bailey` : "Jack Bailey"} property="og:title" />
 
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=poppins:600,700,800|quicksand:400,500,600" rel="stylesheet" />
+
     { description && <meta content={description} name="description" /> }
     { description && <meta content={description} property="og:description" /> }
 
@@ -28,5 +30,6 @@ if (pathname.startsWith("/")) {
 <body>
     <Header/>
     <slot />
+    <Footer background={footerBackground} />
 </body>
 </html>

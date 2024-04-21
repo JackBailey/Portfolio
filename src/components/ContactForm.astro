@@ -32,7 +32,7 @@ import WavyDivider from "./WavyDivider.astro"
             display: flex;
             justify-content: flex-end;
             width: var(--section-width);
-            padding: 0 0 5rem;
+            padding: 0;
             margin: 0 auto;
             .contact-form {
                 text-align: center;
@@ -103,11 +103,14 @@ import WavyDivider from "./WavyDivider.astro"
     @media screen and (max-width: 768px){
         .contact {
             .contact-inner {
-                width: 100%;
-                padding: 1rem;
+                padding: 0;
                 box-sizing: border-box;
                 .contact-form {
+                    padding: 1rem;
                     width: 100%;
+                    textarea {
+                        height: 12rem;
+                    }
                 }
             }
 
