@@ -17,6 +17,12 @@ dependencies:
   '@astrojs/vue':
     specifier: ^4.1.0
     version: 4.1.0(astro@4.5.9)(vite@5.2.3)(vue@3.4.23)
+  '@fontsource/poppins':
+    specifier: ^5.0.14
+    version: 5.0.14
+  '@fontsource/quicksand':
+    specifier: ^5.0.18
+    version: 5.0.18
   '@giscus/vue':
     specifier: ^3.0.0
     version: 3.0.0(vue@3.4.23)
@@ -991,6 +997,14 @@ packages:
     resolution: {integrity: sha512-YD/QhTBoCGXWCE40BD3Wg1XXAR0eVVFYL0TZaD8JjdRqVDmmRtZmhiG+/luXfbe9xZy5qEw4ZFXiQrJkUH6DJQ==}
     dependencies:
       '@expressive-code/core': 0.35.2
+    dev: false
+
+  /@fontsource/poppins@5.0.14:
+    resolution: {integrity: sha512-nmM1zpPo3Uh4JcGAVSQuWaZNYh2FbbwWhZ5t6hRaynmJaNTBW85d3nEh9zMmzI0HX7X5xqQVdRHeDatKpOGsnA==}
+    dev: false
+
+  /@fontsource/quicksand@5.0.18:
+    resolution: {integrity: sha512-Dvv89zZG0vjZzmYwkUJTbFNV/uhNikqB9Qgl4KMtFw/gTaS5nA7vLIOjfEz/gjWlKPsYnuSIvVArLR0/xptxlA==}
     dev: false
 
   /@giscus/vue@3.0.0(vue@3.4.23):

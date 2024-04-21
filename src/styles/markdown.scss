@@ -1026,68 +1026,6 @@ h5 {
     filter: invert(50%);
 }
 
-.markdown-body .markdown-alert {
-    padding: 8px 16px;
-    margin-bottom: 16px;
-    color: inherit;
-    border-left: 0.25em solid #30363d;
-}
-
-.markdown-body .markdown-alert > :first-child {
-    margin-top: 0;
-}
-
-.markdown-body .markdown-alert > :last-child {
-    margin-bottom: 0;
-}
-
-.markdown-body .markdown-alert .markdown-alert-title {
-    display: flex;
-    font-weight: 500;
-    align-items: center;
-    line-height: 1;
-}
-
-.markdown-body .markdown-alert.markdown-alert-note {
-    border-left-color: #1f6feb;
-}
-
-.markdown-body .markdown-alert.markdown-alert-note .markdown-alert-title {
-    color: #5b42f5;
-}
-
-.markdown-body .markdown-alert.markdown-alert-important {
-    border-left-color: #8957e5;
-}
-
-.markdown-body .markdown-alert.markdown-alert-important .markdown-alert-title {
-    color: #a371f7;
-}
-
-.markdown-body .markdown-alert.markdown-alert-warning {
-    border-left-color: #9e6a03;
-}
-
-.markdown-body .markdown-alert.markdown-alert-warning .markdown-alert-title {
-    color: #d29922;
-}
-
-.markdown-body .markdown-alert.markdown-alert-tip {
-    border-left-color: #238636;
-}
-
-.markdown-body .markdown-alert.markdown-alert-tip .markdown-alert-title {
-    color: #3fb950;
-}
-
-.markdown-body .markdown-alert.markdown-alert-caution {
-    border-left-color: #da3633;
-}
-
-.markdown-body .markdown-alert.markdown-alert-caution .markdown-alert-title {
-    color: #f85149;
-}
-
 .expressive-code {
   margin-bottom: 1rem;
 }

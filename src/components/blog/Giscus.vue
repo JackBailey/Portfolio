@@ -7,6 +7,7 @@
             category-id="DIC_kwDOF1h2Js4CeLWz"
             mapping="pathname"
             emit-metadata="0"
+            reactions-enabled="0"
             input-position="top"
             :theme="dark ? 'dark_dimmed' : 'light'"
             lang="en"
