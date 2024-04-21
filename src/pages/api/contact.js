@@ -57,6 +57,7 @@ export const POST = async ({ clientAddress, request, redirect }) => {
     let emailResponse = await resend.emails.send({
         from: `Jack Bailey <${process.env.RESEND_FROM_ADDRESS}>`,
         to: process.env.RESEND_RECIPIENT,
+        reply_to: userEmail,
         subject: `Contact form submission from ${name} <${userEmail}>`,
         html: message
     });
