@@ -58,7 +58,7 @@ const projects = [
     {
         projects.map((project, index) => (
             <div class="project">
-                <Image src={project.image.default} alt={project.name} width="500" />
+                <Image src={project.image.default} alt={project.name} width="640" height="360" loading="lazy" />
                 <p>{project.startedString}</p>
             </div>
         ))
@@ -79,7 +79,8 @@ const projects = [
             border-radius: 0.35rem;
             aspect-ratio: 16 / 9;
             border: 0.25rem solid var(--accent);
-            box-sizing: border-box
+            box-sizing: border-box;
+            object-fit: cover;
         }
         p {
             position: absolute;

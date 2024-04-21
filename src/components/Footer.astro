@@ -9,10 +9,10 @@ const { background } = Astro.props;
     <div class="footer-inner">
         <p>Source code available on <a href="https://github.com/JackBailey/Portfolio" target="_blank">GitHub</a></p>
         <div class="socials">
-            <a href="https://github.com/JackBailey" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/JackBailey" target="_blank" rel="noopener noreferrer" aria-label="Jack Bailey's GitHub Account">
                 <Fragment set:html={GitHubLogo}>
             </a>
-            <a href="/discord">
+            <a href="/discord" aria-label="View Jack Bailey's GitHub username">
                 <Fragment set:html={DiscordLogo}>
             </a>
         </div>
@@ -27,6 +27,9 @@ const { background } = Astro.props;
             padding: 1rem 0;
             box-sizing: border-box;
             text-align: center;
+            p {
+                color: var(--accent-foreground);
+            }
             a {
                 color: white;
                 text-decoration: none;
