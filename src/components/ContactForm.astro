@@ -1,0 +1,126 @@
+---
+import WavyDivider from "./WavyDivider.astro"
+---
+
+<div class="contact">
+    <div class="contact-inner">
+        <div class="contact-form">
+            <h2>Get in touch</h2>
+            <form action="/api/contact" method="POST">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message</label>
+                <textarea name="message" id="message" cols="30" rows="10" required></textarea>
+                <button>Send Message</button>
+            </form>
+        </div>
+    </div>
+    <WavyDivider />
+</div>
+
+
+
+<style lang="scss">
+    .contact {
+        position: relative;
+        z-index: 0;
+        padding-top: 3rem;
+        .contact-inner {
+            z-index: 1;
+            display: flex;
+            justify-content: flex-end;
+            width: var(--section-width);
+            padding: 0;
+            margin: 0 auto;
+            .contact-form {
+                text-align: center;
+                width: 25rem;
+                max-width: 100%;
+                padding: 1.5rem 2.5rem;
+                box-sizing: border-box;
+                background-image: linear-gradient(to bottom, rgba(62, 46, 169, 0.355), rgba(62, 46, 169, 1));
+                backdrop-filter: blur(6px);
+                border-radius: 10px;
+                h2 {
+                    margin: 0;
+                    color: var(--accent-foreground);
+                    text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+                }
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    label {
+                        text-align: left;
+                        margin: 0.75rem 0 0.1rem;
+                        color: var(--accent-foreground);
+                        font-size: 0.9rem;
+                    }
+
+                    input, textarea {
+                        border: 0.1rem solid var(--accent);
+                        border-radius: 0.4rem;
+                        color: var(--accent-foreground);
+                        background: none;
+                        padding: 0.5em;
+                        font-family: "Quicksand", Arial, Helvetica, sans-serif;
+                        resize: none;
+                        &:focus {
+                            outline: none;
+                            border-color: var(--accent-foreground);
+                        }
+                    }
+
+                    button {
+                        background-color: var(--accent-muted);
+                        color: var(--accent-foreground);
+                        border: 0;
+                        border-radius: 0.5rem;
+                        padding: 0.5em 1.5em;
+                        font-family: "Quicksand", Arial, Helvetica, sans-serif;
+                        font-weight: 600;
+                        margin-top: 1rem;
+                        font-size: 1.25rem;
+                        cursor: pointer;
+                        transition: background-color 0.2s;
+                        &:hover {
+                            background-color: var(--accent);
+                        }
+                    }
+                }
+            }
+        }
+        :global(.wavy-divider) {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: -2;
+        }
+    }
+
+    @media screen and (max-width: 768px){
+        .contact {
+            .contact-inner {
+                padding: 0;
+                box-sizing: border-box;
+                .contact-form {
+                    padding: 1rem;
+                    width: 100%;
+                    textarea {
+                        height: 12rem;
+                    }
+                }
+            }
+
+            :global(.wavy-divider .svg-container) {
+                height: 8rem;
+            }
+
+            :global(.wavy-divider .spacer) {
+                height: 13rem;
+            }
+        }
+    }
+</style>

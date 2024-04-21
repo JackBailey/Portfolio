@@ -1,0 +1,25 @@
+---
+import MessagePage from "../components/Message.astro";
+import Icon from "../assets/icons/discord-text.svg?raw";
+
+const response = await fetch("https://api.lanyard.rest/v1/users/154608413412818944");
+const data = await response.json();
+
+const { discord_user } = data.data;
+
+let username = discord_user.username;
+---
+
+<MessagePage
+    icon={Icon}
+    wideIcon="true"
+    title={`@${username}`}
+    pageTitle="Discord"
+    showBackground="false"
+/>
+
+<style lang="scss">
+    :global(main .error-content .icon) {
+        width: 12rem;
+    }
+</style>

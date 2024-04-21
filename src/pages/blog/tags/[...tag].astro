@@ -1,0 +1,24 @@
+---
+import BlogPosts from "../../../components/blog/Posts.astro";
+
+import { getTagMap  } from "./_utils";
+
+const tagMap = await getTagMap();
+
+let tag = Astro.params.tag;
+let properName = tagMap.get(tag);
+
+export async function getStaticPaths() {
+  const tagMap = await getTagMap();
+
+  return [...tagMap.keys()].map((tag) => {
+    return {
+      params: {
+        tag,
+      }
+    }
+  });
+}
+---
+
+<BlogPosts title={`Recent blog posts about ${properName}`} tag={properName} />

@@ -1,0 +1,97 @@
+---
+import { getEntry, getEntries, getCollection } from 'astro:content';
+import dayjs from "dayjs";
+import advancedFormat from "dayjs/plugin/advancedFormat";
+import utc from "dayjs/plugin/utc";
+
+import MainLayout from "../../../layouts/Main.astro";
+import Giscus from "../../../components/blog/Giscus.vue";
+import TagChips from '../../../components/blog/TagChips.astro';
+
+import "../../../styles/markdown.scss";
+import "../../../styles/global.scss";
+
+dayjs.extend(advancedFormat);
+dayjs.extend(utc);
+
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const blogPost = await getEntry('blog', Astro.params.slug);
+const { Content } = await blogPost.render();
+
+---
+
+<MainLayout title={blogPost.data.title}>
+    <div class="blog-post">
+        <div class="blog-content">
+            <div class="metadata">
+                <TagChips tags={ blogPost.data.tags } />
+                <p class="date" title={blogPost.data.modified && "Modified: " + dayjs(blogPost.data.modified).utc().format("Do MMMM YYYY") }>
+                    { dayjs(blogPost.data.created).utc().format("Do MMM YYYY") }
+                </p>
+            </div>
+            <h1 class=""> { blogPost.data.title } </h1>
+            <div class="markdown-body">
+                <Content />
+            </div>
+            <Giscus client:visible />
+        </div>
+    </div>
+</MainLayout>
+
+
+<style lang="scss">
+.blog-post {
+    background-color: var(--background-1);
+    color: var(--foreground-1);
+    width: 100%;
+    .blog-content {
+        padding: 5rem 0 1rem;
+        scroll-margin-top: 5rem;
+        margin: 0 auto;
+        width: var(--blog-width);
+        box-sizing: border-box;
+        .metadata {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            .tags {
+                display: flex;
+                flex-direction: row;
+                gap: 0.5rem;
+                .tag {
+                    background-color: var(--accent-pale);
+                    color: var(--accent-foreground);
+                    font-weight: 600;
+                    width: max-content;
+                    padding: 0.2em 0.5em;
+                    border-radius: 10rem;
+                    margin: 0;
+                    text-decoration: none;
+                }
+            }
+            .date {
+                font-weight: 600;
+            }
+        }
+        > h1 {
+            margin-top: 1rem;
+            margin-bottom: 0;
+            font-size: 3rem;
+            line-height: 1.2;
+        }
+        p {
+            font-size: 0.8rem;
+        }
+        .markdown-body {
+            margin: 2rem 0;
+        }
+    }
+}
+</style>

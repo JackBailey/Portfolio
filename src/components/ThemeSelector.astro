@@ -1,0 +1,79 @@
+---
+import SunIcon from "../assets/icons/sun.svg?raw";
+import MoonIcon from "../assets/icons/moon.svg?raw";
+---
+
+<a id="theme-selector" href="javascript:" aria-label="Toggle colour theme">
+    <div class="light-mode-icon">
+        <Fragment set:html={SunIcon} />
+    </div>
+    <div class="dark-mode-icon">
+        <Fragment set:html={MoonIcon} />
+    </div>
+</a>
+
+<style lang="scss">
+    #theme-selector {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-left: 1rem;
+        display: block;
+        
+        &:not([dark-mode]) {
+            display: none;
+        }
+
+        .light-mode-icon,
+        .dark-mode-icon {
+            display: none;
+            cursor: pointer;
+
+            :global(svg) {
+                fill: var(--accent-foreground);
+                height: 1.5rem;
+                width: 1.5rem;
+            }
+        }
+        &[dark-mode="true"] {
+            .dark-mode-icon {
+                display: block;
+            }
+        }
+        &[dark-mode="false"] {
+            .light-mode-icon {
+                display: block;
+            }
+        }
+    }
+</style>
+
+<script>
+    const setTheme = () => {
+        themeSelector.setAttribute("dark-mode", dark.toString());
+    
+        document.documentElement.setAttribute("dark-mode", dark);
+        document.documentElement.setAttribute("data-ec-theme", dark ? "github-dark-dimmed" : "github-light");
+
+        const giscus = document.getElementById("giscus");
+        if (!giscus) return;
+        const event = new CustomEvent("theme-change", { detail: { dark } });
+        giscus.dispatchEvent(event);
+    };
+
+    const themeSelector = document.getElementById("theme-selector");
+    let dark;
+
+    if (localStorage.getItem("dark") !== null) {
+        dark = localStorage.getItem("dark") === "true";
+    } else {
+        dark = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) || false;
+    }
+
+    setTheme();
+
+    themeSelector.addEventListener("click", () => {
+        dark = !dark;
+        localStorage.setItem("dark", dark);
+        setTheme();
+    });
+</script>

@@ -1,0 +1,55 @@
+---
+const asideTypes = [
+    {
+        type: "caution",
+        icon: await import("../../assets/icons/blog/triangle-exclamation.svg?raw"),
+        default: true,
+        title: "Caution",
+        color: "234, 186, 82"
+    }
+];
+
+let type = asideTypes.find((type) => Astro.props.type ? type.type === Astro.props.type : type.default);
+---
+
+<div class="aside" data-aside-type={ Astro.props.type } style={ `--aside-color: ${type.color};` } >
+    <div class="aside-header">
+        <div class="aside-icon">
+            <Fragment set:html={ type.icon.default } />
+        </div>
+        <div class="aside-title">
+            { Astro.props.title || type.title }
+        </div>
+    </div>
+    <div class="aside-content">
+        <slot />
+    </div>
+</div>
+
+<style lang="scss">
+    .aside {
+        background-color: rgba(var(--aside-color), 0.5);
+        border-left: 0.5rem solid rgba(var(--aside-color), 1);
+        // color: white;
+        margin-bottom: 1rem;
+        .aside-header {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1rem 0;
+            .aside-icon {
+                height: 2rem;
+                padding-right: 1rem;
+                :global(svg) {
+                    fill: currentColor;
+                    width: 2rem;
+                }
+            }
+        }
+        .aside-content {
+            padding: 1rem 1rem 1rem;
+            :global(p:last-of-type) {
+                margin-bottom: 0;
+            }
+        }
+    }
+</style>

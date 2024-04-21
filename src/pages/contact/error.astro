@@ -1,0 +1,24 @@
+---
+import MessagePage from "../../components/Message.astro";
+import Icon from "../../assets/icons/circle-exclamation.svg?raw";
+
+const urlParams = Astro.url.searchParams;
+
+let title = urlParams.get("title");
+let message = urlParams.get("message");
+
+if (!title || !message) {
+    title = "400";
+    message = "Bad Request";
+};
+
+export const prerender = false;
+---
+
+<MessagePage
+    icon={Icon}
+    title={title}
+    pageTitle={`Error ${title}`}
+    message={message}
+    showBackground="false"
+/>

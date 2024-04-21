@@ -1,0 +1,25 @@
+---
+import MainLayout from "../../layouts/Main.astro";
+import ContactForm from "../../components/ContactForm.astro";
+---
+
+<MainLayout title="Contact" description="Connect with Jack Bailey through the contact form on his website">
+	<main>
+		<div class="section" id="contact">
+			<ContactForm />
+		</div>
+	</main>
+</MainLayout>
+
+<style lang="scss">
+	main {
+		height: 100vh;
+		height: 100dvh;
+
+		padding-top: 3rem;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+	}
+</style>

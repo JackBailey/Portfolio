@@ -1,0 +1,70 @@
+---
+import GitHubLogo from "../assets/icons/github.svg?raw";
+import DiscordLogo from "../assets/icons/discord.svg?raw";
+
+const { background } = Astro.props;
+---
+
+<footer style={background ? `background-color: ${background};` : "" }>
+    <div class="footer-inner">
+        <p>Source code available on <a href="https://github.com/JackBailey/Portfolio" target="_blank">GitHub</a></p>
+        <div class="socials">
+            <a href="https://github.com/JackBailey" target="_blank" rel="noopener noreferrer" aria-label="Jack Bailey's GitHub Account">
+                <Fragment set:html={GitHubLogo}>
+            </a>
+            <a href="/discord" aria-label="View Jack Bailey's GitHub username">
+                <Fragment set:html={DiscordLogo}>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<style lang="scss">
+    footer {
+        .footer-inner {
+            width: var(--section-width);
+            margin: 0 auto;
+            padding: 1rem 0;
+            box-sizing: border-box;
+            text-align: center;
+            p {
+                color: var(--accent-foreground);
+            }
+            a {
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+                transition: 150ms ease-in-out;
+                margin: 0;
+                &:hover {
+                    color: var(--accent);
+                }
+            }
+            .socials {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                margin-top: 1rem;
+                a {
+                    cursor: pointer;
+                    text-decoration: none;
+                    :global(svg) {
+                        width: 2rem;
+                        height: 2rem;
+                    }
+                    
+                    :global(svg path)  {
+                        fill: white;
+                        transition: 150ms ease-in-out;
+                    }
+
+                    &:hover {
+                        :global(svg path) {
+                        fill: var(--accent);
+                        }
+                    }
+                }
+            }
+        }
+	}
+</style>

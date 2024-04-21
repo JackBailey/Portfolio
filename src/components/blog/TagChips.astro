@@ -1,0 +1,62 @@
+---
+import dayjs from "dayjs";
+import advancedFormat from "dayjs/plugin/advancedFormat";
+import utc from "dayjs/plugin/utc";
+
+dayjs.extend(advancedFormat);
+dayjs.extend(utc);
+
+const { tags: tagsString, date: creationDate } = Astro.props;
+
+const tags = [];
+
+if (tagsString) {
+    tagsString.split(",").map((tag) => {
+        tag = tag.trim();
+        tags.push({
+            id: tag.toLowerCase(),
+            name: tag
+        });
+    });
+}
+
+---
+
+<div class="tags">
+    {
+        creationDate && 
+            <div class="tag date">
+                { dayjs(creationDate).utc().format("Do MMM YYYY") }
+            </div>
+    }
+    {
+        tags.map((tag) => 
+            <a class="tag" href={ `/blog/tags/${ tag.id }` }>
+                { tag.name }
+            </a>
+        )
+    }
+</div>
+
+<style lang="scss">
+    .tags {
+        display: flex;
+        flex-direction: row;
+        gap: 0.75rem;
+        .tag {
+            color: var(--accent-foreground);
+            width: max-content;
+            padding: 0.2em 0.6em;
+            border-radius: 10rem;
+            margin: 0;
+            text-decoration: none;
+            color: var(--foreground-1);
+            &:not(.date) {
+                background-color: var(--accent);
+                font-weight: 600;
+                color: var(--accent-foreground);
+                text-transform: capitalize;
+            }
+        }
+    }
+</style>
