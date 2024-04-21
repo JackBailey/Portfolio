@@ -4,7 +4,7 @@ import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import utc from "dayjs/plugin/utc";
 
-import Main from "../../../layouts/Main.astro";
+import MainLayout from "../../../layouts/Main.astro";
 import Giscus from "../../../components/blog/Giscus.vue";
 import TagChips from '../../../components/blog/TagChips.astro';
 
@@ -27,7 +27,7 @@ const { Content } = await blogPost.render();
 
 ---
 
-<Main title={blogPost.data.title}>
+<MainLayout title={blogPost.data.title}>
     <div class="blog-post">
         <div class="blog-content">
             <div class="metadata">
@@ -43,7 +43,7 @@ const { Content } = await blogPost.render();
             <Giscus client:visible />
         </div>
     </div>
-</Main>
+</MainLayout>
 
 
 <style lang="scss">
@@ -52,12 +52,11 @@ const { Content } = await blogPost.render();
     color: var(--foreground-1);
     width: 100%;
     .blog-content {
-        padding: 5rem 1rem 1rem;
+        padding: 5rem 0 1rem;
         scroll-margin-top: 5rem;
         margin: 0 auto;
-        width: 1000px;
+        width: var(--blog-width);
         box-sizing: border-box;
-        max-width: 90%;
         .metadata {
             display: flex;
             align-items: center;
