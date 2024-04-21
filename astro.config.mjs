@@ -4,7 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import expressiveCode from "astro-expressive-code";
 import mdx from "@astrojs/mdx";
 import vue from "@astrojs/vue";
-const site = "https://v9.jackbailey.dev";
+const site = "https://jackbailey.dev";
 
 
 // https://astro.build/config

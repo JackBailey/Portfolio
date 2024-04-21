@@ -1,6 +1,6 @@
 # My Portfolio
 
-This is Version 8 of my portfolio I use to demonstrate and display my skills as well as provide an easy way to contact me.
+This is Version 9 of my portfolio I use to demonstrate and display my skills as well as provide an easy way to contact me.
 
 <details>
 <summary>Previous versions</summary>
@@ -16,10 +16,12 @@ This is Version 8 of my portfolio I use to demonstrate and display my skills as 
     -   [Source Code](https://github.com/JackBailey/Portfolio/tree/v6)
 -   [Version 7](https://v7.jackbailey.dev)
     -   [Source Code](https://github.com/JackBailey/Portfolio/tree/v7)
+-   [Version 8](https://v8.jackbailey.dev)
+    -   [Source Code](https://github.com/JackBailey/Portfolio/tree/v8)
 
 </details>
 
-Makes use of [Simple Contact](https://github.com/JackBailey/SimpleContact) and [LanyardAPI](https://github.com/Phineas/lanyard/)
+Makes use of [LanyardAPI](https://github.com/Phineas/lanyard/)
 
 ## Project setup
 
