@@ -5,7 +5,7 @@ import advancedFormat from "dayjs/plugin/advancedFormat";
 import utc from "dayjs/plugin/utc";
 
 import Main from "../../../layouts/Main.astro";
-import Giscus from "../../../components/blog/Giscus.astro";
+import Giscus from "../../../components/blog/Giscus.vue";
 import TagChips from '../../../components/blog/TagChips.astro';
 
 import "../../../styles/markdown.scss";
@@ -40,7 +40,7 @@ const { Content } = await blogPost.render();
             <div class="markdown-body">
                 <Content />
             </div>
-            <Giscus />
+            <Giscus client:visible />
         </div>
     </div>
 </Main>

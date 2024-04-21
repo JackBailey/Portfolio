@@ -52,10 +52,12 @@ import MoonIcon from "../assets/icons/moon.svg?raw";
         themeSelector.setAttribute("dark-mode", dark.toString());
     
         document.documentElement.setAttribute("dark-mode", dark);
+        document.documentElement.setAttribute("data-ec-theme", dark ? "github-dark-dimmed" : "github-light");
 
-        const giscus = document.querySelector("giscus-widget");
+        const giscus = document.getElementById("giscus");
         if (!giscus) return;
-        giscus.setAttribute("theme", dark ? "https://giscus.app/themes/transparent_dark.css" : "light");
+        const event = new CustomEvent("theme-change", { detail: { dark } });
+        giscus.dispatchEvent(event);
     };
 
     const themeSelector = document.getElementById("theme-selector");
