@@ -1,5 +1,6 @@
 {
-    "github": {
-      "enabled": false
-    }
+  "github": {
+    "enabled": false
+  },
+  "cleanUrls": true
 }
