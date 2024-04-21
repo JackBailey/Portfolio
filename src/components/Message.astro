@@ -1,13 +1,13 @@
 ---
 import MainLayout from "../layouts/Main.astro";
 
-const { icon, title, pageTitle, message, showBackground } = Astro.props;
+const { icon, wideIcon, title, pageTitle, message, showBackground } = Astro.props;
 ---
 
-<MainLayout title={pageTitle || "Error"}>
+<MainLayout title={pageTitle}>
     <main>
-        <div class="error-content">
-            <div class="icon" data-background={showBackground || "true"}>
+        <div class="message-content">
+            <div class="icon" data-background={showBackground || "true"} data-wide={wideIcon || "false"}>
                 <Fragment set:html={icon} />
             </div>
             <h1>{title}</h1>
@@ -24,7 +24,7 @@ const { icon, title, pageTitle, message, showBackground } = Astro.props;
         padding-top: 4rem;
         box-sizing: border-box;
         height: 100%;
-        .error-content {
+        .message-content {
             width: var(--section-width);
             margin: 0 auto;
             display: flex;
@@ -55,6 +55,9 @@ const { icon, title, pageTitle, message, showBackground } = Astro.props;
                     :global(svg) {
                         fill: var(--accent-foreground);
                     }
+                }
+                &[data-wide="true"] {
+                    width: 12rem;
                 }
             }
     

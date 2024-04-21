@@ -1,5 +1,5 @@
 ---
-import ErrorPage from "../../components/Error.astro";
+import MessagePage from "../../components/Message.astro";
 import Icon from "../../assets/icons/circle-exclamation.svg?raw";
 
 const urlParams = Astro.url.searchParams;
@@ -15,9 +15,10 @@ if (!title || !message) {
 export const prerender = false;
 ---
 
-<ErrorPage
+<MessagePage
     icon={Icon}
     title={title}
+    pageTitle={`Error ${title}`}
     message={message}
     showBackground="false"
 />
