@@ -19,42 +19,49 @@ const projects = [
         description: "A static site, made in Astro, for a holiday lodge in Devon",
         started: "2024-03",
         image: await import("../assets/projects/screenshots/lamastar.png"),
-        site: "https://lamastarlodge.uk",
+        button: ["Website", "https://lamastarlodge.uk"],
     },
     {
         name: "Samuel Boik",
         description: "A multi-page portfolio for a graphic designer, made in Vue.js",
         started: "2024-01",
         image: await import("../assets/projects/screenshots/samuelboik.png"),
-        site: "https://samuelboik.com",
+        button: ["Website", "https://samuelboik.com"],
+    },
+    {
+        name: "Lynx",
+        description: "A URL shortener complete with bulk url management, accounts and a simple but effective design",
+        started: "2022-12",
+        image: await import("../assets/projects/screenshots/lynx.png"),
+        button: ["Website", "https://getlynx.dev"],
     },
     {
         name: "ScriptUNC",
         description: "A sleek, modern site for a programming naming convention",
         started: "2022-04",
         image: await import("../assets/projects/screenshots/scriptunc.png"),
-        site: "https://scriptunc.vercel.app/"
+        button: ["Website", "https://scriptunc.vercel.app/"],
     },
     {
         name: "NexusPIPE",
         description: "A landing page for a DDoS mitigation service",
         started: "2022-03",
         image: await import("../assets/projects/screenshots/nexuspipe-landing.png"),
-        site: "https://nexus-landing.vercel.app/"
+        button: ["Website", "https://nexus-landing.vercel.app/"],
     },
     {
         name: "Cryptic",
         description: "A full-stack marketplace for digital goods",
         started: "2022-01",
         image: await import("../assets/projects/screenshots/cryptic.png"),
-        site: "https://web.archive.org/web/20220126172114/https://cryptic.rip/"
+        button: ["Website", "https://web.archive.org/web/20220126172114/https://cryptic.rip/"],
     },
     {
         name: "Script-Ware Software",
         description: "A landing page for a software company with payment integration",
         started: "2021-10",
         image: await import("../assets/projects/screenshots/script-ware.png"),
-        site: "https://scriptware-prerelease.vercel.app/v2"
+        button: ["Website", "https://scriptware-prerelease.vercel.app/v2"],
     },
 ].map((project) => {
 	return {
@@ -73,9 +80,9 @@ const projects = [
                         <h3>{project.name}</h3>
                         { project.description && <p>{project.description}</p> }
                         { 
-                            project.site && 
-                            <a href={project.site} target="_blank" rel="noopener noreferrer">
-                                Website
+                            project.button && 
+                            <a href={project.button[1]} target="_blank" rel="noopener noreferrer">
+                                {project.button[0]}
                             </a>
                         }
                     </div>
