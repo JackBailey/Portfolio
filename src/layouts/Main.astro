@@ -1,7 +1,11 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
+import { useTurnstile } from "../_utils";
+
 const { title, description, metaImage, footerBackground } = Astro.props;
+
 let pathname = new URL(Astro.request.url).pathname;
 if (pathname.startsWith("/")) {
     pathname = pathname.slice(1);
@@ -15,6 +19,7 @@ if (pathname.startsWith("/")) {
     <title>{title ? `${title} | Jack Bailey` : "Jack Bailey"}</title>
     <meta content={title ? `${title} | Jack Bailey` : "Jack Bailey"} property="og:title" />
     <script defer src="https://analytics.jackbailey.dev/script.js" data-website-id="ba3c9c82-e20b-4dee-b970-8dba13e2f4e1"></script>
+    { useTurnstile && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script> }
 
     { description && <meta content={description} name="description" /> }
     { description && <meta content={description} property="og:description" /> }

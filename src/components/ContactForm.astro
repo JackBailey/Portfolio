@@ -1,5 +1,9 @@
 ---
 import WavyDivider from "./WavyDivider.astro"
+
+import { useTurnstile } from "../_utils";
+
+const turnstileSiteKey = import.meta.env.CF_TURNSTILE_SITE_KEY || "";
 ---
 
 <div class="contact">
@@ -10,9 +14,11 @@ import WavyDivider from "./WavyDivider.astro"
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Email</label>
+                <input type="text" name="veryrealfield" style="display: none;">
                 <input type="email" id="email" name="email" required>
                 <label for="message">Message</label>
                 <textarea name="message" id="message" cols="30" rows="10" required></textarea>
+                { useTurnstile && <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div> }
                 <button>Send Message</button>
             </form>
         </div>
@@ -49,30 +55,47 @@ import WavyDivider from "./WavyDivider.astro"
                     text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
                 }
                 form {
-                    display: flex;
-                    flex-direction: column;
                     label {
                         text-align: left;
                         margin: 0.75rem 0 0.1rem;
                         color: var(--accent-foreground);
                         font-size: 0.9rem;
+                        display: block;
+                        width: 100%;
                     }
 
                     input, textarea {
+                        display: block;
                         border: 0.1rem solid var(--accent);
                         border-radius: 0.4rem;
                         color: var(--accent-foreground);
                         background: none;
                         padding: 0.5em;
+                        box-sizing: border-box;
                         font-family: "Quicksand", Arial, Helvetica, sans-serif;
                         resize: none;
+                        width: 100%;
                         &:focus {
                             outline: none;
                             border-color: var(--accent-foreground);
                         }
                     }
 
+                    textarea {
+                        margin-bottom: 1rem;
+                    }
+
+                    .cf-turnstile {
+                        max-height: 65px;
+                        margin-top: 0;
+                        width: 100%;
+                        :deep(iframe) {
+                            width: 100%;
+                        }
+                    }
+
                     button {
+                        display: block;
                         background-color: var(--accent-muted);
                         color: var(--accent-foreground);
                         border: 0;
@@ -83,6 +106,7 @@ import WavyDivider from "./WavyDivider.astro"
                         margin-top: 1rem;
                         font-size: 1.25rem;
                         cursor: pointer;
+                        width: 100%;
                         transition: background-color 0.2s;
                         &:hover {
                             background-color: var(--accent);

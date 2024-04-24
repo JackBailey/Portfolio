@@ -1,5 +1,7 @@
 import { getCollection } from 'astro:content';
 
+export const useTurnstile = !!import.meta.env.CF_TURNSTILE_SITE_KEY && !!import.meta.env.CF_TURNSTILE_SITE_KEY;
+
 export const getTagMap = async () => {
     let blogEntries = await getCollection('blog');
 

@@ -1,11 +1,37 @@
 import { Resend } from "resend";
 import sanitizeHtml from "sanitize-html";
 import dotenv from "dotenv";
+import { useTurnstile } from "../../_utils";
 dotenv.config();
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const prerender = false;
+
+const verifyTurnstile = async ({token, ip}) => {
+    const formData = new FormData();
+    formData.append("secret", process.env.CF_TURNSTILE_SECRET_KEY);
+    formData.append("response", token);
+    formData.append("remoteip", ip);
+
+    try {
+        const url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+        const result = await fetch(url, {
+            body: formData,
+            method: 'POST',
+        });
+    
+        const outcome = await result.json();
+
+        if (!outcome.success) console.log(outcome['error-codes']);
+    
+        return outcome.success;
+    } catch (error) {
+        console.error(error);
+        return false;
+    }
+
+}
 
 const checkSpamRating = async (email) => {
     let params = new URLSearchParams();
@@ -33,13 +59,25 @@ export const POST = async ({ clientAddress, request, redirect }) => {
     const name = data.get('name');
     const userEmail = data.get('email');
     const userMessage = data.get('message');
+    const turnstileResponse = data.get('cf-turnstile-response');
     const searchParams = new URLSearchParams();
 
-    if (!name || !userEmail || !userMessage) {
+    if (!name || !userEmail || !userMessage || (!turnstileResponse && useTurnstile)) {
         searchParams.set("title", 400);
         searchParams.set("message", "Missing required fields");
         return redirect("/contact/error?" + searchParams.toString());
     };
+
+    if (useTurnstile) {
+        const turnstileSuccess = await verifyTurnstile({token: turnstileResponse, ip: clientAddress});
+    
+        if (!turnstileSuccess) {
+            searchParams.set("title", 400);
+            searchParams.set("message", "Failed to verify captcha");
+            return redirect("/contact/error?" + searchParams.toString());
+        }
+    }
+    
 
     let message = "<p>" + sanitizeHtml(userMessage) + "</p>";
 
