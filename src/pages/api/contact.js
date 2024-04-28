@@ -77,10 +77,9 @@ export const POST = async ({ clientAddress, request, redirect }) => {
             return redirect("/contact/error?" + searchParams.toString());
         }
     }
-    
 
     let message = "<p>" + sanitizeHtml(userMessage) + "</p>";
-
+    
     let checkEmailResponse = await checkSpamRating(userEmail);
 
     if (checkEmailResponse[1]) {
@@ -88,6 +87,11 @@ export const POST = async ({ clientAddress, request, redirect }) => {
         searchParams.set("title", 500);
         searchParams.set("message", "Error checking email, try again later");
         return redirect("/contact/error?" + searchParams.toString());
+    }
+
+    if (checkEmailResponse[0].confidence > 95) {
+        console.log(`${clientAddress} | tried to send an email from ${userEmail} to ${process.env.RESEND_RECIPIENT} but they were blocked with ${checkEmailResponse[0].frequency} Spam results and a ${checkEmailResponse[0].confidence + "%"} confidence level.`);
+        return redirect("/contact/success");   
     }
 
     message += `\n<hr>\n<a href="https://www.stopforumspam.com/search?q=${encodeURI(userEmail)}">Spam results</a>: ${checkEmailResponse[0].frequency}${checkEmailResponse[0].confidence ? "<br>Confidence: " + checkEmailResponse[0].confidence + "%" : ""}`;
