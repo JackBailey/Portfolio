@@ -1,4 +1,4 @@
-media: src/content/blog
+media: src/assets/blog
 
 content:
   - name: posts
