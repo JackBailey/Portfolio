@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import deno from '@deno/astro-adapter';
+import vercel from "@astrojs/vercel/serverless";
 import sitemap from "@astrojs/sitemap";
 import expressiveCode from "astro-expressive-code";
 import mdx from "@astrojs/mdx";
@@ -22,7 +22,7 @@ export default defineConfig({
     vue()
   ],
   output: "hybrid",
-  adapter: deno({
+  adapter: vercel({
     edgeMiddleware: true
   })
 });
