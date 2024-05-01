@@ -1,0 +1,31 @@
+media: src/content/blog
+
+content:
+  - name: posts
+    label: Posts
+    path: src/content/blog
+    type: collection
+    fields:
+      - name: title
+        type: text
+        label: Title
+      - name: description
+        type: text
+        label: Description
+      - name: created
+        type: date
+        label: Creation date
+      - name: modified
+        type: date
+        label: Last modified
+      - name: draft
+        type: boolean
+        default: true
+        label: Draft
+      - name: slug
+        type: text
+        label: Slug
+      - name: tags
+        type: text
+        label: Tags
+        
