@@ -27,4 +27,4 @@ dist-ssr
 .secrets
 .env
 tsconfig.json
-.astro/types.d.ts
+.astro

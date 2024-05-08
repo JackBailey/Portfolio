@@ -4,7 +4,7 @@ import Footer from "../components/Footer.astro";
 
 import { useTurnstile } from "../_utils";
 
-const { title, description, metaImage, footerBackground } = Astro.props;
+const { title, description, metaImage, footerBackground, noindex } = Astro.props;
 
 let pathname = new URL(Astro.request.url).pathname;
 if (pathname.startsWith("/")) {
@@ -29,6 +29,8 @@ if (pathname.startsWith("/")) {
     { metaImage && <meta name="twitter:card" content="summary_large_image"/> }
     
     <meta content="#5b42f5" name="theme-color" />
+
+    { noindex && <meta name="robots" content="noindex"/> }
 </head>
 <body>
     <Header/>
