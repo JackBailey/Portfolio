@@ -22,7 +22,5 @@ export default defineConfig({
     vue()
   ],
   output: "hybrid",
-  adapter: vercel({
-    edgeMiddleware: true
-  })
+  adapter: vercel()
 });
