@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "dev-1p": "op run --env-file=\"./1password.env\" -- astro dev"
+    "op": "op run --env-file=\"./1password.env\" -- pnpm astro"
   },
   "dependencies": {
     "@astrojs/mdx": "^2.3.1",
