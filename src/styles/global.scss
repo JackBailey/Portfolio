@@ -1,20 +1,36 @@
 @font-face {
     font-family: "Quicksand";
-    src: url("/fonts/Quicksand/Quicksand-VariableFont_wght.ttf");
+    font-weight: 400;
+    src: url("/fonts/Quicksand/Quicksand-Regular.woff2") format("woff2"),
+        url("/fonts/Quicksand/Quicksand-Regular.woff") format("woff"),
+        url("/fonts/Quicksand/Quicksand-Regular.ttf") format("ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Quicksand";
+    font-weight: 600;
+    src: url("/fonts/Quicksand/Quicksand-SemiBold.woff2") format("woff2"),
+        url("/fonts/Quicksand/Quicksand-SemiBold.woff") format("woff"),
+        url("/fonts/Quicksand/Quicksand-SemiBold.ttf") format("ttf");
     font-display: swap;
 }
 
 @font-face {
     font-family: "Poppins";
     font-weight: 600;
-    src: url("/fonts/Poppins/Poppins-SemiBold.ttf");
+    src: url("/fonts/Poppins/Poppins-SemiBold.woff2") format("woff2"),
+        url("/fonts/Poppins/Poppins-SemiBold.woff") format("woff"),
+        url("/fonts/Poppins/Poppins-SemiBold.ttf") format("ttf");
     font-display: swap;
 }
 
 @font-face {
     font-family: "Poppins";
     font-weight: 800;
-    src: url("/fonts/Poppins/Poppins-ExtraBold.ttf");
+    src: url("/fonts/Poppins/Poppins-Extrabold.woff2") format("woff2"),
+        url("/fonts/Poppins/Poppins-Extrabold.woff") format("woff"),
+        url("/fonts/Poppins/Poppins-Extrabold.ttf") format("ttf");
     font-display: swap;
 }
 
@@ -41,7 +57,7 @@ html {
         --accent: #5b42f5;
         --accent-muted: #5c51d6;
         --accent-foreground: white;
-        --background-1: #0D0A20;
+        --background-1: #0d0a20;
         --background-2: #262534;
         --foreground-1: #e6edf3;
         --foreground-2: #cfd6dd;
@@ -52,14 +68,14 @@ html {
     --accent: #5b42f5;
     --accent-muted: #5c51d6;
     --accent-foreground: white;
-    --background-1: #0D0A20;
+    --background-1: #0d0a20;
     --background-2: #262534;
     --foreground-1: #e6edf3;
     --foreground-2: #cfd6dd;
 }
 
-
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -68,7 +84,9 @@ html, body {
     scroll-behavior: smooth;
 }
 
-:root, html, body {
+:root,
+html,
+body {
     color: var(--foreground-1);
 }
 
@@ -78,7 +96,12 @@ body {
     flex-direction: column;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: "Poppins", sans-serif;
 }
 
