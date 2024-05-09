@@ -44,19 +44,14 @@ if (tagsString) {
         flex-direction: row;
         gap: 0.75rem;
         .tag {
-            color: var(--accent-foreground);
-            width: max-content;
-            padding: 0.2em 0.6em;
-            border-radius: 10rem;
             margin: 0;
-            text-decoration: none;
-            color: var(--foreground-1);
-            &:not(.date) {
-                background-color: var(--accent);
-                font-weight: 600;
-                color: var(--accent-foreground);
-                text-transform: capitalize;
-            }
+            color: var(--accent);
+            text-transform: uppercase;
+            text-decoration: underline;
+            text-decoration-thickness: 0.1rem;
+            letter-spacing: 0.01rem;
+            font-weight: 600;
+            font-family: "Quicksand", Arial, Helvetica, sans-serif;
         }
     }
 </style>

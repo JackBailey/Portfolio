@@ -34,14 +34,14 @@ if (tag) {
 			{
 				blogEntries.map((entry) => (
 					<article>
+						<TagChips tags={entry.data.tags} />
 						<a href={`/blog/posts/${entry.slug}`}>
 							<h2>{entry.data.title}</h2>
-							<p>{entry.data.description}</p>
+							{ entry.data.description && <p>{entry.data.description}</p> }
+							<p class="date">
+								{ dayjs(entry.data.created).utc().format("Do MMM YYYY") }
+							</p>
 						</a>
-						<TagChips tags={entry.data.tags} />
-						<div class="date">
-							{ dayjs(entry.data.created).utc().format("Do MMM YYYY") }
-						</div>
 					</article>
 				))
 			}
@@ -60,15 +60,19 @@ if (tag) {
 		}
 		.posts {
 			article + article {
-				margin-top: 2rem;
+				margin-top: 1rem;
+			}
+			article,
+			article > a {
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
 			}
 			article {
-				position: relative;
-				display: block;
-				border-radius: 1rem;
-				border: 0.25rem solid var(--accent);
-				border-radius: 0.35rem;
+				border: 1px solid var(--accent);
 				padding: 1rem;
+				box-sizing: border-box;
+				border-radius: 0.5rem;
 				a {
 					text-decoration: none;
 					color: inherit;
@@ -77,24 +81,17 @@ if (tag) {
 						font-size: 1.75rem;
 					}
 					p {
-						margin: 1rem 0 0 0;
+						margin: 0;
+						&.date {
+							margin: 0;
+							text-decoration: none;
+							color: var(--accent);
+							text-transform: uppercase;
+							letter-spacing: 0.01rem;
+							font-weight: 600;
+							font-family: "Quicksand", Arial, Helvetica, sans-serif;
+						}
 					}
-				}
-				:global(.tags) {
-					margin-top: 1rem;
-					padding-bottom: 1rem;
-				}
-				.date {
-					position: absolute;
-					bottom: 0em;
-					left: 50%;
-					transform: translate(-50%, 50%);
-					margin: 0;
-					border-radius: 100vh;
-					background-color: var(--accent);
-					color: var(--accent-foreground);
-					padding: 0.5em 1em;
-					font-weight: 600;
 				}
 			}
 		}
@@ -112,7 +109,6 @@ if (tag) {
 						}
 						p {
 							font-size: 1.25rem;
-							margin-top: 0.5rem;
 						}
 					}
 				}
