@@ -9,7 +9,7 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
 ---
 
-<nav>
+<nav data-on-homepage={"true"}>
     <div class="nav-content">
         <a href="/">
             <div class="logo">
@@ -57,7 +57,7 @@ const currentPath = pathname.slice(1);
     left: 0;
     width: 100%;
     height: 4rem;
-    background-color: #160F5A;
+    background-color: #0d0a20;
     z-index: 2;
 }
 nav {
@@ -69,10 +69,19 @@ nav {
     -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
     background-color: hsla(0, 0%, 5%, 0.1);
-    box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.05);
-    border-bottom: 1px solid #757780;
+    box-sizing: content-box;
+    &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #757780;
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+    }
     .nav-content {
-        // padding: 0 2rem;
         box-sizing: border-box;
         width: var(--section-width);
         height: 4rem;
