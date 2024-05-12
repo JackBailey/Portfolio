@@ -27,7 +27,7 @@ if (tag) {
 }
 ---
 
-<MainLayout title={title}>
+<MainLayout title={title} description="Explore the recent blog posts by Jack Bailey">
 	<main>
 		<h1>{title}</h1>
 		<div class="posts">
@@ -102,13 +102,14 @@ if (tag) {
 			.posts {
 				padding-bottom: 2rem;
 				article {
+					gap: 1rem;
 					a {
 						h2 {
-							font-size: 1.5rem;
+							font-size: 1.25rem;
 							line-height: 1.4;
 						}
 						p {
-							font-size: 1.25rem;
+							font-size: 1rem;
 						}
 					}
 				}
