@@ -7,7 +7,7 @@ slug: free-backup-using-duplicati-and-scaleway
 tags: selfhosting
 ---
 
-import Aside from "../../components/blog/Aside.astro";
+import Aside from "../../../components/blog/Aside.astro";
 
 <Aside title="Caution - Updated 2023-04-17">
 Use Duplicati at your own risk, some users (myself included) have issues restoring from Duplicati. Always test your backups beforehand.
@@ -21,15 +21,15 @@ Not just any backup though - An encrypted, incremental backup following the 3-2-
 
 Incremental backups allow you to restore to a specific point in time as each "backup" only stores what files were changed and how. This not only allows you to save space over backing up the same files over and over again but it gives you control of what version of your files to restore.
 
-![Incremental Backups](../../assets/blog/duplicati/incremental.png)
+![Incremental Backups](images/incremental.png)
 
 Duplicati has a few settings for how long to retain these files in order to find a good balance between the right frequency and backlog of backups without taking up excessive space.
 
-![Retention](../../assets/blog/duplicati/incremental-types.png)
+![Retention](images/incremental-types.png)
 
 I personally like the `smart backup retention` option as it gives me the best choice of when to restore without taking up too much storage.
 
-![Smart Backup](../../assets/blog/duplicati/smart-backup-retention.png)
+![Smart Backup](images/smart-backup-retention.png)
 
 
 ## Why are encrypted backups important?
@@ -75,7 +75,7 @@ services:
 
 Select `Add backup` from the side menu, choose to configure a new backup and click next.
 
-![Retention](../../assets/blog/duplicati/step-1.png)
+![Retention](images/step-1.png)
 
 ### 2. General Settings
 
@@ -88,7 +88,7 @@ Select your preferred encryption level, I chose AES-256.
 Set a passphrase for the backup if you're using Encryption - make sure this is strong and you store it securely - You'll need this to restore the backup if something happens to your duplicati installation.
 
 
-![General](../../assets/blog/duplicati/general-settings.png)
+![General](images/general-settings.png)
 
 ### 3. Backup Destination
 
@@ -103,16 +103,16 @@ Set a passphrase for the backup if you're using Encryption - make sure this is s
   + Choose a region, generally go for the closest to you but I went for Amsterdam as Paris was having API issues at the time of writing.
   + Set your bucket visibility to Private and create the bucket
     
-    ![Bucket Creation](../../assets/blog/duplicati/scaleway-bucket-creation.png)
+    ![Bucket Creation](images/scaleway-bucket-creation.png)
 + Create an API Token to allow Duplicati to interact with this bucket
   + Click your name in the top right of Scaleway and click Credentials
 
-    ![Credentials](../../assets/blog/duplicati/scaleway-credentials-menu.png)
+    ![Credentials](images/scaleway-credentials-menu.png)
   + Create `Generate new API key`
     + Set the purpose to Duplicati if you like - it'll just help you remember why you created the key
   + Make a note of your Access Key and Secret Key - You'll need these later
     
-    ![API Key](../../assets/blog/duplicati/scaleway-api-key.png)
+    ![API Key](images/scaleway-api-key.png)
   + Click OK to finish up
 
 #### Connect your bucket to Duplicati
@@ -130,7 +130,7 @@ Set a passphrase for the backup if you're using Encryption - make sure this is s
 
 I had problems with Duplicati trying to use a us-based bucket still so I had to set `s3-ext-authenticationregion` to `nl-ams`.
 
-![Backup Destination](../../assets/blog/duplicati/backup-destination.png)
+![Backup Destination](images/backup-destination.png)
 
 You can also click the 3 dots icon in the top right and click `Import Destination URL` and paste in the URL, replacing each `{value}` with your own (Don't include the `{}`).
 
@@ -142,7 +142,7 @@ Then feel free to test your connection and if it works you can carry on.
 
 If duplicati asks the following:
 
-![Adjust Name](../../assets/blog/duplicati/adjust-name.png)
+![Adjust Name](images/adjust-name.png)
 
 Say No.
 
@@ -152,27 +152,27 @@ Select your source data here, I just picked `/source/` which is the volume I mou
 
 I also added a couple filters to exclude Plex's Cache and Codecs as there's no reason to back them up.
 
-![Source Data](../../assets/blog/duplicati/source-data.png)
+![Source Data](images/source-data.png)
 
 ### 5. Schedule
 
 Then set a backup schedule, this is completely up to you.
 
-![Schedule](../../assets/blog/duplicati/schedule.png)
+![Schedule](images/schedule.png)
 
 ### 6. Options
 
 Set this to your liking; I left the `Remote volume size` as default and set `Backup Retention` to `Smart backup retention`.
 
-![Options](../../assets/blog/duplicati/options.png)
+![Options](images/options.png)
 
 ### Test it all out
 
 Save your configuration, click `run now` on your backup to create a backup now - If everything is set up correctly you should see the backup compress and back up your files and then upload them to Scaleway.
 
-![In Progress](../../assets/blog/duplicati/in-progress.png)
-![Completed](../../assets/blog/duplicati/completed.png)
+![In Progress](images/in-progress.png)
+![Completed](images/completed.png)
 
 Then you can check they uploaded on the bucket explorer on Scaleway
 
-![Backup Files](../../assets/blog/duplicati/backup-files.png)
+![Backup Files](images/backup-files.png)
