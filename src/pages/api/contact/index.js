@@ -6,7 +6,13 @@ import { db, Submission } from "astro:db";
 import { useTurnstile } from "../../../_utils";
 dotenv.config();
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const emailEnabled = process.env.RESEND_RECIPIENT && process.env.RESEND_API_KEY;
+const gotifyEnabled = process.env.GOTIFY_URL && process.env.GOTIFY_TOKEN;
+
+let resend;
+if (emailEnabled) {
+    resend = new Resend(process.env.RESEND_API_KEY);
+}
 
 export const prerender = false;
 
@@ -78,8 +84,6 @@ export const POST = async ({ clientAddress, request, redirect, site }) => {
             return redirect("/contact/error?" + searchParams.toString());
         }
     }
-
-    let message = "<p>" + sanitizeHtml(userMessage) + "</p>";
     
     let checkEmailResponse = await checkSpamRating(userEmail);
 
@@ -107,22 +111,51 @@ export const POST = async ({ clientAddress, request, redirect, site }) => {
     
     await db.insert(Submission).values(submission);
 
-    let emailResponse = await resend.emails.send({
-        from: `Jack Bailey <${process.env.RESEND_FROM_ADDRESS}>`,
-        to: process.env.RESEND_RECIPIENT,
-        subject: `Contact form submission from ${name} <${userEmail}>`,
-        html: `Someone has used your email form. <a href="${site.href}contact/submission/${submission.id}}">View the submission</a>`
-    });
-    
+    const submissionURL = `${site.href}contact/submission/${submission.id}`;
+
+    if (gotifyEnabled) {
+        const gotifyResponse = await fetch(process.env.GOTIFY_URL + "/message", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-Gotify-Key": process.env.GOTIFY_TOKEN
+            },
+            body: JSON.stringify({
+                title: "New Submission",
+                message: `Visit ${submissionURL} to view it`,
+                priority: 5,
+                extras: {
+                    "client::notification": {
+                        click: { url: submissionURL },
+                    },
+                }
+            })
+        });
+
+        console.log(`${site.href}contact/submission/${submission.id}`);
+
+        if (!gotifyResponse.ok) {
+            console.error(`Failed to send gotify message: ${gotifyResponse.status} ${gotifyResponse.statusText}`);
+        }
+
+        console.log(`${clientAddress} | has created a new submission`);
+    } else if (emailEnabled) {
+        let emailResponse = await resend.emails.send({
+            from: `Jack Bailey <${process.env.RESEND_FROM_ADDRESS}>`,
+            to: process.env.RESEND_RECIPIENT,
+            subject: `Contact form submission from ${name} <${userEmail}>`,
+            html: `Someone has used your email form. <a href="${site.href}contact/submission/${submission.id}}">View the submission</a>`
+        });
+
+        if (emailResponse.error) {
+            console.log(emailResponse.error);
+            searchParams.set("title", 500);
+            searchParams.set("message", "Internal Server Error, try again later");
+            return redirect("/contact/error?" + searchParams.toString());
+        };
+    }
+
     console.log(`${clientAddress} | has created a new submission (${userEmail} => ${process.env.RESEND_RECIPIENT})`);
-
-    if (emailResponse.error) {
-        console.log(emailResponse.error);
-        searchParams.set("title", 500);
-        searchParams.set("message", "Internal Server Error, try again later");
-        return redirect("/contact/error?" + searchParams.toString());
-    };
-
 
     return redirect(`/contact/success?id=${submission.id}`);
 };
