@@ -67,7 +67,7 @@ const { icon, wideIcon, title, pageTitle, message, showBackground, noindex, subm
                 font-size: 5rem;
                 margin: 1.5rem 0 0.5rem 0;
                 text-align: center;
-                word-break: break-all;
+                word-break: break-word;
                 line-height: 1.2;
             }
     
@@ -108,6 +108,16 @@ const { icon, wideIcon, title, pageTitle, message, showBackground, noindex, subm
                         background-color: var(--accent);
                         color: var(--accent-foreground);
                     }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px){
+        main {
+            .message-content {
+                h1 {
+                    font-size: 3rem;
                 }
             }
         }
