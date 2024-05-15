@@ -2,5 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /contact/success
 Disallow: /contact/error
+Disallow: /contact/remove
+Disallow: /contact/submission*
 
 Sitemap: https://jackbailey.dev/sitemap-index.xml

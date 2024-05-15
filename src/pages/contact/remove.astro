@@ -1,0 +1,114 @@
+---
+import { db, Submission, eq } from "astro:db";
+import dotenv from "dotenv";
+import Message from "../../components/Message.astro";
+import SuccessIcon from "../../assets/icons/envelope-circle-check.svg?raw";
+import NotFoundIcon from "../../assets/icons/file-circle-question.svg?raw";
+import MainLayout from "../../layouts/Main.astro";
+
+dotenv.config();
+
+export const prerender = false;
+
+const id = Astro.url.searchParams.get("id");
+const email = Astro.url.searchParams.get("email");
+
+let title = "";
+let message = "";
+let icon = SuccessIcon;
+
+const showForm = !id && !email;
+
+if (!showForm) {
+    const filter = id ? eq(Submission.id, id) : eq(Submission.email, email);
+
+    const submissions = await db.select().from(Submission).where(filter);
+    if (submissions.length === 0) {
+        title = "404";
+        message = "No submissions found";
+        icon = NotFoundIcon;
+    } else {
+        await db.delete(Submission).where(filter);
+        title = "Success";
+        message = `${submissions.length} submission${submissions.length === 1 ? "" : "s"} successfully deleted`;
+    }
+}
+---
+
+{ showForm === false
+    ? <Message icon={icon} title={title} message={message} />
+      : <MainLayout>
+            <main class="removal-form">
+                <div class="removal-form-content">
+                    <h1>Data deletion</h1>
+                    <p>Please enter your email below to remove your contact form submission(s)</p>
+                    <form action="" method="GET">
+                        <input type="email" id="email" name="email" required />
+                        <button id="removal-button">Remove</button>
+                    </form>
+                </div>
+            </main>
+        </MainLayout>
+}
+
+<style lang="scss">
+    main {
+        &.removal-form {
+            display: grid;
+            place-content: center;
+            .removal-form-content {
+                width: var(--section-width);
+                margin: 0 auto;
+                text-align: center;
+                border: 1px solid #757780;
+                width: 20rem;
+                max-width: 90%;
+                padding: 2rem;
+                border-radius: 1rem;
+
+                form {
+                    margin: 0 auto;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 1rem;
+                    input {
+                        display: block;
+                        border: 0.1rem solid var(--accent);
+                        border-radius: 0.4rem;
+                        color: var(--foreground-1);
+                        background: none;
+                        padding: 0.5em;
+                        box-sizing: border-box;
+                        font-family: "Quicksand", Arial, Helvetica, sans-serif;
+                        resize: none;
+                        width: 20rem;
+                        &:focus {
+                            outline: none;
+                            border-color: var(--foreground-1);
+                        }
+                    }
+                    
+                    button {
+                        display: block;
+                        background-color: var(--accent-muted);
+                        color: var(--accent-foreground);
+                        border: 0;
+                        border-radius: 0.5rem;
+                        padding: 0.5em 1.5em;
+                        font-family: "Quicksand", Arial, Helvetica, sans-serif;
+                        font-weight: 600;
+                        font-size: 1.25rem;
+                        cursor: pointer;
+                        width: 20rem;
+                        transition: background-color 0.2s;
+                        &:hover {
+                            background-color: var(--accent);
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+</style>

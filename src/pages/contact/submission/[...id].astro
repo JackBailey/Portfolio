@@ -1,0 +1,149 @@
+---
+import dotenv from "dotenv";
+import { db, Submission, eq } from "astro:db";
+import MainLayout from "../../../layouts/Main.astro";
+import Message from "../../../components/Message.astro";
+import WarningIcon from "../../../assets/icons/circle-exclamation.svg?raw";
+import NotFoundIcon from "../../../assets/icons/file-circle-question.svg?raw";
+dotenv.config();
+
+let error = false;
+let submission = false;
+let date = false;
+
+const { id } = Astro.params;
+if (id) {
+    submission = (await db.select()
+      .from(Submission)
+      .where(eq(Submission.id, id)))[0];
+
+    if (submission) {
+        date = new Date(submission.createdAt).toLocaleString("en-GB");
+    } else {
+        error = {title: 404, message: "Not Found", icon: NotFoundIcon};
+    }
+} else {
+    error = {title: 400, message: "Bad Request", icon: WarningIcon };
+}
+
+export const prerender = false;
+---
+
+{  error !== false ?
+    <Message title={error.title} message={error.message} icon={error.icon} /> :
+    <MainLayout title="Contact form submission">
+    <main>
+        <h1>Contact form submission</h1>
+        <div class="submission-details">
+            <p>
+                <strong>Email</strong>
+                <span>{submission.email}</span>
+            </p>
+            <p>
+                <strong>Name</strong>
+                <span>{submission.name}</span>
+            </p>
+            <p>
+                <strong>Date</strong>
+                <span>{submission.createdAt}</span>
+            </p>
+            <p>
+                <strong>IP Address</strong>
+                <span>{submission.ipAddress}</span>
+            </p>
+            <p>
+                <strong>UserAgent</strong>
+                <span>{submission.userAgent}</span>
+            </p>
+        </div>
+        <hr>
+        <pre class="message-content">{submission.message}</pre>
+        <div class="actions">
+            <a href={`mailto:${submission.name} <${submission.email}>?subject=Reply to contact form submission&body=%0D%0A%0D%0A---%0D%0AMessage from ${submission.email} on ${date}:%0D%0A%0D%0A${submission.message}`}>Reply</a>
+            <a href={`/contact/remove?id=${submission.id}`}>Remove</a>
+            <a href={`/contact/remove?email=${submission.email}`}>Remove author's emails</a>
+        </div>
+    </main>
+</MainLayout> }
+
+<style lang="scss">
+    main {
+        display: flex;
+        flex-direction: column;
+        padding: 6rem 1rem 1rem;
+        box-sizing: border-box;
+        gap: 1rem;
+        width: var(--section-width);
+        margin: 0 auto;
+        flex-grow: 1;
+        h1 {
+            margin: 1rem 0;
+            line-height: 1.2;
+        }
+        .submission-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            p {
+                display: block;
+                width: 100%;
+                flex-grow: 1;
+                strong {
+                    display: block;
+                }
+                margin: 0;
+                border: 1px solid #757780;
+                border-radius: 0.3rem;
+                display: block;
+                width: max-content;
+                padding: 1rem;
+            }
+        }
+
+        hr {
+            margin: 0;
+            border: 1px solid #757780;
+        }
+
+        .message-content {
+            display: block;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            border: 1px solid #757780;
+            padding: 1rem;
+            border-radius: 0.3rem;
+            font-family: "Quicksand", Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+
+        .actions {
+            display: flex;
+            gap: 0.5rem;
+            a {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+                border-radius: 0.3rem;
+                text-decoration: none;
+                color: var(--accent-foreground);
+                background-color: tomato;
+                &:first-of-type {
+                    background-color: var(--accent-muted);
+                } 
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px){
+        main {
+            .actions {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                a {
+                    &:last-of-type {
+                        grid-column: 1/3;
+                    }
+                }
+            }
+        }
+    }
+</style>

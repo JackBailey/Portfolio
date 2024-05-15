@@ -1,6 +1,12 @@
 ---
 import MessagePage from "../../components/Message.astro";
 import Icon from "../../assets/icons/envelope-circle-check.svg?raw";
+
+const urlParams = Astro.url.searchParams;
+
+const id = urlParams.get("id");
+
+export const prerender = false;
 ---
 
 <MessagePage
@@ -8,5 +14,6 @@ import Icon from "../../assets/icons/envelope-circle-check.svg?raw";
     title="Message sent!"
     pageTitle="Message sent!"
     message="I'll get back to you as soon as I can"
+    submissionID={id}
     showBackground="false"
 />
