@@ -1,7 +1,9 @@
 import { Resend } from "resend";
 import sanitizeHtml from "sanitize-html";
 import dotenv from "dotenv";
-import { useTurnstile } from "../../_utils";
+import crypto from "crypto";
+import { db, Submission } from "astro:db";
+import { useTurnstile } from "../../../_utils";
 dotenv.config();
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -30,7 +32,6 @@ const verifyTurnstile = async ({token, ip}) => {
         console.error(error);
         return false;
     }
-
 }
 
 const checkSpamRating = async (email) => {
@@ -54,14 +55,15 @@ const checkSpamRating = async (email) => {
 	}
 };
 
-export const POST = async ({ clientAddress, request, redirect }) => {
+export const POST = async ({ clientAddress, request, redirect, site }) => {
+    console.log(site);
     const data = await request.formData();
     const name = data.get('name');
     const userEmail = data.get('email');
     const userMessage = data.get('message');
     const turnstileResponse = data.get('cf-turnstile-response');
     const searchParams = new URLSearchParams();
-
+    
     if (!name || !userEmail || !userMessage || (!turnstileResponse && useTurnstile)) {
         searchParams.set("title", 400);
         searchParams.set("message", "Missing required fields");
@@ -94,7 +96,19 @@ export const POST = async ({ clientAddress, request, redirect }) => {
         return redirect("/contact/success");   
     }
 
-    message += `\n<hr>\n<a href="https://www.stopforumspam.com/search?q=${encodeURI(userEmail)}">Spam results</a>: ${checkEmailResponse[0].frequency}${checkEmailResponse[0].confidence ? "<br>Confidence: " + checkEmailResponse[0].confidence + "%" : ""}`;
+    const submission = {
+        id: crypto.randomBytes(16).toString("hex"),
+        name: name,
+        email: userEmail,
+        message: userMessage,
+        createdAt: new Date(),
+        ipAddress: clientAddress,
+        userAgent: request.headers.get("user-agent") || null
+    };
+
+    message += `\n<hr>\nSomeone has used your email form. <a href="${site.href}${submission.id}}">View the submission</a>`;
+    
+    await db.insert(Submission).values(submission);
 
     let emailResponse = await resend.emails.send({
         from: `Jack Bailey <${process.env.RESEND_FROM_ADDRESS}>`,
@@ -104,7 +118,7 @@ export const POST = async ({ clientAddress, request, redirect }) => {
         html: message
     });
     
-    console.log(`${clientAddress} | has sent an email from ${userEmail} to ${process.env.RESEND_RECIPIENT}`);
+    console.log(`${clientAddress} | has created a new submission (${userEmail} => ${process.env.RESEND_RECIPIENT})`);
 
     if (emailResponse.error) {
         console.log(emailResponse.error);
@@ -114,5 +128,5 @@ export const POST = async ({ clientAddress, request, redirect }) => {
     };
 
 
-    return redirect("/contact/success");
+    return redirect(`/contact/success?id=${submission.id}`);
 };
