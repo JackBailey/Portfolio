@@ -15,7 +15,7 @@ const { icon, wideIcon, title, pageTitle, message, showBackground, noindex, subm
             <a href="/">
                 <button>Go home</button>
             </a>
-            { submissionID && <a href={`/contact/submission/${submissionID}`}>View or remove your submission</a> }
+            { submissionID && <a href={`/contact/submission/${submissionID}`} class="email-submission-link">View or remove your submission</a> }
         </div>
     </main>
 </MainLayout>
@@ -80,6 +80,10 @@ const { icon, wideIcon, title, pageTitle, message, showBackground, noindex, subm
             > a {
                 text-decoration: none;
                 margin-top: 1.5rem;
+                &.email-submission-link {
+                    color: var(--accent);
+                    text-decoration: underline;
+                }
                 button {
                     padding: 0.5em 1em;
                     border: none;

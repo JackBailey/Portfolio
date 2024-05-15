@@ -56,7 +56,6 @@ const checkSpamRating = async (email) => {
 };
 
 export const POST = async ({ clientAddress, request, redirect, site }) => {
-    console.log(site);
     const data = await request.formData();
     const name = data.get('name');
     const userEmail = data.get('email');
@@ -105,17 +104,14 @@ export const POST = async ({ clientAddress, request, redirect, site }) => {
         ipAddress: clientAddress,
         userAgent: request.headers.get("user-agent") || null
     };
-
-    message += `\n<hr>\nSomeone has used your email form. <a href="${site.href}${submission.id}}">View the submission</a>`;
     
     await db.insert(Submission).values(submission);
 
     let emailResponse = await resend.emails.send({
         from: `Jack Bailey <${process.env.RESEND_FROM_ADDRESS}>`,
         to: process.env.RESEND_RECIPIENT,
-        reply_to: userEmail,
         subject: `Contact form submission from ${name} <${userEmail}>`,
-        html: message
+        html: `Someone has used your email form. <a href="${site.href}contact/submission/${submission.id}}">View the submission</a>`
     });
     
     console.log(`${clientAddress} | has created a new submission (${userEmail} => ${process.env.RESEND_RECIPIENT})`);

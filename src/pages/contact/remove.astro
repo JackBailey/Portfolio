@@ -30,7 +30,7 @@ if (!showForm) {
     } else {
         await db.delete(Submission).where(filter);
         title = "Success";
-        message = `${submissions.length} submissions successfully deleted`;
+        message = `${submissions.length} submission${submissions.length === 1 ? "" : "s"} successfully deleted`;
     }
 }
 ---
