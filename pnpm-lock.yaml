@@ -13,25 +13,25 @@ importers:
         version: 0.11.2(react@18.2.0)
       '@astrojs/mdx':
         specifier: ^3.0.0
-        version: 3.0.0(astro@4.8.4(sass@1.77.1))
+        version: 3.0.0(astro@4.8.4(sass@1.77.2))
       '@astrojs/sitemap':
         specifier: ^3.1.4
         version: 3.1.4
       '@astrojs/vercel':
         specifier: ^7.5.3
-        version: 7.6.0(astro@4.8.4(sass@1.77.1))(react@18.2.0)
+        version: 7.6.0(astro@4.8.4(sass@1.77.2))(react@18.2.0)
       '@astrojs/vue':
         specifier: ^4.1.0
-        version: 4.2.0(astro@4.8.4(sass@1.77.1))(rollup@4.17.2)(vite@5.2.11(sass@1.77.1))(vue@3.4.27)
+        version: 4.2.0(astro@4.8.4(sass@1.77.2))(rollup@4.17.2)(vite@5.2.11(sass@1.77.2))(vue@3.4.27)
       '@giscus/vue':
         specifier: ^3.0.0
         version: 3.0.0(vue@3.4.27)
       astro:
         specifier: ^4.5.9
-        version: 4.8.4(sass@1.77.1)
+        version: 4.8.4(sass@1.77.2)
       astro-expressive-code:
         specifier: ^0.35.2
-        version: 0.35.3(astro@4.8.4(sass@1.77.1))
+        version: 0.35.3(astro@4.8.4(sass@1.77.2))
       dayjs:
         specifier: ^1.11.10
         version: 1.11.11
@@ -49,7 +49,7 @@ importers:
         version: 2.13.0
       sass:
         specifier: ^1.75.0
-        version: 1.77.1
+        version: 1.77.2
       sharp:
         specifier: ^0.33.3
         version: 0.33.3
@@ -1947,8 +1947,8 @@ packages:
     resolution: {integrity: sha512-AXcZb6vzzrFAUE61HnN4mpLqd/cSIwNQjtNWR0euPm6y0iqx3G4gOXaIDdtdDwZmhwe82LA6+zinmW4UBWVePQ==}
     engines: {node: '>=16.17.0'}
 
-  immutable@4.3.5:
-    resolution: {integrity: sha512-8eabxkth9gZatlwl5TBuJnCsoTADlL6ftEr7A4qgdaTsPyreilDSnUk57SO+jfKcNtxPa22U5KK6DSeAYhpBJw==}
+  immutable@4.3.6:
+    resolution: {integrity: sha512-Ju0+lEMyzMVZarkTn/gqRpdqd5dOPaz1mCZ0SH3JV6iFw81PldE/PEB1hWVEA288HPt4WXW8O7AWxB10M+03QQ==}
 
   import-meta-resolve@4.1.0:
     resolution: {integrity: sha512-I6fiaX09Xivtk+THaMfAwnA3MVA5Big1WHF1Dfx9hFuvNIWpXnorlkzhcQf6ehrqQiiZECRt1poOAkPmer3ruw==}
@@ -2750,8 +2750,8 @@ packages:
   sanitize-html@2.13.0:
     resolution: {integrity: sha512-Xff91Z+4Mz5QiNSLdLWwjgBDm5b1RU6xBT0+12rapjiaR7SwfRdjw8f+6Rir2MXKLrDicRFHdb51hGOAxmsUIA==}
 
-  sass@1.77.1:
-    resolution: {integrity: sha512-OMEyfirt9XEfyvocduUIOlUSkWOXS/LAt6oblR/ISXCTukyavjex+zQNm51pPCOiFKY1QpWvEH1EeCkgyV3I6w==}
+  sass@1.77.2:
+    resolution: {integrity: sha512-eb4GZt1C3avsX3heBNlrc7I09nyT00IUuo4eFhAbeXWU2fvA7oXI53SxODVAA+zgZCk9aunAZgO+losjR3fAwA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -3280,12 +3280,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@3.0.0(astro@4.8.4(sass@1.77.1))':
+  '@astrojs/mdx@3.0.0(astro@4.8.4(sass@1.77.2))':
     dependencies:
       '@astrojs/markdown-remark': 5.1.0
       '@mdx-js/mdx': 3.0.1
       acorn: 8.11.3
-      astro: 4.8.4(sass@1.77.1)
+      astro: 4.8.4(sass@1.77.2)
       es-module-lexer: 1.5.2
       estree-util-visit: 2.0.0
       github-slugger: 2.0.0
@@ -3323,13 +3323,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/vercel@7.6.0(astro@4.8.4(sass@1.77.1))(react@18.2.0)':
+  '@astrojs/vercel@7.6.0(astro@4.8.4(sass@1.77.2))(react@18.2.0)':
     dependencies:
       '@astrojs/internal-helpers': 0.4.0
       '@vercel/analytics': 1.2.2(react@18.2.0)
       '@vercel/edge': 1.1.1
       '@vercel/nft': 0.26.5
-      astro: 4.8.4(sass@1.77.1)
+      astro: 4.8.4(sass@1.77.2)
       esbuild: 0.21.1
       fast-glob: 3.3.2
       set-cookie-parser: 2.6.0
@@ -3340,13 +3340,13 @@ snapshots:
       - react
       - supports-color
 
-  '@astrojs/vue@4.2.0(astro@4.8.4(sass@1.77.1))(rollup@4.17.2)(vite@5.2.11(sass@1.77.1))(vue@3.4.27)':
+  '@astrojs/vue@4.2.0(astro@4.8.4(sass@1.77.2))(rollup@4.17.2)(vite@5.2.11(sass@1.77.2))(vue@3.4.27)':
     dependencies:
-      '@vitejs/plugin-vue': 5.0.4(vite@5.2.11(sass@1.77.1))(vue@3.4.27)
-      '@vitejs/plugin-vue-jsx': 3.1.0(vite@5.2.11(sass@1.77.1))(vue@3.4.27)
+      '@vitejs/plugin-vue': 5.0.4(vite@5.2.11(sass@1.77.2))(vue@3.4.27)
+      '@vitejs/plugin-vue-jsx': 3.1.0(vite@5.2.11(sass@1.77.2))(vue@3.4.27)
       '@vue/compiler-sfc': 3.4.27
-      astro: 4.8.4(sass@1.77.1)
-      vite-plugin-vue-devtools: 7.1.3(rollup@4.17.2)(vite@5.2.11(sass@1.77.1))(vue@3.4.27)
+      astro: 4.8.4(sass@1.77.2)
+      vite-plugin-vue-devtools: 7.1.3(rollup@4.17.2)(vite@5.2.11(sass@1.77.2))(vue@3.4.27)
       vue: 3.4.27
     transitivePeerDependencies:
       - '@nuxt/kit'
@@ -4221,19 +4221,19 @@ snapshots:
       - encoding
       - supports-color
 
-  '@vitejs/plugin-vue-jsx@3.1.0(vite@5.2.11(sass@1.77.1))(vue@3.4.27)':
+  '@vitejs/plugin-vue-jsx@3.1.0(vite@5.2.11(sass@1.77.2))(vue@3.4.27)':
     dependencies:
       '@babel/core': 7.24.5
       '@babel/plugin-transform-typescript': 7.24.5(@babel/core@7.24.5)
       '@vue/babel-plugin-jsx': 1.2.2(@babel/core@7.24.5)
-      vite: 5.2.11(sass@1.77.1)
+      vite: 5.2.11(sass@1.77.2)
       vue: 3.4.27
     transitivePeerDependencies:
       - supports-color
 
-  '@vitejs/plugin-vue@5.0.4(vite@5.2.11(sass@1.77.1))(vue@3.4.27)':
+  '@vitejs/plugin-vue@5.0.4(vite@5.2.11(sass@1.77.2))(vue@3.4.27)':
     dependencies:
-      vite: 5.2.11(sass@1.77.1)
+      vite: 5.2.11(sass@1.77.2)
       vue: 3.4.27
 
   '@vue/babel-helper-vue-transform-on@1.2.2': {}
@@ -4295,14 +4295,14 @@ snapshots:
       '@vue/compiler-dom': 3.4.27
       '@vue/shared': 3.4.27
 
-  '@vue/devtools-core@7.1.3(vite@5.2.11(sass@1.77.1))(vue@3.4.27)':
+  '@vue/devtools-core@7.1.3(vite@5.2.11(sass@1.77.2))(vue@3.4.27)':
     dependencies:
       '@vue/devtools-kit': 7.1.3(vue@3.4.27)
       '@vue/devtools-shared': 7.1.3
       mitt: 3.0.1
       nanoid: 3.3.7
       pathe: 1.1.2
-      vite-hot-client: 0.2.3(vite@5.2.11(sass@1.77.1))
+      vite-hot-client: 0.2.3(vite@5.2.11(sass@1.77.2))
     transitivePeerDependencies:
       - vite
       - vue
@@ -4409,12 +4409,12 @@ snapshots:
 
   astring@1.8.6: {}
 
-  astro-expressive-code@0.35.3(astro@4.8.4(sass@1.77.1)):
+  astro-expressive-code@0.35.3(astro@4.8.4(sass@1.77.2)):
     dependencies:
-      astro: 4.8.4(sass@1.77.1)
+      astro: 4.8.4(sass@1.77.2)
       rehype-expressive-code: 0.35.3
 
-  astro@4.8.4(sass@1.77.1):
+  astro@4.8.4(sass@1.77.2):
     dependencies:
       '@astrojs/compiler': 2.8.0
       '@astrojs/internal-helpers': 0.4.0
@@ -4473,8 +4473,8 @@ snapshots:
       tsconfck: 3.0.3
       unist-util-visit: 5.0.0
       vfile: 6.0.1
-      vite: 5.2.11(sass@1.77.1)
-      vitefu: 0.2.5(vite@5.2.11(sass@1.77.1))
+      vite: 5.2.11(sass@1.77.2)
+      vitefu: 0.2.5(vite@5.2.11(sass@1.77.2))
       which-pm: 2.2.0
       yargs-parser: 21.1.1
       zod: 3.23.8
@@ -5230,7 +5230,7 @@ snapshots:
 
   human-signals@5.0.0: {}
 
-  immutable@4.3.5: {}
+  immutable@4.3.6: {}
 
   import-meta-resolve@4.1.0: {}
 
@@ -6365,10 +6365,10 @@ snapshots:
       parse-srcset: 1.0.2
       postcss: 8.4.38
 
-  sass@1.77.1:
+  sass@1.77.2:
     dependencies:
       chokidar: 3.6.0
-      immutable: 4.3.5
+      immutable: 4.3.6
       source-map-js: 1.2.0
 
   sax@1.3.0: {}
@@ -6694,11 +6694,11 @@ snapshots:
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.2
 
-  vite-hot-client@0.2.3(vite@5.2.11(sass@1.77.1)):
+  vite-hot-client@0.2.3(vite@5.2.11(sass@1.77.2)):
     dependencies:
-      vite: 5.2.11(sass@1.77.1)
+      vite: 5.2.11(sass@1.77.2)
 
-  vite-plugin-inspect@0.8.4(rollup@4.17.2)(vite@5.2.11(sass@1.77.1)):
+  vite-plugin-inspect@0.8.4(rollup@4.17.2)(vite@5.2.11(sass@1.77.2)):
     dependencies:
       '@antfu/utils': 0.7.8
       '@rollup/pluginutils': 5.1.0(rollup@4.17.2)
@@ -6709,28 +6709,28 @@ snapshots:
       perfect-debounce: 1.0.0
       picocolors: 1.0.1
       sirv: 2.0.4
-      vite: 5.2.11(sass@1.77.1)
+      vite: 5.2.11(sass@1.77.2)
     transitivePeerDependencies:
       - rollup
       - supports-color
 
-  vite-plugin-vue-devtools@7.1.3(rollup@4.17.2)(vite@5.2.11(sass@1.77.1))(vue@3.4.27):
+  vite-plugin-vue-devtools@7.1.3(rollup@4.17.2)(vite@5.2.11(sass@1.77.2))(vue@3.4.27):
     dependencies:
-      '@vue/devtools-core': 7.1.3(vite@5.2.11(sass@1.77.1))(vue@3.4.27)
+      '@vue/devtools-core': 7.1.3(vite@5.2.11(sass@1.77.2))(vue@3.4.27)
       '@vue/devtools-kit': 7.1.3(vue@3.4.27)
       '@vue/devtools-shared': 7.1.3
       execa: 8.0.1
       sirv: 2.0.4
-      vite: 5.2.11(sass@1.77.1)
-      vite-plugin-inspect: 0.8.4(rollup@4.17.2)(vite@5.2.11(sass@1.77.1))
-      vite-plugin-vue-inspector: 5.1.0(vite@5.2.11(sass@1.77.1))
+      vite: 5.2.11(sass@1.77.2)
+      vite-plugin-inspect: 0.8.4(rollup@4.17.2)(vite@5.2.11(sass@1.77.2))
+      vite-plugin-vue-inspector: 5.1.0(vite@5.2.11(sass@1.77.2))
     transitivePeerDependencies:
       - '@nuxt/kit'
       - rollup
       - supports-color
       - vue
 
-  vite-plugin-vue-inspector@5.1.0(vite@5.2.11(sass@1.77.1)):
+  vite-plugin-vue-inspector@5.1.0(vite@5.2.11(sass@1.77.2)):
     dependencies:
       '@babel/core': 7.24.5
       '@babel/plugin-proposal-decorators': 7.24.1(@babel/core@7.24.5)
@@ -6741,22 +6741,22 @@ snapshots:
       '@vue/compiler-dom': 3.4.27
       kolorist: 1.8.0
       magic-string: 0.30.10
-      vite: 5.2.11(sass@1.77.1)
+      vite: 5.2.11(sass@1.77.2)
     transitivePeerDependencies:
       - supports-color
 
-  vite@5.2.11(sass@1.77.1):
+  vite@5.2.11(sass@1.77.2):
     dependencies:
       esbuild: 0.20.2
       postcss: 8.4.38
       rollup: 4.17.2
     optionalDependencies:
       fsevents: 2.3.3
-      sass: 1.77.1
+      sass: 1.77.2
 
-  vitefu@0.2.5(vite@5.2.11(sass@1.77.1)):
+  vitefu@0.2.5(vite@5.2.11(sass@1.77.2)):
     optionalDependencies:
-      vite: 5.2.11(sass@1.77.1)
+      vite: 5.2.11(sass@1.77.2)
 
   vue@3.4.27:
     dependencies:
