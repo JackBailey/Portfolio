@@ -13,25 +13,25 @@ importers:
         version: 0.11.4(react@18.2.0)
       '@astrojs/mdx':
         specifier: ^3.0.0
-        version: 3.0.1(astro@4.9.0(@types/node@20.12.12)(sass@1.77.2))
+        version: 3.0.1(astro@4.9.1(@types/node@20.12.12)(sass@1.77.2))
       '@astrojs/sitemap':
         specifier: ^3.1.4
         version: 3.1.5
       '@astrojs/vercel':
         specifier: ^7.5.3
-        version: 7.6.0(astro@4.9.0(@types/node@20.12.12)(sass@1.77.2))(react@18.2.0)
+        version: 7.6.0(astro@4.9.1(@types/node@20.12.12)(sass@1.77.2))(react@18.2.0)
       '@astrojs/vue':
         specifier: ^4.1.0
-        version: 4.3.0(astro@4.9.0(@types/node@20.12.12)(sass@1.77.2))(rollup@4.18.0)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2))(vue@3.4.27)
+        version: 4.3.0(astro@4.9.1(@types/node@20.12.12)(sass@1.77.2))(rollup@4.18.0)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2))(vue@3.4.27)
       '@giscus/vue':
         specifier: ^3.0.0
         version: 3.0.0(vue@3.4.27)
       astro:
         specifier: ^4.5.9
-        version: 4.9.0(@types/node@20.12.12)(sass@1.77.2)
+        version: 4.9.1(@types/node@20.12.12)(sass@1.77.2)
       astro-expressive-code:
         specifier: ^0.35.2
-        version: 0.35.3(astro@4.9.0(@types/node@20.12.12)(sass@1.77.2))
+        version: 0.35.3(astro@4.9.1(@types/node@20.12.12)(sass@1.77.2))
       dayjs:
         specifier: ^1.11.10
         version: 1.11.11
@@ -1287,8 +1287,8 @@ packages:
     peerDependencies:
       astro: ^4.0.0-beta || ^3.3.0
 
-  astro@4.9.0:
-    resolution: {integrity: sha512-beb3go5Oh5QDjns7YVxG1r40Flt/cuXB+YFTnVRqbh2NuMpYRoXZqIT+ZNaorleEfrLjLFXfsn1AAKVP+XZ2KA==}
+  astro@4.9.1:
+    resolution: {integrity: sha512-9TsoAu0WBPiqyAIj9H0JW7R+tIjPjFsPKo70Nja6WL3imTTuUJQmnCre4ZVmoNV3oicTTlb+N4zjRYANW0Ty9A==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -1664,8 +1664,8 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
-  electron-to-chromium@1.4.779:
-    resolution: {integrity: sha512-oaTiIcszNfySXVJzKcjxd2YjPxziAd+GmXyb2HbidCeFo6Z88ygOT7EimlrEQhM2U08VhSrbKhLOXP0kKUCZ6g==}
+  electron-to-chromium@1.4.780:
+    resolution: {integrity: sha512-NPtACGFe7vunRYzvYqVRhQvsDrTevxpgDKxG/Vcbe0BTNOY+5+/2mOXSw2ls7ToNbE5Bf/+uQbjTxcmwMozpCw==}
 
   emoji-regex@10.3.0:
     resolution: {integrity: sha512-QpLs9D9v9kArv4lfDEgg1X/gN5XLnf/A6l9cs8SPZLRZR3ZkY9+kwIQTxm+fsSej5UMYGE8fdoaZVIBlqG0XTw==}
@@ -3291,12 +3291,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@3.0.1(astro@4.9.0(@types/node@20.12.12)(sass@1.77.2))':
+  '@astrojs/mdx@3.0.1(astro@4.9.1(@types/node@20.12.12)(sass@1.77.2))':
     dependencies:
       '@astrojs/markdown-remark': 5.1.0
       '@mdx-js/mdx': 3.0.1
       acorn: 8.11.3
-      astro: 4.9.0(@types/node@20.12.12)(sass@1.77.2)
+      astro: 4.9.1(@types/node@20.12.12)(sass@1.77.2)
       es-module-lexer: 1.5.3
       estree-util-visit: 2.0.0
       github-slugger: 2.0.0
@@ -3340,13 +3340,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/vercel@7.6.0(astro@4.9.0(@types/node@20.12.12)(sass@1.77.2))(react@18.2.0)':
+  '@astrojs/vercel@7.6.0(astro@4.9.1(@types/node@20.12.12)(sass@1.77.2))(react@18.2.0)':
     dependencies:
       '@astrojs/internal-helpers': 0.4.0
       '@vercel/analytics': 1.2.2(react@18.2.0)
       '@vercel/edge': 1.1.1
       '@vercel/nft': 0.26.5
-      astro: 4.9.0(@types/node@20.12.12)(sass@1.77.2)
+      astro: 4.9.1(@types/node@20.12.12)(sass@1.77.2)
       esbuild: 0.21.1
       fast-glob: 3.3.2
       set-cookie-parser: 2.6.0
@@ -3357,12 +3357,12 @@ snapshots:
       - react
       - supports-color
 
-  '@astrojs/vue@4.3.0(astro@4.9.0(@types/node@20.12.12)(sass@1.77.2))(rollup@4.18.0)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2))(vue@3.4.27)':
+  '@astrojs/vue@4.3.0(astro@4.9.1(@types/node@20.12.12)(sass@1.77.2))(rollup@4.18.0)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2))(vue@3.4.27)':
     dependencies:
       '@vitejs/plugin-vue': 5.0.4(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2))(vue@3.4.27)
       '@vitejs/plugin-vue-jsx': 3.1.0(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2))(vue@3.4.27)
       '@vue/compiler-sfc': 3.4.27
-      astro: 4.9.0(@types/node@20.12.12)(sass@1.77.2)
+      astro: 4.9.1(@types/node@20.12.12)(sass@1.77.2)
       vite-plugin-vue-devtools: 7.2.1(rollup@4.18.0)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2))(vue@3.4.27)
       vue: 3.4.27
     transitivePeerDependencies:
@@ -4426,12 +4426,12 @@ snapshots:
 
   astring@1.8.6: {}
 
-  astro-expressive-code@0.35.3(astro@4.9.0(@types/node@20.12.12)(sass@1.77.2)):
+  astro-expressive-code@0.35.3(astro@4.9.1(@types/node@20.12.12)(sass@1.77.2)):
     dependencies:
-      astro: 4.9.0(@types/node@20.12.12)(sass@1.77.2)
+      astro: 4.9.1(@types/node@20.12.12)(sass@1.77.2)
       rehype-expressive-code: 0.35.3
 
-  astro@4.9.0(@types/node@20.12.12)(sass@1.77.2):
+  astro@4.9.1(@types/node@20.12.12)(sass@1.77.2):
     dependencies:
       '@astrojs/compiler': 2.8.0
       '@astrojs/internal-helpers': 0.4.0
@@ -4564,7 +4564,7 @@ snapshots:
   browserslist@4.23.0:
     dependencies:
       caniuse-lite: 1.0.30001621
-      electron-to-chromium: 1.4.779
+      electron-to-chromium: 1.4.780
       node-releases: 2.0.14
       update-browserslist-db: 1.0.16(browserslist@4.23.0)
 
@@ -4764,7 +4764,7 @@ snapshots:
       minimatch: 9.0.1
       semver: 7.6.2
 
-  electron-to-chromium@1.4.779: {}
+  electron-to-chromium@1.4.780: {}
 
   emoji-regex@10.3.0: {}
 
