@@ -1,0 +1,625 @@
+---
+import { Icon } from "astro-icon/components";
+import MainLayout from "../layouts/Main.astro";
+
+// Add fields for total storage and ram
+
+const formatBytes = (bytes, decimals = 2) => {
+    if (!+bytes) return "0 Bytes";
+
+    const k = 1000;
+    const dm = decimals < 0 ? 0 : decimals;
+    const sizes = ["GB", "TB"];
+
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))}${sizes[i]}`;
+};
+
+const gear = [
+    {
+        name: "Computers",
+        items: [
+            {
+                name: "Framework 13",
+                type: "Laptop",
+                parts: [
+                    {
+                        name: "AMD Ryzen 5 7640U",
+                        type: "Laptop",
+                    },
+                    {
+                        name: "Crucial DDR5-5600",
+                        type: "RAM",
+                        quantity: 4,
+                        size: 8,
+                    },
+                    {
+                        name: "Crucial P3 Plus",
+                        type: "M.2 SSD",
+                        size: 1000,
+                    },
+                    {
+                        name: "USB-A",
+                        type: "Expansion Card",
+                        quantity: 2,
+                    },
+                    {
+                        name: "USB-C",
+                        type: "Expansion Card",
+                        quantity: 2,
+                    },
+                    {
+                        name: "HDMI",
+                        type: "Expansion Card",
+                    },
+                ],
+            },
+            {
+                name: "Gaming PC",
+                type: "Desktop",
+                parts: [
+                    {
+                        name: "Intel Core i5-12600K",
+                        type: "CPU",
+                    },
+                    {
+                        name: "Noctua NH-D15",
+                        type: "Cooler",
+                    },
+                    {
+                        name: "NVIDIA RTX 3070 Ti 8GB",
+                        type: "GPU",
+                    },
+                    {
+                        name: "Gigabyte Z690 DDR4",
+                        type: "MOBO",
+                    },
+                    {
+                        name: "Corsair DDR4-3000",
+                        type: "RAM",
+                        quantity: 4,
+                        size: 8,
+                    },
+                    {
+                        name: "Samsung 980",
+                        type: "M.2 SSD",
+                        size: 500,
+                    },
+                    {
+                        name: "Kingston A400",
+                        type: "SATA SSD",
+                        size: 240,
+                    },
+                    {
+                        name: "Crucial BX500",
+                        type: "SATA SSD",
+                        size: 2000,
+                    },
+                    {
+                        name: "NZXT H5 Flow",
+                        type: "Case",
+                    },
+                    {
+                        name: "Corsair TX750M",
+                        type: "PSU",
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        name: "Servers",
+        items: [
+            {
+                name: "Primary Server",
+				type: "NAS",
+                parts: [
+                    {
+                        name: "Intel Core i5-8400",
+                        type: "CPU",
+                    },
+                    {
+                        name: "Antec 92mm",
+                        type: "Cooler",
+                    },
+                    {
+                        name: "ASUS ROG Strix Z370-G",
+                        type: "MOBO",
+                    },
+                    {
+                        name: "Crucial DDR4-3200",
+                        type: "RAM",
+                        quantity: 4,
+                        size: 8,
+                    },
+                    {
+                        name: "Crucial MX500",
+                        type: "SATA SSD",
+                        size: 500,
+                    },
+                    {
+                        name: "WD White",
+                        type: "HDD",
+                        size: 10000,
+                    },
+                    {
+                        name: "Seagate BarraCuda",
+                        type: "HDD",
+                        size: 8000,
+                    },
+                    {
+                        name: "Toshiba Enterprise",
+                        type: "HDD",
+                        quantity: 2,
+                        size: 14000,
+                    },
+                    {
+                        name: "Fractal Design Define R6",
+                        type: "Case",
+                    },
+                    {
+                        name: "Corsair VS550",
+                        type: "PSU",
+                    },
+                    {
+                        name: "Eaton 3S 550B",
+                        type: "UPS",
+                    },
+                ],
+            },
+            {
+                name: "Backup Server",
+				type: "NAS",
+                parts: [
+                    {
+                        name: "Intel Core i3-8100",
+                        type: "CPU",
+                    },
+                    {
+                        name: "Stock Intel Cooler",
+                        type: "Cooler",
+                    },
+                    {
+                        name: "ASUS H110M-R",
+                        type: "MOBO",
+                    },
+                    {
+                        name: "Corsair DDR4-3000",
+                        type: "RAM",
+                        size: 8,
+                    },
+                    {
+                        name: 'Seagate Compute 2.5"',
+                        type: "HDD",
+                        size: 4000,
+                    },
+                    {
+                        name: "Fractal Design Node 804",
+                        type: "Case",
+                    },
+                    {
+                        name: "Corsair VS350",
+                        type: "PSU",
+                    },
+                ],
+            },
+            {
+                name: "Raspberry Pi Zero 2 W",
+                type: "DNS Server",
+            },
+        ],
+    },
+    {
+        name: "Peripherals",
+        items: [
+            {
+                name: "Custom Keyboard",
+				type: "Keyboard",
+                parts: [
+                    {
+                        name: "Keychron K8",
+                        type: "Base",
+                    },
+                    {
+                        name: "Gazzew Boba U4t",
+                        type: "Switches",
+                    },
+                    {
+                        name: "Apollo Doubleshot",
+                        type: "Keycaps",
+                    },
+                ],
+            },
+            {
+                name: "Gigabyte M27Q",
+                type: "Monitor",
+                resolution: '27" 1440p@170Hz',
+            },
+            {
+                name: "Dell P2719HC",
+                type: "Monitor",
+                resolution: '27" 1080@60Hz',
+            },
+            {
+                name: "Logitech G Pro X Superlight",
+                type: "Mouse",
+            },
+            {
+                name: "Logitech MX Master 3S",
+                type: "Mouse",
+            },
+            {
+                name: "ELEGOO Neptune 4",
+                type: "3D Printer",
+            },
+        ],
+    },
+].map((category) => {
+    category.items = category.items.map((item) => {
+        if (item.hasOwnProperty("parts")) {
+            item.ram = 0;
+            item.storage = 0;
+            item.parts = item.parts.map((part) => {
+                if (["RAM"].includes(part.type)) {
+                    part.ram = true;
+                    item.ram += part.size * (part.quantity || 1);
+                } else if (["M.2 SSD", "SATA SSD", "HDD"].includes(part.type)) {
+                    part.storage = true;
+                    item.storage += part.size * (part.quantity || 1);
+                }
+                return part;
+            });
+        }
+
+        return item;
+    });
+
+    return category;
+});
+
+const description = "A list of the equipment I use on a day-to-day basis";
+---
+
+<MainLayout description={description}>
+    <main>
+        <h1>My gear</h1>
+		<hr>
+        <p>{description}</p>
+        <div class="equipment">
+            {
+                gear.map((category, index) => (
+                    <section id={category.name.toLowerCase()}>
+                        <h2>{category.name}</h2>
+                        <div class="category-equipment">
+                            {category.items.map((item, index) =>
+                                item.hasOwnProperty("parts") ? (
+                                    <details>
+                                        <summary>
+                                            <div class="item-name">{item.name}</div>
+											<div class="item-type">{item.type}</div>
+                                            {(item.storage !== 0 || item.ram !== 0) && (
+                                                <div class="item-specs">
+                                                    {item.ram !== 0 && (
+                                                        <div class="memory" title="RAM">
+                                                            <Icon name="fa-solid:memory" />
+                                                            <p>{formatBytes(item.ram, 2)}</p>
+                                                        </div>
+                                                    )}
+                                                    {item.storage !== 0 && (
+                                                        <div class="storage" title="Storage">
+                                                            <Icon name="fa-solid:hdd" />
+                                                            <p>{formatBytes(item.storage, 2)}</p>
+                                                        </div>
+                                                    )}
+                                                    {item.resolution && (
+                                                        <div class="resolution" title="Resolution">
+                                                            <Icon name="fa-solid:desktop" />
+                                                            <p>{item.resolution}</p>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </summary>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                                {item.parts.map((part, index) => (
+                                                    <tr>
+                                                        <td class="part-type">{part.type}</td>
+                                                        <td class="part-name">
+                                                            {part.name}
+                                                            <div class="chips">
+                                                                {part.ram && (
+                                                                    <span class="chip memory">
+                                                                        <Icon name="fa-solid:memory" />
+                                                                        <p>{formatBytes(part.size, 2)}</p>
+                                                                    </span>
+                                                                )}
+                                                                {part.storage && (
+                                                                    <span class="chip storage">
+                                                                        <Icon name="fa-solid:hdd" />
+                                                                        <p>{formatBytes(part.size, 2)}</p>
+                                                                    </span>
+                                                                )}
+                                                                {part.quantity && <div class="chip">x{part.quantity}</div>}
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </details>
+                                ) : (
+                                    <div class="item">
+                                        <div class="item-name">{item.name}</div>
+                                        <div class="item-type">{item.type}</div>
+                                        <div class="item-specs">
+                                            {item.resolution && (
+                                                <div class="resolution" title="Resolution">
+                                                    <Icon name="fa-solid:desktop" />
+                                                    <p>{item.resolution}</p>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                )
+                            )}
+                        </div>
+                    </section>
+                ))
+            }
+        </div>
+    </main>
+</MainLayout>
+
+<style lang="scss">
+    main {
+        padding-top: 5rem 0 1rem;
+        width: var(--section-width);
+        margin: 0 auto;
+        scroll-margin-top: 5rem;
+        h1 {
+            font-size: 2.5rem;
+			margin-bottom: 1rem;
+        }
+		hr {
+			box-sizing: content-box;
+			overflow: hidden;
+			background: transparent;
+			border-bottom: 1px solid #21262d;
+			height: 0.15em;
+			padding: 0;
+			background-color: #30363d;
+			border: 0;
+		}
+        > p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .equipment {
+            h2 {
+                font-size: 2rem;
+            }
+            .category-equipment {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+                gap: 1rem;
+                details summary,
+                .item {
+                    position: relative;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    padding: 0.5rem 1rem;
+                    box-sizing: border-box;
+                    border: 0.15rem solid var(--accent);
+                    border-radius: 0.5rem;
+                    transition: 0.5s;
+                    background: var(--background-2);
+                    color: var(--foreground-1);
+                    min-height: 5rem;
+                    height: max-content;
+                    width: 100%;
+
+                    justify-content: center;
+
+                    display: grid;
+                    grid-template-columns: max-content max-content;
+                    grid-template-rows: 1fr max-content;
+                    align-items: start;
+					justify-content: space-between;
+					width: 100%;
+
+					.item-name {
+						grid-column: 1/3;
+						align-self: start;
+					}
+
+                    .item-type {
+                        text-transform: uppercase;
+                        font-weight: 400;
+                        font-family: "QuickSand", Arial, Helvetica, sans-serif;
+                        font-size: 1rem;
+                    }
+
+                    .item-specs {
+                        margin-left: auto;
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        div {
+                            display: flex;
+                            align-items: center;
+                            font-size: 1rem;
+                            gap: 0.2rem;
+                            p {
+                                margin: 0;
+                                font-weight: 400;
+                                font-family: "QuickSand", Arial, Helvetica, sans-serif;
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+                }
+
+                .item {
+                    justify-content: space-between;
+                    .item-name {
+                        grid-column: 1/3;
+                    }
+                }
+
+                details summary {
+                    cursor: pointer;
+					.item-name {
+						align-self: start;
+						&:before {
+							content: "▶";
+							font-size: 0.65em;
+							margin-right: 0.5em;
+							flex-shrink: 0;
+							transition: 0.2s;
+						}
+					}
+                }
+
+                details[open] summary {
+                    .item-name {
+						&:before {
+							content: "▼";
+						}
+					}
+                }
+
+                details[open] summary,
+                details summary:hover {
+                    background: var(--accent);
+                    color: var(--accent-foreground);
+                }
+
+                details {
+                    table {
+                        width: 100%;
+                        margin-top: 0.5rem;
+                        tbody {
+                            tr {
+                                td {
+                                    margin-top: 0.5rem;
+                                    padding: 0.3rem;
+                                    font-weight: 400;
+                                    font-family: "QuickSand", Arial, Helvetica, sans-serif;
+                                    border: 0.05rem solid var(--accent);
+                                    border-bottom: none;
+                                    width: auto;
+                                    &:first-of-type {
+                                        border-right: none;
+                                        font-weight: 600;
+                                        white-space: nowrap;
+                                    }
+                                    &:nth-of-type(2) {
+                                        border-left: none;
+                                        width: 100%;
+                                        .chips {
+                                            display: inline-flex;
+                                            align-items: center;
+                                            gap: 0.25rem;
+                                            .chip {
+                                                background-color: var(--accent);
+                                                color: var(--accent-foreground);
+                                                border-radius: 5rem;
+                                                padding: 0.2rem 0.5rem;
+                                                transition: 0.5s;
+                                                display: inline-flex;
+                                                align-items: center;
+                                                width: max-content;
+                                                gap: 0.2rem;
+                                                font-size: 0.8rem;
+                                                p {
+                                                    margin: 0;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                &:first-of-type td:first-child {
+                                    border-top-left-radius: 0.25rem;
+                                }
+                                &:first-of-type td:last-child {
+                                    border-top-right-radius: 0.25rem;
+                                }
+                                &:last-of-type td:first-child {
+                                    border-bottom-left-radius: 0.25rem;
+                                }
+                                &:last-of-type {
+                                    td {
+                                        border-bottom: 0.05rem solid var(--accent);
+                                    }
+                                    td:last-child {
+                                        border-bottom-right-radius: 0.25rem;
+                                    }
+                                }
+                            }
+                            tr + tr {
+                                padding-top: 0.5rem;
+                            }
+                        }
+                    }
+
+                    ul {
+                        list-style-type: none;
+                        padding: 0;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.25rem;
+                        li {
+                            border: 0.05rem solid var(--accent);
+                            padding: 0.3rem;
+                            border-radius: 0.25rem;
+                            font-size: 1.25rem;
+                            font-weight: 200;
+                            font-family: "QuickSand", Arial, Helvetica, sans-serif;
+                            display: grid;
+                            grid-template-columns: 2rem max-content 2rem;
+                            align-items: center;
+                            gap: 0.5rem;
+                            background-color: var(--accent-muted);
+                            color: var(--accent-foreground);
+                            .part-type {
+                                font-weight: 600;
+                            }
+                            .part-name {
+                                text-align: left;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .equipment {
+                .category-equipment {
+                    grid-template-columns: 1fr;
+                    details {
+                        table {
+                            tbody {
+                                tr {
+                                    td {
+                                        &:first-of-type {
+                                            border-right: none;
+                                            font-weight: 600;
+                                            white-space: wrap;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    details summary,
+                    .item {
+                        padding: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+</style>

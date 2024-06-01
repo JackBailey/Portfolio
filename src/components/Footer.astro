@@ -7,7 +7,15 @@ const { background } = Astro.props;
 
 <footer data-background={background}>
     <div class="footer-inner">
-        <p><a href="/privacy">Privacy Policy</a></p>
+        <ul>
+            <li>
+                <a href="/privacy">Privacy Policy</a>
+            </li>
+            <li>
+                <a href="/gear">What I use</a>
+            </li>
+        </ul>
+        <p></p>
         <div class="socials">
             <a href="https://github.com/JackBailey/Portfolio" target="_blank" rel="noopener noreferrer" aria-label="Jack Bailey's GitHub Account">
                 <Fragment set:html={GitHubLogo}>
@@ -27,15 +35,22 @@ const { background } = Astro.props;
             padding: 1rem 0;
             box-sizing: border-box;
             text-align: center;
-            p {
-                color: var(--foreground-1);
-                font-weight: 600;
-                a {
-                    color: var(--foreground-1);
-                    transition: 150ms ease-in-out;
-                    margin: 0;
-                    &:hover {
-                        color: var(--accent);
+            ul {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                list-style-type: none;
+                padding: 0;
+                li {
+                    a {
+                        color: var(--foreground-1);
+                        font-weight: 600;
+                        color: var(--foreground-1);
+                        transition: 150ms ease-in-out;
+                        margin: 0;
+                        &:hover {
+                            color: var(--accent);
+                        }
                     }
                 }
             }
