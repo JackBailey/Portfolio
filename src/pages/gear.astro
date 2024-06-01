@@ -1,350 +1,720 @@
 ---
 import MainLayout from "../layouts/Main.astro";
 
+// Add fields for total storage and ram
+
+const formatter = new Intl.NumberFormat("en-GB", {
+    style: "currency",
+    currency: "GBP",
+    minimumFractionDigits: 0,
+});
+
 const gear = [
-	{
-		name: "Computers",
-		items: [
-			{
-				name: "Framework 13",
-				parts: [
-					{
-						name: "AMD Ryzen™ 5 7640U",
-						type: "Laptop",
-						price: 90400
-					},
-					{
-						name: "Crucial 32GB DDR5-5600",
-						type: "RAM",
-						price: 11423
-					},
-					{
-						name: "Crucial P3 Plus 1TB",
-						type: "M.2 SSD",
-						price: 6499
-					},
-					{
-						name: "USB-A",
-						type: "Expansion Card",
-						price: 1800,
-						quantity: 2
-					},
-					{
-						name: "USB-C",
-						type: "Expansion Card",
-						price: 1800,
-						quantity: 2
-					},
-					{
-						name: "HDMI",
-						type: "Expansion Card",
-						price: 1900
-					}
-				]
-			},
-			{
-				name: "Gaming PC",
-				parts: [
-					{
-						name: "Intel Core i5-12600K",
-						type: "CPU",
-						price: 26899
-					},
-					{
-						name: "Noctua NH-D15",
-						type: "Cooler",
-						price: 8999
-					},
-					{
-						name: "Gigabyte GeForce RTX 3070 Ti 8GB",
-						type: "GPU",
-						price: 60000
-					},
-					{
-						name: "Gigabyte Z690 DDR4",
-						type: "Motherboard",
-						price: 18544
-					},
-					{
-						name: "Corsair Vengeance 32GB DDR4-3000",
-						type: "RAM",
-						price: 10996
-					},
-					{
-						name: "Samsung 980 500GB",
-						type: "M.2 SSD",
-						price: 5299
-					},
-					{
-						name: "Kingston A400 240GB",
-						type: "SATA SSD",
-						price: 2500
-					},
-					{
-						name: "Crucial BX500 2TB",
-						type: "SATA SSD",
-						price: 10966
-					},
-					{ 
-						name: "NZXT H5 Flow",
-						type: "Case",
-						price: 8499
-					},
-					{
-						name: "Corsair TX750M",
-						type: "PSU",
-						price: 7799
-					}
-				]
-			}
-		]
-	}
-]
+    {
+        name: "Computers",
+        items: [
+            {
+                name: "Framework 13",
+                type: "Laptop",
+                parts: [
+                    {
+                        name: "AMD Ryzen 5 7640U",
+                        type: "Laptop",
+                        price: 90400,
+                    },
+                    {
+                        name: "Crucial 32GB DDR5-5600",
+                        type: "RAM",
+                        price: 11423,
+                    },
+                    {
+                        name: "Crucial P3 Plus 1TB",
+                        type: "M.2 SSD",
+                        price: 6499,
+                    },
+                    {
+                        name: "USB-A",
+                        type: "Expansion Card",
+                        price: 1800,
+                        quantity: 2,
+                    },
+                    {
+                        name: "USB-C",
+                        type: "Expansion Card",
+                        price: 1800,
+                        quantity: 2,
+                    },
+                    {
+                        name: "HDMI",
+                        type: "Expansion Card",
+                        price: 1900,
+                    },
+                ],
+            },
+            {
+                name: "Gaming PC",
+                type: "Desktop",
+                parts: [
+                    {
+                        name: "Intel Core i5-12600K",
+                        type: "CPU",
+                        price: 26899,
+                    },
+                    {
+                        name: "Noctua NH-D15",
+                        type: "Cooler",
+                        price: 8999,
+                    },
+                    {
+                        name: "NVIDIA RTX 3070 Ti 8GB",
+                        type: "GPU",
+                        price: 62045,
+                    },
+                    {
+                        name: "Gigabyte Z690 DDR4",
+                        type: "MOBO",
+                        price: 18544,
+                    },
+                    {
+                        name: "Corsair 8GB DDR4-3000",
+                        type: "RAM",
+                        price: 2749,
+                        quantity: 4,
+                    },
+                    {
+                        name: "Samsung 980 500GB",
+                        type: "M.2 SSD",
+                        price: 5299,
+                    },
+                    {
+                        name: "Kingston A400 240GB",
+                        type: "SATA SSD",
+                        price: 2500,
+                    },
+                    {
+                        name: "Crucial BX500 2TB",
+                        type: "SATA SSD",
+                        price: 10966,
+                    },
+                    {
+                        name: "NZXT H5 Flow",
+                        type: "Case",
+                        price: 8499,
+                    },
+                    {
+                        name: "Corsair TX750M",
+                        type: "PSU",
+                        price: 7799,
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        name: "Servers",
+        items: [
+            {
+                name: "Primary Server",
+                parts: [
+                    {
+                        name: "Intel Core i5-8400",
+                        type: "CPU",
+                        price: 3999,
+                    },
+                    {
+                        name: "Antec 92mm",
+                        type: "Cooler",
+                        price: 1622,
+                    },
+                    {
+                        name: "ASUS ROG Strix Z370-G",
+                        type: "MOBO",
+                        price: 6500,
+                    },
+                    {
+                        name: "Crucial 8GB DDR4-3200",
+                        type: "RAM",
+                        price: 1999,
+                        quantity: 4,
+                    },
+                    {
+                        name: "Crucial MX500 500GB",
+                        type: "SATA SSD",
+                        price: 4999,
+                    },
+                    {
+                        name: "WD 10TB White",
+                        type: "HDD",
+                        price: 16999,
+                    },
+                    {
+                        name: "Seagate BarraCuda 8TB",
+                        type: "HDD",
+                        price: 10590,
+                    },
+                    {
+                        name: "Toshiba Enterprise 14TB",
+                        type: "HDD",
+                        price: 13900,
+                        quantity: 2,
+                    },
+                    {
+                        name: "Fractal Design Define R6",
+                        type: "Case",
+                        price: 10450,
+                    },
+                    {
+                        name: "Corsair VS550",
+                        type: "PSU",
+                        price: 2499,
+                    },
+                    {
+                        name: "Eaton 3S 550B",
+                        type: "UPS",
+                        price: 7987,
+                    },
+                ],
+            },
+            {
+                name: "Backup Server",
+                parts: [
+                    {
+                        name: "Intel Core i3-8100",
+                        type: "CPU",
+                        price: 2000,
+                    },
+                    {
+                        name: "Stock Intel Cooler",
+                        type: "Cooler",
+                        price: 0,
+                    },
+                    {
+                        name: "ASUS H110M-R",
+                        type: "MOBO",
+                        price: 6000,
+                    },
+                    {
+                        name: "Corsair DDR4-3000",
+                        type: "RAM",
+                        price: 800,
+                    },
+                    {
+                        name: 'Seagate Compute 4TB 2.5"',
+                        type: "HDD",
+                        price: 10199,
+                    },
+                    {
+                        name: "Fractal Design Node 804",
+                        type: "Case",
+                        price: 5800,
+                    },
+                    {
+                        name: "Corsair VS350",
+                        type: "PSU",
+                        price: 3500,
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        name: "Peripherals",
+        items: [
+            {
+                name: "Keyboard",
+                parts: [
+                    {
+                        name: "Keychron K8",
+                        type: "Keyboard",
+                        price: 8338,
+                    },
+                    {
+                        name: "Gazzew Boba U4t",
+                        type: "Switches",
+                        price: 6569,
+                    },
+                    {
+                        name: "Apollo Doubleshot",
+                        type: "Keycaps",
+                        price: 3599,
+                    },
+                ],
+            },
+            {
+                name: "Gigabyte M27Q",
+                type: "Monitor",
+                price: 24899,
+            },
+            {
+                name: "Logitech G Pro X Superlight",
+                type: "Mouse",
+                price: 8999,
+            },
+            {
+                name: "Logitech MX Master 3S",
+                type: "Mouse",
+                price: 10316,
+            },
+        ],
+    },
+].map((category) => {
+    category.items = category.items.map((item) => {
+        if (item.hasOwnProperty("parts")) {
+            item.price = 0;
+            item.parts = item.parts.map((part) => {
+                part.price = Number((part.price / 100).toPrecision(2)) || 0;
+                item.price += part.price * (part.quantity || 1);
+                return part;
+            });
+        } else {
+			console.log({price: Number((item.price / 100).toPrecision(2))})
+            item.price = Number((item.price / 100).toPrecision(2)) || 0;
+        }
+
+        return item;
+    });
+
+    return category;
+});
 ---
 
-<MainLayout
-  description="What I use on a day-to-day basis"
-  footerBackground="true"
->
-	<main>
-		<h1>My gear</h1>
-	</main>
+<MainLayout description="What I use on a day-to-day basis" footerBackground="true">
+    <main>
+        <h1>My gear</h1>
+        <p>Below is all the equipment I use for development and system-administration</p>
+        <div class="equipment">
+            {
+                gear.map((category, index) => (
+                    <section id={category.name.toLowerCase()}>
+                        <h2>{category.name}</h2>
+                        <div class="category-equipment">
+                            {category.items.map((item, index) =>
+                                item.hasOwnProperty("parts") ? (
+                                    <details>
+                                        <summary>
+                                            {item.name}
+                                            <span class="item-price">{formatter.format(item.price)}</span>
+                                        </summary>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                                {item.parts.map((part, index) => (
+                                                    <tr>
+                                                        <td class="part-type">{part.type}</td>
+                                                        <td class="part-name">
+                                                            {part.name}
+                                                            {part.quantity && ` x${part.quantity}`}
+                                                        </td>
+                                                        <td class="part-price">{formatter.format(part.price * (part.quantity || 1))}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </details>
+                                ) : (
+                                    <div class="item">
+                                        <div class="item-type">{item.type}</div>
+                                        {item.name}
+                                        <span class="item-price">{formatter.format(item.price)}</span>
+                                    </div>
+                                )
+                            )}
+                        </div>
+                    </section>
+                ))
+            }
+        </div>
+    </main>
 </MainLayout>
 
-
-
 <style lang="scss">
-	main {
-		padding-top: 4rem;
-		.section {
-			scroll-margin-top: 5rem;
-			.section-content {
-				width: var(--section-width);
-				margin: 0 auto;
-			}
-			&#hero {
-				position: relative;
-				z-index: 3;
-				--hero-height: max-content;
-				--hero-split-height: 20rem;
-				background-image: linear-gradient(
-					to top,
-					transparent var(--hero-split-height),
-					#251b8b var(--hero-split-height),
-					#0F093E
-				);
-				.section-content {
-					height: var(--hero-height);
-					box-sizing: border-box;
-					display: grid;
-					grid-template-columns: 1fr 1fr;
-					grid-template-rows: max-content max-content;
-					align-content: center;
-					align-items: center;
-					justify-content: space-between;
-					text-align: left;
-					gap: 2rem 5rem;
-					padding: 8rem 0;
-					.title {
-						padding-top: 5rem;
-						h1 {
-							white-space: nowrap;
-							margin: 0;
-							font-size: 10rem;
-							line-height: 0.9em;
-							color: var(--accent-foreground);
-	
-							> span {
-								color: var(--accent-muted);
-							}
-						}
-					}
+    main {
+        padding-top: 4rem;
+        width: var(--section-width);
+        margin: 0 auto;
+        scroll-margin-top: 5rem;
+        .equipment {
+            .category-equipment {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+                gap: 2rem;
+                details summary,
+                .item {
+                    position: relative;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    padding: 0.5rem 1rem;
+                    box-sizing: border-box;
+                    border: 0.1rem solid var(--accent);
+                    border-radius: 0.5rem;
+                    transition: 0.5s;
+                    background: var(--background-2);
+                    color: var(--foreground-1);
+                    height: 5rem;
 
-					> p {
-						font-size: 1.5rem;
-						font-weight: 600;
-						text-shadow: 5px 5px 0px rgba(0,0,0,0.1);
-						text-align: right;
-						align-self: self-end;
-						margin: 0 0 0.7rem;
-						color: var(--accent-foreground);
-						@media screen and (min-width: 1201px){
-							grid-row: 1/3;
-							grid-column: 2;
-							padding: 5rem 0 calc(var(--hero-split-height) * 0.8) 0;
-						}
-					}
+                    display: flex;
+                    align-items: center;
 
-					.buttons {
-						padding-bottom: 4rem;
-						display: flex;
-						flex-direction: row;
-						align-self: self-start;
-						gap: 1rem;
-						button {
-							padding: 0.5em 1em;
-							border: none;
-							border-radius: 0.5rem;
-							font-size: 1.25rem;
-							font-family: inherit;
-							cursor: pointer;
-							font-weight: 600;
-							border: 0.1rem solid var(--accent-foreground);
-							background: none;
-							color: var(--accent-foreground);
-							border-radius: 100vh;
-							transition: border 0.5s;
-							transition: color 0.5s;
-							transition: background 0.5s;
-							&:focus {
-								outline: 0.1rem solid var(--accent);
-							}
-							
-							&:hover {
-								border-color: var(--accent);
-								background-color: var(--accent);
-								color: var(--accent-foreground);
-							}
-						}
-					}
-				}
-				.background-split {
-					z-index: 1;
-					position: absolute;
-					bottom: 0;
-					left: 0;
-					width: 100%;
-					height: var(--hero-split-height);
-					transform: rotate(0deg) scaleX(-1);
-					z-index: -1;
-					:global(svg) {
-						width: 100%;
-						height: 100%;
-						display: block;
-						margin: -1px 0;
-					}
-				}
+                    .item-type {
+                        text-transform: uppercase;
+                        font-weight: 400;
+                        font-family: "QuickSand", Arial, Helvetica, sans-serif;
+                        font-size: 1rem;
+                    }
 
-			}
-			&#about {
-				.section-content {
-					display: grid;
-					grid-template-columns: 1fr 1fr;
-					align-items: center;
+                    .item-price {
+                        position: absolute;
+                        top: 0.5rem;
+                        right: 0.5rem;
+                        background-color: var(--accent);
+                        color: var(--accent-foreground);
+                        border-radius: 5rem;
+                        padding: 0.2rem 1rem;
+                        font-size: 1rem;
+                        transition: 0.5s;
+                    }
+                }
 
-					.content {
-						p {
-							font-size: 1.25rem;
-						}
-					}
-	
-					.illustration {
-						position: relative;
-						display: grid;
-						place-content: center;
-						z-index: 0;
+                .item {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+					align-items: start;
+                }
 
-						.blob {
-							position: absolute;
-							top: 50%;
-							left: 50%;
-							width: 25rem;
-							height: 25rem;
-							transform: translate(-50%, -50%);
-							z-index: -1;
-							:global(svg) {
-								width: 100%;
-								height: 100%;
-							}
-						}
-						
-						:global(.feeling-proud-illustration) {
-							width: 18rem;
-							height: auto;
-							margin-left: auto;
-						}
-					}
-				}
-			}
+                details summary {
+                    cursor: pointer;
+                    &:before {
+                        content: "▶";
+                        font-size: 0.65em;
+                        margin-right: 0.5em;
+                        flex-shrink: 0;
+                        transition: 0.2s;
+                    }
+                }
 
-			&#projects {
-				.section-content {
-					margin: 4rem auto 4rem;
-				}
-			}
+                details[open] summary {
+                    &:before {
+                        content: "▼";
+                    }
+                }
 
-			&#contact {
-				padding-top: 2rem;
-			}
+                details[open] summary,
+                details summary:hover {
+                    background: var(--accent);
+                    color: var(--accent-foreground);
+                    .item-price {
+                        background-color: var(--accent-foreground);
+                        color: var(--accent);
+                    }
+                }
 
-			@media screen and (max-width: 1200px){
-				&#hero {
-					--hero-split-height: 10rem;
-					.section-content {
-						grid-template-columns: 1fr;
-						gap: 2rem;
-						padding: 0;
+                details {
+                    table {
+                        // border-collapse: collapse;
+                        width: 100%;
+                        margin-top: 0.5rem;
+                        tbody {
+                            tr {
+                                td {
+                                    margin-top: 0.5rem;
+                                    padding: 0.3rem;
+                                    font-weight: 400;
+                                    font-family: "QuickSand", Arial, Helvetica, sans-serif;
+                                    border: 0.05rem solid var(--accent);
+                                    border-bottom: none;
+                                    &:first-of-type {
+                                        border-right: none;
+                                        font-weight: 600;
+                                    }
+                                    &:nth-of-type(2) {
+                                        border-left: none;
+                                        border-right: none;
+                                    }
+                                    &:last-of-type {
+                                        border-left: none;
+                                        text-align: right;
+                                        font-weight: 600;
+                                    }
+                                }
+                                &:first-of-type td:first-child {
+                                    border-top-left-radius: 0.25rem;
+                                }
+                                &:first-of-type td:last-child {
+                                    border-top-right-radius: 0.25rem;
+                                }
+                                &:last-of-type td:first-child {
+                                    border-bottom-left-radius: 0.25rem;
+                                }
+                                &:last-of-type {
+                                    td {
+                                        border-bottom: 0.05rem solid var(--accent);
+                                    }
+                                    td:last-child {
+                                        border-bottom-right-radius: 0.25rem;
+                                    }
+                                }
+                            }
+                            tr + tr {
+                                padding-top: 0.5rem;
+                            }
+                        }
+                    }
 
-						.title {
-							padding-top: 6rem;
-							h1 {
-								font-size: 8rem;
-							}
-						}
+                    ul {
+                        list-style-type: none;
+                        padding: 0;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.25rem;
+                        li {
+                            border: 0.05rem solid var(--accent);
+                            padding: 0.3rem;
+                            border-radius: 0.25rem;
+                            font-size: 1.25rem;
+                            font-weight: 200;
+                            font-family: "QuickSand", Arial, Helvetica, sans-serif;
+                            display: grid;
+                            grid-template-columns: 2rem max-content 2rem;
+                            align-items: center;
+                            gap: 0.5rem;
+                            background-color: var(--accent-muted);
+                            color: var(--accent-foreground);
+                            .part-type {
+                                font-weight: 600;
+                            }
+                            .part-name {
+                                text-align: left;
+                            }
+                            .part-price {
+                                margin-left: auto;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .section {
+            .section-content {
+                margin: 0 auto;
+            }
+            &#hero {
+                position: relative;
+                z-index: 3;
+                --hero-height: max-content;
+                --hero-split-height: 20rem;
+                background-image: linear-gradient(to top, transparent var(--hero-split-height), #251b8b var(--hero-split-height), #0f093e);
+                .section-content {
+                    height: var(--hero-height);
+                    box-sizing: border-box;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: max-content max-content;
+                    align-content: center;
+                    align-items: center;
+                    justify-content: space-between;
+                    text-align: left;
+                    gap: 2rem 5rem;
+                    padding: 8rem 0;
+                    .title {
+                        padding-top: 5rem;
+                        h1 {
+                            white-space: nowrap;
+                            margin: 0;
+                            font-size: 10rem;
+                            line-height: 0.9em;
+                            color: var(--accent-foreground);
 
-						> p {
-							text-align: left;
-							max-width: 45ch;
-						}
-					}
-				}
-			}
+                            > span {
+                                color: var(--accent-muted);
+                            }
+                        }
+                    }
 
-			@media screen and (max-width: 768px) {
-				&#hero {
-					--hero-split-height: 5rem;
-					.section-content {
-						gap: 1.5rem;
-						.title {
-							h1 {
-								font-size: 6rem;
-							}
-						}
+                    > p {
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                        text-shadow: 5px 5px 0px rgba(0, 0, 0, 0.1);
+                        text-align: right;
+                        align-self: self-end;
+                        margin: 0 0 0.7rem;
+                        color: var(--accent-foreground);
+                        @media screen and (min-width: 1201px) {
+                            grid-row: 1/3;
+                            grid-column: 2;
+                            padding: 5rem 0 calc(var(--hero-split-height) * 0.8) 0;
+                        }
+                    }
 
-						> p {
-							font-size: 1.6rem;
-						}
+                    .buttons {
+                        padding-bottom: 4rem;
+                        display: flex;
+                        flex-direction: row;
+                        align-self: self-start;
+                        gap: 1rem;
+                        button {
+                            padding: 0.5em 1em;
+                            border: none;
+                            border-radius: 0.5rem;
+                            font-size: 1.25rem;
+                            font-family: inherit;
+                            cursor: pointer;
+                            font-weight: 600;
+                            border: 0.1rem solid var(--accent-foreground);
+                            background: none;
+                            color: var(--accent-foreground);
+                            border-radius: 100vh;
+                            transition: border 0.5s;
+                            transition: color 0.5s;
+                            transition: background 0.5s;
+                            &:focus {
+                                outline: 0.1rem solid var(--accent);
+                            }
 
-						.buttons {
-							button {
-								font-size: 1.35rem;
-							}
-						}
-					}
-				}
+                            &:hover {
+                                border-color: var(--accent);
+                                background-color: var(--accent);
+                                color: var(--accent-foreground);
+                            }
+                        }
+                    }
+                }
+                .background-split {
+                    z-index: 1;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: var(--hero-split-height);
+                    transform: rotate(0deg) scaleX(-1);
+                    z-index: -1;
+                    :global(svg) {
+                        width: 100%;
+                        height: 100%;
+                        display: block;
+                        margin: -1px 0;
+                    }
+                }
+            }
+            &#about {
+                .section-content {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    align-items: center;
 
-				&#about {
-					.section-content {
-						grid-template-columns: 1fr;
-						gap: 4rem;
-						padding-top: 2rem;
+                    .content {
+                        p {
+                            font-size: 1.25rem;
+                        }
+                    }
 
-						.illustration {
-							grid-row: 1;
-							:global(.feeling-proud-illustration) {
-								width: 60%;
-								height: auto;
-								margin: 0 auto;
-							}
+                    .illustration {
+                        position: relative;
+                        display: grid;
+                        place-content: center;
+                        z-index: 0;
 
-							.blob {
-								width: 20rem;
-								height: 20rem;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+                        .blob {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            width: 25rem;
+                            height: 25rem;
+                            transform: translate(-50%, -50%);
+                            z-index: -1;
+                            :global(svg) {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+
+                        :global(.feeling-proud-illustration) {
+                            width: 18rem;
+                            height: auto;
+                            margin-left: auto;
+                        }
+                    }
+                }
+            }
+
+            &#projects {
+                .section-content {
+                    margin: 4rem auto 4rem;
+                }
+            }
+
+            &#contact {
+                padding-top: 2rem;
+            }
+
+            @media screen and (max-width: 1200px) {
+                &#hero {
+                    --hero-split-height: 10rem;
+                    .section-content {
+                        grid-template-columns: 1fr;
+                        gap: 2rem;
+                        padding: 0;
+
+                        .title {
+                            padding-top: 6rem;
+                            h1 {
+                                font-size: 8rem;
+                            }
+                        }
+
+                        > p {
+                            text-align: left;
+                            max-width: 45ch;
+                        }
+                    }
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+                &#hero {
+                    --hero-split-height: 5rem;
+                    .section-content {
+                        gap: 1.5rem;
+                        .title {
+                            h1 {
+                                font-size: 6rem;
+                            }
+                        }
+
+                        > p {
+                            font-size: 1.6rem;
+                        }
+
+                        .buttons {
+                            button {
+                                font-size: 1.35rem;
+                            }
+                        }
+                    }
+                }
+
+                &#about {
+                    .section-content {
+                        grid-template-columns: 1fr;
+                        gap: 4rem;
+                        padding-top: 2rem;
+
+                        .illustration {
+                            grid-row: 1;
+                            :global(.feeling-proud-illustration) {
+                                width: 60%;
+                                height: auto;
+                                margin: 0 auto;
+                            }
+
+                            .blob {
+                                width: 20rem;
+                                height: 20rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 </style>
