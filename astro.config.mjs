@@ -5,9 +5,10 @@ import expressiveCode from "astro-expressive-code";
 import mdx from "@astrojs/mdx";
 import vue from "@astrojs/vue";
 import db from "@astrojs/db";
+import icon from "astro-icon";
 const site = "https://jackbailey.dev";
+const forbiddenPages = ["/contact/error", "/contact/success", "/contact/remove", "/contact/submission*"].map(page => site + page);
 
-const forbiddenPages = ["/contact/error", "/contact/success", "/contact/remove", "/contact/submission*"].map((page) => site + page);
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,7 +18,11 @@ export default defineConfig({
   }), expressiveCode({
     themes: ["github-dark-dimmed", "github-light"],
     themeCssSelector: theme => `[data-ec-theme='${theme.name}']`
-  }), mdx(), vue(), db()],
+  }), mdx(), vue(), db(), icon({
+    include: {
+      "fa-solid": ["memory", "hdd", "desktop"]
+    }
+  })],
   output: "hybrid",
   adapter: vercel()
 });
