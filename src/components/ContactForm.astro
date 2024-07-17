@@ -10,7 +10,7 @@ const turnstileSiteKey = import.meta.env.CF_TURNSTILE_SITE_KEY || "";
     <div class="contact-inner">
         <div class="contact-form">
             <h2>Get in touch</h2>
-            <form action="/api/contact" method="POST">
+            <form action="/api/contact" method="POST" class={useTurnstile ? "no-js" : ""} id="contact-form">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Email</label>
@@ -21,12 +21,16 @@ const turnstileSiteKey = import.meta.env.CF_TURNSTILE_SITE_KEY || "";
                 { useTurnstile && <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div> }
                 <button>Send Message</button>
             </form>
+            { useTurnstile && <noscript> Please enable JavaScript to use this contact form </noscript> }
         </div>
     </div>
     <WavyDivider />
 </div>
 
-
+<script>
+const contactForm = document.getElementById("contact-form");
+contactForm.classList.remove("no-js");
+</script>
 
 <style lang="scss">
     .contact {
@@ -55,6 +59,9 @@ const turnstileSiteKey = import.meta.env.CF_TURNSTILE_SITE_KEY || "";
                     text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
                 }
                 form {
+                    &.no-js {
+                        display: none;
+                    }
                     label {
                         text-align: left;
                         margin: 0.75rem 0 0.1rem;
