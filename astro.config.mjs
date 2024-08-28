@@ -14,7 +14,7 @@ const forbiddenPages = ["/contact/error", "/contact/success", "/contact/remove",
 export default defineConfig({
   site,
   integrations: [sitemap({
-    filter: page => !forbiddenPages.includes(page)
+    filter: page => !forbiddenPages.includes(page.replace(site, ""))
   }), expressiveCode({
     themes: ["github-dark-dimmed", "github-light"],
     themeCssSelector: theme => `[data-ec-theme='${theme.name}']`
