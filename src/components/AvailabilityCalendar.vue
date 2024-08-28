@@ -18,6 +18,7 @@ export default {
             calendarOptions: {
                 plugins: [dayGridPlugin],
                 height: "auto",
+                firstDay: 1,
             },
         };
     },
