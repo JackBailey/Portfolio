@@ -10,12 +10,6 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import ICAL from "ical.js";
 
 export default {
-    props: {
-        icalLink: {
-            type: String,
-            required: true,
-        },
-    },
     components: {
         FullCalendar,
     },
@@ -48,7 +42,7 @@ export default {
         },
     },
     async mounted() {
-        const response = await fetch(this.icalLink);
+        const response = await fetch("/api/calendar");
         const icalData = await response.text();
         this.load_ics(icalData);
     },
