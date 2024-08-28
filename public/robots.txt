@@ -4,5 +4,6 @@ Disallow: /contact/success
 Disallow: /contact/error
 Disallow: /contact/remove
 Disallow: /contact/submission*
+Disallow: /availability
 
 Sitemap: https://jackbailey.dev/sitemap-index.xml

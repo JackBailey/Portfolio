@@ -1,14 +1,21 @@
 <template>
-    <FullCalendar :options="calendarOptions" />
+    <div class="calendar-outer">
+        <FullCalendar :options="calendarOptions" />
+    </div>
 </template>
 
 <script>
 import FullCalendar from "@fullcalendar/vue3";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import ICAL from "ical.js";
-// import interactionPlugin from '@fullcalendar/interaction'
 
 export default {
+    props: {
+        icalLink: {
+            type: String,
+            required: true,
+        },
+    },
     components: {
         FullCalendar,
     },
@@ -16,28 +23,13 @@ export default {
         return {
             calendarOptions: {
                 plugins: [dayGridPlugin],
-                // initialView: 'dayGridMonth '
+                height: "auto",
             },
         };
     },
     methods: {
-        // https://github.com/larrybolt/online-ics-feed-viewer/blob/33ebdae5c44048517507b82105b1230d7319ba3b/script.js#L16
+        // Inspired by https://github.com/larrybolt/online-ics-feed-viewer/blob/33ebdae5c44048517507b82105b1230d7319ba3b/script.js#L16
         load_ics(ics_data) {
-            const mapping = {
-                dtstart: "start",
-                dtend: "end",
-                summary: "title",
-            };
-
-            const value_type_mapping = {
-                "date-time": (input) => {
-                    if (input.substr(-3) === "T::") {
-                        return input.substr(0, input.length - 3);
-                    }
-                    return input;
-                },
-            };
-
             const parsed = ICAL.parse(ics_data);
             const events = [];
             parsed[2].map(([type, event_fields]) => {
@@ -52,20 +44,24 @@ export default {
                 events.push({ start, end, title });
             });
 
-            console.log({ events });
             this.calendarOptions.events = events;
-
-            // $("#calendar").fullCalendar("removeEventSources");
-            // $("#calendar").fullCalendar("addEventSource", events);
         },
     },
     async mounted() {
-        let icalLink =
-            "https://calendar.proton.me/api/calendar/v1/url/rLJCu09XrebwHPIHvnh84CWUW6Z3OB8NQwO_U1u95rmEFZ7MHYp5oHatvlihme2K5DuyWbGembIlXnIN1xqwFw==/calendar.ics?CacheKey=s7zwnpz8FFqStfFb3NwSAA%3D%3D";
-        const response = await fetch(icalLink);
+        const response = await fetch(this.icalLink);
         const icalData = await response.text();
-        console.log({ icalData });
         this.load_ics(icalData);
     },
 };
 </script>
+
+<style lang="scss" scoped>
+.calendar-outer {
+    @media screen and (max-width: 768px){
+        :deep(.fc-header-toolbar.fc-toolbar) {
+            flex-direction: column;
+            align-items: start;
+        }
+    }
+}
+</style>

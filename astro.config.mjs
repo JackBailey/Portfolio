@@ -7,7 +7,7 @@ import vue from "@astrojs/vue";
 import db from "@astrojs/db";
 import icon from "astro-icon";
 const site = "https://jackbailey.dev";
-const forbiddenPages = ["/contact/error", "/contact/success", "/contact/remove", "/contact/submission*"].map(page => site + page);
+const forbiddenPages = ["/contact/error", "/contact/success", "/contact/remove", "/contact/submission*", "/availability"].map(page => site + page);
 
 
 // https://astro.build/config
