@@ -23,6 +23,15 @@ importers:
       '@astrojs/vue':
         specifier: ^4.1.0
         version: 4.5.0(astro@4.14.5(@types/node@22.4.0)(rollup@4.21.0)(sass@1.77.8)(typescript@5.5.4))(rollup@4.21.0)(vite@5.4.2(@types/node@22.4.0)(sass@1.77.8))(vue@3.4.38(typescript@5.5.4))
+      '@fullcalendar/core':
+        specifier: ^6.1.15
+        version: 6.1.15
+      '@fullcalendar/daygrid':
+        specifier: ^6.1.15
+        version: 6.1.15(@fullcalendar/core@6.1.15)
+      '@fullcalendar/vue3':
+        specifier: ^6.1.15
+        version: 6.1.15(@fullcalendar/core@6.1.15)(vue@3.4.38(typescript@5.5.4))
       '@giscus/vue':
         specifier: ^3.0.0
         version: 3.0.0(vue@3.4.38(typescript@5.5.4))
@@ -47,6 +56,9 @@ importers:
       giscus:
         specifier: ^1.5.0
         version: 1.5.0
+      ical.js:
+        specifier: ^2.0.1
+        version: 2.0.1
       resend:
         specifier: ^4.0.0
         version: 4.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -451,6 +463,20 @@ packages:
 
   '@expressive-code/plugin-text-markers@0.35.6':
     resolution: {integrity: sha512-/k9eWVZSCs+uEKHR++22Uu6eIbHWEciVHbIuD8frT8DlqTtHYaaiwHPncO6KFWnGDz5i/gL7oyl6XmOi/E6GVg==}
+
+  '@fullcalendar/core@6.1.15':
+    resolution: {integrity: sha512-BuX7o6ALpLb84cMw1FCB9/cSgF4JbVO894cjJZ6kP74jzbUZNjtwffwRdA+Id8rrLjT30d/7TrkW90k4zbXB5Q==}
+
+  '@fullcalendar/daygrid@6.1.15':
+    resolution: {integrity: sha512-j8tL0HhfiVsdtOCLfzK2J0RtSkiad3BYYemwQKq512cx6btz6ZZ2RNc/hVnIxluuWFyvx5sXZwoeTJsFSFTEFA==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.15
+
+  '@fullcalendar/vue3@6.1.15':
+    resolution: {integrity: sha512-ctfTICGrNEIj7gmLHQcUYe0WzDTSW5Vd9hyOnVChxPU75AZU9WqdDMkHwJYnfNxNhT6QQuiMHq/qsRRd5zQwOw==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.15
+      vue: ^3.0.11
 
   '@giscus/vue@3.0.0':
     resolution: {integrity: sha512-ZoSUmlc3ee2a+kdumCaXFDZaB4h9b1BYWzsmmRP7zoGEQKYopdAnzGvJK7RdvrYGAzNqZtGUxI0NnBl8/UA6bQ==}
@@ -1866,6 +1892,9 @@ packages:
     resolution: {integrity: sha512-AXcZb6vzzrFAUE61HnN4mpLqd/cSIwNQjtNWR0euPm6y0iqx3G4gOXaIDdtdDwZmhwe82LA6+zinmW4UBWVePQ==}
     engines: {node: '>=16.17.0'}
 
+  ical.js@2.0.1:
+    resolution: {integrity: sha512-uYYb1CwTXbd9NP/xTtgQZ5ivv6bpUjQu9VM98s3X78L3XRu00uJW5ZtmnLwyxhztpf5fSiRyDpFW7ZNCePlaPw==}
+
   iconv-lite@0.6.3:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
     engines: {node: '>=0.10.0'}
@@ -2572,6 +2601,9 @@ packages:
   postcss@8.4.41:
     resolution: {integrity: sha512-TesUflQ0WKZqAvg52PWL6kHgLKP6xB6heTOdoYM0Wt2UHyxNa4K25EZZMgKns3BH1RLVbZCREPpLY0rhnNoHVQ==}
     engines: {node: ^10 || ^12 || >=14}
+
+  preact@10.12.1:
+    resolution: {integrity: sha512-l8386ixSsBdbreOAkqtrwqHwdvR35ID8c3rKPa8lCWuO86dBi32QWHV4vfsZK1utLLFMvw+Z5Ad4XLkZzchscg==}
 
   preferred-pm@4.0.0:
     resolution: {integrity: sha512-gYBeFTZLu055D8Vv3cSPox/0iTPtkzxpLroSYYA7WXgRi31WCJ51Uyl8ZiPeUUjyvs2MBzK+S8v9JVUgHU/Sqw==}
@@ -3675,6 +3707,19 @@ snapshots:
   '@expressive-code/plugin-text-markers@0.35.6':
     dependencies:
       '@expressive-code/core': 0.35.6
+
+  '@fullcalendar/core@6.1.15':
+    dependencies:
+      preact: 10.12.1
+
+  '@fullcalendar/daygrid@6.1.15(@fullcalendar/core@6.1.15)':
+    dependencies:
+      '@fullcalendar/core': 6.1.15
+
+  '@fullcalendar/vue3@6.1.15(@fullcalendar/core@6.1.15)(vue@3.4.38(typescript@5.5.4))':
+    dependencies:
+      '@fullcalendar/core': 6.1.15
+      vue: 3.4.38(typescript@5.5.4)
 
   '@giscus/vue@3.0.0(vue@3.4.38(typescript@5.5.4))':
     dependencies:
@@ -5294,6 +5339,8 @@ snapshots:
 
   human-signals@5.0.0: {}
 
+  ical.js@2.0.1: {}
+
   iconv-lite@0.6.3:
     dependencies:
       safer-buffer: 2.1.2
@@ -6244,6 +6291,8 @@ snapshots:
       nanoid: 3.3.7
       picocolors: 1.0.1
       source-map-js: 1.2.0
+
+  preact@10.12.1: {}
 
   preferred-pm@4.0.0:
     dependencies:

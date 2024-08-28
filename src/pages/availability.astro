@@ -1,0 +1,267 @@
+---
+import MainLayout from "../layouts/Main.astro";
+import AvailabilityCalendar from "../components/AvailabilityCalender.vue";
+
+const description = "";
+---
+
+<MainLayout description={description}>
+    <main>
+        <AvailabilityCalendar client:load />
+    </main>
+</MainLayout>
+
+<style lang="scss">
+    main {
+        padding-top: 5rem 0 1rem;
+        width: var(--section-width);
+        margin: 0 auto;
+        scroll-margin-top: 5rem;
+        h1 {
+            font-size: 2.5rem;
+			margin-bottom: 1rem;
+        }
+		hr {
+			box-sizing: content-box;
+			overflow: hidden;
+			background: transparent;
+			border-bottom: 1px solid #21262d;
+			height: 0.15em;
+			padding: 0;
+			background-color: #30363d;
+			border: 0;
+		}
+        > p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        .equipment {
+            h2 {
+                font-size: 2rem;
+            }
+            .category-equipment {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+                gap: 1rem;
+                details summary,
+                .item {
+                    position: relative;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    padding: 0.5rem 1rem;
+                    box-sizing: border-box;
+                    border: 0.15rem solid var(--accent);
+                    border-radius: 0.5rem;
+                    transition: 0.5s;
+                    background: var(--background-2);
+                    color: var(--foreground-1);
+                    min-height: 5rem;
+                    height: max-content;
+                    width: 100%;
+
+                    justify-content: center;
+
+                    display: grid;
+                    grid-template-columns: max-content max-content;
+                    grid-template-rows: 1fr max-content;
+                    align-items: start;
+					justify-content: space-between;
+					width: 100%;
+
+					.item-name {
+						grid-column: 1/3;
+						align-self: start;
+					}
+
+                    .item-type {
+                        text-transform: uppercase;
+                        font-weight: 400;
+                        font-family: "QuickSand", Arial, Helvetica, sans-serif;
+                        font-size: 1rem;
+                    }
+
+                    .item-specs {
+                        margin-left: auto;
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        div {
+                            display: flex;
+                            align-items: center;
+                            font-size: 1rem;
+                            gap: 0.2rem;
+                            p {
+                                margin: 0;
+                                font-weight: 400;
+                                font-family: "QuickSand", Arial, Helvetica, sans-serif;
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+                }
+
+                .item {
+                    justify-content: space-between;
+                    .item-name {
+                        grid-column: 1/3;
+                    }
+                }
+
+                details summary {
+                    cursor: pointer;
+					.item-name {
+						align-self: start;
+						&:before {
+							content: "▶";
+							font-size: 0.65em;
+							margin-right: 0.5em;
+							flex-shrink: 0;
+							transition: 0.2s;
+						}
+					}
+                }
+
+                details[open] summary {
+                    .item-name {
+						&:before {
+							content: "▼";
+						}
+					}
+                }
+
+                details[open] summary,
+                details summary:hover {
+                    background: var(--accent);
+                    color: var(--accent-foreground);
+                }
+
+                details {
+                    table {
+                        width: 100%;
+                        margin-top: 0.5rem;
+                        tbody {
+                            tr {
+                                td {
+                                    margin-top: 0.5rem;
+                                    padding: 0.3rem;
+                                    font-weight: 400;
+                                    font-family: "QuickSand", Arial, Helvetica, sans-serif;
+                                    border: 0.05rem solid var(--accent);
+                                    border-bottom: none;
+                                    width: auto;
+                                    &:first-of-type {
+                                        border-right: none;
+                                        font-weight: 600;
+                                        white-space: nowrap;
+                                    }
+                                    &:nth-of-type(2) {
+                                        border-left: none;
+                                        width: 100%;
+                                        .chips {
+                                            display: inline-flex;
+                                            align-items: center;
+                                            gap: 0.25rem;
+                                            .chip {
+                                                background-color: var(--accent);
+                                                color: var(--accent-foreground);
+                                                border-radius: 5rem;
+                                                padding: 0.2rem 0.5rem;
+                                                transition: 0.5s;
+                                                display: inline-flex;
+                                                align-items: center;
+                                                width: max-content;
+                                                gap: 0.2rem;
+                                                font-size: 0.8rem;
+                                                p {
+                                                    margin: 0;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                &:first-of-type td:first-child {
+                                    border-top-left-radius: 0.25rem;
+                                }
+                                &:first-of-type td:last-child {
+                                    border-top-right-radius: 0.25rem;
+                                }
+                                &:last-of-type td:first-child {
+                                    border-bottom-left-radius: 0.25rem;
+                                }
+                                &:last-of-type {
+                                    td {
+                                        border-bottom: 0.05rem solid var(--accent);
+                                    }
+                                    td:last-child {
+                                        border-bottom-right-radius: 0.25rem;
+                                    }
+                                }
+                            }
+                            tr + tr {
+                                padding-top: 0.5rem;
+                            }
+                        }
+                    }
+
+                    ul {
+                        list-style-type: none;
+                        padding: 0;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.25rem;
+                        li {
+                            border: 0.05rem solid var(--accent);
+                            padding: 0.3rem;
+                            border-radius: 0.25rem;
+                            font-size: 1.25rem;
+                            font-weight: 200;
+                            font-family: "QuickSand", Arial, Helvetica, sans-serif;
+                            display: grid;
+                            grid-template-columns: 2rem max-content 2rem;
+                            align-items: center;
+                            gap: 0.5rem;
+                            background-color: var(--accent-muted);
+                            color: var(--accent-foreground);
+                            .part-type {
+                                font-weight: 600;
+                            }
+                            .part-name {
+                                text-align: left;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .equipment {
+                .category-equipment {
+                    grid-template-columns: 1fr;
+                    details {
+                        table {
+                            tbody {
+                                tr {
+                                    td {
+                                        &:first-of-type {
+                                            border-right: none;
+                                            font-weight: 600;
+                                            white-space: wrap;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    details summary,
+                    .item {
+                        padding: 0.5rem;
+                    }
+		    .item {
+			grid-template-columns: 1fr;
+		    }
+                }
+            }
+        }
+    }
+</style>
