@@ -55,7 +55,7 @@ export default {
         :deep(.fc-header-toolbar.fc-toolbar) {
             flex-direction: column;
             align-items: start;
-            gap: 1rem;
+            gap: 0.5rem;
         }
     }
 }
