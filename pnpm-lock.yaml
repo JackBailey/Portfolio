@@ -37,7 +37,7 @@ importers:
         version: 3.0.0(vue@3.4.38(typescript@5.5.4))
       '@iconify-json/fa-solid':
         specifier: ^1.1.8
-        version: 1.1.9
+        version: 1.2.0
       astro:
         specifier: ^4.5.9
         version: 4.14.6(@types/node@22.4.0)(rollup@4.21.1)(sass@1.77.8)(typescript@5.5.4)
@@ -473,8 +473,8 @@ packages:
     peerDependencies:
       vue: '>=3.2.0'
 
-  '@iconify-json/fa-solid@1.1.9':
-    resolution: {integrity: sha512-0hFYl7359Cs1eQu2NJZ65GKAn+Vh4exnRPU7MJUIElXFYfkMoYHPJ42vR6yjXMD2JczrH2XEdoETXIbD9UBVUA==}
+  '@iconify-json/fa-solid@1.2.0':
+    resolution: {integrity: sha512-8WV0gViiLN7WK150B9Ub+2nzqOmdmhMAKZAO9JqRDGhO07GEH4T/FYlKXK2zlF51C6HAx8fXV8pDapDX3TBavg==}
 
   '@iconify/tools@4.0.5':
     resolution: {integrity: sha512-l8KoA1lxlN/FFjlMd3vjfD7BtcX/QnFWtlBapILMlJSBgM5zhDYak/ldw/LkKG3258q/0YmXa48sO/QpxX7ptg==}
@@ -3715,7 +3715,7 @@ snapshots:
       giscus: 1.5.0
       vue: 3.4.38(typescript@5.5.4)
 
-  '@iconify-json/fa-solid@1.1.9':
+  '@iconify-json/fa-solid@1.2.0':
     dependencies:
       '@iconify/types': 2.0.0
 
