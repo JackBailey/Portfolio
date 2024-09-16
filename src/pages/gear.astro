@@ -293,8 +293,9 @@ const gear = [
                 type: "3D Printer",
             },
             {
-                name: "Pico 4",
+                name: "Pico 4 for PCVR",
                 type: "VR Headset",
+                storage: 128
             },
         ],
     },
@@ -314,6 +315,8 @@ const gear = [
                 return part;
             });
         }
+        
+        console.log(item);
 
         return item;
     });
@@ -397,6 +400,18 @@ const description = "A list of the equipment I use on a day-to-day basis";
                                         <div class="item-name">{item.name}</div>
                                         <div class="item-type">{item.type}</div>
                                         <div class="item-specs">
+                                            {item.ram && (
+                                                <div class="memory" title="RAM">
+                                                    <Icon name="fa-solid:memory" />
+                                                    <p>{formatBytes(item.ram, 2)}</p>
+                                                </div>
+                                            )}
+                                            {item.storage && (
+                                                <div class="storage" title="Storage">
+                                                    <Icon name="fa-solid:hdd" />
+                                                    <p>{formatBytes(item.storage, 2)}</p>
+                                                </div>
+                                            )}
                                             {item.resolution && (
                                                 <div class="resolution" title="Resolution">
                                                     <Icon name="fa-solid:desktop" />
