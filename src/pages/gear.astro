@@ -7,7 +7,7 @@ import MainLayout from "../layouts/Main.astro";
 const formatBytes = (bytes, decimals = 2) => {
     if (!+bytes) return "0 Bytes";
 
-    const k = 1000;
+    const k = 1024;
     const dm = decimals < 0 ? 0 : decimals;
     const sizes = ["GB", "TB"];
 
@@ -37,7 +37,7 @@ const gear = [
                     {
                         name: "Crucial P3 Plus",
                         type: "M.2 SSD",
-                        size: 1000,
+                        size: 1024,
                     },
                     {
                         name: "USB-A",
@@ -84,12 +84,12 @@ const gear = [
                     {
                         name: "Samsung 980",
                         type: "M.2 SSD",
-                        size: 500,
+                        size: 512,
                     },
                     {
                         name: "Crucial P3 Plus",
                         type: "M.2 SSD",
-                        size: 2000,
+                        size: 2048,
                     },
                     {
                         name: "Kingston A400",
@@ -99,7 +99,7 @@ const gear = [
                     {
                         name: "Crucial BX500",
                         type: "SATA SSD",
-                        size: 2000,
+                        size: 2048,
                     },
                     {
                         name: "NZXT H5 Flow",
@@ -117,12 +117,8 @@ const gear = [
                 resolution: "7\" LCD",
                 parts: [
                     {
-                        name: "AMD Zen 2",
-                        type: "CPU",
-                    },
-                    {
-                        name: "AMD RDNA 2",
-                        type: "GPU",
+                        name: "AMD Zen 2 w/ RDNA 2",
+                        type: "APU",
                     },
                     {
                         name: "LPDDR5 on-board 5500MT/s",
@@ -132,15 +128,15 @@ const gear = [
                     {
                         name: "NVMe SSD",
                         type: "M.2 SSD",
-                        size: 500,
+                        size: 512,
                     },
                     {
                         name: "Integral UltimaPRO V30",
                         type: "microSD",
-                        size: 500,
+                        size: 512,
                     },
                     {
-                        name: "dbrand Killswitch w/ Ultramatte Teardown",
+                        name: "dbrand Killswitch Travel Kit w/ Ultramatte Teardown skin",
                         type: "Case",
                     },
                 ],
@@ -180,18 +176,18 @@ const gear = [
                     {
                         name: "WD White",
                         type: "HDD",
-                        size: 10000,
+                        size: 10240,
                     },
                     {
                         name: "Seagate BarraCuda",
                         type: "HDD",
-                        size: 8000,
+                        size: 8096,
                     },
                     {
                         name: "Toshiba Enterprise",
                         type: "HDD",
                         quantity: 2,
-                        size: 14000,
+                        size: 14336,
                     },
                     {
                         name: "Fractal Design Define R6",
@@ -231,7 +227,7 @@ const gear = [
                     {
                         name: 'Seagate Compute 2.5"',
                         type: "HDD",
-                        size: 4000,
+                        size: 4096,
                     },
                     {
                         name: "Fractal Design Node 804",
@@ -297,6 +293,11 @@ const gear = [
                 type: "VR Headset",
                 storage: 128
             },
+            {
+                name: "Nintendo Switch OLED",
+                type: "Handheld",
+                storage: 64,
+            }
         ],
     },
 ].map((category) => {
