@@ -19,6 +19,7 @@ export default {
                 plugins: [dayGridPlugin],
                 height: "auto",
                 firstDay: 1,
+                defaultAllDay: true,
             },
         };
     },
@@ -31,12 +32,11 @@ export default {
                 if (type !== "vevent") {
                     return;
                 }
-                console.log({ event_fields });
                 const start = event_fields.find((item) => item[0] === "dtstart")[3];
-                const end = event_fields.find(item => item[0] === "dtend")?.[3] || null; // Handle case where dtend might not exist
+                const end = event_fields.find((item) => item[0] === "dtend")?.[3] || null; // Handle case where dtend might not exist
                 const title = event_fields.find((item) => item[0] === "summary")[3];
 
-                events.push({ start, end, title });
+                events.push({ start, end, title, display: "background" });
             });
 
             this.calendarOptions.events = events;
@@ -52,7 +52,7 @@ export default {
 
 <style lang="scss" scoped>
 .calendar-outer {
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 768px) {
         :deep(.fc-header-toolbar.fc-toolbar) {
             flex-direction: column;
             align-items: start;
