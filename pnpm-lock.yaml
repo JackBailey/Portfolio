@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@astrojs/db':
-        specifier: ^0.13.0
-        version: 0.13.2(react@18.3.1)
+        specifier: ^0.14.0
+        version: 0.14.1(react@18.3.1)
       '@astrojs/mdx':
         specifier: ^3.0.0
         version: 3.1.6(astro@4.15.6(@types/node@22.4.0)(rollup@4.21.3)(sass@1.78.0)(typescript@5.5.4))
@@ -90,8 +90,8 @@ packages:
   '@astrojs/compiler@2.10.3':
     resolution: {integrity: sha512-bL/O7YBxsFt55YHU021oL+xz+B/9HvGNId3F9xURN16aeqDK9juHGktdkCSXz+U4nqFACq6ZFvWomOzhV+zfPw==}
 
-  '@astrojs/db@0.13.2':
-    resolution: {integrity: sha512-J8u7T+NbIiD8MsQRGTzMfPUZGh0dAsnmb5Uon9N9E7L2JkcL65s6VRbkWhKEsBxmDGU4q/fz60PdAIERAOHxEQ==}
+  '@astrojs/db@0.14.1':
+    resolution: {integrity: sha512-IkZNd965/u0EsWRWwA+HtvXqRJb3Dy72c2BZXjKbIiCMwiHYSXUADlyHTy1ed5lkuJVz4AS7oujt2f6hrFB/tw==}
 
   '@astrojs/internal-helpers@0.4.1':
     resolution: {integrity: sha512-bMf9jFihO8YP940uD70SI/RDzIhUHJAolWVcO1v5PUivxGKvfLZTLTVVxEYzGYyPsA3ivdLNqMnL5VgmQySa+g==}
@@ -621,11 +621,11 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@libsql/client@0.9.0':
-    resolution: {integrity: sha512-mT+91wtb8pxK9SWd566D5W2VUCemksUMqICRBtf0WXiS7XzNcQhWyrwYOnVrVmTSze/SCCsNNEKIkCRwk/pr2Q==}
+  '@libsql/client@0.10.0':
+    resolution: {integrity: sha512-2ERn08T4XOVx34yBtUPq0RDjAdd9TJ5qNH/izugr208ml2F94mk92qC64kXyDVQINodWJvp3kAdq6P4zTtCZ7g==}
 
-  '@libsql/core@0.9.0':
-    resolution: {integrity: sha512-rCsS/EC32K8ARjDQJGqauGZmkR6orOOY4I7898PyQ/mmltAkMwRgz5kjEmYRZ42o7mP0ayJfbw28qgv7SRFEgg==}
+  '@libsql/core@0.10.0':
+    resolution: {integrity: sha512-rqynAXGaiSpTsykOZdBtI1N4z4O+KZ6mt33K/aHeXAY0gSIfK/ctxuWa0Y1Bjo4FMz1idBTCXz4Ps5kITOvZZw==}
 
   '@libsql/darwin-arm64@0.3.19':
     resolution: {integrity: sha512-rmOqsLcDI65zzxlUOoEiPJLhqmbFsZF6p4UJQ2kMqB+Kc0Rt5/A1OAdOZ/Wo8fQfJWjR1IbkbpEINFioyKf+nQ==}
@@ -1275,10 +1275,6 @@ packages:
   cli-boxes@3.0.0:
     resolution: {integrity: sha512-/lzGpEWL/8PfI0BmBOPRwp0c/wFNX1RdUML3jK/RcSBA9T8mZDdQpqYBKtCFTOfQbwPqWEOpjqW+Fnayc0969g==}
     engines: {node: '>=10'}
-
-  cli-cursor@4.0.0:
-    resolution: {integrity: sha512-VGtlMu3x/4DOtIUwEkRezxUZ2lBacNJCHash0N0WeZDBS+7Ux1dm3XWAgWYxLJFMMdOeXMHXorshEFhbMSGelg==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
   cli-cursor@5.0.0:
     resolution: {integrity: sha512-aCj4O5wKyszjMmDT4tZj93kxyydN/K5zPWSCe6/0AV/AA1pqe5ZBIw0a2ZfPQV7lL5/yb5HsUreJ6UFAF1tEQw==}
@@ -2026,10 +2022,6 @@ packages:
     resolution: {integrity: sha512-43r2mRvz+8JRIKnWJ+3j8JtjRKZ6GmjzfaE/qiBJnikNnYv/6bagRJ1kUhNk8R5EX/GkobD+r+sfxCPJsiKBLQ==}
     engines: {node: '>=12'}
 
-  is-unicode-supported@2.0.0:
-    resolution: {integrity: sha512-FRdAyx5lusK1iHG0TWpVtk9+1i+GjrzRffhDg4ovQ7mcidMQ6mj+MhKPmvh7Xwyv5gIS06ns49CA7Sqg7lC22Q==}
-    engines: {node: '>=18'}
-
   is-unicode-supported@2.1.0:
     resolution: {integrity: sha512-mE00Gnza5EEB3Ds0HfMyllZzbBrmLOX3vfWoj9A9PEnTfratQ/BcaJOuMhnkhjXvb2+FkY3VuHqtAGpTPmglFQ==}
     engines: {node: '>=18'}
@@ -2515,10 +2507,6 @@ packages:
     resolution: {integrity: sha512-mnkeQ1qP5Ue2wd+aivTD3NHd/lZ96Lu0jgf0pwktLPtx6cTZiH7tyeGRRHs0zX0rbrahXPnXlUnbeXyaBBuIaw==}
     engines: {node: '>=18'}
 
-  ora@8.0.1:
-    resolution: {integrity: sha512-ANIvzobt1rls2BDny5fWZ3ZVKyD6nscLvfFRpQgfWsythlcsVUC9kL0zq6j2Z5z9wwp1kd7wpsD/T9qNPVLCaQ==}
-    engines: {node: '>=18'}
-
   ora@8.1.0:
     resolution: {integrity: sha512-GQEkNkH/GHOhPFXcqZs3IDahXEQcQxsSjEkK4KvEEST4t7eNzoMjxTzef+EZ+JluDEV+Raoi3WQ2CflnRdSVnQ==}
     engines: {node: '>=18'}
@@ -2760,10 +2748,6 @@ packages:
   resolve-from@5.0.0:
     resolution: {integrity: sha512-qYg9KP24dD5qka9J47d0aVky0N+b4fTU89LN9iDnjB5waksiC49rvMB0PrUJQGoTmH50XPiqOvAjDfaijGxYZw==}
     engines: {node: '>=8'}
-
-  restore-cursor@4.0.0:
-    resolution: {integrity: sha512-I9fPXU9geO9bHOt9pHHOhOkYerIMsmVaWB0rA2AI9ERh/+x/i7MV5HKBNrg+ljO5eoPVgCcnFuRjJ9uH6I/3eg==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
   restore-cursor@5.1.0:
     resolution: {integrity: sha512-oMA2dcrw6u0YfxJQXm342bFKX/E4sG9rbTzO9ptUcR/e8A33cHuvStiYOwH7fszkZlZ1z/ta9AAoPk2F4qIOHA==}
@@ -3292,18 +3276,18 @@ snapshots:
 
   '@astrojs/compiler@2.10.3': {}
 
-  '@astrojs/db@0.13.2(react@18.3.1)':
+  '@astrojs/db@0.14.1(react@18.3.1)':
     dependencies:
       '@astrojs/studio': 0.1.1
-      '@libsql/client': 0.9.0
+      '@libsql/client': 0.10.0
       async-listen: 3.0.1
       deep-diff: 1.0.2
-      drizzle-orm: 0.31.2(@libsql/client@0.9.0)(react@18.3.1)
+      drizzle-orm: 0.31.2(@libsql/client@0.10.0)(react@18.3.1)
       github-slugger: 2.0.0
       kleur: 4.1.5
       nanoid: 5.0.7
       open: 10.1.0
-      ora: 8.0.1
+      ora: 8.1.0
       prompts: 2.4.2
       strip-ansi: 7.1.0
       yargs-parser: 21.1.1
@@ -3396,7 +3380,7 @@ snapshots:
     dependencies:
       ci-info: 4.0.0
       kleur: 4.1.5
-      ora: 8.0.1
+      ora: 8.1.0
 
   '@astrojs/telemetry@3.1.0':
     dependencies:
@@ -3943,9 +3927,9 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@libsql/client@0.9.0':
+  '@libsql/client@0.10.0':
     dependencies:
-      '@libsql/core': 0.9.0
+      '@libsql/core': 0.10.0
       '@libsql/hrana-client': 0.6.2
       js-base64: 3.7.7
       libsql: 0.4.1
@@ -3954,7 +3938,7 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  '@libsql/core@0.9.0':
+  '@libsql/core@0.10.0':
     dependencies:
       js-base64: 3.7.7
 
@@ -4784,10 +4768,6 @@ snapshots:
 
   cli-boxes@3.0.0: {}
 
-  cli-cursor@4.0.0:
-    dependencies:
-      restore-cursor: 4.0.0
-
   cli-cursor@5.0.0:
     dependencies:
       restore-cursor: 5.1.0
@@ -4964,9 +4944,9 @@ snapshots:
 
   dotenv@16.4.5: {}
 
-  drizzle-orm@0.31.2(@libsql/client@0.9.0)(react@18.3.1):
+  drizzle-orm@0.31.2(@libsql/client@0.10.0)(react@18.3.1):
     optionalDependencies:
-      '@libsql/client': 0.9.0
+      '@libsql/client': 0.10.0
       react: 18.3.1
 
   dset@3.1.4: {}
@@ -5544,8 +5524,6 @@ snapshots:
   is-stream@3.0.0: {}
 
   is-unicode-supported@1.3.0: {}
-
-  is-unicode-supported@2.0.0: {}
 
   is-unicode-supported@2.1.0: {}
 
@@ -6293,18 +6271,6 @@ snapshots:
       is-inside-container: 1.0.0
       is-wsl: 3.1.0
 
-  ora@8.0.1:
-    dependencies:
-      chalk: 5.3.0
-      cli-cursor: 4.0.0
-      cli-spinners: 2.9.2
-      is-interactive: 2.0.0
-      is-unicode-supported: 2.0.0
-      log-symbols: 6.0.0
-      stdin-discarder: 0.2.2
-      string-width: 7.2.0
-      strip-ansi: 7.1.0
-
   ora@8.1.0:
     dependencies:
       chalk: 5.3.0
@@ -6606,11 +6572,6 @@ snapshots:
       - react-dom
 
   resolve-from@5.0.0: {}
-
-  restore-cursor@4.0.0:
-    dependencies:
-      onetime: 5.1.2
-      signal-exit: 3.0.7
 
   restore-cursor@5.1.0:
     dependencies:
