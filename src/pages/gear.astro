@@ -111,6 +111,40 @@ const gear = [
                     },
                 ],
             },
+            {
+                name: "Valve Steamdeck",
+                type: "Handheld",
+                resolution: "7\" LCD",
+                parts: [
+                    {
+                        name: "AMD Zen 2",
+                        type: "CPU",
+                    },
+                    {
+                        name: "AMD RDNA 2",
+                        type: "GPU",
+                    },
+                    {
+                        name: "LPDDR5 on-board 5500MT/s",
+                        type: "RAM",
+                        size: 16,
+                    },
+                    {
+                        name: "NVMe SSD",
+                        type: "M.2 SSD",
+                        size: 500,
+                    },
+                    {
+                        name: "Integral UltimaPRO V30",
+                        type: "microSD",
+                        size: 500,
+                    },
+                    {
+                        name: "dbrand Killswitch w/ Ultramatte Teardown",
+                        type: "Case",
+                    },
+                ],
+            },
         ],
     },
     {
@@ -118,7 +152,7 @@ const gear = [
         items: [
             {
                 name: "Primary Server",
-				type: "NAS",
+                type: "NAS",
                 parts: [
                     {
                         name: "Intel Core i5-8400",
@@ -175,7 +209,7 @@ const gear = [
             },
             {
                 name: "Backup Server",
-				type: "NAS",
+                type: "NAS",
                 parts: [
                     {
                         name: "Intel Core i3-8100",
@@ -220,7 +254,7 @@ const gear = [
         items: [
             {
                 name: "Custom Keyboard",
-				type: "Keyboard",
+                type: "Keyboard",
                 parts: [
                     {
                         name: "Keychron K8",
@@ -258,6 +292,10 @@ const gear = [
                 name: "ELEGOO Neptune 4",
                 type: "3D Printer",
             },
+            {
+                name: "Pico 4",
+                type: "VR Headset",
+            },
         ],
     },
 ].map((category) => {
@@ -269,7 +307,7 @@ const gear = [
                 if (["RAM"].includes(part.type)) {
                     part.ram = true;
                     item.ram += part.size * (part.quantity || 1);
-                } else if (["M.2 SSD", "SATA SSD", "HDD"].includes(part.type)) {
+                } else if (["M.2 SSD", "SATA SSD", "HDD", "microSD"].includes(part.type)) {
                     part.storage = true;
                     item.storage += part.size * (part.quantity || 1);
                 }
@@ -289,7 +327,7 @@ const description = "A list of the equipment I use on a day-to-day basis";
 <MainLayout description={description}>
     <main>
         <h1>My gear</h1>
-		<hr>
+        <hr />
         <p>{description}</p>
         <div class="equipment">
             {
@@ -302,7 +340,7 @@ const description = "A list of the equipment I use on a day-to-day basis";
                                     <details>
                                         <summary>
                                             <div class="item-name">{item.name}</div>
-											<div class="item-type">{item.type}</div>
+                                            <div class="item-type">{item.type}</div>
                                             {(item.storage !== 0 || item.ram !== 0) && (
                                                 <div class="item-specs">
                                                     {item.ram !== 0 && (
@@ -385,18 +423,18 @@ const description = "A list of the equipment I use on a day-to-day basis";
         scroll-margin-top: 5rem;
         h1 {
             font-size: 2.5rem;
-			margin-bottom: 1rem;
+            margin-bottom: 1rem;
         }
-		hr {
-			box-sizing: content-box;
-			overflow: hidden;
-			background: transparent;
-			border-bottom: 1px solid #21262d;
-			height: 0.15em;
-			padding: 0;
-			background-color: #30363d;
-			border: 0;
-		}
+        hr {
+            box-sizing: content-box;
+            overflow: hidden;
+            background: transparent;
+            border-bottom: 1px solid #21262d;
+            height: 0.15em;
+            padding: 0;
+            background-color: #30363d;
+            border: 0;
+        }
         > p {
             font-size: 1.25rem;
             margin-bottom: 2rem;
@@ -431,13 +469,13 @@ const description = "A list of the equipment I use on a day-to-day basis";
                     grid-template-columns: max-content max-content;
                     grid-template-rows: 1fr max-content;
                     align-items: start;
-					justify-content: space-between;
-					width: 100%;
+                    justify-content: space-between;
+                    width: 100%;
 
-					.item-name {
-						grid-column: 1/3;
-						align-self: start;
-					}
+                    .item-name {
+                        grid-column: 1/3;
+                        align-self: start;
+                    }
 
                     .item-type {
                         text-transform: uppercase;
@@ -475,24 +513,24 @@ const description = "A list of the equipment I use on a day-to-day basis";
 
                 details summary {
                     cursor: pointer;
-					.item-name {
-						align-self: start;
-						&:before {
-							content: "▶";
-							font-size: 0.65em;
-							margin-right: 0.5em;
-							flex-shrink: 0;
-							transition: 0.2s;
-						}
-					}
+                    .item-name {
+                        align-self: start;
+                        &:before {
+                            content: "▶";
+                            font-size: 0.65em;
+                            margin-right: 0.5em;
+                            flex-shrink: 0;
+                            transition: 0.2s;
+                        }
+                    }
                 }
 
                 details[open] summary {
                     .item-name {
-						&:before {
-							content: "▼";
-						}
-					}
+                        &:before {
+                            content: "▼";
+                        }
+                    }
                 }
 
                 details[open] summary,
@@ -623,9 +661,9 @@ const description = "A list of the equipment I use on a day-to-day basis";
                     .item {
                         padding: 0.5rem;
                     }
-		    .item {
-			grid-template-columns: 1fr;
-		    }
+                    .item {
+                        grid-template-columns: 1fr;
+                    }
                 }
             }
         }
