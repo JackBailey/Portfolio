@@ -1,8 +1,8 @@
 import { Resend } from "resend";
-import sanitizeHtml from "sanitize-html";
 import dotenv from "dotenv";
+import { db } from "../../../db/index.js";
 import crypto from "crypto";
-import { db, Submission } from "astro:db";
+import { submissionsTable } from "../../../db/schema.js";
 import { useTurnstile } from "../../../_utils";
 dotenv.config();
 
@@ -104,12 +104,12 @@ export const POST = async ({ clientAddress, request, redirect, site }) => {
         name: name,
         email: userEmail,
         message: userMessage,
-        createdAt: new Date(),
+        createdAt: new Date().toISOString(),
         ipAddress: clientAddress,
         userAgent: request.headers.get("user-agent") || null
     };
     
-    await db.insert(Submission).values(submission);
+    await db.insert(submissionsTable).values(submission);
 
     const submissionURL = `${site.href}contact/submission/${submission.id}`;
 

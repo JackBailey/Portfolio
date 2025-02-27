@@ -1,5 +1,7 @@
 ---
-import { db, Submission, eq } from "astro:db";
+import { eq } from "drizzle-orm";
+import { db } from "../../db/index.js";
+import { submissionsTable } from "../../db/schema.js";
 import dotenv from "dotenv";
 import Message from "../../components/Message.astro";
 import SuccessIcon from "../../assets/icons/envelope-circle-check.svg?raw";
@@ -20,15 +22,15 @@ let icon = SuccessIcon;
 const showForm = !id && !email;
 
 if (!showForm) {
-    const filter = id ? eq(Submission.id, id) : eq(Submission.email, email);
+    const filter = id ? eq(submissionsTable.id, id) : eq(submissionsTable.email, email);
 
-    const submissions = await db.select().from(Submission).where(filter);
+    const submissions = await db.select().from(submissionsTable).where(filter);
     if (submissions.length === 0) {
         title = "404";
         message = "No submissions found";
         icon = NotFoundIcon;
     } else {
-        await db.delete(Submission).where(filter);
+        await db.delete(submissionsTable).where(filter);
         title = "Success";
         message = `${submissions.length} submission${submissions.length === 1 ? "" : "s"} successfully deleted`;
     }

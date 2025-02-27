@@ -8,10 +8,11 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "op": "op run --env-file=\"./1password.env\" -- pnpm astro"
+    "op": "op run --env-file=\"./1password.env\" -- pnpm",
+    "schema:generate": "pnpm run op pnpm drizzle-kit generate",
+    "schema:migrate": "pnpm run op pnpm drizzle-kit migrate"
   },
   "dependencies": {
-    "@astrojs/db": "^0.14.0",
     "@astrojs/mdx": "^3.0.0",
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/vercel": "^7.5.3",
@@ -26,12 +27,18 @@
     "astro-icon": "^1.1.0",
     "dayjs": "^1.11.10",
     "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.40.0",
     "giscus": "^1.5.0",
     "ical.js": "^2.0.1",
+    "pg": "^8.13.3",
+    "postgres": "^3.4.5",
     "resend": "^4.0.0",
     "sanitize-html": "^2.13.0",
     "sass": "^1.75.0",
     "sharp": "^0.33.3",
     "vue": "^3.4.23"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.30.5"
   }
 }
