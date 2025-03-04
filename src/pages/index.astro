@@ -1,12 +1,14 @@
 ---
+import { Image } from "astro:assets";
+
 import MainLayout from "../layouts/Main.astro";
 
 import Projects from "../components/Projects.astro";
 import Contact from "../components/ContactForm.astro";
 
 import TiltDivider from "../assets/hero-tilt-divider.svg?raw";
-import feelingProudIllustration from "../assets/illustrations/undraw-feeling-proud.svg?raw";
-import Blob from "../assets/illustrations/blob.svg?raw";
+import Headshot from "../assets/headshot.jpg";
+
 
 const yearsAsDev = new Date().getFullYear() - 2021;
 ---
@@ -49,11 +51,8 @@ const yearsAsDev = new Date().getFullYear() - 2021;
 						websites for a variety of individuals and businesses. 
 					</p>
 				</div>
-				<div class="illustration">
-					<Fragment set:html={feelingProudIllustration} alt="A developer behind a monitor, with a GitHub-style commit history behind him" style="background: blue;">
-					<div class="blob">
-						<Fragment set:html={Blob} />
-					</div>
+				<div class="headshot">
+					<Image src={Headshot} alt="A photo of Jack Bailey" />
 				</div>
 			</div>
 		</div>
@@ -189,39 +188,29 @@ const yearsAsDev = new Date().getFullYear() - 2021;
 			&#about {
 				.section-content {
 					display: grid;
-					grid-template-columns: 1fr 1fr;
+					grid-template-columns: 1fr max-content;
+					gap: 12rem;
 					align-items: center;
+					justify-content: space-between;
 
 					.content {
 						p {
 							font-size: 1.25rem;
 						}
 					}
-	
-					.illustration {
-						position: relative;
+
+					.headshot {
 						display: grid;
 						place-content: center;
 						z-index: 0;
-
-						.blob {
-							position: absolute;
-							top: 50%;
-							left: 50%;
-							width: 25rem;
-							height: 25rem;
-							transform: translate(-50%, -50%);
-							z-index: -1;
-							:global(svg) {
-								width: 100%;
-								height: 100%;
-							}
-						}
-						
-						:global(.feeling-proud-illustration) {
-							width: 18rem;
-							height: auto;
+						img {
 							margin-left: auto;
+							height: auto;
+							width: 20rem;
+							max-width: 100%;
+							aspect-ratio: 1/1;
+							border-radius: 100%;
+							outline: 2px solid var(--accent);
 						}
 					}
 				}
@@ -289,22 +278,23 @@ const yearsAsDev = new Date().getFullYear() - 2021;
 						gap: 4rem;
 						padding-top: 2rem;
 
-						.illustration {
+						.headshot {
 							grid-row: 1;
-							:global(.feeling-proud-illustration) {
-								width: 60%;
-								height: auto;
+							img {
+								width: 80%;
 								margin: 0 auto;
-							}
-
-							.blob {
-								width: 20rem;
-								height: 20rem;
 							}
 						}
 					}
 				}
 			}
+			@media screen and (max-width: 768px) {
+				.title {
+						h1 {
+							font-size: 5rem;
+						}
+					}
+				}
 		}
 	}
 </style>
