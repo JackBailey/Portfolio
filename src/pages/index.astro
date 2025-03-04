@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 
 import MainLayout from "../layouts/Main.astro";
 
@@ -52,7 +52,12 @@ const yearsAsDev = new Date().getFullYear() - 2021;
 					</p>
 				</div>
 				<div class="headshot">
-					<Image src={Headshot} alt="A photo of Jack Bailey" width="200px" />
+					<Picture 
+						src={Headshot}
+						alt="A photo of Jack Bailey"
+						width="300px"
+						height="300px"
+					/>
 				</div>
 			</div>
 		</div>
