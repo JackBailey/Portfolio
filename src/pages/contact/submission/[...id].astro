@@ -1,7 +1,7 @@
 ---
 import dotenv from "dotenv";
 import { eq } from "drizzle-orm";
-import { db } from "../../../db/index.js";
+import { getDB } from "../../../db/index.js";
 import { submissionsTable } from "../../../db/schema.js";
 import MainLayout from "../../../layouts/Main.astro";
 import Message from "../../../components/Message.astro";
@@ -13,16 +13,28 @@ let error = false;
 let submission = false;
 let date = false;
 
-const { id } = Astro.params;
-if (id) {
-    submission = (await db.select()
-      .from(submissionsTable)
-      .where(eq(submissionsTable.id, id)))[0];
+let db;
 
-    if (submission) {
-        date = new Date(submission.createdAt).toLocaleString("en-GB");
-    } else {
-        error = {title: 404, message: "Not Found", icon: NotFoundIcon};
+try {
+    db = getDB();
+} catch (error) {
+    error = {title: 500, message: "Internal Server Error", icon: WarningIcon};
+}
+
+const { id } = Astro.params;
+if (id && !error) {
+    try {
+        submission = (await db.select()
+          .from(submissionsTable)
+          .where(eq(submissionsTable.id, id)))[0];
+    
+        if (submission) {
+            date = new Date(submission.createdAt).toLocaleString("en-GB");
+        } else {
+            error = {title: 404, message: "Not Found", icon: NotFoundIcon};
+        }
+    } catch (dbError) {
+        error = {title: 500, message: "Internal Server Error", icon: WarningIcon};
     }
 } else {
     error = {title: 400, message: "Bad Request", icon: WarningIcon };

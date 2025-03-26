@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 import dotenv from "dotenv";
-import { db } from "../../../db/index.js";
+import { getDB } from "../../../db/index.js";
 import crypto from "crypto";
 import { submissionsTable } from "../../../db/schema.js";
 import { useTurnstile } from "../../../_utils";
@@ -68,7 +68,18 @@ export const POST = async ({ clientAddress, request, redirect, site }) => {
     const userMessage = data.get('message');
     const turnstileResponse = data.get('cf-turnstile-response');
     const searchParams = new URLSearchParams();
-    
+
+    let db;
+
+    try {
+        db = getDB();
+    } catch (error) {
+        console.error(error);
+        searchParams.set("title", 500);
+        searchParams.set("message", "Internal Server Error, try again later");
+        return redirect("/contact/error?" + searchParams.toString());
+    }
+
     if (!name || !userEmail || !userMessage || (!turnstileResponse && useTurnstile)) {
         searchParams.set("title", 400);
         searchParams.set("message", "Missing required fields");
@@ -108,8 +119,15 @@ export const POST = async ({ clientAddress, request, redirect, site }) => {
         ipAddress: clientAddress,
         userAgent: request.headers.get("user-agent") || null
     };
+
+    try {
+        await db.insert(submissionsTable).values(submission);
+    } catch {
+        searchParams.set("title", 500);
+        searchParams.set("message", "Internal Server Error, try again later");
+        return redirect("/contact/error?" + searchParams.toString());
+    }
     
-    await db.insert(submissionsTable).values(submission);
 
     const submissionURL = `${site.href}contact/submission/${submission.id}`;
 

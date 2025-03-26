@@ -1,6 +1,6 @@
 ---
 import { eq } from "drizzle-orm";
-import { db } from "../../db/index.js";
+import { getDB } from "../../db/index.js";
 import { submissionsTable } from "../../db/schema.js";
 import dotenv from "dotenv";
 import Message from "../../components/Message.astro";
@@ -19,21 +19,40 @@ let title = "";
 let message = "";
 let icon = SuccessIcon;
 
-const showForm = !id && !email;
+let showForm = !id && !email;
+
+let db;
+
+try {
+    db = getDB();
+} catch (error) {
+    title = "Error";
+    message = "Failed to connect to the database";
+    icon = NotFoundIcon;
+    showForm = false;
+}
 
 if (!showForm) {
     const filter = id ? eq(submissionsTable.id, id) : eq(submissionsTable.email, email);
 
-    const submissions = await db.select().from(submissionsTable).where(filter);
-    if (submissions.length === 0) {
-        title = "404";
-        message = "No submissions found";
+    try {
+        const submissions = await db.select().from(submissionsTable).where(filter);
+        if (submissions.length === 0) {
+            title = "404";
+            message = "No submissions found";
+            icon = NotFoundIcon;
+        } else {
+            await db.delete(submissionsTable).where(filter);
+            title = "Success";
+            message = `${submissions.length} submission${submissions.length === 1 ? "" : "s"} successfully deleted`;
+        }
+    } catch (error) {
+        title = "Error";
+        message = "Failed to delete the submission";
         icon = NotFoundIcon;
-    } else {
-        await db.delete(submissionsTable).where(filter);
-        title = "Success";
-        message = `${submissions.length} submission${submissions.length === 1 ? "" : "s"} successfully deleted`;
+        console.log(error);
     }
+
 }
 ---
 
