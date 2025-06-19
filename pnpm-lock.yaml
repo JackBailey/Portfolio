@@ -52,7 +52,7 @@ importers:
         version: 16.5.0
       drizzle-orm:
         specifier: ^0.40.0
-        version: 0.40.1(@libsql/client@0.14.0)(gel@2.0.0)(pg@8.16.1)(postgres@3.4.7)
+        version: 0.40.1(@libsql/client@0.14.0)(gel@2.0.0)(pg@8.16.2)(postgres@3.4.7)
       giscus:
         specifier: ^1.5.0
         version: 1.6.0
@@ -61,7 +61,7 @@ importers:
         version: 2.1.0
       pg:
         specifier: ^8.13.3
-        version: 8.16.1
+        version: 8.16.2
       postgres:
         specifier: ^3.4.5
         version: 3.4.7
@@ -2922,15 +2922,15 @@ packages:
     peerDependencies:
       pg: '>=8.0'
 
-  pg-protocol@1.10.1:
-    resolution: {integrity: sha512-9YS3ZonDj0Lxny//aF0ITPdfrEPgKWCJvONsSXAaIUhgpzlzl5JgaZNlbTFxvYNfm2terGEnHeOSUlF6qRGBzw==}
+  pg-protocol@1.10.2:
+    resolution: {integrity: sha512-Ci7jy8PbaWxfsck2dwZdERcDG2A0MG8JoQILs+uZNjABFuBuItAZCWUNz8sXRDMoui24rJw7WlXqgpMdBSN/vQ==}
 
   pg-types@2.2.0:
     resolution: {integrity: sha512-qTAAlrEsl8s4OiEQY69wDvcMIdQN6wdz5ojQiOy6YRMuynxenON0O5oCpJI6lshc6scgAY8qvJ2On/p+CXY0GA==}
     engines: {node: '>=4'}
 
-  pg@8.16.1:
-    resolution: {integrity: sha512-5n6e7MgF5ABRsssOsX9xC95p+NUuhgDQDBSsrKSZJjYVqZHGyrmJuknym2IbVhGtzV9siBdzH9SEIQAuWF+sdg==}
+  pg@8.16.2:
+    resolution: {integrity: sha512-OtLWF0mKLmpxelOt9BqVq83QV6bTfsS0XLegIeAKqKjurRnRKie1Dc1iL89MugmSLhftxw6NNCyZhm1yQFLMEQ==}
     engines: {node: '>= 16.0.0'}
     peerDependencies:
       pg-native: '>=3.0.1'
@@ -5480,11 +5480,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.40.1(@libsql/client@0.14.0)(gel@2.0.0)(pg@8.16.1)(postgres@3.4.7):
+  drizzle-orm@0.40.1(@libsql/client@0.14.0)(gel@2.0.0)(pg@8.16.2)(postgres@3.4.7):
     optionalDependencies:
       '@libsql/client': 0.14.0
       gel: 2.0.0
-      pg: 8.16.1
+      pg: 8.16.2
       postgres: 3.4.7
 
   dset@3.1.4: {}
@@ -6955,11 +6955,11 @@ snapshots:
 
   pg-int8@1.0.1: {}
 
-  pg-pool@3.10.1(pg@8.16.1):
+  pg-pool@3.10.1(pg@8.16.2):
     dependencies:
-      pg: 8.16.1
+      pg: 8.16.2
 
-  pg-protocol@1.10.1: {}
+  pg-protocol@1.10.2: {}
 
   pg-types@2.2.0:
     dependencies:
@@ -6969,11 +6969,11 @@ snapshots:
       postgres-date: 1.0.7
       postgres-interval: 1.2.0
 
-  pg@8.16.1:
+  pg@8.16.2:
     dependencies:
       pg-connection-string: 2.9.1
-      pg-pool: 3.10.1(pg@8.16.1)
-      pg-protocol: 1.10.1
+      pg-pool: 3.10.1(pg@8.16.2)
+      pg-protocol: 1.10.2
       pg-types: 2.2.0
       pgpass: 1.0.5
     optionalDependencies:
