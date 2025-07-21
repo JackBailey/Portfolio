@@ -39,6 +39,6 @@
     "vue": "^3.4.23"
   },
   "devDependencies": {
-    "drizzle-kit": "^0.30.5"
+    "drizzle-kit": "^0.31.0"
   }
 }
