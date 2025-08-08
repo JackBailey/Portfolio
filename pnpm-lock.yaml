@@ -58,7 +58,7 @@ importers:
         version: 1.6.0
       ical.js:
         specifier: ^2.0.1
-        version: 2.2.0
+        version: 2.2.1
       pg:
         specifier: ^8.13.3
         version: 8.16.3
@@ -2308,8 +2308,8 @@ packages:
     resolution: {integrity: sha512-AXcZb6vzzrFAUE61HnN4mpLqd/cSIwNQjtNWR0euPm6y0iqx3G4gOXaIDdtdDwZmhwe82LA6+zinmW4UBWVePQ==}
     engines: {node: '>=16.17.0'}
 
-  ical.js@2.2.0:
-    resolution: {integrity: sha512-P8gjWkTEd5M/SEEvBVPPO/KC+V+HRNRZh3xfCDTVWmUTEfVbL8JaK5GTWS2MJ55aLMhfXhbh7kYzd0nrBARjsA==}
+  ical.js@2.2.1:
+    resolution: {integrity: sha512-yK/UlPbEs316igb/tjRgbFA8ZV75rCsBJp/hWOatpyaPNlgw0dGDmU+FoicOcwX4xXkeXOkYiOmCqNPFpNPkQg==}
 
   iconv-lite@0.6.3:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
@@ -6095,7 +6095,7 @@ snapshots:
 
   human-signals@5.0.0: {}
 
-  ical.js@2.2.0: {}
+  ical.js@2.2.1: {}
 
   iconv-lite@0.6.3:
     dependencies:
