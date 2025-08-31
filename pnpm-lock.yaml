@@ -46,7 +46,7 @@ importers:
         version: 1.1.5
       dayjs:
         specifier: ^1.11.10
-        version: 1.11.15
+        version: 1.11.18
       dotenv:
         specifier: ^16.4.5
         version: 16.6.1
@@ -1865,8 +1865,8 @@ packages:
     resolution: {integrity: sha512-0R9ikRb668HB7QDxT1vkpuUBtqc53YyAwMwGeUFKRojY/NWKvdZ+9UYtRfGmhqNbRkTSVpMbmyhXipFFv2cb/A==}
     engines: {node: '>= 12'}
 
-  dayjs@1.11.15:
-    resolution: {integrity: sha512-MC+DfnSWiM9APs7fpiurHGCoeIx0Gdl6QZBy+5lu8MbYKN5FZEXqOgrundfibdfhGZ15o9hzmZ2xJjZnbvgKXQ==}
+  dayjs@1.11.18:
+    resolution: {integrity: sha512-zFBQ7WFRvVRhKcWoUh+ZA1g2HVgUbsZm9sbddh8EC5iv93sui8DVVz1Npvz+r6meo9VKfa8NyLWBsQK1VvIKPA==}
 
   debug@4.4.0:
     resolution: {integrity: sha512-6WTZ/IxCY/T6BALoZHaE4ctp9xm+Z5kY/pzYaCHRFeyVhojxlrm+46y68HA6hr0TcwEssoxNiDEUJQjfPZ/RYA==}
@@ -5687,7 +5687,7 @@ snapshots:
   data-uri-to-buffer@4.0.1:
     optional: true
 
-  dayjs@1.11.15: {}
+  dayjs@1.11.18: {}
 
   debug@4.4.0:
     dependencies:
