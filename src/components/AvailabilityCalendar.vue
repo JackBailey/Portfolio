@@ -66,11 +66,17 @@ export default {
 <style lang="scss" scoped>
 .calendar-outer {
     @media screen and (max-width: 768px) {
-        :deep(.fc-header-toolbar.fc-toolbar) {
-            flex-direction: column;
-            align-items: start;
-            gap: 0.5rem;
-        }
+        :deep(.fc) {
+            .fc-header-toolbar.fc-toolbar {
+                flex-direction: column;
+                align-items: start;
+                gap: 0.5rem;
+            }
+            .fc-event-title { 
+                position: absolute;
+                bottom: 0;
+            }
+         }
     }
     :deep(.fc) {
         .fc-event-title {
