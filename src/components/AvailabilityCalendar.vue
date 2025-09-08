@@ -32,9 +32,22 @@ export default {
                 if (type !== "vevent") {
                     return;
                 }
-                const start = event_fields.find((item) => item[0] === "dtstart")[3];
-                const end = event_fields.find((item) => item[0] === "dtend")?.[3] || null; // Handle case where dtend might not exist
+                
+                const start = new Date(event_fields.find((item) => item[0] === "dtstart")[3]);
+                const end = event_fields.find((item) => item[0] === "dtend")?.[3] ? new Date(event_fields.find((item) => item[0] === "dtend")?.[3]) : null;
                 const title = event_fields.find((item) => item[0] === "summary")[3];
+                if (start && end) {
+                    const totalDays = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+                    if (totalDays > 1) {
+                        for (let i = 0; i < totalDays; i++) {
+                            const day = new Date(start);
+                            day.setDate(start.getDate() + i);
+                            events.push({ start: day, end: day, title: i === 0 ? title : "", display: "background" });
+                        }
+                        return;
+                    }
+                }
+
 
                 events.push({ start, end, title, display: "background" });
             });
@@ -57,6 +70,27 @@ export default {
             flex-direction: column;
             align-items: start;
             gap: 0.5rem;
+        }
+    }
+    :deep(.fc) {
+        .fc-event-title {
+            color: var(--accent-foreground);
+        }
+        .fc-day:has(.fc-event) .fc-daygrid-day-number {
+            color: var(--accent-foreground);
+        }
+        .fc-daygrid-day.fc-day-today {
+            background-image: linear-gradient(
+                45deg, 
+                var(--accent) 25%, 
+                transparent 25%, 
+                transparent 50%, 
+                var(--accent) 50%, 
+                var(--accent) 75%, 
+                transparent 75%, 
+                transparent
+            );
+            background-size: 5px 5px;
         }
     }
 }
