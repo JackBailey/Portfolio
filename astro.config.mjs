@@ -6,8 +6,8 @@ import vue from "@astrojs/vue";
 import icon from "astro-icon";
 import node from "@astrojs/node";
 const site = "https://jackbailey.dev";
-const forbiddenPages = ["/contact/error", "/contact/success", "/contact/remove", "/contact/submission*", "/availability"].map(page => site + page);
 
+const forbiddenPages = ["/contact/error", "/contact/success", "/contact/remove", "/contact/submission*", "/availability"].map(page => site + page);
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,9 +22,12 @@ export default defineConfig({
       "fa-solid": ["memory", "hdd", "desktop"]
     }
   })],
-  output: "hybrid",
+  output: "server",
   trailingSlash: "never",
   adapter: node({
     mode: "standalone"
-  })
+  }),
+  // session: {
+  //   driver: "memory"
+  // }
 });
