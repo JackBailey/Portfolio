@@ -60,67 +60,7 @@ const gear = [
                 ],
             },
             {
-                name: "Gaming PC",
-                type: "Desktop",
-                parts: [
-                    {
-                        name: "Intel Core i5-12600K",
-                        type: "CPU",
-                    },
-                    {
-                        name: "Noctua NH-D15",
-                        type: "Cooler",
-                    },
-                    {
-                        name: "NVIDIA RTX 3070 Ti 8GB",
-                        type: "GPU",
-                    },
-                    {
-                        name: "Gigabyte Z690 DDR4",
-                        type: "MOBO",
-                    },
-                    {
-                        name: "Corsair DDR4-3000",
-                        type: "RAM",
-                        quantity: 4,
-                        size: 8,
-                    },
-                    {
-                        name: "Samsung 980",
-                        type: "M.2 SSD",
-                        size: 512,
-                    },
-                    {
-                        name: "Crucial P3 Plus",
-                        type: "M.2 SSD",
-                        size: 2048,
-                    },
-                    {
-                        name: "Kingston A400",
-                        type: "SATA SSD",
-                        size: 240,
-                    },
-                    {
-                        name: "Crucial BX500",
-                        type: "SATA SSD",
-                        size: 2048,
-                    },
-                    {
-                        name: "NZXT H5 Flow",
-                        type: "Case",
-                    },
-                    {
-                        name: "Corsair TX750M",
-                        type: "PSU",
-                    },
-                    {
-                        name: "Windows 11",
-                        type: "OS"
-                    }
-                ],
-            },
-            {
-                name: "Valve Steam Deck",
+                name: "VALVe Steam Deck",
                 type: "Handheld",
                 resolution: "7.4\" OLED",
                 parts: [
@@ -164,26 +104,44 @@ const gear = [
         name: "Servers",
         items: [
             {
-                name: "Primary Server",
+                name: "Storage & Gaming Server",
                 type: "NAS",
                 parts: [
                     {
-                        name: "Intel Core i5-8400",
+                        name: "Intel Core i5-12600K",
                         type: "CPU",
                     },
                     {
-                        name: "Antec 92mm",
+                        name: "Noctua NH-D15",
                         type: "Cooler",
                     },
                     {
-                        name: "ASUS ROG Strix Z370-G",
+                        name: "Gigabyte Z690 DDR4",
                         type: "MOBO",
+                    },
+                    {
+                        name: "NVIDIA RTX 3070 Ti 8GB",
+                        type: "GPU",
+                    },
+                    {
+                        name: "NVIDIA RTX 2060 6GB",
+                        type: "GPU",
                     },
                     {
                         name: "Crucial DDR4-3200",
                         type: "RAM",
                         quantity: 4,
                         size: 8,
+                    },
+                    {
+                        name: "Samsung 980",
+                        type: "M.2 SSD",
+                        size: 512,
+                    },
+                    {
+                        name: "Crucial P3 Plus",
+                        type: "M.2 SSD",
+                        size: 2048,
                     },
                     {
                         name: "Crucial MX500",
@@ -211,15 +169,11 @@ const gear = [
                         type: "Case",
                     },
                     {
-                        name: "Corsair VS550",
+                        name: "Corsair TX750M",
                         type: "PSU",
                     },
                     {
-                        name: "Eaton 3S 550B",
-                        type: "UPS",
-                    },
-                    {
-                        name: "Unraid Plus",
+                        name: "Proxmox VE",
                         type: "OS"
                     }
                 ],
@@ -492,7 +446,7 @@ const description = "A list of the equipment I use on a day-to-day basis";
             }
             .category-equipment {
                 display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
                 gap: 1rem;
                 details summary,
                 .item {
