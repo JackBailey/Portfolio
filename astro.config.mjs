@@ -1,10 +1,10 @@
 import { defineConfig } from 'astro/config';
-import vercel from "@astrojs/vercel/serverless";
 import sitemap from "@astrojs/sitemap";
 import expressiveCode from "astro-expressive-code";
 import mdx from "@astrojs/mdx";
 import vue from "@astrojs/vue";
 import icon from "astro-icon";
+import node from "@astrojs/node";
 const site = "https://jackbailey.dev";
 const forbiddenPages = ["/contact/error", "/contact/success", "/contact/remove", "/contact/submission*", "/availability"].map(page => site + page);
 
@@ -24,5 +24,7 @@ export default defineConfig({
   })],
   output: "hybrid",
   trailingSlash: "never",
-  adapter: vercel()
+  adapter: node({
+    mode: "standalone"
+  })
 });
