@@ -5,6 +5,7 @@ import mdx from "@astrojs/mdx";
 import vue from "@astrojs/vue";
 import icon from "astro-icon";
 import node from "@astrojs/node";
+import cloudflare from "@astrojs/cloudflare";
 const site = "https://jackbailey.dev";
 
 const forbiddenPages = ["/contact/error", "/contact/success", "/contact/remove", "/contact/submission*", "/availability"].map(page => site + page);
@@ -24,10 +25,9 @@ export default defineConfig({
   })],
   output: "server",
   trailingSlash: "never",
-  adapter: node({
-    mode: "standalone"
-  }),
+  adapter: cloudflare(),
   session: {
     driver: "memory"
-  }
+  },
+  env
 });
