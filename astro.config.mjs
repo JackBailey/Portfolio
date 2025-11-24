@@ -28,6 +28,5 @@ export default defineConfig({
   adapter: cloudflare(),
   session: {
     driver: "memory"
-  },
-  env
+  }
 });
