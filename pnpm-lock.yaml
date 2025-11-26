@@ -10,16 +10,16 @@ importers:
     dependencies:
       '@astrojs/mdx':
         specifier: ^4.3.7
-        version: 4.3.12(astro@5.16.0(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4))
+        version: 4.3.12(astro@5.16.1(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4))
       '@astrojs/node':
         specifier: ^9.5.0
-        version: 9.5.1(astro@5.16.0(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4))
+        version: 9.5.1(astro@5.16.1(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4))
       '@astrojs/sitemap':
         specifier: ^3.1.4
         version: 3.6.0
       '@astrojs/vue':
         specifier: ^5.1.1
-        version: 5.1.3(@types/node@24.10.1)(astro@5.16.0(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4))(rollup@4.53.2)(sass@1.94.2)(vue@3.5.25(typescript@5.5.4))
+        version: 5.1.3(@types/node@24.10.1)(astro@5.16.1(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4))(rollup@4.53.2)(sass@1.94.2)(vue@3.5.25(typescript@5.5.4))
       '@fullcalendar/core':
         specifier: ^6.1.15
         version: 6.1.19
@@ -37,10 +37,10 @@ importers:
         version: 1.2.2
       astro:
         specifier: ^5.14.6
-        version: 5.16.0(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4)
+        version: 5.16.1(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4)
       astro-expressive-code:
         specifier: ^0.40.0
-        version: 0.40.2(astro@5.16.0(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4))
+        version: 0.40.2(astro@5.16.1(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4))
       astro-icon:
         specifier: ^1.1.0
         version: 1.1.5
@@ -1561,8 +1561,8 @@ packages:
   astro-icon@1.1.5:
     resolution: {integrity: sha512-CJYS5nWOw9jz4RpGWmzNQY7D0y2ZZacH7atL2K9DeJXJVaz7/5WrxeyIxO8KASk1jCM96Q4LjRx/F3R+InjJrw==}
 
-  astro@5.16.0:
-    resolution: {integrity: sha512-GaDRs2Mngpw3dr2vc085GnORh98NiXxwIjg/EoQQQl/icZt3Z7s0BRsYHDZ8swkZbOA6wZsqWJdrNirl+iKcDg==}
+  astro@5.16.1:
+    resolution: {integrity: sha512-fkEP3Qi7QlVL4ncyecLRzi+eZx/2RByNApjyw7n5kMhkF9vCYuOZBBm7EbdYM3vrCirSqvSn19C03vjhvKRa6A==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -1725,8 +1725,8 @@ packages:
   cookie-es@1.2.2:
     resolution: {integrity: sha512-+W7VmiVINB+ywl1HGXJXmrqkOhpKrIiVZV6tQuV54ZyQC7MMuBt81Vc336GMLoHBq5hV/F9eXgt5Mnx0Rha5Fg==}
 
-  cookie@1.0.2:
-    resolution: {integrity: sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA==}
+  cookie@1.1.1:
+    resolution: {integrity: sha512-ei8Aos7ja0weRpFzJnEA9UHJ/7XQmqglbRwnf2ATjcB9Wq874VKH9kfjjirM6UhU2/E5fFYadylyhFldcqSidQ==}
     engines: {node: '>=18'}
 
   copy-anything@4.0.5:
@@ -2778,8 +2778,8 @@ packages:
   oniguruma-to-es@2.3.0:
     resolution: {integrity: sha512-bwALDxriqfKGfUufKGGepCzu9x7nJQuoRoAFp4AnwehhC2crqrDIAP/uN2qdlsAvSMpeRC3+Yzhqc7hLmle5+g==}
 
-  oniguruma-to-es@4.3.3:
-    resolution: {integrity: sha512-rPiZhzC3wXwE59YQMRDodUwwT9FZ9nNBwQQfsd1wfdtlKEyCdRV0avrTcSZ5xlIvGRVPd/cx6ZN45ECmS39xvg==}
+  oniguruma-to-es@4.3.4:
+    resolution: {integrity: sha512-3VhUGN3w2eYxnTzHn+ikMI+fp/96KoRSVK9/kMTcFqj1NRDh2IhQCKvYxDnWePKRXY/AqH+Fuiyb7VHSzBjHfA==}
 
   open@10.2.0:
     resolution: {integrity: sha512-YgBpdJHPyQ2UE5x+hlSXcnejzAvD0b22U2OuAP+8OnlJT+PjWPxtgmGqKKc+RgTM63U9gN0YzrYc71R2WT/hTA==}
@@ -3725,12 +3725,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@4.3.12(astro@5.16.0(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4))':
+  '@astrojs/mdx@4.3.12(astro@5.16.1(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4))':
     dependencies:
       '@astrojs/markdown-remark': 6.3.9
       '@mdx-js/mdx': 3.1.1
       acorn: 8.15.0
-      astro: 5.16.0(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4)
+      astro: 5.16.1(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4)
       es-module-lexer: 1.7.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -3744,10 +3744,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/node@9.5.1(astro@5.16.0(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4))':
+  '@astrojs/node@9.5.1(astro@5.16.1(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4))':
     dependencies:
       '@astrojs/internal-helpers': 0.7.5
-      astro: 5.16.0(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4)
+      astro: 5.16.1(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4)
       send: 1.2.0
       server-destroy: 1.0.1
     transitivePeerDependencies:
@@ -3775,12 +3775,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/vue@5.1.3(@types/node@24.10.1)(astro@5.16.0(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4))(rollup@4.53.2)(sass@1.94.2)(vue@3.5.25(typescript@5.5.4))':
+  '@astrojs/vue@5.1.3(@types/node@24.10.1)(astro@5.16.1(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4))(rollup@4.53.2)(sass@1.94.2)(vue@3.5.25(typescript@5.5.4))':
     dependencies:
       '@vitejs/plugin-vue': 5.2.1(vite@6.4.1(@types/node@24.10.1)(sass@1.94.2))(vue@3.5.25(typescript@5.5.4))
       '@vitejs/plugin-vue-jsx': 4.2.0(vite@6.4.1(@types/node@24.10.1)(sass@1.94.2))(vue@3.5.25(typescript@5.5.4))
       '@vue/compiler-sfc': 3.5.24
-      astro: 5.16.0(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4)
+      astro: 5.16.1(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4)
       vite: 6.4.1(@types/node@24.10.1)(sass@1.94.2)
       vite-plugin-vue-devtools: 7.7.9(rollup@4.53.2)(vite@6.4.1(@types/node@24.10.1)(sass@1.94.2))(vue@3.5.25(typescript@5.5.4))
       vue: 3.5.25(typescript@5.5.4)
@@ -4786,7 +4786,7 @@ snapshots:
     dependencies:
       '@shikijs/types': 3.15.0
       '@shikijs/vscode-textmate': 10.0.2
-      oniguruma-to-es: 4.3.3
+      oniguruma-to-es: 4.3.4
 
   '@shikijs/engine-oniguruma@1.29.2':
     dependencies:
@@ -5089,9 +5089,9 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro-expressive-code@0.40.2(astro@5.16.0(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4)):
+  astro-expressive-code@0.40.2(astro@5.16.1(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4)):
     dependencies:
-      astro: 5.16.0(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4)
+      astro: 5.16.1(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4)
       rehype-expressive-code: 0.40.2
 
   astro-icon@1.1.5:
@@ -5103,7 +5103,7 @@ snapshots:
       - debug
       - supports-color
 
-  astro@5.16.0(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4):
+  astro@5.16.1(@types/node@24.10.1)(rollup@4.53.2)(sass@1.94.2)(typescript@5.5.4):
     dependencies:
       '@astrojs/compiler': 2.13.0
       '@astrojs/internal-helpers': 0.7.5
@@ -5119,7 +5119,7 @@ snapshots:
       ci-info: 4.3.1
       clsx: 2.1.1
       common-ancestor-path: 1.0.1
-      cookie: 1.0.2
+      cookie: 1.1.1
       cssesc: 3.0.0
       debug: 4.4.3
       deterministic-object-hash: 2.0.2
@@ -5356,7 +5356,7 @@ snapshots:
 
   cookie-es@1.2.2: {}
 
-  cookie@1.0.2: {}
+  cookie@1.1.1: {}
 
   copy-anything@4.0.5:
     dependencies:
@@ -6758,7 +6758,7 @@ snapshots:
       regex: 5.1.1
       regex-recursion: 5.1.1
 
-  oniguruma-to-es@4.3.3:
+  oniguruma-to-es@4.3.4:
     dependencies:
       oniguruma-parser: 0.12.1
       regex: 6.0.1
