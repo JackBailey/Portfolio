@@ -23,7 +23,7 @@ export default defineConfig({
       "fa-solid": ["memory", "hdd", "desktop"]
     }
   })],
-  output: "server",
+  output: "static",
   trailingSlash: "never",
   adapter: cloudflare({
     imageService: "compile",

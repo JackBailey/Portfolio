@@ -24,8 +24,6 @@ export async function getStaticPaths() {
 
 const blogPost = await getEntry('blog', Astro.params.slug);
 const { Content } = await blogPost.render();
-
-export const prerender = true;
 ---
 
 <MarkdownLayout title={blogPost.data.title}>
