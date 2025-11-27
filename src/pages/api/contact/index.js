@@ -61,7 +61,7 @@ const checkSpamRating = async (email) => {
 	}
 };
 
-export const POST = async ({ clientAddress, request, redirect, site }) => {
+export const POST = async ({ clientAddress, request, redirect, site, locals }) => {
     const data = await request.formData();
     const name = data.get('name');
     const userEmail = data.get('email');
@@ -72,7 +72,7 @@ export const POST = async ({ clientAddress, request, redirect, site }) => {
     let db;
 
     try {
-        db = getDB();
+        db = getDB(locals.runtime.env);
     } catch (error) {
         console.error(error);
         searchParams.set("title", 500);
@@ -117,16 +117,28 @@ export const POST = async ({ clientAddress, request, redirect, site }) => {
         message: userMessage,
         createdAt: new Date().toISOString(),
         ipAddress: clientAddress,
-        userAgent: request.headers.get("user-agent") || null
+        userAgent: request.headers.get("user-agent") || "Unknown"
     };
 
     try {
+        const resp = await db.select().from(submissionsTable).limit(1);
+        console.log({resp})
+    } catch (error) {
+        console.error("DB Test Error:", error)
+    }
+
+    console.log("Creating submission:", submission);
+
+    try {
         await db.insert(submissionsTable).values(submission);
-    } catch {
+    } catch (error) {
+        console.error(error)
         searchParams.set("title", 500);
         searchParams.set("message", "Internal Server Error, try again later");
         return redirect("/contact/error?" + searchParams.toString());
     }
+
+    console.log("Created submission with ID:", submission.id);
     
 
     const submissionURL = `${site.href}contact/submission/${submission.id}`;

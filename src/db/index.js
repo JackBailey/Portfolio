@@ -1,8 +1,7 @@
 import 'dotenv/config';
-import { drizzle } from 'drizzle-orm/postgres-js';
-import postgres from 'postgres';
+import { drizzle } from 'drizzle-orm/d1';
 
-export const getDB = () => {
-    const client = postgres(process.env.POSTGRES_URL, { prepare: false });
-    return drizzle(client);
+export const getDB = (env) => {
+    const client = drizzle(env.DB);
+    return client;
 };

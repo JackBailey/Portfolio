@@ -3,20 +3,22 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --remote",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "op": "op run --env-file=\"./1password.env\" -- pnpm",
+    "op": "op --account my.1password.eu run --env-file=\"./1password.env\" -- pnpm",
     "schema:generate": "pnpm run op pnpm drizzle-kit generate",
     "schema:migrate": "pnpm run op pnpm drizzle-kit migrate"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.11",
     "@astrojs/mdx": "^4.3.7",
     "@astrojs/node": "^9.5.0",
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/vue": "^5.1.1",
+    "@cloudflare/workers-types": "^4.20251127.0",
     "@fullcalendar/core": "^6.1.15",
     "@fullcalendar/daygrid": "^6.1.15",
     "@fullcalendar/vue3": "^6.1.15",
@@ -39,6 +41,7 @@
     "vue": "^3.4.23"
   },
   "devDependencies": {
-    "drizzle-kit": "^0.30.5"
+    "drizzle-kit": "^0.30.5",
+    "wrangler": "^4.51.0"
   }
 }

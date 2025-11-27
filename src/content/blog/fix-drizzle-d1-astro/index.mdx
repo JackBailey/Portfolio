@@ -1,0 +1,46 @@
+---
+title: Fix Drizzle D1 with Astro
+description: A guide on how to fix Drizzle D1 when using it with Astro projects.
+created: 2025-11-27T10:00:00Z
+modified: 2025-11-27T10:00:00Z
+draft: false
+slug: fix-drizzle-d1-with-astro
+tags: development,astro,drizzle,d1
+---
+
+I was moving my Portfolio from Vercel to Cloudflare Pages and decided to use Cloudflare D1 as my database solution. However, I ran into some issues getting Drizzle D1 to work with Astro.
+
+I kept running into this issue:
+
+```
+Error: D1_ERROR: Failed to parse body as JSON, got: Error: internal error; reference = qgrkdg0s5ato2b848smriqtd
+    at async Object.fetch (file:///Projects/JackBailey/Portfolio/node_modules/.pnpm/miniflare@4.20251105.0/node_modules/miniflare/dist/src/workers/core/entry.worker.js:4483:22)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Module.POST (/Projects/JackBailey/Portfolio/src/pages/api/contact/index.js:130:9)
+    at async renderEndpoint (file:///Projects/JackBailey/Portfolio/node_modules/.pnpm/astro@5.14.6_@types+node@24.5.1_rollup@4.46.3_sass@1.93.2_typescript@5.5.4/node_modules/astro/dist/runtime/server/endpoint.js:37:18)
+    at async lastNext (file:///Projects/JackBailey/Portfolio/node_modules/.pnpm/astro@5.14.6_@types+node@24.5.1_rollup@4.46.3_sass@1.93.2_typescript@5.5.4/node_modules/astro/dist/core/render-context.js:188:23)
+    at async callMiddleware (file:///Projects/JackBailey/Portfolio/node_modules/.pnpm/astro@5.14.6_@types+node@24.5.1_rollup@4.46.3_sass@1.93.2_typescript@5.5.4/node_modules/astro/dist/core/middleware/callMiddleware.js:11:10)
+    at async RenderContext.render (file:///Projects/JackBailey/Portfolio/node_modules/.pnpm/astro@5.14.6_@types+node@24.5.1_rollup@4.46.3_sass@1.93.2_typescript@5.5.4/node_modules/astro/dist/core/render-context.js:235:22)
+    at async handleRoute (file:///Projects/JackBailey/Portfolio/node_modules/.pnpm/astro@5.14.6_@types+node@24.5.1_rollup@4.46.3_sass@1.93.2_typescript@5.5.4/node_modules/astro/dist/vite-plugin-astro-server/route.js:180:16)
+    at async run (file:///Projects/JackBailey/Portfolio/node_modules/.pnpm/astro@5.14.6_@types+node@24.5.1_rollup@4.46.3_sass@1.93.2_typescript@5.5.4/node_modules/astro/dist/vite-plugin-astro-server/request.js:46:14)
+    at async runWithErrorHandling (file:///Projects/JackBailey/Portfolio/node_modules/.pnpm/astro@5.14.6_@types+node@24.5.1_rollup@4.46.3_sass@1.93.2_typescript@5.5.4/node_modules/astro/dist/vite-plugin-astro-server/controller.js:64:5)
+    at async handleRequest (file:///Projects/JackBailey/Portfolio/node_modules/.pnpm/astro@5.14.6_@types+node@24.5.1_rollup@4.46.3_sass@1.93.2_typescript@5.5.4/node_modules/astro/dist/vite-plugin-astro-server/request.js:40:3) {
+  [cause]: Error: Failed to parse body as JSON, got: Error: internal error; reference = qgrkdg0s5ato2b848smriqtd
+      at async Object.fetch (file:///Projects/JackBailey/Portfolio/node_modules/.pnpm/miniflare@4.20251105.0/node_modules/miniflare/dist/src/workers/core/entry.worker.js:4483:22)
+      at D1DatabaseSessionAlwaysPrimary._send (cloudflare-internal:d1-api:182:24)
+      at async D1DatabaseSessionAlwaysPrimary._sendOrThrow (cloudflare-internal:d1-api:135:25)
+      at async cloudflare-internal:d1-api:348:41
+      at async #fetch (file:///Projects/JackBailey/Portfolio/node_modules/.pnpm/miniflare@4.20251105.0/node_modules/miniflare/dist/src/workers/core/entry.worker.js:4259:18)
+      at async ProxyServer.fetch (file:///Projects/JackBailey/Portfolio/node_modules/.pnpm/miniflare@4.20251105.0/node_modules/miniflare/dist/src/workers/core/entry.worker.js:4163:14) {
+    [cause]: undefined
+  }
+}
+```
+
+This isn't especially descriptive, but after some experimentation, I found that the "name" field in the `wrangler.json` file was causing the issue.
+
+It must match your cloudflare pages project name. I had it set to "jackbailey_portfolio" but my project was named "portfolio".
+
+After changing this, everything started working as expected!
+
+The only issue I could find relating to this was this GitHub issue: https://github.com/sveltejs/kit/issues/14927 - so here's a quick guide to fix it incase anyone else runs into the same problem.
