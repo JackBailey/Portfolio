@@ -24,7 +24,7 @@ let showForm = !id && !email;
 let db;
 
 try {
-    db = getDB();
+    db = getDB(Astro.locals.runtime.env);
 } catch (error) {
     title = "Error";
     message = "Failed to connect to the database";
@@ -32,7 +32,7 @@ try {
     showForm = false;
 }
 
-if (!showForm) {
+if (!showForm && db) {
     const filter = id ? eq(submissionsTable.id, id) : eq(submissionsTable.email, email);
 
     try {
