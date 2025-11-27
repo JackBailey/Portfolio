@@ -34,14 +34,16 @@ if (tag) {
 			{
 				blogEntries.map((entry) => (
 					<article>
-						<TagChips tags={entry.data.tags} />
-						<a href={`/blog/posts/${entry.slug}`}>
-							<h2>{entry.data.title}</h2>
-							{ entry.data.description && <p>{entry.data.description}</p> }
-							<p class="date">
-								{ dayjs(entry.data.created).utc().format("Do MMM YYYY") }
-							</p>
-						</a>
+						<div class="post-inner">
+							<TagChips tags={entry.data.tags} />
+							<a href={`/blog/posts/${entry.slug}`}>
+								<h2>{entry.data.title}</h2>
+								{ entry.data.description && <p>{entry.data.description}</p> }
+								<p class="date">
+									{ dayjs(entry.data.created).utc().format("Do MMM YYYY") }
+								</p>
+							</a>
+						</div>
 					</article>
 				))
 			}
@@ -59,40 +61,56 @@ if (tag) {
 			margin-bottom: 1rem;
 		}
 		.posts {
-			article + article {
-				margin-top: 1rem;
-			}
-			article,
-			article > a {
-				display: flex;
-				flex-direction: column;
-				gap: 0.5rem;
-			}
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+			
 			article {
-				border: 1px solid var(--accent);
-				padding: 1rem;
 				box-sizing: border-box;
-				border-radius: 0.5rem;
-				a {
-					text-decoration: none;
-					color: inherit;
-					h2 {
-						margin: 0;
-						font-size: 1.75rem;
-					}
-					p {
-						margin: 0;
-						&.date {
+				
+				background: var(--accent);
+				transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+				border: none;
+				position: relative;
+				border-radius: 0.75rem;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+
+				&:hover {
+					padding-top: 0.5rem;
+				}
+				
+				.post-inner {
+					background: var(--background-2);
+					padding: 1.5rem;
+					border-radius: 0.75rem;
+					a {
+						text-decoration: none;
+						color: inherit;
+						display: flex;
+						flex-direction: column;
+						gap: 0.5rem;
+	
+						h2 {
+							margin: 1rem 0 0 0;
+							font-size: 1.75rem;
+							transition: color 0.3s ease;
+						}
+	
+						p {
 							margin: 0;
-							text-decoration: none;
-							color: var(--accent);
-							text-transform: uppercase;
-							letter-spacing: 0.01rem;
-							font-weight: 600;
-							font-family: "Quicksand", Arial, Helvetica, sans-serif;
+							&.date {
+								margin: 0;
+								text-decoration: none;
+								color: var(--accent);
+								text-transform: uppercase;
+								letter-spacing: 0.01rem;
+								font-weight: 600;
+								font-family: "Quicksand", Arial, Helvetica, sans-serif;
+							}
 						}
 					}
 				}
+				
 			}
 		}
 	}
