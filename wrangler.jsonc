@@ -1,13 +1,25 @@
 {
-    "main": "dist/_worker.js/index.js",
-    "name": "jackbailey_portfolio",
-    "compatibility_date": "2025-11-24",
-    "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
-    "assets": {
-        "binding": "ASSETS",
-        "directory": "./dist"
-    },
-    "observability": {
-        "enabled": true
-    }
+	"main": "dist/_worker.js/index.js",
+	"name": "portfolio",
+	"compatibility_date": "2025-11-24",
+	"compatibility_flags": [
+		"nodejs_compat",
+		"global_fetch_strictly_public"
+	],
+	"assets": {
+		"binding": "ASSETS",
+		"directory": "./dist"
+	},
+	"observability": {
+		"enabled": true
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "portfolio",
+			"database_id": "f8ad67d8-87b6-4f17-8948-2b669cd15ec3",
+			"remote": true,
+            "migrations_dir": "src/db/migrations"
+		}
+	]
 }

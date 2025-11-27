@@ -16,8 +16,9 @@ let date = false;
 let db;
 
 try {
-    db = getDB();
+    db = getDB(Astro.locals.runtime.env);
 } catch (error) {
+    console.error(error);
     error = {title: 500, message: "Internal Server Error", icon: WarningIcon};
 }
 
@@ -37,6 +38,7 @@ if (id && !error) {
         error = {title: 500, message: "Internal Server Error", icon: WarningIcon};
     }
 } else {
+    console.error(error);
     error = {title: 400, message: "Bad Request", icon: WarningIcon };
 }
 

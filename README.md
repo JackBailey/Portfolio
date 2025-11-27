@@ -32,3 +32,15 @@ yarn
 ```
 yarn dev
 ```
+
+## Database Setup
+
+Edit the schema at `src/db/schema.js` to your liking and run the following command to create the database.
+
+```
+pnpm op drizzle-kit generate
+```
+
+```
+pnpm op drizzle-kit push
+```

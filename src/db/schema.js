@@ -1,11 +1,11 @@
-import { serial, text, date, pgTable } from "drizzle-orm/pg-core";
+import { sqliteTable, text } from "drizzle-orm/sqlite-core";
 
-export const submissionsTable = pgTable("submissions", {
+export const submissionsTable = sqliteTable("submissions", {
     id: text().primaryKey(),
     name: text().notNull(),
     email: text().notNull(),
     message: text().notNull(),
-    createdAt: date().notNull(),
+    createdAt: text().notNull(),
     ipAddress: text().notNull(),
     userAgent: text().notNull()
 });

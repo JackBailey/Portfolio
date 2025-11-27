@@ -16,15 +16,16 @@ dayjs.extend(utc);
 
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog');
-  return blogEntries.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
-  }));
+    const blogEntries = await getCollection('blog');
+    return blogEntries.map(entry => ({
+        params: { slug: entry.slug }, props: { entry },
+    }));
 }
 
 const blogPost = await getEntry('blog', Astro.params.slug);
 const { Content } = await blogPost.render();
 
+export const prerender = true;
 ---
 
 <MarkdownLayout title={blogPost.data.title}>

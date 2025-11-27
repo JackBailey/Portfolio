@@ -19,6 +19,8 @@ export async function getStaticPaths() {
     }
   });
 }
+
+export const prerender = true;
 ---
 
 <BlogPosts title={`Recent blog posts about ${properName}`} tag={properName} />

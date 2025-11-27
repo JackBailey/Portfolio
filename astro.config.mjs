@@ -25,8 +25,18 @@ export default defineConfig({
   })],
   output: "server",
   trailingSlash: "never",
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    imageService: "compile",
+    platformProxy: {
+      enabled: true,
+      configPath: "wrangler.jsonc",
+      persist: false
+    },
+    runtime: {
+      mode: "remote"
+    }
+  }),
   session: {
     driver: "memory"
-  }
+  },
 });
