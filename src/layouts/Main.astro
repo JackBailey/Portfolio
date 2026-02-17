@@ -36,15 +36,6 @@ if (pathname.startsWith("/")) {
     <Header/>
     <slot />
     <Footer background={footerBackground} />
-    <script src="https://swetrix.org/swetrix.js" defer></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        swetrix.init('T23diU8WrNfE', {
-        apiURL: 'https://analytics-v2.jackbailey.dev/api/log',
-        })
-        swetrix.trackViews()
-    })
-    </script>
 
     <noscript>
     <img
