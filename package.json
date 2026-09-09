@@ -13,7 +13,7 @@
     "schema:migrate": "pnpm run op pnpm drizzle-kit migrate"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.6.11",
+    "@astrojs/cloudflare": "^13.0.0",
     "@astrojs/mdx": "^4.3.7",
     "@astrojs/node": "^9.5.0",
     "@astrojs/sitemap": "^3.1.4",
