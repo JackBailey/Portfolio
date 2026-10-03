@@ -15,7 +15,7 @@
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.11",
     "@astrojs/mdx": "^4.3.7",
-    "@astrojs/node": "^9.5.0",
+    "@astrojs/node": "^10.0.0",
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/vue": "^5.1.1",
     "@cloudflare/workers-types": "^4.20251127.0",
