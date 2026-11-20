@@ -4,4 +4,4 @@ allowBuilds:
   sharp: false
   workerd: false
 overrides:
-  esbuild@<=0.24.2: ^0.25.0
+  esbuild@<=0.24.2: ^0.28.0
