@@ -36,7 +36,7 @@ if (tag) {
 					<article>
 						<div class="post-inner">
 							<TagChips tags={entry.data.tags} />
-							<a href={`/blog/posts/${entry.slug}`}>
+							<a href={`/blog/posts/${entry.data.slug}`}>
 								<h2>{entry.data.title}</h2>
 								{ entry.data.description && <p>{entry.data.description}</p> }
 								<p class="date">
