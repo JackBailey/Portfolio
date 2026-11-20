@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 import dotenv from "dotenv";
-import { getDB } from "../../../db/index.js";
+import { db } from "../../../db/index.js";
 import crypto from "crypto";
 import { submissionsTable } from "../../../db/schema.js";
 import { useTurnstile } from "../../../_utils";
@@ -61,24 +61,13 @@ const checkSpamRating = async (email) => {
 	}
 };
 
-export const POST = async ({ clientAddress, request, redirect, site, locals }) => {
+export const POST = async ({ clientAddress, request, redirect, site }) => {
     const data = await request.formData();
     const name = data.get('name');
     const userEmail = data.get('email');
     const userMessage = data.get('message');
     const turnstileResponse = data.get('cf-turnstile-response');
     const searchParams = new URLSearchParams();
-
-    let db;
-
-    try {
-        db = getDB(locals.runtime.env);
-    } catch (error) {
-        console.error(error);
-        searchParams.set("title", 500);
-        searchParams.set("message", "Internal Server Error, try again later");
-        return redirect("/contact/error?" + searchParams.toString());
-    }
 
     if (!name || !userEmail || !userMessage || (!turnstileResponse && useTurnstile)) {
         searchParams.set("title", 400);

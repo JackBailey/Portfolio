@@ -4,7 +4,6 @@ import expressiveCode from "astro-expressive-code";
 import mdx from "@astrojs/mdx";
 import vue from "@astrojs/vue";
 import icon from "astro-icon";
-import node from "@astrojs/node";
 import cloudflare from "@astrojs/cloudflare";
 const site = "https://jackbailey.dev";
 
@@ -26,17 +25,6 @@ export default defineConfig({
   output: "static",
   trailingSlash: "never",
   adapter: cloudflare({
-    imageService: "compile",
-    platformProxy: {
-      enabled: true,
-      configPath: "wrangler.jsonc",
-      persist: false
-    },
-    runtime: {
-      mode: "remote"
-    }
+    sessionKVBindingName: "SESSION",
   }),
-  session: {
-    driver: "memory"
-  },
 });

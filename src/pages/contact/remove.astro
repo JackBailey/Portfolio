@@ -1,6 +1,6 @@
 ---
 import { eq } from "drizzle-orm";
-import { getDB } from "../../db/index.js";
+import { db } from "../../db/index.js";
 import { submissionsTable } from "../../db/schema.js";
 import dotenv from "dotenv";
 import Message from "../../components/Message.astro";
@@ -21,18 +21,7 @@ let icon = SuccessIcon;
 
 let showForm = !id && !email;
 
-let db;
-
-try {
-    db = getDB(Astro.locals.runtime.env);
-} catch (error) {
-    title = "Error";
-    message = "Failed to connect to the database";
-    icon = NotFoundIcon;
-    showForm = false;
-}
-
-if (!showForm && db) {
+if (!showForm) {
     const filter = id ? eq(submissionsTable.id, id) : eq(submissionsTable.email, email);
 
     try {

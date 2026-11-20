@@ -1,7 +1,7 @@
 ---
 import dotenv from "dotenv";
 import { eq } from "drizzle-orm";
-import { getDB } from "../../../db/index.js";
+import { db } from "../../../db/index.js";
 import { submissionsTable } from "../../../db/schema.js";
 import MainLayout from "../../../layouts/Main.astro";
 import Message from "../../../components/Message.astro";
@@ -12,15 +12,6 @@ dotenv.config();
 let error = false;
 let submission = false;
 let date = false;
-
-let db;
-
-try {
-    db = getDB(Astro.locals.runtime.env);
-} catch (error) {
-    console.error(error);
-    error = {title: 500, message: "Internal Server Error", icon: WarningIcon};
-}
 
 const { id } = Astro.params;
 if (id && !error) {
