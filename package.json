@@ -29,7 +29,7 @@
     "astro-icon": "^1.2.0",
     "dayjs": "^1.11.23",
     "dotenv": "^16.6.1",
-    "drizzle-orm": "^0.40.1",
+    "drizzle-orm": "^0.45.0",
     "giscus": "^1.6.0",
     "ical.js": "^2.2.1",
     "pg": "^8.23.1",
