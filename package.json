@@ -24,7 +24,7 @@
     "@fullcalendar/vue3": "^6.1.22",
     "@giscus/vue": "^3.1.1",
     "@iconify-json/fa-solid": "^1.2.2",
-    "astro": "^5.18.2",
+    "astro": "^7.0.0",
     "astro-expressive-code": "^0.40.2",
     "astro-icon": "^1.2.0",
     "dayjs": "^1.11.23",
